@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+playwright-profile/
+debug_skroutz_*.html
+debug_skroutz_*.png
+images/
+Images/
+not_found.txt
+products_data.json
