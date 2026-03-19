@@ -1,0 +1,17 @@
+[Unit]
+Description=Filtered hosted image backfill for imageDataAPI
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=imageuser
+Group=imageuser
+WorkingDirectory=/home/imageuser/imageDataAPI
+ExecStart=/home/imageuser/imageDataAPI/run_filtered_backfill_service.sh
+ExecStopPost=/bin/bash -lc '/home/imageuser/imageDataAPI/backfill_notify_failure.sh "%n" "$SERVICE_RESULT" "$EXIT_CODE" "$EXIT_STATUS"'
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

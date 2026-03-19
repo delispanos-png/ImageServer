@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pymongo
+python-dotenv
+aiofiles
+aiohttp
+playwright
+Pillow
+python-multipart

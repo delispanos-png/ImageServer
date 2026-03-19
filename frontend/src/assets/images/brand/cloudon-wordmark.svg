@@ -1,0 +1,43 @@
+<svg width="372" height="80" viewBox="0 0 372 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cloudonWordmarkBg" x1="12" y1="10" x2="68" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5B4DFF"/>
+      <stop offset="0.52" stop-color="#6C56FF"/>
+      <stop offset="1" stop-color="#3CB8F2"/>
+    </linearGradient>
+    <linearGradient id="cloudonWordmarkStroke" x1="20" y1="18" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.86"/>
+      <stop offset="1" stop-color="#BFE8FF" stop-opacity="0.96"/>
+    </linearGradient>
+    <linearGradient id="cloudonWordmarkGlow" x1="28" y1="26" x2="41" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D8F4FF"/>
+    </linearGradient>
+    <linearGradient id="cloudonTitleAccent" x1="92" y1="22" x2="212" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#24345B"/>
+      <stop offset="0.62" stop-color="#4451D9"/>
+      <stop offset="1" stop-color="#2396DE"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="60" height="60" rx="18" fill="url(#cloudonWordmarkBg)"/>
+  <rect x="17" y="17" width="46" height="46" rx="14" fill="rgba(255,255,255,0.08)"/>
+  <path d="M28 29.5H33.5" stroke="white" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M28 33.5H35.5" stroke="white" stroke-width="2.1" stroke-linecap="round" opacity="0.74"/>
+  <rect x="24.5" y="25.5" width="14" height="12" rx="4.2" stroke="url(#cloudonWordmarkStroke)" stroke-width="2"/>
+  <rect x="41.5" y="24.5" width="11.5" height="13" rx="4" stroke="url(#cloudonWordmarkStroke)" stroke-width="2"/>
+  <circle cx="45.2" cy="28.6" r="1.5" fill="#BDEBFF"/>
+  <path d="M44 34.5L46.5 31.8L50.6 35.5" stroke="white" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" opacity="0.88"/>
+  <rect x="30.5" y="42.5" width="15" height="10.5" rx="4" stroke="url(#cloudonWordmarkStroke)" stroke-width="2"/>
+  <path d="M35 46H41" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M35 49.5H39" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.72"/>
+  <path d="M37 38.5L32.5 36.8" stroke="white" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/>
+  <path d="M39.5 37.8L45.2 35.8" stroke="white" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/>
+  <path d="M37.8 41.8V43.7" stroke="white" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/>
+  <circle cx="38" cy="38" r="5.8" fill="url(#cloudonWordmarkGlow)"/>
+  <path d="M40.9 38C40.9 39.6 39.6 40.9 38 40.9C36.4 40.9 35.1 39.6 35.1 38" stroke="#4F60FF" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M35.1 38C35.1 36.4 36.4 35.1 38 35.1C39.6 35.1 40.9 36.4 40.9 38" stroke="#1D8FDB" stroke-width="1.8" stroke-linecap="round" opacity="0.92"/>
+  <path d="M40.2 35.8L41 38.2L38.7 37.5" fill="#1D8FDB"/>
+  <path d="M35.8 40.2L35 37.8L37.3 38.5" fill="#4F60FF"/>
+  <text x="92" y="37" fill="url(#cloudonTitleAccent)" font-family="'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif" font-size="31" font-weight="800" letter-spacing="-0.03em">CloudOn</text>
+  <text x="92" y="59" fill="#6F7D9D" font-family="'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.09em">CONTENTSYNC PLATFORM</text>
+</svg>

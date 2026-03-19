@@ -1,0 +1,69 @@
+# Environment and secrets
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+app/__pycache__/
+
+# Logs and local runtime state
+*.log
+*.pid
+app/backfill_failures.jsonl
+app/backfill_resume_state.json
+app/catalog_refresh_request.json
+app/runtime_settings.json
+app/source_job_status.json
+app/source_job_uploads/
+app/not_found.txt
+app/barcodes.txt
+app/youpharmacy_xml_replace.log
+
+# Large local data inputs and generated datasets
+*.xlsx
+*.xls
+*.jsonl
+*.bak
+Products.json
+Cleaned_Products.json
+new_Cleaned_Products.json
+cleaned.json
+current_missing_hosted_images.json
+current_missing_hosted_images.txt
+current_missing_hosted_images_numeric.json
+current_missing_hosted_images_numeric.txt
+dead_img_src_queue.json
+recoverable_backfill_queue.json
+reprocess_farmakopoiosmou_queue.json
+app/products_data.json
+app/recoverable_backfill_queue.json
+app/reprocess_farmakopoiosmou_queue.json
+app/skip_replace_from_varwww_barcodes.txt
+app/youpharmacy_skroutz.xml
+
+# Debug artifacts
+tmp_*.py
+app/tmp_*.py
+app/debug_*.html
+app/debug_*.png
+app/debug_*.jpg
+
+# Generated image data and backups
+app/images/
+app/Images/
+app/image_replacement_backup/
+app/image_reprocess_backup/
+backup_replace_from_varwww_*/
+
+# Browser/profile state
+app/playwright-profile/
+app/.git/
+
+# Frontend workspace
+frontend/node_modules/
+frontend/dist/
+frontend/dist-codex/
+frontend/portal-dist/
+frontend/portal-dist-codex/
+frontend/.git/

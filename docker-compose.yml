@@ -1,0 +1,91 @@
+services:
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    env_file:
+      - .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - mongodb_data:/data/db
+      - ./init:/docker-entrypoint-initdb.d:ro
+
+  xml_generator:
+    build:
+      context: ../CloudonXMLGeneratorNew
+      dockerfile: Dockerfile
+    container_name: xml_generator
+    restart: always
+    expose:
+      - "80"
+    volumes:
+      - ../CloudonXMLGeneratorNew:/app
+      - ${IMAGES_PATH}:/app/images:ro
+    command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1/health').read()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  fastapi:
+    init: true
+    user: "1000:1000"
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+    build:
+      context: ./app
+      network: host
+    container_name: fastapi
+    restart: always
+    ports:
+      - "4030:80"
+    env_file:
+      - .env
+    environment:
+      MONGO_HOST: ${MONGO_HOST}
+      MONGO_PORT: ${MONGO_PORT}
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_DB: ${MONGO_DB}
+      KPDHELLAS_BRIDGE_URL: http://host.docker.internal:8765
+    depends_on:
+      - mongodb
+      - xml_generator
+      - kpdhellas_bridge
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./app:/app
+      - ${IMAGES_PATH}:/app/images
+      - ${CATEGORY_LOOKUP_XLSX_HOST_PATH}:/app/295_categories.xlsx:ro
+    command: uvicorn main:app --host 0.0.0.0 --port 80
+
+  kpdhellas_bridge:
+    init: true
+    user: "1000:1000"
+    build:
+      context: ./app
+      network: host
+    container_name: kpdhellas_bridge
+    network_mode: host
+    restart: always
+    volumes:
+      - ./app:/app
+    command: python /app/kpdhellas_bridge_server.py
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8765/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  mongodb_data:

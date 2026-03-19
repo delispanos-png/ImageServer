@@ -1,0 +1,20 @@
+[Unit]
+Description=Hosted image reprocess for imageDataAPI
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/imageuser/imageDataAPI
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+Environment=REPROCESS_SOURCE=farmakopoiosmou
+Environment=REPROCESS_LIMIT=0
+ExecStart=/home/imageuser/imageDataAPI/run_reprocess_hosted_images_service.sh
+ExecStopPost=/bin/bash -lc '/home/imageuser/imageDataAPI/backfill_notify_failure.sh "%n" "$SERVICE_RESULT" "$EXIT_CODE" "$EXIT_STATUS"'
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
