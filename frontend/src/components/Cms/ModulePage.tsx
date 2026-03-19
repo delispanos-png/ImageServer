@@ -1,5 +1,6 @@
 import { Fragment, ReactNode } from 'react';
 import PageHeader from '../../layout/Header/pageheader';
+import { useAdminLanguage } from '../../app/i18n/AdminLanguageProvider';
 
 type ModulePageMetricTone = 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
@@ -19,6 +20,8 @@ interface ModulePageProps {
 }
 
 export default function ModulePage({ title, description, children, metrics = [], actions }: ModulePageProps) {
+  const { language } = useAdminLanguage();
+  const eyebrow = language === 'el' ? 'ΕΝΟΤΗΤΑ CMS' : 'CMS Module';
   const summary = metrics.length || actions ? (
     <div className="cloudon-page-hero__summary">
       {metrics.length ? (
@@ -41,7 +44,7 @@ export default function ModulePage({ title, description, children, metrics = [],
 
   return (
     <Fragment>
-      <PageHeader title={title} subtitle={description} eyebrow="CMS Module" actions={summary} />
+      <PageHeader title={title} subtitle={description} eyebrow={eyebrow} actions={summary} />
       <div className="cloudon-module-stack">{children}</div>
     </Fragment>
   );

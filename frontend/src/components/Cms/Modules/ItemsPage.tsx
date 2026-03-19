@@ -14,6 +14,7 @@ import {
   Table,
 } from 'react-bootstrap';
 import ModulePage from '../ModulePage';
+import { useAdminLanguage } from '../../../app/i18n/AdminLanguageProvider';
 import {
   approveItemGoLive,
   createItem,
@@ -94,16 +95,30 @@ const initialFormState: ItemFormState = {
 
 const HOSTED_IMAGE_BASE = 'https://image.cloudon.gr/photos/';
 
-const QUALITY_STATE_LABELS: Record<string, string> = {
-  ready: 'Έτοιμο',
-  needs_fix: 'Χρειάζεται Διόρθωση',
-  ready_for_review: 'Έτοιμο για Έλεγχο',
+const QUALITY_STATE_LABELS: Record<'en' | 'el', Record<string, string>> = {
+  en: {
+    ready: 'Ready',
+    needs_fix: 'Needs Fix',
+    ready_for_review: 'Ready for Review',
+  },
+  el: {
+    ready: 'Έτοιμο',
+    needs_fix: 'Χρειάζεται Διόρθωση',
+    ready_for_review: 'Έτοιμο για Έλεγχο',
+  },
 };
 
-const MISSING_REQUIREMENT_LABELS: Record<string, string> = {
-  missing_any_image: 'Χωρίς δημόσια εικόνα',
-  missing_text: 'Λείπει κείμενο',
-  missing_category: 'Λείπει κατηγορία',
+const MISSING_REQUIREMENT_LABELS: Record<'en' | 'el', Record<string, string>> = {
+  en: {
+    missing_any_image: 'Missing public image',
+    missing_text: 'Missing text',
+    missing_category: 'Missing category',
+  },
+  el: {
+    missing_any_image: 'Χωρίς δημόσια εικόνα',
+    missing_text: 'Λείπει κείμενο',
+    missing_category: 'Λείπει κατηγορία',
+  },
 };
 
 const SOURCE_FIELD_OPTIONS = [
@@ -632,14 +647,18 @@ function formatDate(value: string) {
   return new Date(value).toLocaleString();
 }
 
-function statusBadge(status: 'active' | 'inactive' | string) {
-  const label = status === 'active' ? 'Ενεργό' : status === 'inactive' ? 'Ανενεργό' : status;
+function statusBadge(status: 'active' | 'inactive' | string, language: 'en' | 'el' = 'el') {
+  const label = status === 'active'
+    ? (language === 'el' ? 'Ενεργό' : 'Active')
+    : status === 'inactive'
+      ? (language === 'el' ? 'Ανενεργό' : 'Inactive')
+      : status;
   return <Badge bg={status === 'inactive' ? 'secondary' : 'success'}>{label}</Badge>;
 }
 
-function qualityStateBadge(state?: string | null) {
+function qualityStateBadge(state?: string | null, language: 'en' | 'el' = 'el') {
   const normalized = String(state || '').trim() || 'ready';
-  const label = QUALITY_STATE_LABELS[normalized] || normalized;
+  const label = QUALITY_STATE_LABELS[language][normalized] || normalized;
   const bg = normalized === 'needs_fix' ? 'danger' : normalized === 'ready_for_review' ? 'warning' : 'success';
   return <Badge bg={bg}>{label}</Badge>;
 }
@@ -773,8 +792,8 @@ function detailValue(value?: string | null) {
   return value && value.trim() ? value : '-';
 }
 
-function missingRequirementLabel(code: string) {
-  return MISSING_REQUIREMENT_LABELS[code] || code;
+function missingRequirementLabel(code: string, language: 'en' | 'el' = 'el') {
+  return MISSING_REQUIREMENT_LABELS[language][code] || code;
 }
 
 function buildDraftQuality(formState: ItemFormState) {
@@ -1078,12 +1097,18 @@ function toFormStateFromItem(item: CmsItem, categoryById: Map<string, CmsCategor
 }
 
 export default function ItemsPage({
-  moduleTitle = 'Είδη',
-  moduleDescription = 'Αναζήτηση και φιλτράρισμα ειδών με έλεγχο κατάστασης και ιστορικό αλλαγών.',
+  moduleTitle,
+  moduleDescription,
   initialQualityStateFilter = 'all',
   lockQualityStateFilter = false,
   showBulkRefreshPanel = false,
 }: ItemsPageProps) {
+  const { language } = useAdminLanguage();
+  const isGreek = language === 'el';
+  const tx = (en: string, el: string) => (isGreek ? el : en);
+  const resolvedModuleTitle = moduleTitle || tx('Items', 'Είδη');
+  const resolvedModuleDescription =
+    moduleDescription || tx('Searchable product catalog with filtering, status control, detail view, and change history.', 'Αναζήτηση και φιλτράρισμα ειδών με έλεγχο κατάστασης και ιστορικό αλλαγών.');
   const [searchParams, setSearchParams] = useSearchParams();
   const autoOpenedDetails = useRef(false);
   const [items, setItems] = useState<CmsItem[]>([]);
@@ -1724,21 +1749,23 @@ export default function ItemsPage({
 
   const moduleMetrics = [
     {
-      label: 'Φιλτραρισμένες Εγγραφές',
+      label: tx('Filtered Records', 'Φιλτραρισμένες Εγγραφές'),
       value: pagination.total.toLocaleString(),
-      helper: 'Είδη που ταιριάζουν στα φίλτρα',
+      helper: tx('Items matching the current filter set', 'Είδη που ταιριάζουν στα φίλτρα'),
       tone: 'primary' as const,
     },
     {
-      label: 'Ενεργά Φίλτρα',
+      label: tx('Active Filters', 'Ενεργά Φίλτρα'),
       value: activeFilterCount,
-      helper: activeFilterCount ? 'Τα φίλτρα περιορίζουν τα αποτελέσματα' : 'Προβολή όλων των αποτελεσμάτων',
+      helper: activeFilterCount
+        ? tx('Filters are narrowing the result set', 'Τα φίλτρα περιορίζουν τα αποτελέσματα')
+        : tx('Showing the full result set', 'Προβολή όλων των αποτελεσμάτων'),
       tone: activeFilterCount ? ('warning' as const) : ('info' as const),
     },
     {
-      label: 'Σελίδα',
+      label: tx('Page', 'Σελίδα'),
       value: `${pagination.page}/${Math.max(pagination.total_pages, 1)}`,
-      helper: `${perPage} ανά σελίδα`,
+      helper: `${perPage} ${tx('per page', 'ανά σελίδα')}`,
       tone: 'success' as const,
     },
   ];
@@ -1754,15 +1781,17 @@ export default function ItemsPage({
 
   return (
     <ModulePage
-      title={moduleTitle}
-      description={moduleDescription}
+      title={resolvedModuleTitle}
+      description={resolvedModuleDescription}
       metrics={moduleMetrics}
     >
       <style>{ITEM_DETAILS_MODAL_CSS}</style>
       {pageError ? <Alert variant="danger">{pageError}</Alert> : null}
       {pageSuccess ? <Alert variant="success">{pageSuccess}</Alert> : null}
       <Alert variant="info" className="mb-4">
-        Για να δεις ποια είδη θέλουν διόρθωση, βάλε <strong>Quality = Needs Fix</strong>. Στο κάθε είδος θα δεις και ποια requirements λείπουν.
+        {tx('To see which items need correction, set ', 'Για να δεις ποια είδη θέλουν διόρθωση, βάλε ')}
+        <strong>Quality = Needs Fix</strong>
+        {tx('. On each item you will also see which requirements are missing.', '. Στο κάθε είδος θα δεις και ποια requirements λείπουν.')}
       </Alert>
 
       {shouldShowBulkRefreshPanel ? (
@@ -1903,37 +1932,37 @@ export default function ItemsPage({
 
       <Row className="mb-4 g-3 align-items-end">
         <Col xl={3} md={6}>
-          <Form.Label>Αναζήτηση</Form.Label>
-          <Form.Control value={search} onChange={(event) => { setPage(1); setSearch(event.target.value); }} placeholder="Τίτλος, κωδικός, barcode" />
+          <Form.Label>{tx('Search', 'Αναζήτηση')}</Form.Label>
+          <Form.Control value={search} onChange={(event) => { setPage(1); setSearch(event.target.value); }} placeholder={tx('Title, code, barcode', 'Τίτλος, κωδικός, barcode')} />
         </Col>
         <Col xl={2} md={6}>
-          <Form.Label>Κατάσταση</Form.Label>
+          <Form.Label>{tx('Status', 'Κατάσταση')}</Form.Label>
           <Form.Select value={statusFilter} onChange={(event) => { setPage(1); setStatusFilter(event.target.value as 'all' | 'active' | 'inactive'); }}>
-            <option value="all">Όλα</option>
-            <option value="active">Ενεργά</option>
-            <option value="inactive">Ανενεργά</option>
+            <option value="all">{tx('All', 'Όλα')}</option>
+            <option value="active">{tx('Active', 'Ενεργά')}</option>
+            <option value="inactive">{tx('Inactive', 'Ανενεργά')}</option>
           </Form.Select>
         </Col>
         <Col xl={2} md={6}>
-          <Form.Label>Ποιότητα</Form.Label>
+          <Form.Label>{tx('Quality', 'Ποιότητα')}</Form.Label>
           <Form.Select value={qualityStateFilter} disabled={lockQualityStateFilter} onChange={(event) => { setPage(1); setQualityStateFilter(event.target.value as 'all' | 'ready' | 'needs_fix' | 'ready_for_review'); }}>
-            <option value="all">Όλα</option>
-            <option value="ready">Έτοιμα</option>
-            <option value="needs_fix">Χρειάζονται διόρθωση</option>
-            <option value="ready_for_review">Έτοιμα για έλεγχο</option>
+            <option value="all">{tx('All', 'Όλα')}</option>
+            <option value="ready">{tx('Ready', 'Έτοιμα')}</option>
+            <option value="needs_fix">{tx('Needs Fix', 'Χρειάζονται διόρθωση')}</option>
+            <option value="ready_for_review">{tx('Ready for Review', 'Έτοιμα για έλεγχο')}</option>
           </Form.Select>
         </Col>
         <Col xl={2} md={6}>
-          <Form.Label>Ελλείψεις</Form.Label>
+          <Form.Label>{tx('Missing', 'Ελλείψεις')}</Form.Label>
           <Form.Select value={missingRequirementFilter} onChange={(event) => { setPage(1); setMissingRequirementFilter(event.target.value as 'all' | 'missing_any_image' | 'missing_text' | 'missing_category'); }}>
-            <option value="all">Όλες οι απαιτήσεις</option>
-            <option value="missing_any_image">Χωρίς δημόσια εικόνα</option>
-            <option value="missing_text">Λείπει κείμενο</option>
-            <option value="missing_category">Λείπει κατηγορία</option>
+            <option value="all">{tx('All requirements', 'Όλες οι απαιτήσεις')}</option>
+            <option value="missing_any_image">{tx('Missing public image', 'Χωρίς δημόσια εικόνα')}</option>
+            <option value="missing_text">{tx('Missing text', 'Λείπει κείμενο')}</option>
+            <option value="missing_category">{tx('Missing category', 'Λείπει κατηγορία')}</option>
           </Form.Select>
         </Col>
         <Col xl={3} md={6}>
-          <Form.Label>Πηγή φωτογραφίας</Form.Label>
+          <Form.Label>{tx('Photo Source', 'Πηγή φωτογραφίας')}</Form.Label>
           <Form.Select
             value={photoSourceFilter}
             onChange={(event) => {
@@ -1941,15 +1970,15 @@ export default function ItemsPage({
               setPhotoSourceFilter(event.target.value as 'all' | 'youpharmacy_xml' | 'pharmacy295_excel');
             }}
           >
-            <option value="all">Όλες οι πηγές</option>
-            <option value="youpharmacy_xml">YouPharmacy φωτογραφία</option>
-            <option value="pharmacy295_excel">Pharmacy295 φωτογραφία</option>
+            <option value="all">{tx('All photo sources', 'Όλες οι πηγές')}</option>
+            <option value="youpharmacy_xml">{tx('YouPharmacy photo', 'YouPharmacy φωτογραφία')}</option>
+            <option value="pharmacy295_excel">{tx('Pharmacy295 photo', 'Pharmacy295 φωτογραφία')}</option>
           </Form.Select>
         </Col>
         <Col xl={3} md={6}>
-          <Form.Label>Κατηγορία 1</Form.Label>
+          <Form.Label>{tx('Category 1', 'Κατηγορία 1')}</Form.Label>
           <Form.Select value={category1Filter} onChange={(event) => { setPage(1); setCategory1Filter(event.target.value); setCategory2Filter(''); setCategory3Filter(''); }}>
-            <option value="">Όλες οι κατηγορίες 1</option>
+            <option value="">{tx('All category 1', 'Όλες οι κατηγορίες 1')}</option>
             {taxonomyFilters.category_1.map((category) => (
               <option key={category.value} value={category.value}>
                 {category.value} ({category.count})
@@ -1958,9 +1987,9 @@ export default function ItemsPage({
           </Form.Select>
         </Col>
         <Col xl={3} md={6}>
-          <Form.Label>Κατηγορία 2</Form.Label>
+          <Form.Label>{tx('Category 2', 'Κατηγορία 2')}</Form.Label>
           <Form.Select value={category2Filter} onChange={(event) => { setPage(1); setCategory2Filter(event.target.value); setCategory3Filter(''); }}>
-            <option value="">Όλες οι κατηγορίες 2</option>
+            <option value="">{tx('All category 2', 'Όλες οι κατηγορίες 2')}</option>
             {taxonomyFilters.category_2.map((category) => (
               <option key={category.value} value={category.value}>
                 {category.value} ({category.count})
@@ -1969,9 +1998,9 @@ export default function ItemsPage({
           </Form.Select>
         </Col>
         <Col xl={3} md={6}>
-          <Form.Label>Κατηγορία 3</Form.Label>
+          <Form.Label>{tx('Category 3', 'Κατηγορία 3')}</Form.Label>
           <Form.Select value={category3Filter} onChange={(event) => { setPage(1); setCategory3Filter(event.target.value); }}>
-            <option value="">Όλες οι κατηγορίες 3</option>
+            <option value="">{tx('All category 3', 'Όλες οι κατηγορίες 3')}</option>
             {taxonomyFilters.category_3.map((category) => (
               <option key={category.value} value={category.value}>
                 {category.value} ({category.count})
@@ -1980,33 +2009,33 @@ export default function ItemsPage({
           </Form.Select>
         </Col>
         <Col xl={2} md={3}>
-          <Form.Label>Ταξινόμηση</Form.Label>
+          <Form.Label>{tx('Sort By', 'Ταξινόμηση')}</Form.Label>
           <Form.Select value={sortBy} onChange={(event) => setSortBy(event.target.value)}>
-            <option value="updated_at">Ενημερώθηκε</option>
-            <option value="created_at">Δημιουργήθηκε</option>
-            <option value="title">Τίτλος</option>
-            <option value="code">Κωδικός</option>
+            <option value="updated_at">{tx('Updated At', 'Ενημερώθηκε')}</option>
+            <option value="created_at">{tx('Created At', 'Δημιουργήθηκε')}</option>
+            <option value="title">{tx('Title', 'Τίτλος')}</option>
+            <option value="code">{tx('Code', 'Κωδικός')}</option>
             <option value="barcode">Barcode</option>
-            <option value="status">Κατάσταση</option>
+            <option value="status">{tx('Status', 'Κατάσταση')}</option>
           </Form.Select>
         </Col>
         <Col xl={1} md={3}>
-          <Form.Label>Σειρά</Form.Label>
+          <Form.Label>{tx('Order', 'Σειρά')}</Form.Label>
           <Form.Select value={sortOrder} onChange={(event) => setSortOrder(event.target.value as 'asc' | 'desc')}>
-            <option value="desc">Φθίνουσα</option>
-            <option value="asc">Αύξουσα</option>
+            <option value="desc">{tx('Desc', 'Φθίνουσα')}</option>
+            <option value="asc">{tx('Asc', 'Αύξουσα')}</option>
           </Form.Select>
         </Col>
         <Col xl={1} md={12} className="text-md-end">
-          <Button onClick={openCreate}>Νέο</Button>
+          <Button onClick={openCreate}>{tx('New', 'Νέο')}</Button>
         </Col>
       </Row>
 
       <Card>
         <Card.Header className="d-flex justify-content-between align-items-center flex-wrap gap-2">
-          <Card.Title>Λίστα Ειδών</Card.Title>
+          <Card.Title>{tx('Items List', 'Λίστα Ειδών')}</Card.Title>
           <div className="d-flex align-items-center gap-2">
-            <span className="text-muted fs-13">Ανά σελίδα</span>
+            <span className="text-muted fs-13">{tx('Per Page', 'Ανά σελίδα')}</span>
             <Form.Select style={{ width: 100 }} value={perPage} onChange={(event) => { setPage(1); setPerPage(Number(event.target.value)); }}>
               {[15, 25, 50].map((option) => (
                 <option key={option} value={option}>{option}</option>
@@ -2022,13 +2051,13 @@ export default function ItemsPage({
               <Table responsive className="table table-striped mb-3 align-middle">
                 <thead>
                   <tr>
-                    <th>Τίτλος</th>
-                    <th>Κατηγορία</th>
-                    <th>Κατάσταση</th>
-                    <th>Ποιότητα</th>
-                    <th>Ελλείψεις</th>
-                    <th>Ενημερώθηκε</th>
-                    <th>Ενέργειες</th>
+                    <th>{tx('Title', 'Τίτλος')}</th>
+                    <th>{tx('Category', 'Κατηγορία')}</th>
+                    <th>{tx('Status', 'Κατάσταση')}</th>
+                    <th>{tx('Quality', 'Ποιότητα')}</th>
+                    <th>{tx('Missing', 'Ελλείψεις')}</th>
+                    <th>{tx('Updated At', 'Ενημερώθηκε')}</th>
+                    <th>{tx('Actions', 'Ενέργειες')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2037,18 +2066,20 @@ export default function ItemsPage({
                       <tr key={item.id}>
                         <td>
                           <div className="fw-semibold">{item.title || '-'}</div>
-                          <div className="text-muted fs-12">Barcode: {item.barcode || '-'} | Κωδικός: {item.code || '-'}</div>
+                          <div className="text-muted fs-12">Barcode: {item.barcode || '-'} | {tx('Code', 'Κωδικός')}: {item.code || '-'}</div>
                           {photoSourceLockBadge(item) ? (
                             <div className="mt-1">{photoSourceLockBadge(item)}</div>
                           ) : null}
                         </td>
                         <td>{item.category_name || categoryNameById.get(item.category_id) || '-'}</td>
-                        <td>{statusBadge(item.status)}</td>
+                        <td>{statusBadge(item.status, language)}</td>
                         <td>
                           <div className="d-flex flex-column gap-1">
-                            <div>{qualityStateBadge(item.catalog_quality_state)}</div>
+                            <div>{qualityStateBadge(item.catalog_quality_state, language)}</div>
                             <div className="text-muted fs-12">
-                              {item.catalog_public_image_enabled ? 'Δημόσια εικόνα ενεργή' : 'Δημόσια εικόνα κρυφή'}
+                              {item.catalog_public_image_enabled
+                                ? tx('Public image enabled', 'Δημόσια εικόνα ενεργή')
+                                : tx('Public image hidden', 'Δημόσια εικόνα κρυφή')}
                             </div>
                           </div>
                         </td>
@@ -2057,12 +2088,12 @@ export default function ItemsPage({
                             <div className="d-flex flex-wrap gap-1">
                               {item.catalog_missing_requirements.map((requirement) => (
                                 <Badge key={`${item.id}-${requirement}`} bg="light" text="dark">
-                                  {missingRequirementLabel(requirement)}
+                                  {missingRequirementLabel(requirement, language)}
                                 </Badge>
                               ))}
                             </div>
                           ) : (
-                            <span className="text-success fs-12">Ολοκληρωμένο</span>
+                            <span className="text-success fs-12">{tx('Complete', 'Ολοκληρωμένο')}</span>
                           )}
                         </td>
                         <td>{formatDate(item.updated_at)}</td>
@@ -2075,14 +2106,14 @@ export default function ItemsPage({
                                 disabled={approvingItemId === item.id}
                                 onClick={() => void handleApproveGoLive(item)}
                               >
-                                {approvingItemId === item.id ? 'Έγκριση...' : 'Έγκριση δημοσίευσης'}
+                                {approvingItemId === item.id ? tx('Approving...', 'Έγκριση...') : tx('Approve Go Live', 'Έγκριση δημοσίευσης')}
                               </Button>
                             ) : null}
                             <Button size="sm" variant="outline-info" onClick={() => void openDetails(item.id)}>
-                              Λεπτομέρειες
+                              {tx('Details', 'Λεπτομέρειες')}
                             </Button>
                             <Button size="sm" variant="outline-primary" onClick={() => openEdit(item)}>
-                              Επεξεργασία
+                              {tx('Edit', 'Επεξεργασία')}
                             </Button>
                           </div>
                         </td>
@@ -2091,7 +2122,7 @@ export default function ItemsPage({
                   ) : (
                     <tr>
                       <td colSpan={7} className="text-center text-muted py-4">
-                        Δεν βρέθηκαν είδη.
+                        {tx('No items found.', 'Δεν βρέθηκαν είδη.')}
                       </td>
                     </tr>
                   )}
@@ -2100,7 +2131,7 @@ export default function ItemsPage({
 
               <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <span className="text-muted fs-13">
-                  Σελίδα {pagination.page} από {pagination.total_pages} | Σύνολο {pagination.total} εγγραφές
+                  {tx('Page', 'Σελίδα')} {pagination.page} {tx('of', 'από')} {pagination.total_pages} | {tx('Total', 'Σύνολο')} {pagination.total} {tx('records', 'εγγραφές')}
                 </span>
                 <Pagination className="mb-0">{pages}</Pagination>
               </div>
@@ -2559,8 +2590,8 @@ export default function ItemsPage({
                     <strong>Λείποντα</strong>
                     <div>
                       {editDraftQuality.missingRequirements.length
-                        ? editDraftQuality.missingRequirements.map(missingRequirementLabel).join(', ')
-                        : 'Κανένα'}
+                        ? editDraftQuality.missingRequirements.map((code) => missingRequirementLabel(code, language)).join(', ')
+                        : tx('None', 'Κανένα')}
                     </div>
                   </div>
                 </div>
@@ -2818,8 +2849,8 @@ export default function ItemsPage({
                     <strong>Λείποντα</strong>
                     <div>
                       {detailsItem.catalog_missing_requirements?.length
-                        ? detailsItem.catalog_missing_requirements.map(missingRequirementLabel).join(', ')
-                        : 'Κανένα'}
+                        ? detailsItem.catalog_missing_requirements.map((code) => missingRequirementLabel(code, language)).join(', ')
+                        : tx('None', 'Κανένα')}
                     </div>
                   </div>
                 </div>
