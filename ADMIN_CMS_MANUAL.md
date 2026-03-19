@@ -1,43 +1,63 @@
 # CloudOn Admin CMS Manual
 
-## 1. Purpose
-The admin CMS is the operational control panel for:
-- catalog management
-- category management
-- clients
-- sources
+## 1. Σκοπός
+Το Admin CMS είναι το κεντρικό λειτουργικό panel για:
+- διαχείριση καταλόγου
+- διαχείριση κατηγοριών
+- διαχείριση πελατών
+- διαχείριση πηγών
 - quality review
-- portal/customer workflows
+- review queue / go-live
+- ρυθμίσεις API
+- XML jobs και background εργασίες
 
 URL:
 - `https://image.cloudon.gr/admin/`
 
-## 2. Header
-The admin top bar includes:
-- sidebar toggle
-- module search
+## 2. Επάνω μπάρα
+Η επάνω μπάρα περιλαμβάνει:
+- toggle για sidebar
+- αναζήτηση ενοτήτων CMS
 - dark mode toggle
 - fullscreen
-- language selector
-- system events bell
+- επιλογή γλώσσας
+- bell με system events
 - account menu
 
-The account menu provides:
-- settings
-- sign out
+Το account menu δίνει:
+- ρυθμίσεις
+- αποσύνδεση
 
-## 3. Supported Languages
-Only these languages are supported in the admin:
+### System events
+Το bell δεν είναι απλό notification badge. Δείχνει πραγματικά runtime events:
+- item updates
+- audit events
+- API access events
+- notifications
+
+Όταν επιλέγεις event:
+- για item events ανοίγει απευθείας το σχετικό item με `focus`
+- για API/client events σε οδηγεί στο σωστό module
+- δεν πρέπει να σε πετάει σε άσχετη γενική λίστα ή template route
+
+## 3. Υποστηριζόμενες γλώσσες
+Στο admin υποστηρίζονται μόνο:
 - `English`
 - `Greek`
 
-## 4. Sidebar Areas
-The sidebar contains the main operational modules:
+Κανόνες:
+- η επιλογή γλώσσας αποθηκεύεται στον browser
+- το shell, τα menu, τα φίλτρα και τα header actions πρέπει να ακολουθούν τη γλώσσα που έχει επιλεγεί
+- μεμονωμένα αγγλικά strings μέσα σε ελληνικό shell θεωρούνται defect αν δεν είναι όρος προϊόντος ή API
+
+## 4. Sidebar ενότητες
+Το αριστερό menu περιλαμβάνει τις βασικές operational ενότητες:
 - Dashboard
 - Server
 - Sources
 - Items
 - Fix Queue
+- Review Queue
 - Items by Category
 - Categories
 - Clients
@@ -48,172 +68,330 @@ The sidebar contains the main operational modules:
 - Audit Log
 - Settings
 
-## 5. Sources
-The `Sources` module is used to:
-- enable or disable sources
-- remove or restore sources without deleting already downloaded items
-- edit source priorities for:
-  - general chain order
-  - text preference order
-  - image preference order
-- start source jobs
-- monitor source job status
+## 5. Dashboard και γενική πλοήγηση
+Το admin shell χρησιμοποιεί:
+- CloudOn logo
+- CloudOn ContentSync Platform branding
+- πραγματικά profile actions
+- πραγματικά system events
+- responsive hero cards και metrics
 
-Important:
-- removing a source does not delete its products
-- existing products remain in the catalog
-- future refreshes are handled by the remaining enabled sources
-- source priorities are edited directly in the `Sources` grid with:
-  - `Chain`
-  - `Text`
-  - `Images`
-- `0` means that the source is not used for that purpose
-- a job shows `Running` only while its real process is alive; after a restart or unexpected stop, stale `Running` state is cleared automatically
-- `pharmacy295 -> Import Photos` uses the Excel feed and can import photos only for barcodes that actually exist in that feed
-- for degraded `farmakopoiosmou` hosted photos, operators can run the backend script `replace_farmakopoiosmou_with_youpharmacy_xml.py` against a provided `youpharmacy` XML feed; it matches first on `ean`, then on numeric `mpn`, and locks the resulting image set as `youpharmacy_xml`
-- `youpharmacy` is exposed in Sources as a job-only feed source: operators upload a fresh XML file from the admin and then run `Import XML Photos`; it is not part of the live text/image refresh chain
-- the `Managed Sources` table uses grouped columns; image counts are shown under `Image Stats`, while capabilities, search pattern, and notes are grouped under `Details` so the page stays readable
+Σε όλες τις βασικές λίστες επιδιώκεται κοινό pattern:
+- title / description module
+- compact summary metrics
+- φίλτρα
+- table ή cards με τις πραγματικές ενέργειες
 
-## 6. Items
-The `Items` module is used to:
-- search items
-- filter by status, quality, and category levels
-- open item details
-- edit product information
-- refresh item information from sources
-- delete item images
-- delete an item entirely if needed
+Στα modules με φίλτρα εμφανίζονται summary boxes όπως:
+- φιλτραρισμένες εγγραφές
+- ενεργά φίλτρα
+- τρέχουσα σελίδα
+
+## 6. Sources
+Η ενότητα `Sources` χρησιμοποιείται για:
+- ενεργοποίηση / απενεργοποίηση πηγών
+- remove / restore χωρίς διαγραφή των ήδη κατεβασμένων προϊόντων
+- ρύθμιση priorities για:
+  - general chain
+  - text preference
+  - image preference
+- εκκίνηση source jobs
+- παρακολούθηση source job status
+- XML upload για job-only πηγές
+
+### Βασικοί κανόνες
+- η αφαίρεση πηγής δεν διαγράφει προϊόντα
+- τα υπάρχοντα προϊόντα μένουν στον κατάλογο
+- τα μελλοντικά refresh γίνονται από τις υπόλοιπες ενεργές πηγές
+- `0` σε `Text` ή `Images` σημαίνει ότι η πηγή δεν χρησιμοποιείται για αυτόν τον σκοπό
+- `Running` σημαίνει ότι υπάρχει πραγματικό ενεργό process
+- stale `Running` state καθαρίζεται αυτόματα όταν δεν υπάρχει πια process
+
+### Ενδεικτική επιχειρησιακή κατάσταση πηγών
+- `Ofarmakopoiosmou`: κύρια πηγή κειμένου/metadata, όχι automatic image source
+- `Pharmacy295`: προτιμώμενη καθαρή πηγή φωτογραφιών από feed, live access συνήθως `proxy_required`
+- `YouPharmacy`: WooCommerce πηγή, manual refresh candidate και job-only XML photo source
+- `GoHealthy`: manual refresh candidate
+- `Cure4u`: manual refresh candidate μέσω PrestaShop search endpoint
+- `KpdHellas`: χαμηλής προτεραιότητας live text fallback, manual image override available
+- `Vita4You`: disabled στο live chain, κρατιέται για validation only
+- `ToFarmakeioMou`: known search pattern, αλλά live fetch θέλει proxy λόγω Cloudflare
+
+### Source jobs
+Παραδείγματα jobs:
+- import photos
+- Excel-driven import
+- XML upload + XML photo import
+- hosted image cleanup / reprocess
+
+### YouPharmacy XML φωτογραφίες
+Η `youpharmacy` εμφανίζεται ως job-only source για XML φωτογραφίες:
+- ανεβάζεις νέο XML από το admin
+- τρέχεις `Import XML Photos`
+- η διαδικασία αντικαθιστά degraded `farmakopoiosmou` hosted images όπου υπάρχει ασφαλές match
+- το νέο result κλειδώνει την προέλευση ως `youpharmacy_xml`
+
+## 7. Items, Fix Queue και Review Queue
+
+### Items list
+Η ενότητα `Items` χρησιμοποιείται για:
+- αναζήτηση
+- φίλτρα κατάστασης
+- quality filter
+- φίλτρα category 1/2/3
+- photo source filter για trusted hosted photo provenance
+- sorting / pagination
+- detail / edit / go-live actions
+
+### Fix Queue
+Το `Fix Queue` είναι operational όψη πάνω στα items που χρειάζονται διόρθωση.
+
+Χρησιμοποιείται για:
+- `Quality = Needs Fix`
+- διάκριση missing text / missing category / missing public image
+- bulk refresh workflows
+
+### Review Queue
+Το `Review Queue` είναι προσωρινή λίστα για inactive items που έχουν πλέον γίνει πλήρη και θέλουν τελικό έλεγχο.
+
+Κανόνας:
+- αν το item μείνει inactive αλλά περάσει πλήρως το quality gate, μπαίνει σε `Ready for Review`
+- από εκεί ο διαχειριστής μπορεί να κάνει `Approve Go Live`
+
+## 8. Edit item
+Το edit item είναι το βασικό operational σημείο για διορθώσεις.
+
+Περιλαμβάνει:
+- hosted media preview
+- edit πεδίων
+- HTML description editor με live preview
+- manual source refresh
+- manual image upload
+- remote image import
+- activation/provenance diagnostics
 
 ### Refresh From Sources
-When `Refresh From Sources` is used:
-1. texts are fetched from the first available source
-2. barcode category mapping is checked first
-3. if no barcode mapping exists, source categories are used
-4. categories remain editable after refresh
-5. images are resolved through a separate image-source chain
-6. `farmakopoiosmou` is treated as a text/metadata source only and must not inject image URLs into refreshed items
-7. the item image state is replaced by the current filtered image-source result, so stale icon/logo/pagespeed images are not kept after a manual refresh
-8. hosted images are downloaded during the same refresh action, so source-specific post-processing also runs immediately
-9. when a cleaner image source such as `pharmacy295` is available, it is preferred over `farmakopoiosmou`
-10. the current `farmakopoiosmou` cleanup version is `farmakopoiosmou_crop_v3`, but it is now a fallback cleanup path rather than the preferred image strategy
-11. the edit form shows only hosted/public item images; raw external source URLs must not appear in the editable media list
-12. when the active image source returns a valid hosted image set, the existing hosted folder for that barcode is replaced atomically; old hosted images from previous sources must not remain mixed into the refreshed item
-13. admin edit/details image URLs include a version token so the browser is forced to reload the newly refreshed hosted image instead of showing a cached older file
-14. if a source is marked `proxy_required` and no effective proxy is configured, its live network fetch is skipped; if a trusted stored source snapshot exists under `Other_Sites`, that snapshot is tried before the system moves to the next available source
-15. if a source is disabled or has `Text = 0` / `Images = 0`, it is skipped completely for that purpose; historical badges must not be interpreted as live eligibility
-16. if a source requires proxy for live search and proxy is not configured, `Refresh From Sources` still tries any trusted stored source snapshot under `Other_Sites` for that same source before falling back to the next source
-17. if live source lookup fails but the item already has trusted source-backed data on the main record or under `Other_Sites`, the refresh can reuse that stored source record instead of failing immediately
-18. if the current refresh does not produce a fresh hosted image set for the chosen source, the edit draft must not continue to show a stale hosted image from an older source run; it shows no image instead
-19. `vita4you` is currently disabled from the live text/image chains because it is not considered reliable enough for production refresh decisions
-20. if `tofarmakeiomou` contributes only a stored snapshot and the current image download fails, the refresh may still keep its text fields but it must not report that source as a successful fresh image hit
-21. if `tofarmakeiomou` enters image mode only through a stored snapshot while proxy is off, `Refresh From Sources` must skip remote source-image download attempts and leave the draft image state empty unless a fresh hosted image set can actually be produced
-22. if `vita4you` is re-enabled later, it must use only `/el/search/?q=<query>` plus direct Klevu JSON lookup; it must not wait for browser-rendered search fallback
-23. if `vita4you` is re-enabled later, fallback title matches must still agree with the most specific item title; `No8 26τμχ` must not be accepted for an item whose current title says `14τμχ`
-24. if `vita4you` is re-enabled later, no-match refreshes should keep the tighter candidate window and shorter source-specific timeout so manual refresh remains responsive
-25. refresh/save/delete-image errors from the item edit modal are shown inside that modal and cleared on close; the main items list banner is reserved for page-level loading failures
+Το `Refresh From Sources` λειτουργεί με αυτή τη σειρά:
+1. lookup με barcode
+2. fallback search terms από title / brand αν χρειαστεί
+3. category mapping από barcode table
+4. fallback στις κατηγορίες της πηγής αν δεν υπάρχει mapping
+5. image fetch από ξεχωριστό image chain
 
-## 7. Quality Review
-The admin quality workflow separates items into:
-- ready
-- needs fix
-- ready for review
+### Source selectors
+Στο edit modal υπάρχουν selectors για:
+- `Κοινή Πηγή`
+- `Πηγή Κειμένου`
+- `Πηγή Εικόνων`
+- `Πηγή Κατηγοριών`
 
-The item list and queue views are used to identify:
-- missing text
-- missing category
-- missing image coverage
+Κανόνες:
+- η κοινή πηγή χρησιμοποιείται για όλα, εκτός αν την σπάσεις με τα ειδικά selectors
+- τα text/image/category overrides υπερισχύουν της κοινής πηγής
+- disabled πηγές ή πηγές με `Text = 0` / `Images = 0` δεν πρέπει να ξαναμπαίνουν από fallback path
 
-## 8. Clients
-The `Clients` module is used to:
-- manage customer accounts
-- set category scope
-- manage API client state
-- send client credentials
+### Ειδικοί κανόνες refresh
+- `Ofarmakopoiosmou` χρησιμοποιείται μόνο για κείμενο/metadata, όχι ως automatic source εικόνων
+- `Pharmacy295` παραμένει preferred clean image source όταν υπάρχει καλό source result
+- `ToFarmakeioMou` χωρίς proxy μπορεί να δώσει μόνο stored snapshot για text, όχι ασφαλές live image result
+- `Vita4You` είναι disabled στο live chain και χρησιμοποιείται μόνο αν επιλεγεί ρητά για validation
+- `KpdHellas` μπορεί να χρησιμοποιηθεί χειροκίνητα για εικόνες, αλλά automatic image priority μένει κλειστό
+- αν δεν προκύψει νέο valid hosted image set, το draft πρέπει να μείνει κενό και όχι να δείξει stale hosted εικόνα από παλιότερο source
+- όταν υπάρξει valid fresh hosted image set, ο φάκελος εικόνων του barcode αντικαθίσταται ατομικά
 
-## 9. Customer Remarks
-The `Customer Remarks` module is the admin queue for customer comments.
+### Hosted media list
+Η media στήλη δείχνει:
+- μόνο hosted/public εικόνες
+- versioned URLs για να μη βλέπεις cache
+- delete ανά εικόνα
+- zoom στην κύρια εικόνα και στη gallery
 
-It is used to see:
-- which item has a remark
-- which client wrote it
-- what was written
-- when it was created
-- its current handling state
+## 9. Manual images και Google fallback
+Όταν καμία πηγή δεν δίνει usable αποτέλεσμα, ο operator έχει δύο fallback paths.
 
-## 10. Settings
-The `Settings` module is used for:
+### Χειροκίνητη μεταφόρτωση
+Υποστηρίζεται upload αρχείων:
+- `png`
+- `jpeg`
+- `webp`
+
+Επιλογές:
+- αντικατάσταση υπαρχουσών hosted εικόνων
+- ορισμός της πρώτης εικόνας ως κύρια
+
+### Remote import
+Ο operator μπορεί να εισάγει:
+- direct image URL
+- source page URL για auto-extract
+
+### Google Images helper
+Το Google χρησιμοποιείται μόνο σαν βοηθητικό discovery layer.
+
+Κανόνες:
+- δεν βάζουμε Google search results URL ως image URL
+- δεν βάζουμε Google results URL στο `Source page URL`
+- το σωστό workflow είναι:
+  1. άνοιγμα Google Images
+  2. εύρεση origin site
+  3. επικόλληση direct image URL ή product page URL από το πραγματικό site
+
+## 10. Description editor
+Ο description editor δουλεύει σε HTML mode με live preview.
+
+Συμπεριφορά:
+- ο editor αποθηκεύει `description_html`
+- αν δοθεί μόνο plain text, το backend το μετατρέπει σε ασφαλές HTML
+- το portal/rendered detail χρησιμοποιεί `description_html` όταν υπάρχει
+
+## 11. Activation Check και provenance
+Στο edit/detail view εμφανίζεται operational κατάσταση όπως:
+- quality state
+- public API image visibility
+- text completion
+- category completion
+- image source completion
+- photo provenance / photo lock source
+
+Παραδείγματα provenance:
+- `pharmacy295_excel`
+- `youpharmacy_xml`
+
+Αυτό βοηθά στο να ξέρει ο operator:
+- αν το item είναι publishable
+- από πού ήρθε η εικόνα
+- αν η εικόνα είναι κλειδωμένη ώστε να μην overwritten από χαμηλότερης ποιότητας source
+
+## 12. Bulk Source Refresh
+Η μαζική ανανέωση εμφανίζεται στο `Fix Queue` όταν το φίλτρο είναι `Quality = Needs Fix`.
+
+### Τι κάνει
+- χρησιμοποιεί τα τρέχοντα φίλτρα της λίστας
+- εφαρμόζει processing limit
+- τρέχει background refresh μόνο στα matching items
+- μπορεί να χρησιμοποιήσει auto chain ή source overrides ανά κανάλι
+
+### Τι δείχνει
+- matched by current filters
+- active filters
+- selected source overrides
+- progress
+- updated / skipped / failed
+- last barcode
+- last finished time
+
+### Controls
+Ο operator έχει:
+- `Start Bulk Refresh`
+- `Stop`
+- `Cancel`
+- `Restart`
+
+### Operational rule
+Το bulk refresh τρέχει server-side.
+
+Άρα:
+- μπορείς να κλείσεις τη σελίδα ή τον browser
+- η διαδικασία συνεχίζει
+- όταν ξαναμπείς, το panel φορτώνει το persisted status
+
+## 13. Quality Review και Go Live
+Η quality ροή ξεχωρίζει items σε:
+- `Ready`
+- `Needs Fix`
+- `Ready for Review`
+
+Η τελική λογική είναι:
+- `Needs Fix`: λείπει requirement
+- `Ready for Review`: structurally complete αλλά ακόμη inactive
+- `Approve Go Live`: ο τελικός operator approval για να περάσει live
+
+## 14. Clients
+Η ενότητα `Clients` χρησιμοποιείται για:
+- διαχείριση customer accounts
+- category scope
+- API client state
+- αποστολή credentials
+- έλεγχο τελευταίου endpoint / τελευταίας API πρόσβασης
+
+## 15. Customer Remarks
+Η ενότητα `Customer Remarks` είναι η ουρά παρατηρήσεων πελατών.
+
+Εκεί ο admin βλέπει:
+- ποιος πελάτης έγραψε
+- για ποιο item
+- τι έγραψε
+- πότε
+- σε ποια κατάσταση είναι η παρατήρηση
+
+## 16. Settings
+Η ενότητα `Settings` καλύπτει:
 - proxy configuration
-- API access enable/disable
-- API client enable/disable
-- mail account configuration
-- image processing runtime toggles
-- XML service configuration and manual XML generation
-- activation policy visibility
+- API access
+- API clients
+- mail accounts
+- image processing toggles
+- XML service
+- activation policies
+
+### API Access
+Το `API Access` δεν είναι πλέον μόνο δύο toggles.
+
+Πλέον ο admin μπορεί:
+- να προσθέσει νέο API
+- να δημιουργήσει πραγματικό endpoint
+- να κάνει edit σε κάθε endpoint ξεχωριστά
+- να επιλέξει ποια fields επιστρέφει το endpoint
+- να δει όλα τα διαθέσιμα fields σε λίστα
+- να επιλέξει public-only ή internal mode
+- να επιτρέψει ή όχι external image URLs
+
+Κανόνες:
+- τα built-in endpoints είναι:
+  - `/products`
+  - `/products_internal`
+- κάθε νέο endpoint δημιουργείται ως:
+  - `/products/<api_key>`
+- το `Edit` ανοίγει όλα τα διαθέσιμα fields για το συγκεκριμένο API
+- οι αλλαγές εφαρμόζονται άμεσα
 
 ### Image Processing
-The `Image Processing` card controls whether the legacy watermark-removal mechanism is active.
+Το card `Image Processing` ελέγχει το legacy watermark cleanup.
 
-Rule:
-- `Enabled` means the system is allowed to run the legacy `farmakopoiosmou` watermark cleanup during:
-  - new image downloads
-  - hosted-image reprocess jobs
-- `Disabled` means the system must skip that cleanup path entirely
+Κανόνας:
+- `Enabled`: επιτρέπεται legacy cleanup σε intake/reprocess paths που το χρησιμοποιούν
+- `Disabled`: δεν τρέχει watermark cleanup
 
-Recommended use:
-- keep it `Disabled` when cleaner image sources such as `pharmacy295` and `vita4you` are the preferred image sources
-- turn it `Enabled` only when you intentionally want to use legacy `farmakopoiosmou` image intake or reprocess old hosted images from that source
+Προτεινόμενη χρήση:
+- άστο `Disabled` όταν δουλεύεις με καθαρές πηγές
+- άνοιξέ το μόνο όταν συνειδητά αποδέχεσαι legacy `Ofarmakopoiosmou` image intake ή reprocess
 
 ### XML Service
-The `XML Service` card controls the internal XML generator container used for marketplace XML feeds.
+Το `XML Service` δείχνει:
+- ενεργοποίηση / απενεργοποίηση XML service
+- internal service URL
+- public base URL
+- configured domains
+- last run
+- published XML files
 
-Operational UI rules:
-- `Published XML Files` must separate current published XML files from archived `backup/old` files
-- current published XML files must expose direct `Download` actions from the admin
-- archived XML files may stay available as secondary links, but they must not be mixed visually with the current published set
-- when no successful latest-run file metadata exists, the admin should still treat non-archived filenames such as `skroutz.xml`, `bestprice.xml`, and `shopflix.xml` as the current downloadable set
+Κανόνες UI:
+- τα current XML files πρέπει να ξεχωρίζουν από archived/backup files
+- τα current files πρέπει να έχουν direct download action
 
-Operator rules:
-- `Enabled` allows the image server backend to proxy published XML files and to trigger XML generation
-- `Internal Service URL` is the docker-network address used by the backend, normally `http://xml_generator`
-- `Public Base URL` is the published path shown to operators and clients for generated XML feeds
-- `Run full XML generation` starts a full rebuild for all configured XML domains inside the XML service
-- the card also shows last run status, configured domains, and published XML file links
+## 17. Placeholder policy
+Δεν πρέπει να μένουν ενεργά template placeholders σε production.
 
-### Manual Source Refresh
-`Items -> Edit -> Refresh From Sources` works in this order:
-- barcode search first
-- if the source does not expose the product by barcode, fallback search terms are built from the current item title/brand
-- category mapping is checked first against the barcode-category table
-- if no barcode-category match exists, category data falls back to the source result
-
-`vita4you` specific rule:
-- `vita4you` is currently disabled in the live runtime source chains
-- if it is re-enabled later, the exact search path used first is `/el/search/?q=<query>`
-- if it is re-enabled later and static HTML contains no product links, the system calls the direct Klevu search API and uses the returned product URLs
-- if it is re-enabled later, title-based fallback results are accepted only when they still match the most specific current item title, including pack-count and size discriminators
-- no-match cases use shorter source-specific timeout limits, so the editor does not wait for the full generic per-site timeout before moving to the next source
-
-`tofarmakeiomou` proxy-off snapshot rule:
-- if proxy is off and the refresh uses only a stored `tofarmakeiomou` snapshot, text fields may still refresh from that snapshot
-- in that same proxy-off path, the refresh no longer waits on remote source-image download attempts from stored external URLs
-- unless a fresh hosted/local image set already exists, the draft image result stays empty
-
-## 11. Placeholder Policy
-Template placeholders must not remain active in runtime UI.
-
-Examples that must not appear in production:
+Παραδείγματα που δεν επιτρέπονται:
 - fake users
 - fake message center
-- demo text
-- placeholder flags
-- template branding instead of CloudOn branding
-- template switcher/demo behavior attached to live routes
-- placeholder error-page wrappers attached to the main runtime shell
+- demo branding
+- template switchers
+- placeholder error-page shells
+- Azea / Spruko leftovers σε live shell
 
-## 12. Operational Rule
-Every runtime/UI change must be reflected in project documentation:
-- technical handbook
-- relevant manual(s)
+## 18. Operational documentation rule
+Κάθε αλλαγή που επηρεάζει runtime behavior ή operator workflow πρέπει να ενημερώνει:
+- το τεχνικό εγχειρίδιο
+- το σχετικό manual
 
-Build verification rule:
-- deployed admin bundles must not contain `Azea`, `Spruko`, `Patrenna`, or `Web Designer`
+Δεν αντιμετωπίζεται ως προαιρετικό follow-up.

@@ -18,7 +18,26 @@
 
 Μετά τη σύνδεση ανοίγει το dashboard.
 
-## 3. Επάνω μπάρα
+### Branding login page
+Η login οθόνη είναι branded με:
+- CloudOn logo
+- CloudOn ContentSync Platform αναφορά
+- customer-facing hero panel
+- ξεκάθαρο διαχωρισμό από το admin CMS
+
+Στόχος είναι ο πελάτης να καταλαβαίνει αμέσως ότι μπαίνει σε read-only περιβάλλον πελάτη και όχι σε admin panel.
+
+## 3. Γλώσσες
+Οι διαθέσιμες γλώσσες είναι:
+- `English`
+- `Ελληνικά`
+
+Κανόνες:
+- η επιλογή γλώσσας αποθηκεύεται στον browser
+- αν δεν υπάρχει αποθηκευμένη επιλογή, το portal ξεκινά από `English`
+- το shell, τα menu και οι βασικές σελίδες πρέπει να ακολουθούν τη γλώσσα που έχει επιλεγεί
+
+## 4. Επάνω μπάρα
 Στο πάνω μέρος υπάρχουν:
 - αναζήτηση
 - dark mode toggle
@@ -26,13 +45,11 @@
 - επιλογή γλώσσας
 - profile menu / logout
 
-Οι διαθέσιμες γλώσσες είναι:
-- English
-- Ελληνικά
+Το profile menu χρησιμοποιείται μόνο για:
+- προβολή λογαριασμού
+- αποσύνδεση
 
-Προεπιλεγμένη γλώσσα είναι τα English.
-
-## 4. Αριστερό menu
+## 5. Αριστερό menu
 Το αριστερό menu περιλαμβάνει:
 
 ### Dashboard
@@ -53,7 +70,7 @@
 ### Profile
 Στοιχεία λογαριασμού και category scope.
 
-## 5. Dashboard
+## 6. Dashboard
 Στο dashboard ο πελάτης βλέπει:
 - σύνολο ενεργών προϊόντων
 - νέα προϊόντα
@@ -64,8 +81,8 @@
 
 Σκοπός του dashboard είναι η γρήγορη εποπτεία του τι αφορά τον πελάτη χωρίς να χρειάζεται να μπει απευθείας στις λίστες.
 
-## 6. All Items
-Η λίστα ειδών επιτρέπει:
+## 7. All Items και New Items
+Οι λίστες ειδών επιτρέπουν:
 - αναζήτηση
 - φιλτράρισμα με `Category 1`
 - φιλτράρισμα με `Category 2`
@@ -73,19 +90,22 @@
 - ταξινόμηση
 - επιλογή πλήθους ανά σελίδα
 
-Στη λίστα προβάλλονται βασικά στοιχεία όπως:
-- τίτλος
-- κωδικός
-- κατηγορία
-- ημερομηνία δημιουργίας
-- ημερομηνία ενημέρωσης
+### Summary metrics
+Στην κορυφή των λιστών εμφανίζονται operational στοιχεία όπως:
+- φιλτραρισμένα αποτελέσματα
+- ενεργά φίλτρα
+- τρέχουσα σελίδα
 
-Από εκεί ο πελάτης μπορεί να ανοίξει την καρτέλα του είδους.
+Αυτό βοηθά τον πελάτη να ξέρει αμέσως:
+- πόσα είδη έχει περιορίσει με τα φίλτρα
+- πόσα φίλτρα έχει ενεργά
+- σε ποια σελίδα βρίσκεται
 
-## 7. New Items
-Η ενότητα αυτή είναι ίδια σε λογική με το `All Items`, αλλά περιορίζεται μόνο στα είδη που έχουν καταχωριστεί πρόσφατα.
+### All Items
+Η ενότητα δείχνει όλα τα ενεργά προϊόντα που ανήκουν στο scope του πελάτη.
 
-Χρήσιμη όταν ο πελάτης θέλει να βλέπει μόνο νέα catalog entries.
+### New Items
+Η ενότητα έχει ίδια λογική με το `All Items`, αλλά περιορίζεται μόνο στα πρόσφατα ενεργά είδη των τελευταίων ημερών.
 
 ## 8. Categories
 Η ενότητα κατηγοριών δείχνει:
@@ -97,9 +117,15 @@
 
 Με click σε κατηγορία ανοίγει η λίστα ειδών φιλτραρισμένη μόνο σε αυτή την κατηγορία.
 
+Και εδώ εμφανίζονται summary metrics για:
+- πλήθος αποτελεσμάτων
+- ενεργά φίλτρα
+
 ## 9. Καρτέλα είδους
 Στην αναλυτική καρτέλα ο πελάτης βλέπει:
+- read-only badge
 - φωτογραφίες προϊόντος
+- gallery thumbnails όταν υπάρχουν πολλές εικόνες
 - τίτλο
 - κωδικό
 - barcode
@@ -108,10 +134,23 @@
 - category path
 - περιγραφή
 - metadata όπως created / updated
+- image visibility state
 
-Σημαντικό:
-- η καρτέλα είναι read-only
+### Σημαντικό
+- η καρτέλα είναι μόνο για προβολή
 - δεν υπάρχει edit για τον πελάτη
+- το badge `Read only` είναι ξεκάθαρη ένδειξη ότι η αλλαγή δεν γίνεται από εδώ
+
+### Product media
+Η media ενότητα δείχνει:
+- κύρια hosted εικόνα
+- gallery thumbnails αν υπάρχουν περισσότερες εικόνες
+- zoom/open behavior στην εικόνα
+- μήνυμα όταν δεν υπάρχει ακόμη hosted εικόνα
+
+### Περιγραφή
+Η περιγραφή εμφανίζεται ως μορφοποιημένο HTML όταν υπάρχει αποθηκευμένο `description_html`.
+Αν δεν υπάρχει περιγραφή, εμφανίζεται σχετικό μήνυμα fallback.
 
 ## 10. Παρατηρήσεις προς admin
 Ο πελάτης μπορεί να στείλει remark για ένα είδος.
@@ -145,7 +184,11 @@
 - υπό εξέταση
 - ολοκληρωμένο
 
-Έτσι ο πελάτης μπορεί να βλέπει τι έχει ανοιχτό και τι έχει ήδη κλείσει.
+Εμφανίζει επίσης summary στοιχεία για:
+- φιλτραρισμένα αποτελέσματα
+- ενεργά φίλτρα
+
+Έτσι ο πελάτης βλέπει εύκολα τι έχει ανοιχτό και τι έχει ήδη κλείσει.
 
 ## 13. Profile
 Η σελίδα profile δείχνει:
@@ -178,16 +221,18 @@
 - δεν έχει `receive_all_categories`
 - δεν υπάρχουν ενεργά είδη στο scope του
 
-Σε αυτή την περίπτωση πρέπει να γίνει έλεγχος από το admin panel στο `Clients`.
+Σε αυτή την περίπτωση το portal δείχνει σχετικό scope warning.
+Ο έλεγχος γίνεται από το admin panel στην ενότητα `Clients`.
 
-## 16. Χρήσιμη ροή χρήσης
+## 16. Χρήσιμη καθημερινή ροή
 Η βασική καθημερινή ροή είναι:
 1. σύνδεση
 2. έλεγχος dashboard
 3. είσοδος σε `New Items` ή `All Items`
-4. άνοιγμα καρτέλας είδους
-5. remark αν υπάρχει λάθος ή έλλειψη
-6. παρακολούθηση remark μέσα από `My Remarks`
+4. χρήση φίλτρων / αναζήτησης
+5. άνοιγμα καρτέλας είδους
+6. remark αν υπάρχει λάθος ή έλλειψη
+7. παρακολούθηση remark μέσα από `My Remarks`
 
 ## 17. Τι να κάνει ο πελάτης όταν βρίσκει πρόβλημα
 Ο σωστός τρόπος είναι:
@@ -198,25 +243,29 @@
 
 Δεν χρειάζεται να κάνει άλλη ενέργεια μέσα στο portal, γιατί οι διορθώσεις γίνονται από τον διαχειριστή.
 
-## 18. Portal shell and placeholders
-The customer portal must not expose template placeholders in production.
+## 18. Portal shell και placeholders
+Το customer portal δεν πρέπει να δείχνει template placeholders σε production.
 
-This means:
-- no fake profile names
-- no fake message center
-- no demo branding
-- only CloudOn branding
-- only `English` and `Ελληνικά` in the language selector
+Αυτό σημαίνει:
+- όχι fake profile names
+- όχι fake message center
+- όχι demo branding
+- μόνο CloudOn branding
+- μόνο `English` και `Ελληνικά` στη γλωσσική επιλογή
 
 Runtime rule:
-- template switcher/demo systems must not remain connected to live customer routes
-- placeholder error-page shells must not be reused inside the customer runtime shell
-- live portal bundles must not contain `Azea`, `Spruko`, `Patrenna`, or `Web Designer`
+- template switcher/demo systems δεν πρέπει να μένουν συνδεδεμένα στις live routes
+- placeholder error-page shells δεν πρέπει να επαναχρησιμοποιούνται στο customer runtime shell
+- live bundles δεν πρέπει να περιέχουν `Azea`, `Spruko`, `Patrenna`, ή `Web Designer`
 
-## 19. Login screen branding
-The login screen uses a branded background/watermark that visually points to the CloudOn service.
+## 19. Οπτική ταυτότητα
+Η οπτική ταυτότητα του portal δίνει έμφαση σε:
+- καθαρό read-only shell
+- branded login
+- καθαρό item detail layout
+- εμφανές distinction από το admin CMS
 
-Purpose:
-- clear service identity
-- visual separation from the admin CMS
-- cleaner customer-facing experience
+Στόχος είναι ο πελάτης να καταλαβαίνει:
+- τι βλέπει
+- τι μπορεί να κάνει
+- τι δεν μπορεί να αλλάξει
