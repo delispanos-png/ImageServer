@@ -27,6 +27,12 @@ const PERMISSIONS_BY_ROLE: Record<CmsRole, CmsPermission[]> = {
     'clients.create',
     'clients.update',
     'clients.delete',
+    'missing_barcodes.view',
+    'missing_barcodes.update',
+    'brand_queue.view',
+    'brand_queue.update',
+    'duplicates.view',
+    'duplicates.update',
     'users.view',
     'users.create',
     'users.update',
@@ -59,6 +65,12 @@ const PERMISSIONS_BY_ROLE: Record<CmsRole, CmsPermission[]> = {
     'clients.create',
     'clients.update',
     'clients.delete',
+    'missing_barcodes.view',
+    'missing_barcodes.update',
+    'brand_queue.view',
+    'brand_queue.update',
+    'duplicates.view',
+    'duplicates.update',
     'notifications.view',
     'notifications.publish',
     'settings.view',
@@ -69,6 +81,12 @@ const PERMISSIONS_BY_ROLE: Record<CmsRole, CmsPermission[]> = {
     'sources.view',
     'items.view',
     'items.update',
+    'missing_barcodes.view',
+    'missing_barcodes.update',
+    'brand_queue.view',
+    'brand_queue.update',
+    'duplicates.view',
+    'duplicates.update',
     'categories.view',
     'notifications.view',
     'notifications.publish',
@@ -88,6 +106,9 @@ const MODULE_PERMISSION_PREFIX: Record<CmsModuleKey, string> = {
   categories: 'categories.',
   clients: 'clients.',
   customer_remarks: 'clients.',
+  missing_barcodes: 'missing_barcodes.',
+  brand_queue: 'brand_queue.',
+  duplicates: 'duplicates.',
   users: 'users.',
   roles: 'roles.',
   notifications: 'notifications.',
@@ -171,6 +192,9 @@ export function getAccessibleRoutes(role: string | null | undefined): string[] {
   if (allowedModules.has('categories')) routes.push(cmsRoutes.categories);
   if (allowedModules.has('clients')) routes.push(cmsRoutes.clients);
   if (allowedModules.has('customer_remarks')) routes.push(cmsRoutes.customerRemarks);
+  if (allowedModules.has('missing_barcodes')) routes.push(cmsRoutes.missingBarcodes);
+  if (allowedModules.has('brand_queue')) routes.push(cmsRoutes.brandQueue);
+  if (allowedModules.has('duplicates')) routes.push(cmsRoutes.duplicates);
   if (allowedModules.has('users')) routes.push(cmsRoutes.users);
   if (allowedModules.has('roles')) routes.push(cmsRoutes.roles);
   if (allowedModules.has('notifications')) routes.push(cmsRoutes.notifications);

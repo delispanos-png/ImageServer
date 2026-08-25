@@ -19,6 +19,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": False,
     },
     "pharmacy295": {
         "enabled": True,
@@ -28,6 +29,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
     },
     "youpharmacy": {
         "enabled": False,
@@ -37,6 +39,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
     },
     "gohealthy": {
         "enabled": False,
@@ -46,6 +49,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
     },
     "cure4u": {
         "enabled": False,
@@ -55,6 +59,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
     },
     "kpdhellas": {
         "enabled": True,
@@ -64,6 +69,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": False,
     },
     "vita4you": {
         "enabled": False,
@@ -73,6 +79,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": False,
     },
     "skroutz": {
         "enabled": False,
@@ -82,6 +89,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
     },
     "boxpharmacy": {
         "enabled": False,
@@ -91,6 +99,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
     },
     "tofarmakeiomou": {
         "enabled": False,
@@ -100,6 +109,7 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
     },
     "pharm16": {
         "enabled": False,
@@ -109,6 +119,27 @@ DEFAULT_SOURCE_SETTINGS: Dict[str, Dict[str, Any]] = {
         "removed": False,
         "removed_at": "",
         "removed_by": "",
+        "use_flaresolverr": True,
+    },
+    "google_images": {
+        "enabled": False,
+        "priority": 99,
+        "text_priority": 0,
+        "image_priority": 5,
+        "removed": False,
+        "removed_at": "",
+        "removed_by": "",
+        "use_flaresolverr": False,
+    },
+    "newgenpharmacy": {
+        "enabled": True,
+        "priority": 4,
+        "text_priority": 4,
+        "image_priority": 4,
+        "removed": False,
+        "removed_at": "",
+        "removed_by": "",
+        "use_flaresolverr": True,
     },
 }
 
@@ -624,6 +655,24 @@ def get_enabled_text_source_chain() -> list[str]:
 
 def get_enabled_image_source_chain() -> list[str]:
     return _get_enabled_purpose_source_chain("image_priority")
+
+
+def should_use_flaresolverr(source_key: str) -> bool:
+    """Return True if the given source should route HTTP through FlareSolverr.
+
+    Reads runtime_settings.json with DEFAULT_SOURCE_SETTINGS as fallback.
+    Admins can toggle this per source from the Sources admin page.
+    """
+    key = str(source_key or "").strip().lower()
+    if not key:
+        return False
+    settings = get_source_settings(key)
+    if not settings:
+        return False
+    if "use_flaresolverr" in settings:
+        return bool(settings.get("use_flaresolverr"))
+    default = DEFAULT_SOURCE_SETTINGS.get(key, {})
+    return bool(default.get("use_flaresolverr", False))
 
 
 def is_source_enabled_for_purpose(source_key: str, priority_key: str) -> bool:

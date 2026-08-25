@@ -53,6 +53,62 @@ export async function updateClient(clientId: string, payload: CmsClientPayload):
   return response.data;
 }
 
+export async function deleteClient(clientId: string): Promise<void> {
+  await apiFetch<{ success: boolean; deleted_id: string }>(`/cms/clients/${clientId}`, {
+    method: 'DELETE',
+  });
+}
+
+export interface BulkDeleteResult {
+  success: boolean;
+  deleted_count: number;
+  invalid_ids: string[];
+  missing_ids: string[];
+}
+
+export async function bulkDeleteClients(clientIds: string[]): Promise<BulkDeleteResult> {
+  return apiFetch<BulkDeleteResult>(`/cms/clients/bulk-delete`, {
+    method: 'POST',
+    body: JSON.stringify({ client_ids: clientIds }),
+  });
+}
+
+export interface RevealedCredentials {
+  success: boolean;
+  password: string;
+  api_username?: string;
+  detail?: string;
+}
+
+export async function revealApiClientPassword(clientId: string): Promise<RevealedCredentials> {
+  return apiFetch<RevealedCredentials>(`/cms/clients/${clientId}/api-credentials/reveal`);
+}
+
+export interface ResendCredentialsResult {
+  success: boolean;
+  email_sent: boolean;
+  email_error: string;
+  email: string;
+}
+
+export async function resendApiClientCredentials(clientId: string): Promise<ResendCredentialsResult> {
+  return apiFetch<ResendCredentialsResult>(`/cms/clients/${clientId}/api-credentials/resend`, {
+    method: 'POST',
+  });
+}
+
+export interface TrialUsageResetResult {
+  success: boolean;
+  previous_count: number;
+  current_count: number;
+}
+
+export async function resetTrialUsage(clientId: string): Promise<TrialUsageResetResult> {
+  return apiFetch<TrialUsageResetResult>(`/cms/clients/${clientId}/reset-trial-usage`, {
+    method: 'POST',
+  });
+}
+
 export interface ApiClientCredentialsPayload {
   api_username: string;
   password?: string;

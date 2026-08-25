@@ -21,6 +21,9 @@ export interface CmsAdminUser {
   created_at?: string;
   updated_at?: string;
   password_reset_required?: boolean;
+  failed_login_count?: number;
+  locked_until?: string | null;
+  is_locked?: boolean;
 }
 
 export interface CmsAuthResponse {
@@ -60,6 +63,9 @@ export type CmsModuleKey =
   | 'categories'
   | 'clients'
   | 'customer_remarks'
+  | 'missing_barcodes'
+  | 'brand_queue'
+  | 'duplicates'
   | 'users'
   | 'roles'
   | 'notifications'
@@ -84,6 +90,12 @@ export type CmsPermission =
   | 'clients.create'
   | 'clients.update'
   | 'clients.delete'
+  | 'missing_barcodes.view'
+  | 'missing_barcodes.update'
+  | 'brand_queue.view'
+  | 'brand_queue.update'
+  | 'duplicates.view'
+  | 'duplicates.update'
   | 'users.view'
   | 'users.create'
   | 'users.update'
@@ -192,6 +204,11 @@ export interface CmsItemSourceRefreshResult {
   product_link: string;
   category_resolution_source?: 'barcode_lookup' | 'source' | 'existing' | 'none' | string;
   resolved_category_path?: string[];
+  existing_category_path?: string[];
+  category_improved?: boolean;
+  image_improved?: boolean;
+  text_improved?: boolean;
+  any_improvement?: boolean;
   item: CmsItem;
 }
 
@@ -417,6 +434,11 @@ export interface DashboardMetrics {
   total_categories: number;
   active_clients: number;
   pending_notifications: number;
+  pending_brand_queue: number;
+  pending_missing_barcodes: number;
+  watermark_dead_ends: number;
+  missing_hosted_image: number;
+  pending_duplicates: number;
 }
 
 export interface DashboardActivityEntry {
@@ -498,6 +520,7 @@ export interface CmsSourceOverview {
   removed: boolean;
   removed_at: string;
   removed_by: string;
+  use_flaresolverr: boolean;
   preserves_existing_products: boolean;
   access_status: string;
   runtime_control_enabled: boolean;
@@ -581,6 +604,7 @@ export interface CmsSourceSettingsPayload {
   priority?: number;
   text_priority?: number;
   image_priority?: number;
+  use_flaresolverr?: boolean;
 }
 
 export interface CmsSourceRunResponse {
@@ -709,6 +733,13 @@ export interface CmsClient {
   assigned_categories: CmsAssignedCategory[];
   assigned_categories_count: number;
   services: CmsClientServices;
+  is_trial: boolean;
+  trial_mode: 'whitelist' | 'quota' | string;
+  trial_max_requests: number;
+  trial_barcodes: string[];
+  webhook_url: string;
+  webhook_secret: string;
+  webhook_events: string[];
   source_type: string;
   auth_provider: string;
   api_client_key: string;
@@ -729,6 +760,7 @@ export interface CmsClient {
   updated_by: string;
   created_at: string;
   updated_at: string;
+  allowed_ips: string[];
 }
 
 export interface CmsApiClientCredentialsResult {
@@ -750,6 +782,13 @@ export interface CmsClientPayload {
   notes?: string;
   category_ids?: string[];
   services: CmsClientServices;
+  is_trial?: boolean;
+  trial_mode?: 'whitelist' | 'quota';
+  trial_max_requests?: number;
+  trial_barcodes?: string[];
+  webhook_url?: string;
+  webhook_secret?: string;
+  allowed_ips?: string[];
 }
 
 export interface CmsAuditLog {
@@ -771,6 +810,7 @@ export interface CmsNotificationEvent {
   category_id: string;
   category_name: string;
   event_type: string;
+  channel?: 'catalog' | 'operations' | 'security';
   status: 'pending' | 'published';
   payload: Record<string, unknown>;
   payload_preview: string;

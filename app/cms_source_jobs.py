@@ -338,6 +338,10 @@ def start_source_job(source_key: str, job_key: str) -> Dict[str, Any]:
         last_message="Job launch requested.",
         pid=0,
     )
+    # start_new_session=True → runner + all descendants (bulk_catalog_refresh
+    # → Playwright → chromium subprocesses) share a NEW process group.
+    # Without this, `Stop` could kill only the runner and leave chromium
+    # zombies running, blocking future job runs and eating CPU.
     process = subprocess.Popen(
         [sys.executable or "python3", "/app/source_job_runner.py", source_key, job_key],
         stdin=subprocess.DEVNULL,
@@ -346,6 +350,7 @@ def start_source_job(source_key: str, job_key: str) -> Dict[str, Any]:
         cwd="/app",
         env=os.environ.copy(),
         close_fds=True,
+        start_new_session=True,
     )
     update_job_state(
         source_key,
@@ -374,8 +379,12 @@ def _stop_job_with_status(source_key: str, job_key: str, *, status: str, message
         raise ValueError("Missing job marker")
 
     running_processes = _list_running_processes()
-    process = next((row for row in running_processes if marker in row.get("command", "")), None)
-    if not process:
+    matching = [row for row in running_processes if marker in row.get("command", "")]
+    # Also kill the parent source_job_runner.py wrapper for the same job
+    runner_marker = f"source_job_runner.py {source_key} {job_key}"
+    matching.extend([row for row in running_processes if runner_marker in row.get("command", "") and row not in matching])
+
+    if not matching:
         update_job_state(
             source_key,
             job_key,
@@ -392,9 +401,36 @@ def _stop_job_with_status(source_key: str, job_key: str, *, status: str, message
             "log_path": str(job_config.get("log_path", "")),
         }
 
+    # Kill by PROCESS GROUP so we take out chromium/Playwright descendants
+    # too, not just the runner. Falls back to plain PID kill on any error.
+    import signal as _signal
+    killed_pids = []
+    for proc in matching:
+        pid = int(proc.get("pid", 0) or 0)
+        if not pid:
+            continue
+        try:
+            pgid = os.getpgid(pid)
+            os.killpg(pgid, _signal.SIGTERM)
+        except (ProcessLookupError, PermissionError, OSError):
+            subprocess.run(["kill", "-TERM", str(pid)], check=False)
+        killed_pids.append(pid)
+    import time as _time
+    _time.sleep(1.0)  # give them 1s to shut down cleanly
+    for proc in matching:
+        pid = int(proc.get("pid", 0) or 0)
+        if not pid:
+            continue
+        try:
+            pgid = os.getpgid(pid)
+            os.killpg(pgid, _signal.SIGKILL)
+        except (ProcessLookupError, PermissionError, OSError):
+            subprocess.run(["kill", "-KILL", str(pid)], check=False)
+    # Belt-and-braces: reap any orphaned chromium/playwright zombies.
+    subprocess.run(["pkill", "-9", "-f", "playwright.*run-driver"], check=False)
+    subprocess.run(["pkill", "-9", "-f", "/usr/lib/chromium/chromium"], check=False)
+    process = matching[0]
     pid = int(process.get("pid", 0) or 0)
-    if pid:
-        subprocess.run(["kill", str(pid)], check=False)
 
     update_job_state(
         source_key,
@@ -418,7 +454,21 @@ def stop_source_job(source_key: str, job_key: str) -> Dict[str, Any]:
 
 
 def cancel_source_job(source_key: str, job_key: str) -> Dict[str, Any]:
-    return _stop_job_with_status(source_key, job_key, status="canceled", message="Job canceled by user.")
+    result = _stop_job_with_status(source_key, job_key, status="canceled", message="Job canceled by user.")
+    # Cancel resets progress counters so the next run starts clean.
+    update_job_state(
+        source_key,
+        job_key,
+        matched_total=0,
+        selected_total=0,
+        processed=0,
+        updated=0,
+        skipped=0,
+        failed=0,
+        last_barcode="",
+        last_item_id="",
+    )
+    return result
 
 
 def restart_source_job(source_key: str, job_key: str) -> Dict[str, Any]:

@@ -6,5 +6,6 @@ export const portalRoutes = {
   categories: 'categories',
   myRemarks: 'my-remarks',
   profile: 'profile',
+  submitProduct: 'submit-product',
   itemDetails: 'items/:itemId',
 } as const;

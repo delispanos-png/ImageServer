@@ -1,6 +1,8 @@
 import { Fragment, type ReactNode, useEffect, useMemo, useState } from 'react';
 import { Alert, Card, Col, Row, Spinner, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import PageHeader from '../../../layout/Header/pageheader';
+import { useAdminLanguage } from '../../../app/i18n/AdminLanguageProvider';
 import { fetchDashboardOverview } from '../../../services/cms-dashboard';
 import type { CmsDashboardOverview, DashboardRecentItem } from '../../../types';
 
@@ -11,14 +13,16 @@ function formatDate(value: string) {
   return new Date(value).toLocaleString();
 }
 
-function renderStatus(status: string) {
+function renderStatus(status: string, language: 'en' | 'el') {
   const normalized = status === 'inactive' ? 'danger' : 'success';
-  const label = status === 'inactive' ? 'ανενεργό' : 'ενεργό';
+  const label = status === 'inactive'
+    ? (language === 'el' ? 'ανενεργό' : 'inactive')
+    : (language === 'el' ? 'ενεργό' : 'active');
   return <span className={`badge bg-${normalized}-transparent`}>{label}</span>;
 }
 
-function PanelEmptyState({ label }: { label: string }) {
-  return <div className="cloudon-panel-empty">Δεν υπάρχουν διαθέσιμα {label}.</div>;
+function PanelEmptyState({ label, language }: { label: string; language: 'en' | 'el' }) {
+  return <div className="cloudon-panel-empty">{language === 'el' ? `Δεν υπάρχουν διαθέσιμα ${label}.` : `No ${label} available.`}</div>;
 }
 
 function SectionPanel({
@@ -55,6 +59,7 @@ function MetricCard({
   tone,
   icon,
   loading,
+  href,
 }: {
   label: string;
   value: number;
@@ -62,17 +67,30 @@ function MetricCard({
   tone: MetricTone;
   icon: ReactNode;
   loading: boolean;
+  href?: string;
 }) {
+  const body = (
+    <Card.Body>
+      <div className="cloudon-metric-card__icon">{icon}</div>
+      <div className="cloudon-metric-card__label">{label}</div>
+      <div className="cloudon-metric-card__value">
+        {loading ? <Spinner animation="border" size="sm" /> : value.toLocaleString()}
+      </div>
+      <div className="cloudon-metric-card__note">{note}</div>
+    </Card.Body>
+  );
+  if (href) {
+    return (
+      <Link to={href} className="cloudon-metric-card__link text-decoration-none">
+        <Card className={`cloudon-metric-card cloudon-metric-card--${tone} cloudon-metric-card--clickable h-100`}>
+          {body}
+        </Card>
+      </Link>
+    );
+  }
   return (
     <Card className={`cloudon-metric-card cloudon-metric-card--${tone}`}>
-      <Card.Body>
-        <div className="cloudon-metric-card__icon">{icon}</div>
-        <div className="cloudon-metric-card__label">{label}</div>
-        <div className="cloudon-metric-card__value">
-          {loading ? <Spinner animation="border" size="sm" /> : value.toLocaleString()}
-        </div>
-        <div className="cloudon-metric-card__note">{note}</div>
-      </Card.Body>
+      {body}
     </Card>
   );
 }
@@ -127,17 +145,17 @@ function DashboardIcon({ type }: { type: MetricTone }) {
   }
 }
 
-function RecentItemsTable({ items }: { items: DashboardRecentItem[] }) {
-  if (!items.length) return <PanelEmptyState label="πρόσφατα είδη" />;
+function RecentItemsTable({ items, language }: { items: DashboardRecentItem[]; language: 'en' | 'el' }) {
+  if (!items.length) return <PanelEmptyState label={language === 'el' ? 'πρόσφατα είδη' : 'recent items'} language={language} />;
   return (
     <Table responsive className="table table-striped mb-0 align-middle">
       <thead>
         <tr>
-          <th>Τίτλος</th>
-          <th>Κωδικός</th>
-          <th>Γραμμωτός κώδικας</th>
-          <th>Κατάσταση</th>
-          <th>Ημερομηνία Δημιουργίας</th>
+          <th>{language === 'el' ? 'Τίτλος' : 'Title'}</th>
+          <th>{language === 'el' ? 'Κωδικός' : 'Code'}</th>
+          <th>{language === 'el' ? 'Γραμμωτός κώδικας' : 'Barcode'}</th>
+          <th>{language === 'el' ? 'Κατάσταση' : 'Status'}</th>
+          <th>{language === 'el' ? 'Ημερομηνία Δημιουργίας' : 'Created At'}</th>
         </tr>
       </thead>
       <tbody>
@@ -146,7 +164,7 @@ function RecentItemsTable({ items }: { items: DashboardRecentItem[] }) {
             <td>{item.title || '-'}</td>
             <td>{item.code || '-'}</td>
             <td>{item.barcode || '-'}</td>
-            <td>{renderStatus(item.status)}</td>
+            <td>{renderStatus(item.status, language)}</td>
             <td>{formatDate(item.created_at)}</td>
           </tr>
         ))}
@@ -156,6 +174,8 @@ function RecentItemsTable({ items }: { items: DashboardRecentItem[] }) {
 }
 
 export default function CmsDashboard() {
+  const { language } = useAdminLanguage();
+  const tx = (en: string, el: string) => (language === 'el' ? el : en);
   const [overview, setOverview] = useState<CmsDashboardOverview | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -172,7 +192,7 @@ export default function CmsDashboard() {
         }
       } catch (err) {
         if (active) {
-          setError(err instanceof Error ? err.message : 'Failed to load dashboard.');
+          setError(err instanceof Error ? err.message : tx('Failed to load dashboard.', 'Αποτυχία φόρτωσης dashboard.'));
         }
       } finally {
         if (active) {
@@ -189,52 +209,93 @@ export default function CmsDashboard() {
   const metrics = useMemo(
     () => [
       {
-        label: 'Εγγραφές Καταλόγου',
+        label: tx('Catalog Records', 'Εγγραφές Καταλόγου'),
         value: overview?.metrics.total_items ?? 0,
-        note: 'Είδη που παρακολουθούνται στο CMS',
+        note: tx('Items tracked inside the CMS', 'Είδη που παρακολουθούνται στο CMS'),
         tone: 'violet' as const,
+        href: '/items',
       },
       {
-        label: 'Δημοσιευμένα Είδη',
+        label: tx('Published Items', 'Δημοσιευμένα Είδη'),
         value: overview?.metrics.active_items ?? 0,
-        note: 'Ενεργά είδη ορατά στους πελάτες',
+        note: tx('Active items visible to clients', 'Ενεργά είδη ορατά στους πελάτες'),
         tone: 'emerald' as const,
+        href: '/items?status=active',
       },
       {
-        label: 'Κρυφά Είδη',
+        label: tx('Hidden Items', 'Κρυφά Είδη'),
         value: overview?.metrics.inactive_items ?? 0,
-        note: 'Είδη εκτός λειτουργικής προβολής',
+        note: tx('Items outside operational visibility', 'Είδη εκτός λειτουργικής προβολής'),
         tone: 'amber' as const,
+        href: '/items?status=inactive',
       },
       {
-        label: 'Κόμβοι Κατηγοριοποίησης',
+        label: tx('Taxonomy Nodes', 'Κόμβοι Κατηγοριοποίησης'),
         value: overview?.metrics.total_categories ?? 0,
-        note: 'Διαθέσιμα branches και leaves κατηγοριών',
+        note: tx('Available category branches and leaves', 'Διαθέσιμα branches και leaves κατηγοριών'),
         tone: 'sky' as const,
+        href: '/categories',
       },
       {
-        label: 'Ενεργοί Πελάτες',
+        label: tx('Active Clients', 'Ενεργοί Πελάτες'),
         value: overview?.metrics.active_clients ?? 0,
-        note: 'Λογαριασμοί πελατών με ενεργή πρόσβαση',
+        note: tx('Client accounts with active access', 'Λογαριασμοί πελατών με ενεργή πρόσβαση'),
         tone: 'rose' as const,
+        href: '/clients',
       },
       {
-        label: 'Συμβάντα σε Ουρά',
+        label: tx('Queued Events', 'Συμβάντα σε Ουρά'),
         value: overview?.metrics.pending_notifications ?? 0,
-        note: 'Ειδοποιήσεις σε αναμονή',
+        note: tx('Notifications waiting in the queue', 'Ειδοποιήσεις σε αναμονή'),
         tone: 'indigo' as const,
+        href: '/notifications',
+      },
+      {
+        label: tx('Brand Queue', 'Ουρά Brand Catalog'),
+        value: overview?.metrics.pending_brand_queue ?? 0,
+        note: tx('Pending manufacturer items awaiting review', 'Προϊόντα κατασκευαστών σε αναμονή έγκρισης'),
+        tone: 'violet' as const,
+        href: '/brand-queue',
+      },
+      {
+        label: tx('Missing Barcodes', 'Barcodes που Ζητήθηκαν'),
+        value: overview?.metrics.pending_missing_barcodes ?? 0,
+        note: tx('Customer-requested barcodes not yet in DB', 'Barcodes πελατών που λείπουν από τη βάση'),
+        tone: 'amber' as const,
+        href: '/missing-barcodes',
+      },
+      {
+        label: tx('Broken Images', 'Σπασμένες Εικόνες'),
+        value: overview?.metrics.missing_hosted_image ?? 0,
+        note: tx('Inactive items without a hosted image file', 'Ανενεργά είδη χωρίς τοπική εικόνα'),
+        tone: 'rose' as const,
+        href: '/items?missing=missing_any_image&quality=needs_fix',
+      },
+      {
+        label: tx('Watermark Dead-ends', 'Watermark Αδιέξοδα'),
+        value: overview?.metrics.watermark_dead_ends ?? 0,
+        note: tx('Watermarked items with no clean replacement found', 'Watermarked είδη χωρίς εναλλακτική πηγή'),
+        tone: 'sky' as const,
+        href: '/fix-queue',
+      },
+      {
+        label: tx('Duplicate Groups', 'Διπλά Barcodes'),
+        value: overview?.metrics.pending_duplicates ?? 0,
+        note: tx('Probable duplicate products awaiting merge review', 'Πιθανά διπλά προϊόντα για έλεγχο'),
+        tone: 'indigo' as const,
+        href: '/duplicates',
       },
     ],
-    [overview],
+    [overview, language],
   );
 
   return (
     <Fragment>
       <PageHeader
-        title="Κέντρο Ελέγχου"
-        subtitle="Σύνοψη όγκου καταλόγου, πρόσφατων αλλαγών και δραστηριότητας χρηστών."
-        eyebrow="Επισκόπηση CMS"
-        actions={<span className="cloudon-meta-pill">Ζωντανή κατάσταση καταλόγου</span>}
+        title={tx('Control Room', 'Κέντρο Ελέγχου')}
+        subtitle={tx('Operational snapshot of catalog volume, recent changes, and user activity.', 'Σύνοψη όγκου καταλόγου, πρόσφατων αλλαγών και δραστηριότητας χρηστών.')}
+        eyebrow={tx('CMS Overview', 'Επισκόπηση CMS')}
+        actions={<span className="cloudon-meta-pill">{tx('Live catalog state', 'Ζωντανή κατάσταση καταλόγου')}</span>}
       />
 
       {error ? (
@@ -253,6 +314,7 @@ export default function CmsDashboard() {
               tone={metric.tone}
               icon={<DashboardIcon type={metric.tone} />}
               loading={loading}
+              href={metric.href}
             />
           </Col>
         ))}
@@ -260,18 +322,18 @@ export default function CmsDashboard() {
 
       <Row className="g-4 mt-1">
         <Col xl={8}>
-          <SectionPanel title="Πρόσφατες Αλλαγές Ειδών" eyebrow="Ροή Ελέγχου">
+          <SectionPanel title={tx('Recent Item Changes', 'Πρόσφατες Αλλαγές Ειδών')} eyebrow={tx('Audit Stream', 'Ροή Ελέγχου')}>
             {loading ? (
               <Spinner animation="border" size="sm" />
             ) : overview?.recent_item_changes.length ? (
               <Table responsive className="table table-striped mb-0 align-middle">
                 <thead>
                   <tr>
-                    <th>Πεδίο</th>
-                    <th>Τύπος Αλλαγής</th>
-                    <th>Από</th>
-                    <th>Προεπισκόπηση</th>
-                    <th>Χρόνος</th>
+                    <th>{tx('Field', 'Πεδίο')}</th>
+                    <th>{tx('Change Type', 'Τύπος Αλλαγής')}</th>
+                    <th>{tx('By', 'Από')}</th>
+                    <th>{tx('Preview', 'Προεπισκόπηση')}</th>
+                    <th>{tx('Time', 'Χρόνος')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -287,12 +349,12 @@ export default function CmsDashboard() {
                 </tbody>
               </Table>
             ) : (
-              <PanelEmptyState label="πρόσφατες αλλαγές" />
+              <PanelEmptyState label={tx('recent changes', 'πρόσφατες αλλαγές')} language={language} />
             )}
           </SectionPanel>
         </Col>
         <Col xl={4}>
-          <SectionPanel title="Είδη ανά Κατηγορία" eyebrow="Κατανομή">
+          <SectionPanel title={tx('Items by Category', 'Είδη ανά Κατηγορία')} eyebrow={tx('Distribution', 'Κατανομή')}>
             {loading ? (
               <Spinner animation="border" size="sm" />
             ) : overview?.items_by_category.length ? (
@@ -313,7 +375,7 @@ export default function CmsDashboard() {
                 ))}
               </div>
             ) : (
-              <PanelEmptyState label="κατανομή κατηγοριών" />
+              <PanelEmptyState label={tx('category distribution', 'κατανομή κατηγοριών')} language={language} />
             )}
           </SectionPanel>
         </Col>
@@ -321,17 +383,17 @@ export default function CmsDashboard() {
 
       <Row className="g-4 mt-1">
         <Col xl={6}>
-          <SectionPanel title="Πρόσφατη Δραστηριότητα Χρηστών" eyebrow="Ενέργειες Χειριστών">
+          <SectionPanel title={tx('Recent User Activity', 'Πρόσφατη Δραστηριότητα Χρηστών')} eyebrow={tx('Operator Actions', 'Ενέργειες Χειριστών')}>
             {loading ? (
               <Spinner animation="border" size="sm" />
             ) : overview?.recent_user_activity.length ? (
               <Table responsive className="table table-striped mb-0 align-middle">
                 <thead>
                   <tr>
-                    <th>Χρήστης</th>
-                    <th>Ενέργεια</th>
-                    <th>Οντότητα</th>
-                    <th>Χρόνος</th>
+                    <th>{tx('User', 'Χρήστης')}</th>
+                    <th>{tx('Action', 'Ενέργεια')}</th>
+                    <th>{tx('Entity', 'Οντότητα')}</th>
+                    <th>{tx('Time', 'Χρόνος')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -346,28 +408,28 @@ export default function CmsDashboard() {
                 </tbody>
               </Table>
             ) : (
-              <PanelEmptyState label="δραστηριότητα χρηστών" />
+              <PanelEmptyState label={tx('user activity', 'δραστηριότητα χρηστών')} language={language} />
             )}
           </SectionPanel>
         </Col>
         <Col xl={6}>
-          <SectionPanel title="Πρόσφατα Προστιθέμενα Είδη" eyebrow="Νέες Καταχωρίσεις">
-            {loading ? <Spinner animation="border" size="sm" /> : <RecentItemsTable items={overview?.recent_added_items ?? []} />}
+          <SectionPanel title={tx('Recently Added Items', 'Πρόσφατα Προστιθέμενα Είδη')} eyebrow={tx('New Entries', 'Νέες Καταχωρίσεις')}>
+            {loading ? <Spinner animation="border" size="sm" /> : <RecentItemsTable items={overview?.recent_added_items ?? []} language={language} />}
           </SectionPanel>
         </Col>
       </Row>
 
       <Row className="g-4 mt-1">
         <Col xl={12}>
-          <SectionPanel title="Είδη που Προστέθηκαν τις Τελευταίες 30 Ημέρες" eyebrow="Ροή">
+          <SectionPanel title={tx('Items Added in the Last 30 Days', 'Είδη που Προστέθηκαν τις Τελευταίες 30 Ημέρες')} eyebrow={tx('Flow', 'Ροή')}>
             {loading ? (
               <Spinner animation="border" size="sm" />
             ) : overview?.items_added_last_30_days.length ? (
               <Table responsive className="table table-striped mb-0 align-middle">
                 <thead>
                   <tr>
-                    <th>Ημερομηνία</th>
-                    <th>Είδη που Προστέθηκαν</th>
+                    <th>{tx('Date', 'Ημερομηνία')}</th>
+                    <th>{tx('Items Added', 'Είδη που Προστέθηκαν')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -380,7 +442,7 @@ export default function CmsDashboard() {
                 </tbody>
               </Table>
             ) : (
-              <PanelEmptyState label="χρονοσειρά" />
+              <PanelEmptyState label={tx('time series', 'χρονοσειρά')} language={language} />
             )}
           </SectionPanel>
         </Col>

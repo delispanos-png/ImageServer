@@ -512,3 +512,425 @@ Default requirement:
 - do not treat documentation as optional follow-up work
 
 This is a standard operating rule for the project.
+
+---
+
+## 15. System Health & Monitoring
+
+### Health Check Endpoints
+The platform provides comprehensive health check endpoints for monitoring:
+
+- `GET /health` - Basic health check, returns 200 if service is running
+- `GET /health/ready` - Readiness check, verifies all critical dependencies
+- `GET /health/live` - Liveness check, confirms service is alive
+
+Health checks verify:
+- MongoDB connection and status
+- XML Generator service availability
+- Service uptime and version
+
+### Rate Limiting
+API endpoints are protected with rate limiting to prevent abuse:
+
+Rate limits (requests per minute):
+- API endpoints (`/api/*`): 60 requests/minute
+- CMS endpoints (`/cms/*`): 120 requests/minute
+- Portal endpoints (`/portal/*`): 100 requests/minute
+- Other endpoints: 30 requests/minute
+
+Rate limit information is included in response headers:
+- `X-RateLimit-Limit`: Maximum requests allowed
+- `X-RateLimit-Remaining`: Remaining requests in current window
+- `X-RateLimit-Reset`: Timestamp when limit resets
+
+When rate limit is exceeded:
+- HTTP 429 (Too Many Requests) is returned
+- `Retry-After` header indicates wait time in seconds
+
+### Logging
+Application logs are structured and include:
+- Request/response logging
+- Error tracking with stack traces
+- Performance metrics
+- Security events (authentication, authorization)
+- Business events (catalog changes, source updates)
+
+Log locations:
+- Container logs: `docker logs <container_name>`
+- Application logs: `/app/logs/` (if configured)
+
+Recommended log aggregation:
+- Use centralized logging (ELK Stack, Loki, CloudWatch)
+- Set up alerts for critical errors
+- Monitor error rates and response times
+
+### Monitoring Metrics
+Key metrics to track:
+
+**Application Metrics:**
+- Request rate and response time (p50, p95, p99)
+- Error rate and types
+- Active concurrent connections
+- API endpoint usage by client
+
+**Infrastructure Metrics:**
+- CPU and memory usage
+- Disk I/O and space
+- Network throughput
+- Container health status
+
+**Business Metrics:**
+- Products updated per day
+- Source fetch success/failure rates
+- Image processing throughput
+- API calls per client
+- Active vs inactive products ratio
+
+### Resource Limits
+Production deployment resource allocation:
+
+**FastAPI Container:**
+- Memory: 4GB limit, 2GB reservation
+- CPU: 2.0 cores limit, 1.0 core reservation
+- Workers: 4 uvicorn workers
+
+**MongoDB Container:**
+- Memory: 2GB limit, 1GB reservation
+- CPU: 2.0 cores limit, 1.0 core reservation
+
+**XML Generator:**
+- Memory: 1GB limit, 512MB reservation
+- CPU: 1.0 core limit, 0.5 core reservation
+
+Adjust based on actual load and performance monitoring.
+
+---
+
+## 16. Security Hardening
+
+### Environment Variables
+All sensitive configuration must be stored in environment variables, never in code:
+
+Required security variables:
+- `MONGO_USER`, `MONGO_PASSWORD` - Database credentials
+- `USERNAME`, `PASSWORD` - API credentials
+- JWT secrets (if implementing token-based auth)
+
+Security rules:
+- Never commit `.env` files to version control
+- Use `.env.example` as template with dummy values
+- Rotate credentials regularly
+- Use strong passwords (minimum 16 characters, mixed case, numbers, symbols)
+
+### HTTPS/TLS
+Production deployment must use HTTPS:
+- Valid SSL/TLS certificates
+- TLS 1.2 or higher
+- Strong cipher suites
+- HSTS headers enabled
+
+### CORS Configuration
+CORS is configured via `CMS_ALLOWED_ORIGINS` environment variable:
+- Whitelist specific origins only
+- Never use `*` in production
+- Include protocol (http/https) in origin URLs
+
+### Input Validation
+All API endpoints validate input using Pydantic models:
+- Type validation
+- Length constraints
+- Pattern matching (regex)
+- Required vs optional fields
+
+Additional validation:
+- Barcode format validation
+- Image URL validation
+- Category hierarchy validation
+- File upload type and size limits
+
+### Authentication & Authorization
+Current implementation:
+- HTTP Basic Auth for API clients
+- Session-based auth for CMS users
+- JWT tokens for portal users (if implemented)
+
+Authorization rules:
+- Role-based access control (RBAC)
+- Permission checks on all CMS operations
+- Client scope restrictions for portal users
+- API key validation and tracking
+
+### SQL/NoSQL Injection Prevention
+MongoDB queries use parameterized queries:
+- Never construct queries from string concatenation
+- Validate and sanitize all user input
+- Use Pydantic models for type safety
+- Avoid `$where` operator with user input
+
+### Security Headers
+Required security headers (configured in Nginx/reverse proxy):
+- `Strict-Transport-Security` (HSTS)
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `X-XSS-Protection: 1; mode=block`
+- `Content-Security-Policy`
+- `Referrer-Policy: no-referrer`
+
+---
+
+## 17. Backup & Recovery
+
+### Database Backup Strategy
+Automated daily backups using mongodump:
+
+```bash
+# Daily backup script
+mongodump --uri="$MONGO_URI" \
+  --authenticationDatabase=admin \
+  --out=/backups/$(date +%Y%m%d_%H%M%S)
+```
+
+Backup retention policy:
+- Daily backups: Keep 30 days
+- Weekly backups: Keep 12 weeks
+- Monthly backups: Keep 12 months
+
+Backup storage:
+- Primary: Local disk (`/backups`)
+- Secondary: Off-site storage (S3, NAS, cloud backup)
+
+### Backup Verification
+Regular backup testing:
+- Monthly: Restore test on staging environment
+- Quarterly: Full disaster recovery drill
+- Verify backup integrity and completeness
+
+### Recovery Procedures
+Database restore process:
+
+```bash
+# Stop application
+docker compose down fastapi
+
+# Restore from backup
+mongorestore --uri="$MONGO_URI" \
+  --authenticationDatabase=admin \
+  --drop \
+  /backups/20260429_120000
+
+# Verify data integrity
+# Run application health checks
+
+# Restart application
+docker compose up -d
+```
+
+Recovery Time Objective (RTO): 1 hour
+Recovery Point Objective (RPO): 24 hours (daily backups)
+
+### Image Backup
+Image files are critical business data:
+- Daily rsync/sync to backup storage
+- Verify backup completeness
+- Test restore procedures
+
+### Configuration Backup
+Version control for all configuration:
+- `.env.example` in git
+- Docker compose files
+- Nginx configuration
+- Build scripts
+
+Actual `.env` files:
+- Backup encrypted to secure location
+- Document credential rotation procedures
+
+---
+
+## 18. Troubleshooting Guide
+
+### Common Issues
+
+#### Service Won't Start
+1. Check Docker logs: `docker logs <container>`
+2. Verify environment variables in `.env`
+3. Check port conflicts: `lsof -i :<port>`
+4. Verify disk space: `df -h`
+5. Check MongoDB connection: `docker exec mongodb mongosh`
+
+#### MongoDB Connection Errors
+- Verify credentials in `.env`
+- Check MongoDB is running: `docker ps | grep mongodb`
+- Check network connectivity: `docker network inspect imageDataAPI_default`
+- Review MongoDB logs: `docker logs mongodb`
+
+#### High Memory Usage
+- Check container stats: `docker stats`
+- Review application logs for memory leaks
+- Adjust resource limits in docker-compose
+- Consider scaling horizontally
+
+#### Slow API Response
+- Check database query performance
+- Review MongoDB indexes: `db.collection.getIndexes()`
+- Monitor network latency
+- Check rate limiting logs
+- Review application logs for bottlenecks
+
+#### Image Upload Failures
+- Verify permissions on image directory
+- Check disk space
+- Review file size limits
+- Check FastAPI logs for errors
+- Verify IMAGES_PATH environment variable
+
+#### Frontend Build Fails
+- Clear node_modules: `rm -rf node_modules && npm install`
+- Check Node.js version: `node --version` (should be 20.x+)
+- Review build logs for specific errors
+- Clear npm cache: `npm cache clean --force`
+
+### Performance Optimization
+
+#### Database Optimization
+- Create appropriate indexes
+- Use projection to fetch only required fields
+- Implement pagination for large result sets
+- Use aggregation pipeline efficiently
+- Monitor slow queries
+
+#### API Optimization
+- Enable response compression
+- Implement caching for frequently accessed data
+- Use connection pooling
+- Optimize image serving (CDN, compression)
+- Implement ETags for caching
+
+#### Frontend Optimization
+- Code splitting and lazy loading
+- Bundle size optimization
+- Image optimization (WebP, responsive images)
+- Service worker for offline support
+- Virtual scrolling for large lists
+
+---
+
+## 19. Upgrade Procedures
+
+### MongoDB Upgrade (4.4 → 7.0)
+**CRITICAL: MongoDB 4.4 is End of Life. Upgrade required.**
+
+Upgrade path: 4.4 → 5.0 → 6.0 → 7.0
+
+1. **Backup current database**
+   ```bash
+   mongodump --uri="$MONGO_URI" --out=/backups/pre_upgrade_$(date +%Y%m%d)
+   ```
+
+2. **Upgrade to 5.0**
+   - Update docker-compose.yml: `mongo:5.0`
+   - Set compatibility version: `db.adminCommand({setFeatureCompatibilityVersion: "5.0"})`
+
+3. **Upgrade to 6.0**
+   - Update docker-compose.yml: `mongo:6.0`
+   - Set compatibility version: `db.adminCommand({setFeatureCompatibilityVersion: "6.0"})`
+
+4. **Upgrade to 7.0**
+   - Update docker-compose.yml: `mongo:7.0`
+   - Set compatibility version: `db.adminCommand({setFeatureCompatibilityVersion: "7.0"})`
+
+5. **Verify and test**
+   - Run application test suite
+   - Verify all queries work correctly
+   - Monitor performance
+
+### Node.js Upgrade (12.x → 20.x)
+**CRITICAL: Node.js 12 is End of Life. Upgrade required.**
+
+1. **Backup current node_modules**
+   ```bash
+   mv node_modules node_modules.backup
+   ```
+
+2. **Install Node.js 20 LTS**
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+   sudo apt-get install -y nodejs
+   ```
+
+3. **Verify installation**
+   ```bash
+   node --version  # Should show v20.x
+   npm --version   # Should show 10.x+
+   ```
+
+4. **Update dependencies**
+   ```bash
+   npm install
+   ```
+
+5. **Test build**
+   ```bash
+   npm run build
+   npm run build:portal
+   ```
+
+### Python Dependencies Update
+```bash
+# Check for outdated packages
+pip list --outdated
+
+# Update specific package
+pip install --upgrade <package>
+
+# Update all (use caution)
+pip install --upgrade -r requirements.txt
+
+# Test after updates
+pytest
+```
+
+---
+
+## 20. Development Best Practices
+
+### Code Style
+
+**Python:**
+- Follow PEP 8 style guide
+- Use type hints for all functions
+- Maximum line length: 88 characters (Black default)
+- Use docstrings for all functions and classes
+
+**TypeScript/JavaScript:**
+- Use ESLint configuration
+- Prefer const over let
+- Use async/await over callbacks
+- Implement proper error handling
+
+### Testing Requirements
+All new features must include:
+- Unit tests (minimum 80% coverage)
+- Integration tests for API endpoints
+- E2E tests for critical user flows
+
+### Git Workflow
+- Branch naming: `feature/description`, `fix/description`, `hotfix/description`
+- Commit messages: Follow conventional commits
+- Pull requests: Require code review before merge
+- Never commit sensitive data (credentials, keys, `.env`)
+
+### Code Review Checklist
+- [ ] Code follows style guide
+- [ ] Tests are included and passing
+- [ ] Documentation is updated
+- [ ] No security vulnerabilities introduced
+- [ ] Performance impact considered
+- [ ] Error handling is comprehensive
+- [ ] Logging is appropriate
+
+---
+
+**Document Version**: 2.0
+**Last Updated**: 29 April 2026
+**Next Review**: 29 May 2026

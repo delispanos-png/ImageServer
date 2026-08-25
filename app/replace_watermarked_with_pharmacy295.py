@@ -38,15 +38,22 @@ def parse_args() -> argparse.Namespace:
         default=os.getenv("SKIP_REPLACE_BARCODES_FILE", "/app/skip_replace_from_varwww_barcodes.txt"),
         help="Optional newline-delimited barcode file to exclude from replacement.",
     )
+    parser.add_argument(
+        "--watermarked-only",
+        action="store_true",
+        help="Limit replacement to products with watermark_cleanup_applied=true.",
+    )
     return parser.parse_args()
 
 
-def build_query(feed_barcodes: list[str], barcode: str) -> dict:
+def build_query(feed_barcodes: list[str], barcode: str, watermarked_only: bool = False) -> dict:
     if barcode:
-        return {"Barcode": barcode}
-    return {
-        "Barcode": {"$in": feed_barcodes},
-    }
+        query: dict = {"Barcode": barcode}
+    else:
+        query = {"Barcode": {"$in": feed_barcodes}}
+    if watermarked_only:
+        query["watermark_cleanup_applied"] = True
+    return query
 
 
 def backup_existing_images(images_dir: Path, backup_root: Path, barcode: str) -> None:
@@ -143,7 +150,9 @@ async def run_replacement(args: argparse.Namespace) -> dict:
     appended_non_skipped = 0
 
     try:
-        cursor = db.products.find(build_query(feed_barcodes, args.barcode.strip()))
+        cursor = db.products.find(
+            build_query(feed_barcodes, args.barcode.strip(), args.watermarked_only)
+        )
         records = list(cursor)
         records.sort(key=lambda row: str(row.get("Barcode", "")).strip())
         print({"records_loaded": len(records)}, flush=True)

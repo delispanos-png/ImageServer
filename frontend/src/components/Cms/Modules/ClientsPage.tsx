@@ -5,6 +5,7 @@ import {
   Button,
   Card,
   Col,
+  Dropdown,
   Form,
   Modal,
   Pagination,
@@ -14,7 +15,18 @@ import {
 } from 'react-bootstrap';
 import ModulePage from '../ModulePage';
 import { fetchCategories } from '../../../services/cms-catalog';
-import { createClient, fetchClient, fetchClients, updateApiClientCredentials, updateClient } from '../../../services/cms-clients';
+import {
+  bulkDeleteClients,
+  createClient,
+  deleteClient,
+  fetchClient,
+  fetchClients,
+  resendApiClientCredentials,
+  resetTrialUsage,
+  revealApiClientPassword,
+  updateApiClientCredentials,
+  updateClient,
+} from '../../../services/cms-clients';
 import type { CmsCategory, CmsClient, CmsClientPayload, CmsClientServices, CmsXmlSolutionType } from '../../../types';
 
 const DEFAULT_XML_IMAGE_URL_BASE = 'https://image.cloudon.gr/photos';
@@ -32,6 +44,13 @@ interface ClientFormState {
   notes: string;
   category_ids: string[];
   services: CmsClientServices;
+  is_trial: boolean;
+  trial_mode: 'whitelist' | 'quota';
+  trial_max_requests: number;
+  trial_barcodes_text: string;
+  webhook_url: string;
+  webhook_secret: string;
+  allowed_ips_text: string;
 }
 
 function buildDefaultServices(): CmsClientServices {
@@ -108,7 +127,26 @@ const initialFormState: ClientFormState = {
   notes: '',
   category_ids: [],
   services: buildDefaultServices(),
+  is_trial: false,
+  trial_mode: 'whitelist',
+  trial_max_requests: 300,
+  trial_barcodes_text: '',
+  webhook_url: '',
+  webhook_secret: '',
+  allowed_ips_text: '',
 };
+
+function parseTrialBarcodes(text: string): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const raw of (text || '').split(/[\s,;]+/)) {
+    const value = raw.trim();
+    if (!value || seen.has(value)) continue;
+    seen.add(value);
+    result.push(value);
+  }
+  return result;
+}
 
 function formatDate(value: string) {
   if (!value) return '-';
@@ -143,9 +181,10 @@ function xmlSolutionLabel(solutionType: CmsXmlSolutionType) {
   return 'XML';
 }
 
-function servicesSummary(client: Pick<CmsClient, 'services'>) {
+function servicesSummary(client: Pick<CmsClient, 'services' | 'is_trial'>) {
   return (
     <div className="d-flex flex-wrap gap-2">
+      {client.is_trial ? <Badge bg="warning" text="dark">Trial</Badge> : null}
       {client.services.image_service.enabled ? <Badge bg="primary">Εικόνες</Badge> : null}
       {client.services.xml_service.enabled ? <Badge bg="info">{xmlSolutionLabel(client.services.xml_service.solution_type)}</Badge> : null}
     </div>
@@ -163,6 +202,19 @@ function toPayload(state: ClientFormState): CmsClientPayload {
     notes: state.notes.trim(),
     category_ids: state.receive_all_categories ? [] : state.category_ids,
     services: state.services,
+    is_trial: state.is_trial,
+    trial_mode: state.is_trial ? state.trial_mode : 'whitelist',
+    trial_max_requests: Math.max(1, Math.min(100000, Math.floor(state.trial_max_requests || 300))),
+    trial_barcodes:
+      state.is_trial && state.trial_mode === 'whitelist'
+        ? parseTrialBarcodes(state.trial_barcodes_text)
+        : [],
+    webhook_url: state.webhook_url.trim(),
+    webhook_secret: state.webhook_secret.trim(),
+    allowed_ips: state.allowed_ips_text
+      .split(/[\s,;]+/)
+      .map((s) => s.trim())
+      .filter(Boolean),
   };
 }
 
@@ -186,6 +238,14 @@ export default function ClientsPage() {
   const [detailsClient, setDetailsClient] = useState<CmsClient | null>(null);
   const [detailsLoading, setDetailsLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set());
+  const [bulkDeleting, setBulkDeleting] = useState(false);
+  const [formError, setFormError] = useState('');
+  const [revealedPassword, setRevealedPassword] = useState('');
+  const [revealing, setRevealing] = useState(false);
+  const [resending, setResending] = useState(false);
+  const [resettingTrialUsage, setResettingTrialUsage] = useState(false);
   const [formState, setFormState] = useState<ClientFormState>(initialFormState);
   const [apiUsername, setApiUsername] = useState('');
   const [apiPassword, setApiPassword] = useState('');
@@ -252,6 +312,8 @@ export default function ClientsPage() {
     setSendApiEmail(true);
     setApiCredentialsMessage('');
     setApiCredentialsError('');
+    setRevealedPassword('');
+    setFormError('');
     setShowFormModal(true);
   };
 
@@ -267,6 +329,13 @@ export default function ClientsPage() {
       notes: client.notes,
       category_ids: client.category_ids,
       services: normalizeClientServices(client.services),
+      is_trial: Boolean(client.is_trial),
+      trial_mode: client.trial_mode === 'quota' ? 'quota' : 'whitelist',
+      trial_max_requests: Number(client.trial_max_requests) > 0 ? Number(client.trial_max_requests) : 300,
+      trial_barcodes_text: (client.trial_barcodes || []).join('\n'),
+      webhook_url: client.webhook_url || '',
+      webhook_secret: client.webhook_secret || '',
+      allowed_ips_text: (client.allowed_ips || []).join('\n'),
     });
     setMessage('');
     setApiUsername(client.api_username || '');
@@ -275,6 +344,8 @@ export default function ClientsPage() {
     setSendApiEmail(Boolean(client.email));
     setApiCredentialsMessage('');
     setApiCredentialsError('');
+    setRevealedPassword('');
+    setFormError('');
     setShowFormModal(true);
   };
 
@@ -294,7 +365,7 @@ export default function ClientsPage() {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setSubmitting(true);
-    setError('');
+    setFormError('');
     setMessage('');
     try {
       if (editingClient) {
@@ -307,9 +378,136 @@ export default function ClientsPage() {
       setShowFormModal(false);
       await loadClients();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Αποτυχία αποθήκευσης πελάτη.');
+      const raw = err instanceof Error ? err.message : 'Αποτυχία αποθήκευσης πελάτη.';
+      const friendly = /email already exists/i.test(raw)
+        ? 'Υπάρχει ήδη πελάτης με αυτό το email. Άλλαξε το email ή διέγραψε τον υπάρχοντα πελάτη.'
+        : /xml domain already exists/i.test(raw)
+          ? 'Υπάρχει ήδη πελάτης με αυτό το XML domain.'
+          : /api username already exists/i.test(raw)
+            ? 'Το API username χρησιμοποιείται ήδη από άλλο πελάτη.'
+            : raw;
+      setFormError(friendly);
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const toggleSelect = (id: string) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleSelectAll = () => {
+    setSelectedIds((prev) => {
+      if (prev.size === clients.length && clients.length > 0) return new Set();
+      return new Set(clients.map((c) => c.id));
+    });
+  };
+
+  const handleBulkDelete = async () => {
+    if (!selectedIds.size) return;
+    const confirmed = window.confirm(
+      `Διαγραφή ${selectedIds.size} επιλεγμένων πελατών;\nΗ ενέργεια είναι μη αναστρέψιμη.`,
+    );
+    if (!confirmed) return;
+    setBulkDeleting(true);
+    setError('');
+    setMessage('');
+    try {
+      const result = await bulkDeleteClients(Array.from(selectedIds));
+      setMessage(`Διαγράφηκαν ${result.deleted_count} πελάτες.`);
+      setSelectedIds(new Set());
+      await loadClients();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Αποτυχία μαζικής διαγραφής.');
+    } finally {
+      setBulkDeleting(false);
+    }
+  };
+
+  const handleDeleteClient = async (client: CmsClient) => {
+    const confirmed = window.confirm(
+      `Διαγραφή πελάτη "${client.name}";\nΗ ενέργεια είναι μη αναστρέψιμη. Το API username "${client.api_username || '-'}" θα πάψει να λειτουργεί άμεσα.`,
+    );
+    if (!confirmed) return;
+    setDeletingId(client.id);
+    setError('');
+    setMessage('');
+    try {
+      await deleteClient(client.id);
+      setMessage(`Ο πελάτης "${client.name}" διαγράφηκε.`);
+      if (editingClient?.id === client.id) {
+        setShowFormModal(false);
+        setEditingClient(null);
+      }
+      await loadClients();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Αποτυχία διαγραφής πελάτη.');
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
+  const handleRevealPassword = async () => {
+    if (!editingClient) return;
+    setRevealing(true);
+    setApiCredentialsError('');
+    try {
+      const result = await revealApiClientPassword(editingClient.id);
+      if (result.password) {
+        setRevealedPassword(result.password);
+        setApiCredentialsMessage(`Τρέχων κωδικός: ${result.password}`);
+      } else {
+        setApiCredentialsError(result.detail || 'Δεν υπάρχει αποθηκευμένος κωδικός.');
+      }
+    } catch (err) {
+      setApiCredentialsError(err instanceof Error ? err.message : 'Αποτυχία εμφάνισης κωδικού.');
+    } finally {
+      setRevealing(false);
+    }
+  };
+
+  const handleResendCredentials = async () => {
+    if (!editingClient) return;
+    setResending(true);
+    setApiCredentialsError('');
+    setApiCredentialsMessage('');
+    try {
+      const result = await resendApiClientCredentials(editingClient.id);
+      if (result.email_sent) {
+        setApiCredentialsMessage(`Τα στοιχεία στάλθηκαν στο ${result.email}.`);
+      } else {
+        setApiCredentialsError(`Αποτυχία αποστολής email: ${result.email_error || 'άγνωστο σφάλμα'}`);
+      }
+    } catch (err) {
+      setApiCredentialsError(err instanceof Error ? err.message : 'Αποτυχία αποστολής στοιχείων.');
+    } finally {
+      setResending(false);
+    }
+  };
+
+  const handleResetTrialUsage = async () => {
+    if (!editingClient) return;
+    const confirmed = window.confirm(
+      `Μηδενισμός μετρητή κλήσεων για τον "${editingClient.name}"; ο πελάτης θα έχει ξανά full quota.`,
+    );
+    if (!confirmed) return;
+    setResettingTrialUsage(true);
+    setApiCredentialsError('');
+    setApiCredentialsMessage('');
+    try {
+      const result = await resetTrialUsage(editingClient.id);
+      setApiCredentialsMessage(`Μηδενισμός επιτυχής. Προηγούμενο: ${result.previous_count} κλήσεις.`);
+      await loadClients();
+      setEditingClient((prev) => (prev ? { ...prev, api_request_count: 0 } : prev));
+    } catch (err) {
+      setApiCredentialsError(err instanceof Error ? err.message : 'Αποτυχία μηδενισμού.');
+    } finally {
+      setResettingTrialUsage(false);
     }
   };
 
@@ -331,10 +529,20 @@ export default function ClientsPage() {
       setApiUsername(result.data.api_username || '');
       setApiPassword('');
       setGenerateApiPassword(false);
+      if (result.credentials.generated_password) {
+        setRevealedPassword(result.credentials.generated_password);
+      }
       await loadClients();
+      const emailStatus = result.credentials.generated_password
+        ? result.credentials.email_sent
+          ? ' | Στάλθηκε email.'
+          : (result.credentials as { email_error?: string }).email_error
+            ? ` | Email απέτυχε: ${(result.credentials as { email_error?: string }).email_error}`
+            : ''
+        : '';
       setApiCredentialsMessage(
         result.credentials.generated_password
-          ? `Username: ${result.credentials.api_username} | Νέος κωδικός: ${result.credentials.generated_password}${result.credentials.email_sent ? ' | Στάλθηκε email.' : ''}`
+          ? `Username: ${result.credentials.api_username} | Νέος κωδικός: ${result.credentials.generated_password}${emailStatus}`
           : `Το API username ενημερώθηκε σε ${result.credentials.api_username}.`,
       );
     } catch (err) {
@@ -493,9 +701,43 @@ export default function ClientsPage() {
             <Spinner animation="border" size="sm" />
           ) : (
             <>
+              {selectedIds.size > 0 ? (
+                <div className="d-flex align-items-center gap-2 mb-2">
+                  <span className="fs-13">{selectedIds.size} επιλεγμένοι</span>
+                  <Button
+                    size="sm"
+                    variant="outline-danger"
+                    onClick={() => void handleBulkDelete()}
+                    disabled={bulkDeleting}
+                  >
+                    {bulkDeleting ? 'Διαγραφή...' : 'Μαζική διαγραφή'}
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline-secondary"
+                    onClick={() => setSelectedIds(new Set())}
+                    disabled={bulkDeleting}
+                  >
+                    Καθαρισμός επιλογής
+                  </Button>
+                </div>
+              ) : null}
               <Table responsive className="table table-striped mb-3 align-middle">
                 <thead>
                   <tr>
+                    <th style={{ width: 32 }}>
+                      <Form.Check
+                        type="checkbox"
+                        checked={clients.length > 0 && selectedIds.size === clients.length}
+                        ref={(el: HTMLInputElement | null) => {
+                          if (el) {
+                            el.indeterminate = selectedIds.size > 0 && selectedIds.size < clients.length;
+                          }
+                        }}
+                        onChange={toggleSelectAll}
+                        aria-label="Επιλογή όλων"
+                      />
+                    </th>
                     <th>Όνομα</th>
                     <th>Πηγή</th>
                     <th>Υπηρεσίες</th>
@@ -511,7 +753,15 @@ export default function ClientsPage() {
                 <tbody>
                   {clients.length ? (
                     clients.map((client) => (
-                      <tr key={client.id}>
+                      <tr key={client.id} className={selectedIds.has(client.id) ? 'table-active' : ''}>
+                        <td>
+                          <Form.Check
+                            type="checkbox"
+                            checked={selectedIds.has(client.id)}
+                            onChange={() => toggleSelect(client.id)}
+                            aria-label={`Επιλογή ${client.name}`}
+                          />
+                        </td>
                         <td>
                           <div className="fw-semibold">{client.name}</div>
                           <div className="text-muted fs-12">{client.company || 'Χωρίς εταιρεία'}</div>
@@ -543,20 +793,36 @@ export default function ClientsPage() {
                         </td>
                         <td>{formatDate(client.updated_at)}</td>
                         <td>
-                          <div className="d-flex gap-2">
-                            <Button size="sm" variant="outline-info" onClick={() => void openDetails(client.id)}>
-                              Λεπτομέρειες
-                            </Button>
-                            <Button size="sm" variant="outline-primary" onClick={() => openEdit(client)}>
-                              Επεξεργασία
-                            </Button>
-                          </div>
+                          <Dropdown align="end">
+                            <Dropdown.Toggle
+                              size="sm"
+                              variant="outline-secondary"
+                              disabled={deletingId === client.id}
+                            >
+                              {deletingId === client.id ? 'Διαγραφή...' : 'Ενέργειες'}
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                              <Dropdown.Item onClick={() => void openDetails(client.id)}>
+                                Λεπτομέρειες
+                              </Dropdown.Item>
+                              <Dropdown.Item onClick={() => openEdit(client)}>
+                                Επεξεργασία
+                              </Dropdown.Item>
+                              <Dropdown.Divider />
+                              <Dropdown.Item
+                                className="text-danger"
+                                onClick={() => void handleDeleteClient(client)}
+                              >
+                                Διαγραφή
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
                         </td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={10} className="text-center text-muted py-4">
+                      <td colSpan={11} className="text-center text-muted py-4">
                         Δεν βρέθηκαν πελάτες.
                       </td>
                     </tr>
@@ -581,6 +847,11 @@ export default function ClientsPage() {
         </Modal.Header>
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
+            {formError ? (
+              <Alert variant="danger" onClose={() => setFormError('')} dismissible className="mb-3">
+                {formError}
+              </Alert>
+            ) : null}
             <Row className="g-3">
               <Col md={6}>
                 <Form.Label>Όνομα</Form.Label>
@@ -1018,7 +1289,170 @@ export default function ClientsPage() {
                   </Card.Body>
                 </Card>
               </Col>
-              {editingClient?.source_type === 'api_basic' ? (
+              <Col md={12}>
+                <Card className="border">
+                  <Card.Header>
+                    <Card.Title>Δοκιμαστική πρόσβαση</Card.Title>
+                  </Card.Header>
+                  <Card.Body className="d-flex flex-column gap-3">
+                    <Form.Check
+                      type="switch"
+                      id="client-is-trial-toggle"
+                      label="Δοκιμαστικός πελάτης (μόνο /products/trial)"
+                      checked={formState.is_trial}
+                      onChange={(event) =>
+                        setFormState((prev) => ({ ...prev, is_trial: event.target.checked }))
+                      }
+                    />
+                    {formState.is_trial ? (
+                      <>
+                        <div className="d-flex flex-wrap gap-3">
+                          <Form.Check
+                            type="radio"
+                            id="trial-mode-whitelist"
+                            name="trial-mode"
+                            label="Συγκεκριμένα barcodes"
+                            checked={formState.trial_mode === 'whitelist'}
+                            onChange={() => setFormState((prev) => ({ ...prev, trial_mode: 'whitelist' }))}
+                          />
+                          <Form.Check
+                            type="radio"
+                            id="trial-mode-quota"
+                            name="trial-mode"
+                            label="Όριο κλήσεων (όπως production)"
+                            checked={formState.trial_mode === 'quota'}
+                            onChange={() => setFormState((prev) => ({ ...prev, trial_mode: 'quota' }))}
+                          />
+                        </div>
+                        {formState.trial_mode === 'whitelist' ? (
+                          <>
+                            <Form.Label className="mb-0">Επιτρεπόμενα barcodes (ένα ανά γραμμή ή με κόμμα)</Form.Label>
+                            <Form.Control
+                              as="textarea"
+                              rows={6}
+                              value={formState.trial_barcodes_text}
+                              onChange={(event) =>
+                                setFormState((prev) => ({ ...prev, trial_barcodes_text: event.target.value }))
+                              }
+                              placeholder="5201234567890&#10;5209876543210"
+                            />
+                            <div className="text-muted fs-12">
+                              Ο πελάτης θα παίρνει μόνο τα barcodes της λίστας. Αν ζητήσει άλλο, θα του επιστραφεί κενή απάντηση.
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <Form.Label className="mb-0">Μέγιστο πλήθος κλήσεων</Form.Label>
+                            <Form.Control
+                              type="number"
+                              min={1}
+                              max={100000}
+                              value={formState.trial_max_requests}
+                              onChange={(event) =>
+                                setFormState((prev) => ({
+                                  ...prev,
+                                  trial_max_requests: Number(event.target.value) || 300,
+                                }))
+                              }
+                              style={{ maxWidth: 160 }}
+                            />
+                            {editingClient ? (
+                              <div className="d-flex align-items-center flex-wrap gap-2">
+                                <span className="text-muted fs-12">
+                                  Έχουν χρησιμοποιηθεί {editingClient.api_request_count} / {formState.trial_max_requests} κλήσεις.
+                                </span>
+                                <Button
+                                  size="sm"
+                                  variant="outline-warning"
+                                  onClick={() => void handleResetTrialUsage()}
+                                  disabled={resettingTrialUsage || editingClient.api_request_count === 0}
+                                >
+                                  {resettingTrialUsage ? 'Μηδενισμός...' : 'Μηδενισμός μετρητή'}
+                                </Button>
+                              </div>
+                            ) : null}
+                            <div className="text-muted fs-12">
+                              Ο πελάτης μπορεί να ζητάει οποιοδήποτε barcode (όπως το /products της παραγωγής).
+                              Όταν φτάσει το όριο κλήσεων, το /products/trial επιστρέφει 429.
+                            </div>
+                          </>
+                        )}
+                        <div className="text-muted fs-12">
+                          Το /products και τα custom endpoints επιστρέφουν 403 για δοκιμαστικούς πελάτες.
+                        </div>
+                      </>
+                    ) : (
+                      <div className="text-muted fs-13">
+                        Ενεργοποίησέ το για να δώσεις περιορισμένα δοκιμαστικά credentials. Διάλεξε συγκεκριμένα barcodes ή Ν τυχαία ενεργά προϊόντα ανά κλήση.
+                      </div>
+                    )}
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col md={12}>
+                <Card className="custom-card">
+                  <Card.Header className="border-bottom-0">
+                    <Card.Title>Webhooks</Card.Title>
+                  </Card.Header>
+                  <Card.Body className="d-flex flex-column gap-3">
+                    <div>
+                      <Form.Label className="mb-0">Webhook URL</Form.Label>
+                      <Form.Control
+                        value={formState.webhook_url}
+                        onChange={(event) =>
+                          setFormState((prev) => ({ ...prev, webhook_url: event.target.value }))
+                        }
+                        placeholder="https://your-site.com/api/cloudon-webhook"
+                      />
+                      <div className="text-muted fs-12 mt-1">
+                        Όταν ένα barcode που είχε ζητήσει αυτός ο πελάτης γίνει διαθέσιμο στη βάση, στέλνουμε POST event &quot;barcode.available&quot;.
+                      </div>
+                    </div>
+                    <div>
+                      <Form.Label className="mb-0">Webhook Secret (προαιρετικό)</Form.Label>
+                      <Form.Control
+                        type="password"
+                        value={formState.webhook_secret}
+                        onChange={(event) =>
+                          setFormState((prev) => ({ ...prev, webhook_secret: event.target.value }))
+                        }
+                        placeholder="Shared secret for HMAC-SHA256 signature"
+                      />
+                      <div className="text-muted fs-12 mt-1">
+                        Αν συμπληρωθεί, κάθε POST έρχεται με header <code>X-Cloudon-Signature</code> = HMAC-SHA256(body, secret).
+                      </div>
+                    </div>
+                    <div>
+                      <Form.Label className="mb-0 d-flex justify-content-between align-items-center">
+                        <span>Επιτρεπόμενες IPs (whitelist)</span>
+                        {formState.allowed_ips_text.trim() ? (
+                          <Badge bg="success">Ενεργό</Badge>
+                        ) : (
+                          <Badge bg="secondary">Ανοιχτό — δέχεται από παντού</Badge>
+                        )}
+                      </Form.Label>
+                      <Form.Control
+                        as="textarea"
+                        rows={3}
+                        value={formState.allowed_ips_text}
+                        onChange={(event) =>
+                          setFormState((prev) => ({ ...prev, allowed_ips_text: event.target.value }))
+                        }
+                        placeholder={"1.2.3.4\n10.0.0.0/24\n2001:db8::/32"}
+                        style={{ fontFamily: 'monospace', fontSize: 13 }}
+                      />
+                      <div className="text-muted fs-12 mt-1">
+                        Μία ανά γραμμή (ή comma/space-separated). Δέχεται μεμονωμένες IPv4/IPv6 και CIDR blocks (π.χ. <code>10.0.0.0/8</code>).
+                        Αν είναι κενό, το API δέχεται από <em>οποιαδήποτε</em> IP. Αν υπάρχουν εγγραφές, μόνο αυτές — τα υπόλοιπα requests παίρνουν HTTP 403.
+                      </div>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+              {editingClient
+                && (editingClient.source_type === 'api_basic'
+                  || formState.services.image_service.enabled
+                  || formState.is_trial) ? (
                 <Col md={12}>
                   <Card className="border">
                     <Card.Header>
@@ -1042,22 +1476,53 @@ export default function ClientsPage() {
                         <Col md={6}>
                           <Form.Label>Νέος κωδικός API</Form.Label>
                           <Form.Control
-                            type="password"
+                            type="text"
+                            autoComplete="off"
                             value={apiPassword}
-                            onChange={(event) => setApiPassword(event.target.value)}
-                            placeholder="Άφησε κενό αν θα δημιουργηθεί αυτόματα"
-                            disabled={generateApiPassword}
+                            onChange={(event) => {
+                              setApiPassword(event.target.value);
+                              if (event.target.value && generateApiPassword) {
+                                setGenerateApiPassword(false);
+                              }
+                            }}
+                            placeholder="Πληκτρολόγησε κωδικό ή άναψε αυτόματη δημιουργία"
                           />
                           <div className="text-muted fs-12 mt-1">
-                            Ο τρέχων κωδικός δεν εμφανίζεται ξανά. Χρησιμοποίησε μόνο reset/rotate.
+                            Πληκτρολόγησε δικό σου κωδικό ή χρησιμοποίησε την αυτόματη δημιουργία.
                           </div>
+                          {revealedPassword ? (
+                            <div className="border rounded p-2 mt-2 bg-light">
+                              <div className="text-muted fs-12 mb-1">Τρέχων κωδικός:</div>
+                              <code className="user-select-all" style={{ wordBreak: 'break-all' }}>{revealedPassword}</code>
+                            </div>
+                          ) : null}
                         </Col>
                         <Col md={6}>
-                          <div className="border rounded p-3 h-100">
-                            <div className="text-muted fs-12 mb-1">Κατάσταση κωδικού</div>
-                            <div className="fw-semibold">{editingClient.password_configured ? 'Ρυθμισμένος' : 'Δεν έχει οριστεί'}</div>
-                            <div className="text-muted fs-12 mt-2">
-                              Τελευταία αλλαγή: {formatDate(editingClient.password_last_rotated_at)}
+                          <div className="border rounded p-3 h-100 d-flex flex-column gap-2">
+                            <div>
+                              <div className="text-muted fs-12 mb-1">Κατάσταση κωδικού</div>
+                              <div className="fw-semibold">{editingClient.password_configured ? 'Ρυθμισμένος' : 'Δεν έχει οριστεί'}</div>
+                              <div className="text-muted fs-12 mt-1">
+                                Τελευταία αλλαγή: {formatDate(editingClient.password_last_rotated_at)}
+                              </div>
+                            </div>
+                            <div className="d-flex flex-wrap gap-2 mt-auto">
+                              <Button
+                                size="sm"
+                                variant="outline-secondary"
+                                onClick={() => void handleRevealPassword()}
+                                disabled={!editingClient.password_configured || revealing}
+                              >
+                                {revealing ? 'Φόρτωση...' : 'Δείξε τρέχοντα κωδικό'}
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline-primary"
+                                onClick={() => void handleResendCredentials()}
+                                disabled={!editingClient.password_configured || !formState.email || resending}
+                              >
+                                {resending ? 'Αποστολή...' : 'Αποστολή στο email'}
+                              </Button>
                             </div>
                           </div>
                         </Col>
@@ -1067,7 +1532,12 @@ export default function ClientsPage() {
                             id="client-generate-api-password"
                             label="Αυτόματη δημιουργία ασφαλούς κωδικού"
                             checked={generateApiPassword}
-                            onChange={(event) => setGenerateApiPassword(event.target.checked)}
+                            onChange={(event) => {
+                              setGenerateApiPassword(event.target.checked);
+                              if (event.target.checked) {
+                                setApiPassword('');
+                              }
+                            }}
                           />
                         </Col>
                         <Col md={6}>

@@ -17,6 +17,8 @@ import ModulePage from '../ModulePage';
 import { useAdminLanguage } from '../../../app/i18n/AdminLanguageProvider';
 import {
   approveItemGoLive,
+  approveReviewQueueBulk,
+  createCategory,
   createItem,
   deleteItem,
   deleteItemImage,
@@ -32,6 +34,7 @@ import {
   restartBulkRefresh,
   stopBulkRefresh,
   startBulkRefresh,
+  setItemImagePrimary,
   uploadItemImagesManual,
   updateItem,
 } from '../../../services/cms-catalog';
@@ -663,33 +666,33 @@ function qualityStateBadge(state?: string | null, language: 'en' | 'el' = 'el') 
   return <Badge bg={bg}>{label}</Badge>;
 }
 
-function photoSourceLockBadge(item?: CmsItem | null) {
+function photoSourceLockBadge(item?: CmsItem | null, language: 'en' | 'el' = 'el') {
   const lock = String(item?.photo_source_lock || '').trim();
   if (!lock) {
     return null;
   }
   if (lock === 'youpharmacy_xml') {
-    return <Badge bg="info">Φωτογραφία YouPharmacy</Badge>;
+    return <Badge bg="info">{language === 'el' ? 'Φωτογραφία YouPharmacy' : 'YouPharmacy photo'}</Badge>;
   }
   if (lock === 'pharmacy295_excel') {
-    return <Badge bg="primary">Φωτογραφία Pharmacy295</Badge>;
+    return <Badge bg="primary">{language === 'el' ? 'Φωτογραφία Pharmacy295' : 'Pharmacy295 photo'}</Badge>;
   }
   if (lock === 'manual_upload') {
-    return <Badge bg="dark">Χειροκίνητη φωτογραφία</Badge>;
+    return <Badge bg="dark">{language === 'el' ? 'Χειροκίνητη φωτογραφία' : 'Manual photo'}</Badge>;
   }
   return <Badge bg="light" text="dark">{lock}</Badge>;
 }
 
-function photoSourceLockLabel(item?: CmsItem | null) {
+function photoSourceLockLabel(item?: CmsItem | null, language: 'en' | 'el' = 'el') {
   const lock = String(item?.photo_source_lock || '').trim();
   if (lock === 'youpharmacy_xml') {
-    return 'Κλείδωμα αντικατάστασης από YouPharmacy XML';
+    return language === 'el' ? 'Κλείδωμα αντικατάστασης από YouPharmacy XML' : 'Replacement lock from YouPharmacy XML';
   }
   if (lock === 'pharmacy295_excel') {
-    return 'Κλείδωμα φωτογραφίας από Pharmacy295 Excel';
+    return language === 'el' ? 'Κλείδωμα φωτογραφίας από Pharmacy295 Excel' : 'Photo lock from Pharmacy295 Excel';
   }
   if (lock === 'manual_upload') {
-    return 'Χειροκίνητη μεταφόρτωση hosted φωτογραφίας';
+    return language === 'el' ? 'Χειροκίνητη μεταφόρτωση hosted φωτογραφίας' : 'Manual hosted image upload';
   }
   if (lock) {
     return lock;
@@ -698,7 +701,7 @@ function photoSourceLockLabel(item?: CmsItem | null) {
   return imageSourceDomain || '-';
 }
 
-function sourceBadge(name?: string | null, fallbackLabel?: string) {
+function sourceBadge(name?: string | null, fallbackLabel?: string, language: 'en' | 'el' = 'el') {
   const normalized = String(name || '').trim().toLowerCase();
   if (!normalized) return null;
   if (normalized === 'youpharmacy' || normalized === 'youpharmacy_xml') {
@@ -726,61 +729,65 @@ function sourceBadge(name?: string | null, fallbackLabel?: string) {
     return <Badge bg="danger">{fallbackLabel || 'Vita4You'}</Badge>;
   }
   if (normalized === 'manual_upload') {
-    return <Badge bg="dark">{fallbackLabel || 'Χειροκίνητο'}</Badge>;
+    return <Badge bg="dark">{fallbackLabel || (language === 'el' ? 'Χειροκίνητο' : 'Manual')}</Badge>;
   }
   if (normalized === 'existing') {
-    return <Badge bg="secondary">{fallbackLabel || 'Υπάρχον'}</Badge>;
+    return <Badge bg="secondary">{fallbackLabel || (language === 'el' ? 'Υπάρχον' : 'Existing')}</Badge>;
   }
   return <Badge bg="light" text="dark">{fallbackLabel || name}</Badge>;
 }
 
-function textProvenanceBadge(item?: CmsItem | null) {
+function textProvenanceBadge(item?: CmsItem | null, language: 'en' | 'el' = 'el') {
   const textSourceDomain = String(item?.text_source_domain || '').trim();
   if (textSourceDomain) {
-    return sourceBadge(textSourceDomain);
+    return sourceBadge(textSourceDomain, undefined, language);
   }
   if (item?.catalog_has_text) {
-    return <Badge bg="secondary">Υπάρχον</Badge>;
+    return <Badge bg="secondary">{language === 'el' ? 'Υπάρχον' : 'Existing'}</Badge>;
   }
   return null;
 }
 
-function textProvenanceLabel(item?: CmsItem | null) {
+function textProvenanceLabel(item?: CmsItem | null, language: 'en' | 'el' = 'el') {
   const textSourceDomain = String(item?.text_source_domain || '').trim();
   if (textSourceDomain) {
     return textSourceDomain;
   }
-  return item?.catalog_has_text ? 'Τρέχον αποθηκευμένο κείμενο CMS/πηγής' : '-';
+  return item?.catalog_has_text
+    ? (language === 'el' ? 'Τρέχον αποθηκευμένο κείμενο CMS/πηγής' : 'Current stored CMS/source text')
+    : '-';
 }
 
-function categoryProvenanceBadge(item?: CmsItem | null) {
+function categoryProvenanceBadge(item?: CmsItem | null, language: 'en' | 'el' = 'el') {
   const resolution = String(item?.category_resolution_source || '').trim();
   if (resolution === 'barcode_lookup') {
-    return <Badge bg="success">Αντιστοίχιση barcode</Badge>;
+    return <Badge bg="success">{language === 'el' ? 'Αντιστοίχιση barcode' : 'Barcode mapping'}</Badge>;
   }
   if (resolution === 'existing') {
-    return <Badge bg="secondary">Υπάρχουσα κατηγορία</Badge>;
+    return <Badge bg="secondary">{language === 'el' ? 'Υπάρχουσα κατηγορία' : 'Existing category'}</Badge>;
   }
   const categorySourceDomain = String(item?.category_source_domain || '').trim();
   if (categorySourceDomain) {
-    return sourceBadge(categorySourceDomain);
+    return sourceBadge(categorySourceDomain, undefined, language);
   }
-  return item?.catalog_has_category ? <Badge bg="secondary">Υπάρχον</Badge> : null;
+  return item?.catalog_has_category ? <Badge bg="secondary">{language === 'el' ? 'Υπάρχον' : 'Existing'}</Badge> : null;
 }
 
-function categoryProvenanceLabel(item?: CmsItem | null) {
+function categoryProvenanceLabel(item?: CmsItem | null, language: 'en' | 'el' = 'el') {
   const resolution = String(item?.category_resolution_source || '').trim();
   if (resolution === 'barcode_lookup') {
-    return 'Κατηγορία από barcode mapping';
+    return language === 'el' ? 'Κατηγορία από barcode mapping' : 'Category from barcode mapping';
   }
   if (resolution === 'existing') {
-    return 'Διατηρήθηκε η υπάρχουσα διαδρομή κατηγορίας';
+    return language === 'el' ? 'Διατηρήθηκε η υπάρχουσα διαδρομή κατηγορίας' : 'Existing category path was kept';
   }
   const categorySourceDomain = String(item?.category_source_domain || '').trim();
   if (categorySourceDomain) {
     return categorySourceDomain;
   }
-  return item?.catalog_has_category ? 'Τρέχουσα αποθηκευμένη διαδρομή κατηγορίας' : '-';
+  return item?.catalog_has_category
+    ? (language === 'el' ? 'Τρέχουσα αποθηκευμένη διαδρομή κατηγορίας' : 'Current stored category path')
+    : '-';
 }
 
 function canApproveGoLive(item?: CmsItem | null) {
@@ -1001,12 +1008,12 @@ function itemCategoryPath(item: CmsItem | null, categoryNameById: Map<string, st
   return fallback ? fallback.split('/').map((part) => part.trim()).filter(Boolean) : [];
 }
 
-function itemCategoryLevels(item: CmsItem | null, categoryNameById: Map<string, string>) {
+function itemCategoryLevels(item: CmsItem | null, categoryNameById: Map<string, string>, language: 'en' | 'el' = 'el') {
   const path = itemCategoryPath(item, categoryNameById);
   return [
-    { label: 'Κατηγορία 1', value: (item?.category_1 || '').trim() || path[0] || '' },
-    { label: 'Κατηγορία 2', value: (item?.category_2 || '').trim() || path[1] || '' },
-    { label: 'Κατηγορία 3', value: (item?.category_3 || '').trim() || path[2] || '' },
+    { label: language === 'el' ? 'Κατηγορία 1' : 'Category 1', value: (item?.category_1 || '').trim() || path[0] || '' },
+    { label: language === 'el' ? 'Κατηγορία 2' : 'Category 2', value: (item?.category_2 || '').trim() || path[1] || '' },
+    { label: language === 'el' ? 'Κατηγορία 3' : 'Category 3', value: (item?.category_3 || '').trim() || path[2] || '' },
   ];
 }
 
@@ -1026,8 +1033,35 @@ function resolveCategoryDocsPath(categoryId: string, categoryById: Map<string, C
   return path;
 }
 
-function deriveCategorySelection(categoryId: string, categoryById: Map<string, CmsCategory>) {
-  const path = resolveCategoryDocsPath(categoryId, categoryById);
+function deriveCategorySelection(
+  categoryId: string,
+  categoryById: Map<string, CmsCategory>,
+  fallbackNames?: { category_1?: string; category_2?: string; category_3?: string },
+) {
+  let path = resolveCategoryDocsPath(categoryId, categoryById);
+  if (path.length === 0 && fallbackNames) {
+    const all = Array.from(categoryById.values());
+    const norm = (v?: string) => (v || '').trim().toLowerCase();
+    const name1 = norm(fallbackNames.category_1);
+    const name2 = norm(fallbackNames.category_2);
+    const name3 = norm(fallbackNames.category_3);
+    if (name1) {
+      const c1 = all.find((c) => !c.parent_id && norm(c.name) === name1 && c.is_active);
+      if (c1) {
+        path = [c1];
+        if (name2) {
+          const c2 = all.find((c) => c.parent_id === c1.id && norm(c.name) === name2 && c.is_active);
+          if (c2) {
+            path.push(c2);
+            if (name3) {
+              const c3 = all.find((c) => c.parent_id === c2.id && norm(c.name) === name3 && c.is_active);
+              if (c3) path.push(c3);
+            }
+          }
+        }
+      }
+    }
+  }
   return {
     category_1_id: path[0]?.id || '',
     category_2_id: path[1]?.id || '',
@@ -1079,7 +1113,11 @@ function toPayload(state: ItemFormState): CmsItemPayload {
 }
 
 function toFormStateFromItem(item: CmsItem, categoryById: Map<string, CmsCategory>): ItemFormState {
-  const selection = deriveCategorySelection(item.category_id || '', categoryById);
+  const selection = deriveCategorySelection(item.category_id || '', categoryById, {
+    category_1: item.category_1,
+    category_2: item.category_2,
+    category_3: item.category_3,
+  });
   return {
     title: item.title,
     code: item.code,
@@ -1113,6 +1151,12 @@ export default function ItemsPage({
   const autoOpenedDetails = useRef(false);
   const [items, setItems] = useState<CmsItem[]>([]);
   const [categories, setCategories] = useState<CmsCategory[]>([]);
+  // Inline "+ Νέα" UI για το category picker: το level που είναι ανοιχτό
+  // (1/2/3) ή null όταν κανένα. Επιτρέπει στον χρήστη να καταχωρήσει
+  // κατηγορία που δεν υπάρχει χωρίς να φύγει από τη φόρμα του είδους.
+  const [creatingCategoryLevel, setCreatingCategoryLevel] = useState<1 | 2 | 3 | null>(null);
+  const [newCategoryName, setNewCategoryName] = useState('');
+  const [creatingCategory, setCreatingCategory] = useState(false);
   const [taxonomyFilters, setTaxonomyFilters] = useState<CmsItemTaxonomyFilters>({
     category_1: [],
     category_2: [],
@@ -1150,6 +1194,7 @@ export default function ItemsPage({
   const [bulkRefreshRestarting, setBulkRefreshRestarting] = useState(false);
   const [bulkRefreshCanceling, setBulkRefreshCanceling] = useState(false);
   const [approvingItemId, setApprovingItemId] = useState('');
+  const [bulkApprovingReview, setBulkApprovingReview] = useState(false);
   const [editingItem, setEditingItem] = useState<CmsItem | null>(null);
   const [formState, setFormState] = useState<ItemFormState>(initialFormState);
   const [sourceRefreshResult, setSourceRefreshResult] = useState<CmsItemSourceRefreshResult | null>(null);
@@ -1158,6 +1203,9 @@ export default function ItemsPage({
   const [manualImageSourceUrl, setManualImageSourceUrl] = useState('');
   const [replaceExistingManualImages, setReplaceExistingManualImages] = useState(false);
   const [uploadManualAsMain, setUploadManualAsMain] = useState(true);
+  // 0 = append (νέα εικόνα), 1..N = αντικατάσταση θέσης N
+  const [manualReplacePosition, setManualReplacePosition] = useState<number>(0);
+  const [settingPrimaryPosition, setSettingPrimaryPosition] = useState<number | null>(null);
   const [uploadingManualImages, setUploadingManualImages] = useState(false);
   const [importingManualImageUrl, setImportingManualImageUrl] = useState(false);
   const [manualUploadInputKey, setManualUploadInputKey] = useState(0);
@@ -1166,6 +1214,7 @@ export default function ItemsPage({
   const [detailsLoading, setDetailsLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const [showImageZoomModal, setShowImageZoomModal] = useState(false);
+  const [showAdvancedRefreshSources, setShowAdvancedRefreshSources] = useState(false);
   const [imageZoomScale, setImageZoomScale] = useState(1);
   const [mediaPreviewToken, setMediaPreviewToken] = useState(() => String(Date.now()));
 
@@ -1240,7 +1289,12 @@ export default function ItemsPage({
 
   useEffect(() => {
     void loadBulkRefreshStatus();
-  }, []);
+    const intervalMs = bulkRefreshJob?.running ? 3000 : 15000;
+    const handle = window.setInterval(() => {
+      void loadBulkRefreshStatus();
+    }, intervalMs);
+    return () => window.clearInterval(handle);
+  }, [bulkRefreshJob?.running]);
 
   useEffect(() => {
     if (!bulkRefreshJob?.running) return undefined;
@@ -1278,8 +1332,8 @@ export default function ItemsPage({
   );
   const detailsImages = useMemo(() => buildImageList(detailsItem), [detailsItem]);
   const detailsCategoryLevels = useMemo(
-    () => itemCategoryLevels(detailsItem, categoryNameById),
-    [detailsItem, categoryNameById],
+    () => itemCategoryLevels(detailsItem, categoryNameById, language),
+    [detailsItem, categoryNameById, language],
   );
   const editCategoryPath = useMemo(
     () => selectedCategoryPath(formState, categoryById),
@@ -1329,6 +1383,7 @@ export default function ItemsPage({
     setManualImageSourceUrl('');
     setReplaceExistingManualImages(false);
     setUploadManualAsMain(true);
+    setManualReplacePosition(0);
     setManualUploadInputKey((prev) => prev + 1);
   };
 
@@ -1391,6 +1446,43 @@ export default function ItemsPage({
     }, { replace: true });
   }, [searchParams, setSearchParams]);
 
+  const initialFiltersApplied = useRef(false);
+  useEffect(() => {
+    if (initialFiltersApplied.current) return;
+    initialFiltersApplied.current = true;
+    const status = searchParams.get('status');
+    const missing = searchParams.get('missing');
+    const photoSource = searchParams.get('photo_source');
+    const quality = searchParams.get('quality');
+    let consumed = false;
+    if (status === 'active' || status === 'inactive') {
+      setStatusFilter(status);
+      consumed = true;
+    }
+    if (missing === 'missing_any_image' || missing === 'missing_text' || missing === 'missing_category') {
+      setMissingRequirementFilter(missing);
+      consumed = true;
+    }
+    if (photoSource === 'youpharmacy_xml' || photoSource === 'pharmacy295_excel') {
+      setPhotoSourceFilter(photoSource);
+      consumed = true;
+    }
+    if (!lockQualityStateFilter && (quality === 'ready' || quality === 'needs_fix' || quality === 'ready_for_review' || quality === 'all')) {
+      setQualityStateFilter(quality);
+      consumed = true;
+    }
+    if (consumed) {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev);
+        next.delete('status');
+        next.delete('missing');
+        next.delete('photo_source');
+        next.delete('quality');
+        return next;
+      }, { replace: true });
+    }
+  }, [searchParams, setSearchParams, lockQualityStateFilter]);
+
   const closeDetails = () => {
     setShowDetailsModal(false);
     setShowImageZoomModal(false);
@@ -1439,6 +1531,39 @@ export default function ItemsPage({
       setFormError(err instanceof Error ? err.message : 'Αποτυχία διαγραφής είδους.');
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const handleCreateCategory = async () => {
+    const level = creatingCategoryLevel;
+    const name = newCategoryName.trim();
+    if (!level || !name) return;
+    const parentId = level === 1 ? '' : level === 2 ? formState.category_1_id : formState.category_2_id;
+    if (level > 1 && !parentId) {
+      setFormError(`Πρέπει να επιλέξεις πρώτα Κατηγορία ${level - 1}.`);
+      return;
+    }
+    setCreatingCategory(true);
+    setFormError('');
+    try {
+      const created = await createCategory({
+        name,
+        parent_id: parentId || null,
+        is_active: true,
+      });
+      const fresh = await fetchCategories();
+      setCategories(fresh);
+      setFormState((prev) => {
+        if (level === 1) return { ...prev, category_1_id: created.id, category_2_id: '', category_3_id: '' };
+        if (level === 2) return { ...prev, category_2_id: created.id, category_3_id: '' };
+        return { ...prev, category_3_id: created.id };
+      });
+      setNewCategoryName('');
+      setCreatingCategoryLevel(null);
+    } catch (err) {
+      setFormError(err instanceof Error ? err.message : 'Αποτυχία δημιουργίας κατηγορίας.');
+    } finally {
+      setCreatingCategory(false);
     }
   };
 
@@ -1492,6 +1617,7 @@ export default function ItemsPage({
       const updatedItem = await uploadItemImagesManual(editingItem.id, manualImageFiles, {
         replaceExisting: replaceExistingManualImages,
         setUploadedAsMain: uploadManualAsMain,
+        replacePosition: manualReplacePosition > 0 ? manualReplacePosition : undefined,
       });
       setEditingItem(updatedItem);
       setFormState(toFormStateFromItem(updatedItem, categoryById));
@@ -1507,6 +1633,27 @@ export default function ItemsPage({
       setFormError(err instanceof Error ? err.message : 'Αποτυχία ανεβάσματος εικόνων.');
     } finally {
       setUploadingManualImages(false);
+    }
+  };
+
+  const handleSetImagePrimary = async (position: number) => {
+    if (!editingItem || position < 1) return;
+    if (position === 1) return;
+    if (!window.confirm(`Ορισμός εικόνας #${position} ως κύρια (θα γίνει swap με τη θέση 1);`)) return;
+    setSettingPrimaryPosition(position);
+    setFormError('');
+    try {
+      const updated = await setItemImagePrimary(editingItem.id, position);
+      setEditingItem(updated);
+      setFormState(toFormStateFromItem(updated, categoryById));
+      setMediaPreviewToken(String(Date.now()));
+      setItems((prev) => prev.map((row) => (row.id === updated.id ? updated : row)));
+      if (detailsItem?.id === updated.id) setDetailsItem(updated);
+      setSelectedImage(updated.main_image || '');
+    } catch (err) {
+      setFormError(err instanceof Error ? err.message : 'Αποτυχία ορισμού κύριας εικόνας.');
+    } finally {
+      setSettingPrimaryPosition(null);
     }
   };
 
@@ -1711,11 +1858,41 @@ export default function ItemsPage({
     }
   };
 
+  const handleBulkApproveReviewQueue = async () => {
+    // Rough count from current page as a hint — the backend scans all items
+    // regardless of pagination, but this gives the operator context.
+    const confirmed = window.confirm(
+      'Auto-accept ΟΛΩΝ των items που είναι σε review queue και περνούν quality check.\n\n' +
+      'Ό,τι έχει missing requirements (image / desc / category) θα μείνει ως έχει.\n\n' +
+      'Συνέχεια;'
+    );
+    if (!confirmed) return;
+    setBulkApprovingReview(true);
+    setPageError('');
+    setPageSuccess('');
+    try {
+      const result = await approveReviewQueueBulk();
+      setPageSuccess(
+        `Auto-accept: ${result.approved} εγκρίθηκαν · ${result.skipped_missing_requirements} skipped (missing requirements) · ${result.errors} errors.`
+      );
+      await loadItems();
+    } catch (err) {
+      setPageError(err instanceof Error ? err.message : 'Αποτυχία bulk approve.');
+    } finally {
+      setBulkApprovingReview(false);
+    }
+  };
+
   const sourceRefreshCategoryLabel = (() => {
-    if (!sourceRefreshResult?.category_resolution_source) return '';
-    if (sourceRefreshResult.category_resolution_source === 'barcode_lookup') return 'Κατηγορίες από barcode mapping';
-    if (sourceRefreshResult.category_resolution_source === 'source') return 'Κατηγορίες από την πηγή';
-    if (sourceRefreshResult.category_resolution_source === 'existing') return 'Διατηρήθηκαν οι υπάρχουσες κατηγορίες';
+    const source = sourceRefreshResult?.category_resolution_source;
+    if (!source) return '';
+    if (source === 'barcode_lookup') return 'Κατηγορίες από barcode mapping';
+    if (source === 'source') return 'Κατηγορίες από την πηγή';
+    if (source === 'existing') return 'Διατηρήθηκαν οι υπάρχουσες κατηγορίες';
+    if (source.startsWith('fallback:')) {
+      const fallbackSource = source.split(':', 2)[1];
+      return `Κατηγορίες από εφεδρική πηγή (${fallbackSource})`;
+    }
     return 'Δεν βρέθηκε category path';
   })();
 
@@ -1723,7 +1900,15 @@ export default function ItemsPage({
   const bulkRefreshOverrideCount = Object.values(bulkRefreshSources).filter(Boolean).length;
   const bulkRefreshMatchedCount = pagination.total;
   const bulkRefreshStatusVariant =
-    bulkRefreshJob?.running ? 'primary' : bulkRefreshJob?.status === 'completed' ? 'success' : bulkRefreshJob?.status === 'failed' ? 'danger' : 'secondary';
+    bulkRefreshJob?.running
+      ? 'primary'
+      : bulkRefreshJob?.status === 'completed'
+      ? 'success'
+      : bulkRefreshJob?.status === 'completed_with_warnings'
+      ? 'warning'
+      : bulkRefreshJob?.status === 'failed'
+      ? 'danger'
+      : 'secondary';
   const bulkRefreshSelectedTotal = bulkRefreshJob?.selected_total ?? 0;
   const bulkRefreshProcessed = bulkRefreshJob?.processed ?? 0;
   const bulkRefreshUpdated = bulkRefreshJob?.updated ?? 0;
@@ -1951,6 +2136,23 @@ export default function ItemsPage({
             <option value="needs_fix">{tx('Needs Fix', 'Χρειάζονται διόρθωση')}</option>
             <option value="ready_for_review">{tx('Ready for Review', 'Έτοιμα για έλεγχο')}</option>
           </Form.Select>
+          {qualityStateFilter === 'ready_for_review' ? (
+            <Button
+              size="sm"
+              variant="success"
+              className="mt-2 w-100"
+              disabled={bulkApprovingReview}
+              onClick={() => void handleBulkApproveReviewQueue()}
+              title={tx(
+                'Auto-accept all review-queue items that pass quality checks',
+                'Auto-accept όλων των items του review queue που περνούν quality check'
+              )}
+            >
+              {bulkApprovingReview
+                ? <Spinner animation="border" size="sm" />
+                : tx('Auto-accept all', 'Auto-accept όλων')}
+            </Button>
+          ) : null}
         </Col>
         <Col xl={2} md={6}>
           <Form.Label>{tx('Missing', 'Ελλείψεις')}</Form.Label>
@@ -2051,6 +2253,7 @@ export default function ItemsPage({
               <Table responsive className="table table-striped mb-3 align-middle">
                 <thead>
                   <tr>
+                    <th style={{ width: 60 }}></th>
                     <th>{tx('Title', 'Τίτλος')}</th>
                     <th>{tx('Category', 'Κατηγορία')}</th>
                     <th>{tx('Status', 'Κατάσταση')}</th>
@@ -2064,6 +2267,25 @@ export default function ItemsPage({
                   {items.length ? (
                     items.map((item) => (
                       <tr key={item.id}>
+                        <td style={{ width: 60 }}>
+                          {item.main_image ? (
+                            <span className="cloudon-portal-thumb">
+                              <img
+                                src={item.main_image}
+                                alt={item.title || ''}
+                                className="cloudon-portal-thumb__image"
+                                loading="lazy"
+                              />
+                              <span className="cloudon-portal-thumb__zoom">
+                                <img src={item.main_image} alt="" />
+                              </span>
+                            </span>
+                          ) : (
+                            <span className="cloudon-portal-thumb">
+                              <span className="cloudon-portal-thumb__image d-inline-flex align-items-center justify-content-center text-muted fs-12">—</span>
+                            </span>
+                          )}
+                        </td>
                         <td>
                           <div className="fw-semibold">{item.title || '-'}</div>
                           <div className="text-muted fs-12">Barcode: {item.barcode || '-'} | {tx('Code', 'Κωδικός')}: {item.code || '-'}</div>
@@ -2121,7 +2343,7 @@ export default function ItemsPage({
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={7} className="text-center text-muted py-4">
+                      <td colSpan={8} className="text-center text-muted py-4">
                         {tx('No items found.', 'Δεν βρέθηκαν είδη.')}
                       </td>
                     </tr>
@@ -2207,12 +2429,26 @@ export default function ItemsPage({
                                     <div className="text-muted fs-12 text-break">{imageUrl}</div>
                                   </div>
                                 </div>
-                                <div className="d-flex justify-content-end mt-2">
+                                <div className="d-flex justify-content-end gap-2 mt-2">
+                                  {index > 0 ? (
+                                    <Button
+                                      type="button"
+                                      size="sm"
+                                      variant="outline-primary"
+                                      disabled={settingPrimaryPosition !== null || Boolean(deletingImageUrl) || refreshingFromSource || submitting}
+                                      onClick={() => void handleSetImagePrimary(index + 1)}
+                                      title="Θα γίνει swap με την τρέχουσα κύρια — αρχείο 1.<ext>"
+                                    >
+                                      {settingPrimaryPosition === index + 1 ? 'Ορισμός...' : 'Ορισμός ως κύρια'}
+                                    </Button>
+                                  ) : (
+                                    <Badge bg="success" className="align-self-center">Κύρια</Badge>
+                                  )}
                                   <Button
                                     type="button"
                                     size="sm"
                                     variant="outline-danger"
-                                    disabled={Boolean(deletingImageUrl) || refreshingFromSource || submitting}
+                                    disabled={Boolean(deletingImageUrl) || refreshingFromSource || submitting || settingPrimaryPosition !== null}
                                     onClick={() => void handleDeleteImage(imageUrl)}
                                   >
                                     {deletingImageUrl === imageUrl ? 'Διαγραφή...' : 'Διαγραφή'}
@@ -2311,11 +2547,34 @@ export default function ItemsPage({
                           }}
                           disabled={uploadingManualImages || refreshingFromSource || submitting}
                         />
+                        {manualImageFiles.length > 0 && editImages.length > 0 && !replaceExistingManualImages ? (
+                          <div className="border rounded p-2 bg-white">
+                            <div className="fw-semibold fs-13 mb-2">Πού θα πάει το ανέβασμα;</div>
+                            <Form.Select
+                              size="sm"
+                              value={String(manualReplacePosition)}
+                              onChange={(event) => setManualReplacePosition(Number(event.target.value))}
+                              disabled={uploadingManualImages || refreshingFromSource || submitting}
+                            >
+                              <option value="0">Νέα εικόνα (append) — θέση {editImages.length + 1}</option>
+                              {editImages.map((_, idx) => (
+                                <option key={idx + 1} value={idx + 1}>
+                                  Αντικατάσταση θέσης {idx + 1}{idx === 0 ? ' (κύρια)' : ''}
+                                </option>
+                              ))}
+                            </Form.Select>
+                            {manualReplacePosition > 0 && manualImageFiles.length > 1 ? (
+                              <div className="text-muted fs-12 mt-1">
+                                Το πρώτο αρχείο ({manualImageFiles[0].name}) αντικαθιστά τη θέση {manualReplacePosition}. Τα υπόλοιπα {manualImageFiles.length - 1} θα προστεθούν στο τέλος.
+                              </div>
+                            ) : null}
+                          </div>
+                        ) : null}
                         <div className="d-flex flex-column gap-2">
                           <Form.Check
                             id="manual-upload-replace-existing"
                             type="switch"
-                            label="Αντικατάσταση υπαρχουσών hosted εικόνων"
+                            label="Αντικατάσταση ΟΛΩΝ των υπαρχουσών εικόνων"
                             checked={replaceExistingManualImages}
                             onChange={(event) => setReplaceExistingManualImages(event.target.checked)}
                             disabled={uploadingManualImages || refreshingFromSource || submitting}
@@ -2326,7 +2585,7 @@ export default function ItemsPage({
                             label="Ορισμός της πρώτης εικόνας ως κύρια"
                             checked={uploadManualAsMain}
                             onChange={(event) => setUploadManualAsMain(event.target.checked)}
-                            disabled={uploadingManualImages || refreshingFromSource || submitting}
+                            disabled={uploadingManualImages || refreshingFromSource || submitting || manualReplacePosition > 0}
                           />
                         </div>
                         <div className="text-muted fs-12">
@@ -2358,16 +2617,16 @@ export default function ItemsPage({
                       <div className="p-3 p-lg-4 cms-refresh-panel__body">
                         <div className="cms-refresh-panel__header">
                           <div>
-                            <h4 className="cms-refresh-panel__title">Χειροκίνητη Ανανέωση Πηγών</h4>
+                            <h4 className="cms-refresh-panel__title">Ανανέωση από Πηγές</h4>
                             <p className="cms-refresh-panel__note mb-0">
-                              Τραβά κείμενα από την πρώτη διαθέσιμη πηγή. Για τις κατηγορίες ελέγχει πρώτα το barcode mapping και μόνο αν δεν βρεθεί match
-                              πέφτει στις κατηγορίες της πηγής. Τα field selectors παρακάτω σου επιτρέπουν να σπάσεις το refresh ανά κανάλι.
+                              Τρέχει όλες τις ενεργές πηγές παράλληλα και κρατάει το καλύτερο πεδίο από κάθε μία
+                              (πιο μεγάλη περιγραφή, ιεραρχικές ελληνικές κατηγορίες, περισσότερες εικόνες).
                             </p>
                           </div>
                           <div className="cms-refresh-panel__actions">
                             <Button
                               type="button"
-                              variant="outline-primary"
+                              variant="primary"
                               onClick={() => void handleRefreshFromSources()}
                               disabled={refreshingFromSource || !formState.barcode.trim()}
                             >
@@ -2375,41 +2634,69 @@ export default function ItemsPage({
                                 ? 'Ανανέωση...'
                                 : manualRefreshOverrideCount
                                   ? 'Ανανέωση επιλεγμένων πηγών'
-                                  : 'Ανανέωση από πηγές'}
+                                  : 'Ανανέωση από όλες τις πηγές'}
                             </Button>
                           </div>
                         </div>
-                        <div className="cms-refresh-source-grid">
-                          {SOURCE_SELECTION_FIELDS.map((field) => (
-                            <div key={`manual-${field.key}`} className="cms-refresh-source-card">
-                              <label className="cms-refresh-source-card__label">{field.label}</label>
-                              <Form.Select
-                                className="cms-item-form-select"
-                                value={manualRefreshSources[field.key]}
-                                disabled={refreshingFromSource}
-                                onChange={(event) =>
-                                  setManualRefreshSources((prev) => ({
-                                    ...prev,
-                                    [field.key]: event.target.value,
-                                  }))
-                                }
-                              >
-                                {SOURCE_FIELD_OPTIONS.map((option) => (
-                                  <option key={`${field.key}-${option.value || 'auto'}`} value={option.value}>
-                                    {option.label}
-                                  </option>
-                                ))}
-                              </Form.Select>
-                              <div className="cms-refresh-source-card__helper">{field.helper}</div>
-                            </div>
-                          ))}
+                        <div className="mt-2">
+                          <Button
+                            type="button"
+                            variant="link"
+                            size="sm"
+                            className="p-0 text-decoration-none"
+                            onClick={() => setShowAdvancedRefreshSources((v) => !v)}
+                          >
+                            {showAdvancedRefreshSources ? '− Απόκρυψη σύνθετων επιλογών' : '+ Σύνθετες επιλογές πηγής'}
+                          </Button>
+                          {manualRefreshOverrideCount > 0 && !showAdvancedRefreshSources ? (
+                            <Badge bg="warning" text="dark" className="ms-2">
+                              {manualRefreshOverrideCount} χειροκίνητη επιλογή
+                            </Badge>
+                          ) : null}
                         </div>
+                        {showAdvancedRefreshSources ? (
+                          <div className="cms-refresh-source-grid mt-3">
+                            {SOURCE_SELECTION_FIELDS.map((field) => (
+                              <div key={`manual-${field.key}`} className="cms-refresh-source-card">
+                                <label className="cms-refresh-source-card__label">{field.label}</label>
+                                <Form.Select
+                                  className="cms-item-form-select"
+                                  value={manualRefreshSources[field.key]}
+                                  disabled={refreshingFromSource}
+                                  onChange={(event) =>
+                                    setManualRefreshSources((prev) => ({
+                                      ...prev,
+                                      [field.key]: event.target.value,
+                                    }))
+                                  }
+                                >
+                                  {SOURCE_FIELD_OPTIONS.map((option) => (
+                                    <option key={`${field.key}-${option.value || 'auto'}`} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                                </Form.Select>
+                                <div className="cms-refresh-source-card__helper">{field.helper}</div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   ) : null}
                   {sourceRefreshResult ? (
-                    <Alert variant="success" className="mb-3">
-                      Η φόρμα ενημερώθηκε από <strong>{sourceRefreshResult.source_name}</strong>.
+                    <Alert
+                      variant={sourceRefreshResult.any_improvement === false ? 'warning' : 'success'}
+                      className="mb-3"
+                    >
+                      {sourceRefreshResult.any_improvement === false ? (
+                        <>
+                          Δεν βρέθηκαν νέα δεδομένα από <strong>{sourceRefreshResult.source_name}</strong>.
+                          {' '}Τα υπάρχοντα στοιχεία είναι ήδη τα καλύτερα διαθέσιμα.
+                        </>
+                      ) : (
+                        <>Η φόρμα ενημερώθηκε από <strong>{sourceRefreshResult.source_name}</strong>.</>
+                      )}
                       {sourceRefreshResult.product_link ? (
                         <>
                           {' '}
@@ -2421,12 +2708,23 @@ export default function ItemsPage({
                       {sourceRefreshResult.resolved_category_path?.length ? (
                         <div className="mt-2 text-muted">
                           Διαδρομή κατηγορίας: {sourceRefreshResult.resolved_category_path.join(' / ')}
+                          {sourceRefreshResult.category_improved === false && sourceRefreshResult.any_improvement !== false
+                            ? ' (αμετάβλητη)' : ''}
                         </div>
                       ) : null}
                       <div className="d-flex flex-wrap gap-2 mt-2">
-                        <span className="cms-item-chip">Κείμενο: {sourceRefreshResult.text_source_name || sourceRefreshResult.source_name || '-'}</span>
-                        <span className="cms-item-chip">Εικόνες: {sourceRefreshResult.image_source_name || sourceRefreshResult.source_name || '-'}</span>
-                        <span className="cms-item-chip">Κατηγορίες: {sourceRefreshCategorySource}</span>
+                        <span className="cms-item-chip">
+                          Κείμενο: {sourceRefreshResult.text_source_name || sourceRefreshResult.source_name || '-'}
+                          {sourceRefreshResult.text_improved ? ' ✓' : ''}
+                        </span>
+                        <span className="cms-item-chip">
+                          Εικόνες: {sourceRefreshResult.image_source_name || sourceRefreshResult.source_name || '-'}
+                          {sourceRefreshResult.image_improved ? ' ✓' : ''}
+                        </span>
+                        <span className="cms-item-chip">
+                          Κατηγορίες: {sourceRefreshCategorySource}
+                          {sourceRefreshResult.category_improved ? ' ✓' : ''}
+                        </span>
                       </div>
                       {sourceRefreshCategoryLabel ? <div className="mt-2 text-muted">{sourceRefreshCategoryLabel}</div> : null}
                     </Alert>
@@ -2450,63 +2748,146 @@ export default function ItemsPage({
 
                   <div className="cms-item-form-grid">
                     <div>
-                      <label className="cms-item-form-label">Κατηγορία 1</label>
-                      <Form.Select
-                        className="cms-item-form-select"
-                        value={formState.category_1_id}
-                        onChange={(event) =>
-                          setFormState((prev) => ({
-                            ...prev,
-                            category_1_id: event.target.value,
-                            category_2_id: '',
-                            category_3_id: '',
-                          }))
-                        }
-                      >
-                        <option value="">Μη ορισμένη</option>
-                        {category1Options.map((category) => (
-                          <option key={category.id} value={category.id}>{category.name}</option>
-                        ))}
-                      </Form.Select>
+                      <label className="cms-item-form-label d-flex justify-content-between align-items-center">
+                        <span>Κατηγορία 1</span>
+                        <Button
+                          variant="link"
+                          size="sm"
+                          className="p-0 fs-12"
+                          onClick={() => { setCreatingCategoryLevel(creatingCategoryLevel === 1 ? null : 1); setNewCategoryName(''); }}
+                        >
+                          {creatingCategoryLevel === 1 ? 'Άκυρο' : '+ Νέα'}
+                        </Button>
+                      </label>
+                      {creatingCategoryLevel === 1 ? (
+                        <div className="d-flex gap-1">
+                          <Form.Control
+                            className="cms-item-form-control"
+                            placeholder="Νέα κατηγορία 1"
+                            value={newCategoryName}
+                            onChange={(e) => setNewCategoryName(e.target.value)}
+                            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); void handleCreateCategory(); } }}
+                            disabled={creatingCategory}
+                            autoFocus
+                          />
+                          <Button size="sm" variant="primary" disabled={creatingCategory || !newCategoryName.trim()} onClick={() => void handleCreateCategory()}>
+                            {creatingCategory ? <Spinner animation="border" size="sm" /> : 'OK'}
+                          </Button>
+                        </div>
+                      ) : (
+                        <Form.Select
+                          className="cms-item-form-select"
+                          value={formState.category_1_id}
+                          onChange={(event) =>
+                            setFormState((prev) => ({
+                              ...prev,
+                              category_1_id: event.target.value,
+                              category_2_id: '',
+                              category_3_id: '',
+                            }))
+                          }
+                        >
+                          <option value="">Μη ορισμένη</option>
+                          {category1Options.map((category) => (
+                            <option key={category.id} value={category.id}>{category.name}</option>
+                          ))}
+                        </Form.Select>
+                      )}
                     </div>
                     <div>
-                      <label className="cms-item-form-label">Κατηγορία 2</label>
-                      <Form.Select
-                        className="cms-item-form-select"
-                        value={formState.category_2_id}
-                        onChange={(event) =>
-                          setFormState((prev) => ({
-                            ...prev,
-                            category_2_id: event.target.value,
-                            category_3_id: '',
-                          }))
-                        }
-                        disabled={!formState.category_1_id}
-                      >
-                        <option value="">Μη ορισμένη</option>
-                        {category2Options.map((category) => (
-                          <option key={category.id} value={category.id}>{category.name}</option>
-                        ))}
-                      </Form.Select>
+                      <label className="cms-item-form-label d-flex justify-content-between align-items-center">
+                        <span>Κατηγορία 2</span>
+                        <Button
+                          variant="link"
+                          size="sm"
+                          className="p-0 fs-12"
+                          disabled={!formState.category_1_id}
+                          onClick={() => { setCreatingCategoryLevel(creatingCategoryLevel === 2 ? null : 2); setNewCategoryName(''); }}
+                        >
+                          {creatingCategoryLevel === 2 ? 'Άκυρο' : '+ Νέα'}
+                        </Button>
+                      </label>
+                      {creatingCategoryLevel === 2 ? (
+                        <div className="d-flex gap-1">
+                          <Form.Control
+                            className="cms-item-form-control"
+                            placeholder="Νέα κατηγορία 2"
+                            value={newCategoryName}
+                            onChange={(e) => setNewCategoryName(e.target.value)}
+                            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); void handleCreateCategory(); } }}
+                            disabled={creatingCategory}
+                            autoFocus
+                          />
+                          <Button size="sm" variant="primary" disabled={creatingCategory || !newCategoryName.trim()} onClick={() => void handleCreateCategory()}>
+                            {creatingCategory ? <Spinner animation="border" size="sm" /> : 'OK'}
+                          </Button>
+                        </div>
+                      ) : (
+                        <Form.Select
+                          className="cms-item-form-select"
+                          value={formState.category_2_id}
+                          onChange={(event) =>
+                            setFormState((prev) => ({
+                              ...prev,
+                              category_2_id: event.target.value,
+                              category_3_id: '',
+                            }))
+                          }
+                          disabled={!formState.category_1_id}
+                        >
+                          <option value="">Μη ορισμένη</option>
+                          {category2Options.map((category) => (
+                            <option key={category.id} value={category.id}>{category.name}</option>
+                          ))}
+                        </Form.Select>
+                      )}
                     </div>
                     <div>
-                      <label className="cms-item-form-label">Κατηγορία 3</label>
-                      <Form.Select
-                        className="cms-item-form-select"
-                        value={formState.category_3_id}
-                        onChange={(event) =>
-                          setFormState((prev) => ({
-                            ...prev,
-                            category_3_id: event.target.value,
-                          }))
-                        }
-                        disabled={!formState.category_2_id}
-                      >
-                        <option value="">Μη ορισμένη</option>
-                        {category3Options.map((category) => (
-                          <option key={category.id} value={category.id}>{category.name}</option>
-                        ))}
-                      </Form.Select>
+                      <label className="cms-item-form-label d-flex justify-content-between align-items-center">
+                        <span>Κατηγορία 3</span>
+                        <Button
+                          variant="link"
+                          size="sm"
+                          className="p-0 fs-12"
+                          disabled={!formState.category_2_id}
+                          onClick={() => { setCreatingCategoryLevel(creatingCategoryLevel === 3 ? null : 3); setNewCategoryName(''); }}
+                        >
+                          {creatingCategoryLevel === 3 ? 'Άκυρο' : '+ Νέα'}
+                        </Button>
+                      </label>
+                      {creatingCategoryLevel === 3 ? (
+                        <div className="d-flex gap-1">
+                          <Form.Control
+                            className="cms-item-form-control"
+                            placeholder="Νέα κατηγορία 3"
+                            value={newCategoryName}
+                            onChange={(e) => setNewCategoryName(e.target.value)}
+                            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); void handleCreateCategory(); } }}
+                            disabled={creatingCategory}
+                            autoFocus
+                          />
+                          <Button size="sm" variant="primary" disabled={creatingCategory || !newCategoryName.trim()} onClick={() => void handleCreateCategory()}>
+                            {creatingCategory ? <Spinner animation="border" size="sm" /> : 'OK'}
+                          </Button>
+                        </div>
+                      ) : (
+                        <Form.Select
+                          className="cms-item-form-select"
+                          value={formState.category_3_id}
+                          onChange={(event) =>
+                            setFormState((prev) => ({
+                              ...prev,
+                              category_3_id: event.target.value,
+                            }))
+                          }
+                          disabled={!formState.category_2_id}
+                        >
+                          <option value="">Μη ορισμένη</option>
+                          {category3Options.map((category) => (
+                            <option key={category.id} value={category.id}>{category.name}</option>
+                          ))}
+                        </Form.Select>
+                      )}
                     </div>
                     <div>
                       <label className="cms-item-form-label">Κατάσταση</label>
@@ -2685,12 +3066,12 @@ export default function ItemsPage({
       <Modal show={showDetailsModal} onHide={closeDetails} size="xl" centered dialogClassName="cms-item-details-modal modal-dialog-scrollable">
         <Modal.Header closeButton>
           <div className="d-flex flex-column gap-1">
-            <Modal.Title>{detailsItem?.title || 'Λεπτομέρειες είδους'}</Modal.Title>
+            <Modal.Title>{detailsItem?.title || tx('Item details', 'Λεπτομέρειες είδους')}</Modal.Title>
             {detailsItem ? (
               <div className="d-flex align-items-center flex-wrap gap-2 fs-12 text-muted">
                 <span>Barcode: {detailValue(detailsItem.barcode)}</span>
-                <span>Κωδικός: {detailValue(detailsItem.code)}</span>
-                {statusBadge(detailsItem.status)}
+                <span>{tx('Code', 'Κωδικός')}: {detailValue(detailsItem.code)}</span>
+                {statusBadge(detailsItem.status, language)}
               </div>
             ) : null}
           </div>
@@ -2702,7 +3083,7 @@ export default function ItemsPage({
             <div className="cms-item-details-shell">
               <div className="cms-item-details-hero">
                 <div className="cms-item-details-media-panel">
-                  <div className="cms-item-details-kicker">Πολυμέσα προϊόντος</div>
+                  <div className="cms-item-details-kicker">{tx('Product media', 'Πολυμέσα προϊόντος')}</div>
                   {selectedImage ? (
                     <>
                       <button
@@ -2715,10 +3096,10 @@ export default function ItemsPage({
                       </button>
                       <div className="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
                         <span className="text-muted fs-13">
-                          {detailsImages.length} image(s) available
+                          {tx('{count} image(s) available', '{count} διαθέσιμη/ες εικόνα/ες').replace('{count}', String(detailsImages.length))}
                         </span>
                         <Button variant="outline-secondary" size="sm" onClick={() => openImageZoom(selectedImage)}>
-                          Zoom
+                          {tx('Zoom', 'Μεγέθυνση')}
                         </Button>
                       </div>
                       {detailsImages.length > 1 ? (
@@ -2737,16 +3118,16 @@ export default function ItemsPage({
                       ) : null}
                     </>
                   ) : (
-                    <div className="text-muted">Δεν υπάρχει κύρια εικόνα.</div>
+                    <div className="text-muted">{tx('No main image is available.', 'Δεν υπάρχει κύρια εικόνα.')}</div>
                   )}
                 </div>
 
                 <div className="cms-item-details-summary-panel">
-                  <div className="cms-item-details-kicker">Σύνοψη προϊόντος</div>
+                  <div className="cms-item-details-kicker">{tx('Product summary', 'Σύνοψη προϊόντος')}</div>
                   <h2 className="cms-item-details-title">{detailValue(detailsItem.title)}</h2>
                   <div className="cms-item-details-submeta">
                     <span className="cms-item-chip">Barcode: {detailValue(detailsItem.barcode)}</span>
-                    <span className="cms-item-chip">Κωδικός: {detailValue(detailsItem.code)}</span>
+                    <span className="cms-item-chip">{tx('Code', 'Κωδικός')}: {detailValue(detailsItem.code)}</span>
                     <span className="cms-item-chip">SKU: {detailValue(detailsItem.sku)}</span>
                     <span className="cms-item-chip">{detailValue(detailsItem.category_name || categoryNameById.get(detailsItem.category_id) || '')}</span>
                   </div>
@@ -2757,22 +3138,22 @@ export default function ItemsPage({
                         disabled={approvingItemId === detailsItem.id}
                         onClick={() => void handleApproveGoLive(detailsItem)}
                       >
-                        {approvingItemId === detailsItem.id ? 'Έγκριση...' : 'Έγκριση δημοσίευσης'}
+                        {approvingItemId === detailsItem.id ? tx('Approving...', 'Έγκριση...') : tx('Approve Go Live', 'Έγκριση δημοσίευσης')}
                       </Button>
                     </div>
                   ) : null}
 
                   <div className="cms-item-details-grid">
                     <div className="cms-item-stat">
-                      <div className="cms-item-stat-label">Κατάσταση</div>
-                      <div className="cms-item-stat-value">{statusBadge(detailsItem.status)}</div>
+                      <div className="cms-item-stat-label">{tx('Status', 'Κατάσταση')}</div>
+                      <div className="cms-item-stat-value">{statusBadge(detailsItem.status, language)}</div>
                     </div>
                     <div className="cms-item-stat">
-                      <div className="cms-item-stat-label">Μάρκα</div>
+                      <div className="cms-item-stat-label">{tx('Brand', 'Μάρκα')}</div>
                       <div className="cms-item-stat-value">{detailValue(detailsItem.brand)}</div>
                     </div>
                     <div className="cms-item-stat">
-                      <div className="cms-item-stat-label">Μονάδα</div>
+                      <div className="cms-item-stat-label">{tx('Unit', 'Μονάδα')}</div>
                       <div className="cms-item-stat-value">{detailValue(detailsItem.unit)}</div>
                     </div>
                     <div className="cms-item-stat">
@@ -2780,23 +3161,23 @@ export default function ItemsPage({
                       <div className="cms-item-stat-value">{detailValue(detailsItem.slug)}</div>
                     </div>
                     <div className="cms-item-stat">
-                      <div className="cms-item-stat-label">Δημιουργήθηκε από</div>
+                      <div className="cms-item-stat-label">{tx('Created by', 'Δημιουργήθηκε από')}</div>
                       <div className="cms-item-stat-value">{detailValue(detailsItem.created_by)}</div>
                     </div>
                     <div className="cms-item-stat">
-                      <div className="cms-item-stat-label">Ενημερώθηκε από</div>
+                      <div className="cms-item-stat-label">{tx('Updated by', 'Ενημερώθηκε από')}</div>
                       <div className="cms-item-stat-value">{detailValue(detailsItem.updated_by)}</div>
                     </div>
                     <div className="cms-item-stat">
-                      <div className="cms-item-stat-label">Τρόπος περιγραφής</div>
-                      <div className="cms-item-stat-value">{detailsItem.description_html ? 'HTML μορφοποιημένο' : 'Απλό κείμενο (fallback)'}</div>
+                      <div className="cms-item-stat-label">{tx('Description mode', 'Τρόπος περιγραφής')}</div>
+                      <div className="cms-item-stat-value">{detailsItem.description_html ? tx('Formatted HTML', 'HTML μορφοποιημένο') : tx('Plain text (fallback)', 'Απλό κείμενο (fallback)')}</div>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="cms-item-details-section">
-                <div className="cms-item-details-section-title">Κατηγορίες</div>
+                <div className="cms-item-details-section-title">{tx('Categories', 'Κατηγορίες')}</div>
                 <div className="cms-item-edit-meta-grid">
                   {detailsCategoryLevels.map((category) => (
                     <div key={category.label} className="cms-item-edit-meta-card">
@@ -2808,45 +3189,45 @@ export default function ItemsPage({
               </div>
 
               <div className="cms-item-details-section">
-                <div className="cms-item-details-section-title">Έλεγχος ενεργοποίησης</div>
+                <div className="cms-item-details-section-title">{tx('Activation check', 'Έλεγχος ενεργοποίησης')}</div>
                 <div className="cms-item-edit-meta-grid">
                   <div className="cms-item-edit-meta-card">
-                    <strong>Κατάσταση ποιότητας</strong>
-                    <div>{qualityStateBadge(detailsItem.catalog_quality_state)}</div>
+                    <strong>{tx('Quality state', 'Κατάσταση ποιότητας')}</strong>
+                    <div>{qualityStateBadge(detailsItem.catalog_quality_state, language)}</div>
                   </div>
                   <div className="cms-item-edit-meta-card">
-                    <strong>Δημόσια εικόνα API</strong>
-                    <div>{detailsItem.catalog_public_image_enabled ? 'Ορατή' : 'Κρυφή'}</div>
+                    <strong>{tx('Public API image', 'Δημόσια εικόνα API')}</strong>
+                    <div>{detailsItem.catalog_public_image_enabled ? tx('Visible', 'Ορατή') : tx('Hidden', 'Κρυφή')}</div>
                   </div>
                   <div className="cms-item-edit-meta-card">
-                    <strong>Κείμενο</strong>
-                    <div>{detailsItem.catalog_has_text ? 'Ολοκληρωμένο' : 'Λείπει'}</div>
+                    <strong>{tx('Text', 'Κείμενο')}</strong>
+                    <div>{detailsItem.catalog_has_text ? tx('Complete', 'Ολοκληρωμένο') : tx('Missing', 'Λείπει')}</div>
                     <div className="d-flex flex-wrap gap-2 align-items-center mt-2">
-                      {textProvenanceBadge(detailsItem)}
-                      <span>{textProvenanceLabel(detailsItem)}</span>
+                      {textProvenanceBadge(detailsItem, language)}
+                      <span>{textProvenanceLabel(detailsItem, language)}</span>
                     </div>
                   </div>
                   <div className="cms-item-edit-meta-card">
-                    <strong>Κατηγορία</strong>
-                    <div>{detailsItem.catalog_has_category ? 'Ολοκληρωμένη' : 'Λείπει'}</div>
+                    <strong>{tx('Category', 'Κατηγορία')}</strong>
+                    <div>{detailsItem.catalog_has_category ? tx('Complete', 'Ολοκληρωμένη') : tx('Missing', 'Λείπει')}</div>
                     <div className="d-flex flex-wrap gap-2 align-items-center mt-2">
-                      {categoryProvenanceBadge(detailsItem)}
-                      <span>{categoryProvenanceLabel(detailsItem)}</span>
+                      {categoryProvenanceBadge(detailsItem, language)}
+                      <span>{categoryProvenanceLabel(detailsItem, language)}</span>
                     </div>
                   </div>
                   <div className="cms-item-edit-meta-card">
-                    <strong>Πηγή εικόνας</strong>
-                    <div>{detailsItem.catalog_has_any_image ? 'Ολοκληρωμένο' : 'Λείπει'}</div>
+                    <strong>{tx('Image source', 'Πηγή εικόνας')}</strong>
+                    <div>{detailsItem.catalog_has_any_image ? tx('Complete', 'Ολοκληρωμένο') : tx('Missing', 'Λείπει')}</div>
                   </div>
                   <div className="cms-item-edit-meta-card">
-                    <strong>Προέλευση φωτογραφίας</strong>
+                    <strong>{tx('Photo provenance', 'Προέλευση φωτογραφίας')}</strong>
                     <div className="d-flex flex-wrap gap-2 align-items-center">
-                      {photoSourceLockBadge(detailsItem)}
-                      <span>{photoSourceLockLabel(detailsItem)}</span>
+                      {photoSourceLockBadge(detailsItem, language)}
+                      <span>{photoSourceLockLabel(detailsItem, language)}</span>
                     </div>
                   </div>
                   <div className="cms-item-edit-meta-card">
-                    <strong>Λείποντα</strong>
+                    <strong>{tx('Missing', 'Λείποντα')}</strong>
                     <div>
                       {detailsItem.catalog_missing_requirements?.length
                         ? detailsItem.catalog_missing_requirements.map((code) => missingRequirementLabel(code, language)).join(', ')
@@ -2857,57 +3238,57 @@ export default function ItemsPage({
               </div>
 
               <div className="cms-item-details-section">
-                <div className="cms-item-details-section-title">Περιγραφή</div>
+                <div className="cms-item-details-section-title">{tx('Description', 'Περιγραφή')}</div>
                 {itemDescriptionHtml(detailsItem) ? (
                   <div
                     className="cms-item-description-body"
                     dangerouslySetInnerHTML={{ __html: itemDescriptionHtml(detailsItem) }}
                   />
                 ) : (
-                  <div className="text-muted">Δεν υπάρχει περιγραφή.</div>
+                  <div className="text-muted">{tx('No description available.', 'Δεν υπάρχει περιγραφή.')}</div>
                 )}
               </div>
 
               <div className="cms-item-details-section">
-                <div className="cms-item-details-section-title">Μεταδεδομένα</div>
+                <div className="cms-item-details-section-title">{tx('Metadata', 'Μεταδεδομένα')}</div>
                 <div className="cms-item-metadata-list">
                   <div className="cms-item-meta-row">
-                    <strong>Δημιουργήθηκε</strong>
+                    <strong>{tx('Created', 'Δημιουργήθηκε')}</strong>
                     <div>{formatDate(detailsItem.created_at)}</div>
                   </div>
                   <div className="cms-item-meta-row">
-                    <strong>Ενημερώθηκε</strong>
+                    <strong>{tx('Updated', 'Ενημερώθηκε')}</strong>
                     <div>{formatDate(detailsItem.updated_at)}</div>
                   </div>
                   <div className="cms-item-meta-row">
-                    <strong>Διαδρομή κατηγορίας</strong>
+                    <strong>{tx('Category path', 'Διαδρομή κατηγορίας')}</strong>
                     <div>{detailValue(detailsItem.category_name || categoryNameById.get(detailsItem.category_id) || '')}</div>
                   </div>
                   <div className="cms-item-meta-row">
-                    <strong>Κύρια εικόνα</strong>
-                    <div>{detailsItem.main_image ? 'Διαθέσιμη' : 'Λείπει'}</div>
+                    <strong>{tx('Main image', 'Κύρια εικόνα')}</strong>
+                    <div>{detailsItem.main_image ? tx('Available', 'Διαθέσιμη') : tx('Missing', 'Λείπει')}</div>
                   </div>
                   <div className="cms-item-meta-row">
-                    <strong>Ελέγχθηκε</strong>
+                    <strong>{tx('Reviewed', 'Ελέγχθηκε')}</strong>
                     <div>{detailsItem.catalog_reviewed_at ? formatDate(detailsItem.catalog_reviewed_at) : '-'}</div>
                   </div>
                   <div className="cms-item-meta-row">
-                    <strong>Ελέγχθηκε από</strong>
+                    <strong>{tx('Reviewed by', 'Ελέγχθηκε από')}</strong>
                     <div>{detailValue(detailsItem.catalog_reviewed_by)}</div>
                   </div>
                 </div>
               </div>
 
               <div className="cms-item-details-section">
-                <div className="cms-item-details-section-title">Ιστορικό αλλαγών</div>
+                <div className="cms-item-details-section-title">{tx('Change history', 'Ιστορικό αλλαγών')}</div>
                 <Table responsive className="table table-striped mb-0 align-middle">
                   <thead>
                     <tr>
-                      <th>Τύπος</th>
-                      <th>Πεδίο</th>
-                      <th>Προεπισκόπηση</th>
-                      <th>Αλλαγή από</th>
-                      <th>Πότε</th>
+                      <th>{tx('Type', 'Τύπος')}</th>
+                      <th>{tx('Field', 'Πεδίο')}</th>
+                      <th>{tx('Preview', 'Προεπισκόπηση')}</th>
+                      <th>{tx('Changed by', 'Αλλαγή από')}</th>
+                      <th>{tx('When', 'Πότε')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -2923,7 +3304,7 @@ export default function ItemsPage({
                       ))
                     ) : (
                         <tr>
-                        <td colSpan={5} className="text-center text-muted py-4">Δεν υπάρχει ιστορικό αλλαγών.</td>
+                        <td colSpan={5} className="text-center text-muted py-4">{tx('No change history available.', 'Δεν υπάρχει ιστορικό αλλαγών.')}</td>
                       </tr>
                     )}
                   </tbody>
@@ -2931,7 +3312,7 @@ export default function ItemsPage({
               </div>
             </div>
           ) : (
-            <div className="text-muted">Δεν έχει επιλεγεί είδος.</div>
+            <div className="text-muted">{tx('No item selected.', 'Δεν έχει επιλεγεί είδος.')}</div>
           )}
         </Modal.Body>
       </Modal>
@@ -2945,13 +3326,13 @@ export default function ItemsPage({
       >
         <Modal.Header closeButton>
           <div className="d-flex align-items-center justify-content-between w-100 gap-3 flex-wrap">
-            <Modal.Title>Μεγέθυνση εικόνας</Modal.Title>
+            <Modal.Title>{tx('Image zoom', 'Μεγέθυνση εικόνας')}</Modal.Title>
             <div className="d-flex gap-2">
               <Button variant="outline-secondary" size="sm" onClick={() => setImageZoomScale((current) => zoomClamp(current - 0.25))}>
                 -
               </Button>
               <Button variant="outline-secondary" size="sm" onClick={() => setImageZoomScale(1)}>
-                Επαναφορά
+                {tx('Reset', 'Επαναφορά')}
               </Button>
               <Button variant="outline-secondary" size="sm" onClick={() => setImageZoomScale((current) => zoomClamp(current + 0.25))}>
                 +
@@ -2977,7 +3358,7 @@ export default function ItemsPage({
               }}
             />
           ) : (
-            <div className="text-muted">Δεν έχει επιλεγεί εικόνα.</div>
+            <div className="text-muted">{tx('No image selected.', 'Δεν έχει επιλεγεί εικόνα.')}</div>
           )}
         </Modal.Body>
       </Modal>

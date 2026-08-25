@@ -15,6 +15,11 @@ from cms_permissions import (
     normalize_cms_role,
     require_cms_permissions,
 )
+from login_lockout import (
+    raise_if_locked,
+    record_failed_login,
+    record_successful_login,
+)
 
 
 def _utcnow() -> datetime:
@@ -134,8 +139,22 @@ def create_cms_auth_router(db) -> APIRouter:
         user_doc = await users_collection.find_one({"email": email})
         if not user_doc or not user_doc.get("is_active", True):
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password")
+
+        # If account is currently locked, refuse before even checking the password.
+        raise_if_locked(user_doc)
+
         if not _verify_password(payload.password, user_doc.get("password_hash", "")):
+            outcome = await record_failed_login(
+                db, users_collection, user_doc,
+                kind="cms_admin", request=request, identifier=email,
+            )
+            if outcome["locked"]:
+                # Threshold just crossed — surface the lockout to the user directly.
+                user_doc["locked_until"] = outcome["locked_until"]
+                raise_if_locked(user_doc)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password")
+
+        await record_successful_login(users_collection, user_doc)
 
         token = secrets.token_urlsafe(48)
         now = _utcnow()

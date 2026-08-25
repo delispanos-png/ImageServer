@@ -1,0 +1,5938 @@
+[
+  {
+    "slug": "gynaika",
+    "product_count": 7654,
+    "sample_barcodes": [
+      "5201279082253",
+      "5201279083809",
+      "5201109003519"
+    ],
+    "transliterated": "γυναικα",
+    "tokens": [
+      "γινεκα"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Γυναίκα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Γυναίκα",
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά",
+          "Σαμπουάν"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5",
+          "69baa114f38fe8bf68f180b6"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "sympliromata-diatrofis",
+    "product_count": 2652,
+    "sample_barcodes": [
+      "5201279014605",
+      "5200321011197",
+      "5200321013290"
+    ],
+    "transliterated": "συμπλιροματα-διατροφισ",
+    "tokens": [
+      "σιμπλιροματα",
+      "διατροφισ"
+    ],
+    "top_score": 0.8083,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.8083,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.7833,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a46"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΙΧΝΟΣΤΟΙΧΕΙΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a5b"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΚΟΛΛΑΓΟΝΟ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a62"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.675,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΦΥΤΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a67"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "mitera-paidi",
+    "product_count": 2620,
+    "sample_barcodes": [
+      "5201263890475",
+      "5201263890611",
+      "5201279088712"
+    ],
+    "transliterated": "μιτερα-παιδι",
+    "tokens": [
+      "μιτερα",
+      "πεδι"
+    ],
+    "top_score": 0.4167,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.4167,
+        "path": [
+          "Γονείς & Παιδί"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Μαμά - Παιδί"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.3625,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.3625,
+        "path": [
+          "Γονείς & Παιδί",
+          "Θηλασμός"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b59f6a9a0fd05312f5f94a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3625,
+        "path": [
+          "Γονείς & Παιδί",
+          "Εγκυμοσύνη"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5ec112a7ebb92bddbad44"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio",
+    "product_count": 2257,
+    "sample_barcodes": [
+      "5201263030154",
+      "5201263030185",
+      "5201178028543"
+    ],
+    "transliterated": "φαρμακειο",
+    "tokens": [
+      "φαρμακιο"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 1.0,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Φαρμακείο",
+          "Μάτια"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98b"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Φαρμακείο",
+          "Αλλεργίες"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b67db30d3e320e31cba8bf"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "spiti",
+    "product_count": 2144,
+    "sample_barcodes": [
+      "5201279082833",
+      "5201279072858",
+      "5201109003601"
+    ],
+    "transliterated": "σπιτι",
+    "tokens": [
+      "σπιτι"
+    ],
+    "top_score": 0.6167,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.6167,
+        "path": [
+          "ΓΕΝΙΚΑ ΕΙΔΗ",
+          "ΓΙΑ ΤΟ ΣΠΙΤΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac199e",
+          "69b55d81d3b5c2a242ac19a6"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.525,
+        "path": [
+          "ΓΕΝΙΚΑ ΕΙΔΗ",
+          "ΓΙΑ ΤΟ ΣΠΙΤΙ",
+          "ΣΥΣΚΕΥΕΣ ΓΙΑ ΤΟ ΣΠΙΤΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac199e",
+          "69b55d81d3b5c2a242ac19a6",
+          "69b55d81d3b5c2a242ac19aa"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "ΓΕΝΙΚΑ ΕΙΔΗ",
+          "ΓΙΑ ΤΟ ΣΠΙΤΙ",
+          "ΑΠΟΘΗΚΕΥΣΗ ΡΟΥΧΙΣΜΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac199e",
+          "69b55d81d3b5c2a242ac19a6",
+          "69b55d81d3b5c2a242ac19a8"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.475,
+        "path": [
+          "ΓΕΝΙΚΑ ΕΙΔΗ",
+          "ΓΙΑ ΤΟ ΣΠΙΤΙ",
+          "ΕΝΤΟΜΟΑΠΟΘΗΤΙΚΑ ΧΩΡΟΥ ΓΙΑ ΤΟ ΣΠΙΤΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac199e",
+          "69b55d81d3b5c2a242ac19a6",
+          "69b55d81d3b5c2a242ac19a9"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4583,
+        "path": [
+          "ΓΕΝΙΚΑ ΕΙΔΗ",
+          "ΓΙΑ ΤΟ ΣΠΙΤΙ",
+          "ΑΝΑΝΕΩΣΗ ΑΕΡΑ ΧΩΡΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac199e",
+          "69b55d81d3b5c2a242ac19a6",
+          "69b55d81d3b5c2a242ac19a7"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "kalluntika",
+    "product_count": 1625,
+    "sample_barcodes": [
+      "5056183602871",
+      "5056183602857",
+      "5056183602024"
+    ],
+    "transliterated": "καλλυντικα",
+    "tokens": [
+      "καλλιντικα"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "makigiaz",
+    "product_count": 1617,
+    "sample_barcodes": [
+      "5201410484496",
+      "5201580231524",
+      "5201575205325"
+    ],
+    "transliterated": "μακιγιαζ",
+    "tokens": [
+      "μακιγιαζ"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Μακιγιαζ"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Μακιγιαζ",
+          "Νύχια"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c",
+          "69b67db30d3e320e31cba818"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "Μακιγιαζ",
+          "Μακιγιάζ Προσώπου"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c",
+          "69b5bfbe86554eb788cdf836"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "Μακιγιαζ",
+          "Μακιγιάζ Χειλιών"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c",
+          "69b5c8d090b0883f36675741"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "Μακιγιαζ",
+          "Αξεσουάρ Μακιγιάζ"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c",
+          "69b67db30d3e320e31cba812"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "mitera-kai-paidi",
+    "product_count": 1601,
+    "sample_barcodes": [
+      "9109005262",
+      "9109005261",
+      "9109005191"
+    ],
+    "transliterated": "μιτερα-και-παιδι",
+    "tokens": [
+      "μιτερα",
+      "κε",
+      "πεδι"
+    ],
+    "top_score": 0.5833,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5833,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΠΑΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac199b"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4667,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΠΑΙΔΙΚΑ ΑΞΕΣΟΥΑΡ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac1994"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4667,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΠΑΙΔΙΚΟ ΔΩΜΑΤΙΟ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac1999"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΠΑΝΕΣ",
+          "ΑΝΟΙΧΤΕΣ ΠΑΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac199b",
+          "69b55d81d3b5c2a242ac199c"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "frontida",
+    "product_count": 1409,
+    "sample_barcodes": [
+      "9109005232",
+      "9109005257",
+      "9109005258"
+    ],
+    "transliterated": "φροντιδα",
+    "tokens": [
+      "φροντιδα"
+    ],
+    "top_score": 0.725,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.725,
+        "path": [
+          "ΦΡΟΝΤΙΔΑ ΔΕΡΜΑΤΟΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a96"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "Σώμα",
+          "Φροντίδα Ποδιών"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5f"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΣΤΟΜΑΤΙΚΗ ΦΡΟΝΤΙΔΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a2c"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "ΦΡΟΝΤΙΔΑ ΔΕΡΜΑΤΟΣ",
+          "ΑΝΤΗΛΙΑΚΗ ΠΡΟΣΤΑΣΙΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a96",
+          "69b55d81d3b5c2a242ac1a97"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "ΦΡΟΝΤΙΔΑ ΔΕΡΜΑΤΟΣ",
+          "ΑΝΤΙΓΗΡΑΝΣΗ ΜΑΤΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a96",
+          "69b55d81d3b5c2a242ac1aa1"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "athlitismos-diatrofi",
+    "product_count": 1008,
+    "sample_barcodes": [
+      "5201279014360",
+      "5201279014315",
+      "5201402000055"
+    ],
+    "transliterated": "αθλιτισμοσ-διατροφι",
+    "tokens": [
+      "αθλιτισμοσ",
+      "διατροφι"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΓΛΥΚΑΝΤΙΚΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19b9"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΡΟΦΗΜΑΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19c7"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΣΟΚΟΛΑΤΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19ca"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3625,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΑΛΜΥΡΑ ΣΝΑΚ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19b6"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "andras",
+    "product_count": 958,
+    "sample_barcodes": [
+      "5201279008024",
+      "5201279078041",
+      "5201279078034"
+    ],
+    "transliterated": "ανδρασ",
+    "tokens": [
+      "ανδρασ"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Άνδρας"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Άνδρας",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69b84c86b3100ba3238f0b04"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Άνδρας",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69bab305c15d04453c57bb80"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "Άνδρας",
+          "Μαλλιά",
+          "Αντρική Τριχόπτωση"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69b84c86b3100ba3238f0b04",
+          "69b84c86b3100ba3238f0b05"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Άνδρας",
+          "Πρόσωπο",
+          "Ακμή - Κρέμες - Καθαριστικά"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69bab305c15d04453c57bb80",
+          "69bab305c15d04453c57bb81"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "προσωπο",
+    "product_count": 935,
+    "sample_barcodes": [
+      "4744183016644",
+      "4744183014626",
+      "42417828"
+    ],
+    "transliterated": "προσωπο",
+    "tokens": [
+      "προσοπο"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Πρόσωπο",
+          "Serum"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b596a4762ac3fc3c18fd43"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Πρόσωπο",
+          "Serum"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b596a4762ac3fc3c18fd44"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Πρόσωπο",
+          "Boosters"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b59c7e762ac3fc3c18fd81"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Πρόσωπο",
+          "Fillers"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b67db30d3e320e31cba83d"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "gynaika/prosopo",
+    "product_count": 863,
+    "sample_barcodes": [
+      "5200132630167",
+      "5205962009077",
+      "5201314161561"
+    ],
+    "transliterated": "γυναικα/προσοπο",
+    "tokens": [
+      "γινεκα",
+      "προσοπο"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.8083,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο",
+          "Έλαια"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79",
+          "69bab08bc15d04453c57bb7a"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.8083,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο",
+          "Serum"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79",
+          "69bab32ac15d04453c57bb82"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.8083,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο",
+          "Δερμοκαλλυντικά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79",
+          "69babbddc15d04453c57bb86"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο",
+          "Κρέμες Προσώπου"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79",
+          "69bab0eec15d04453c57bb7c"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "ygeia",
+    "product_count": 739,
+    "sample_barcodes": [
+      "9109005231",
+      "9109005233",
+      "9109005230"
+    ],
+    "transliterated": "υγεια",
+    "tokens": [
+      "ιγια"
+    ],
+    "top_score": 0.3964,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.3964,
+        "path": [
+          "Συμπληρώματα",
+          "Συμπληρώματα Ανα Ανάγκη",
+          "Ουροποιητικό – Υγεία Νεφρών"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd57",
+          "69b67db30d3e320e31cba89d"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "prosfores",
+    "product_count": 650,
+    "sample_barcodes": [
+      "9109005276",
+      "9109005277",
+      "9109005278"
+    ],
+    "transliterated": "προσφορεσ",
+    "tokens": [
+      "προσφορεσ"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Προσφορές"
+        ],
+        "node_ids": [
+          "69babd5bc15d04453c57bb87"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Προσφορές",
+          "Promo"
+        ],
+        "node_ids": [
+          "69babd5bc15d04453c57bb87",
+          "69babd5bc15d04453c57bb88"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "σωμα",
+    "product_count": 508,
+    "sample_barcodes": [
+      "4744183012257",
+      "4744183011496",
+      "4744183011519"
+    ],
+    "transliterated": "σωμα",
+    "tokens": [
+      "σομα"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Σώμα",
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Σώμα",
+          "Αρώματα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59a09762ac3fc3c18fd7d"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Σώμα",
+          "Αποσμητικά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5b8079a0fd05312f5f981"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Γυναίκα",
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "παιδικα-βρεφικα",
+    "product_count": 433,
+    "sample_barcodes": [
+      "42397229",
+      "42102013859501",
+      "411152"
+    ],
+    "transliterated": "παιδικα-βρεφικα",
+    "tokens": [
+      "πεδικα",
+      "βρεφικα"
+    ],
+    "top_score": 0.675,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.675,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά",
+          "Αντηλιακά Παιδικά - Βρεφικά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291",
+          "69baaa6b4999aee443ef1292"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4929,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΠΑΙΔΙΚΑ ΑΞΕΣΟΥΑΡ",
+          "ΑΛΛΑ ΒΡΕΦΙΚΑ ΑΞΕΣΟΥΑΡ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac1994",
+          "69b55d81d3b5c2a242ac1995"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4929,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΠΑΙΔΙΚΑ ΑΞΕΣΟΥΑΡ",
+          "ΒΡΕΦΙΚΑ ΑΞΕΣΟΥΑΡ ΜΠΑΝΙΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac1994",
+          "69b55d81d3b5c2a242ac1996"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4929,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΠΑΙΔΙΚΑ ΑΞΕΣΟΥΑΡ",
+          "ΒΡΕΦΙΚΑ ΑΞΕΣΟΥΑΡ ΦΑΓΗΤΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac1994",
+          "69b55d81d3b5c2a242ac1997"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4361,
+        "path": [
+          "Γονείς & Παιδί",
+          "Διατροφή Μωρού - Παιδιού",
+          "Βρεφικά και Παιδικά Γάλατα"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b59f6a9a0fd05312f5f947",
+          "69b59f6a9a0fd05312f5f948"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "adynatisma",
+    "product_count": 417,
+    "sample_barcodes": [
+      "5201219488732",
+      "5201575122028",
+      "5201575121021"
+    ],
+    "transliterated": "αδυνατισμα",
+    "tokens": [
+      "αδινατισμα"
+    ],
+    "top_score": 0.55,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.55,
+        "path": [
+          "Σώμα",
+          "Αδυνάτισμα και Κυτταρίτιδα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59f6a9a0fd05312f5f956"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Σώμα",
+          "Κρέμες Σώματος",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5998e762ac3fc3c18fd79",
+          "69b59f6a9a0fd05312f5f95a"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5b8079a0fd05312f5f96c"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Σώμα",
+          "Λάδια Σώματος",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5c18c86554eb788cdf842",
+          "69b67db30d3e320e31cba8b6"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.475,
+        "path": [
+          "Σώμα",
+          "Αδυνάτισμα και Κυτταρίτιδα",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59f6a9a0fd05312f5f956",
+          "69b67db30d3e320e31cba8a4"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "gynaika/soma",
+    "product_count": 383,
+    "sample_barcodes": [
+      "5200132630105",
+      "5200012107147",
+      "8052787970825"
+    ],
+    "transliterated": "γυναικα/σομα",
+    "tokens": [
+      "γινεκα",
+      "σομα"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Γυναίκα",
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.625,
+        "path": [
+          "Γυναίκα",
+          "Σώμα",
+          "Scrub σώματος - Απολέπιση"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32",
+          "69b84d42b3100ba3238f0b33"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Γυναίκα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Σώμα",
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "gynaika/makigiaz",
+    "product_count": 378,
+    "sample_barcodes": [
+      "3264680038655",
+      "5206281110888",
+      "8050519683616"
+    ],
+    "transliterated": "γυναικα/μακιγιαζ",
+    "tokens": [
+      "γινεκα",
+      "μακιγιαζ"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Μακιγιαζ"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Γυναίκα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Μακιγιαζ",
+          "Νύχια"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c",
+          "69b67db30d3e320e31cba818"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Γυναίκα",
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "stomatiki-ygieini",
+    "product_count": 352,
+    "sample_barcodes": [
+      "5200314371086",
+      "5200314327243",
+      "5200398528550"
+    ],
+    "transliterated": "στοματικι-υγιεινι",
+    "tokens": [
+      "στοματικι",
+      "ιγιινι"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Στοματική Υγιεινή"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.8083,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντόβουρτσες"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b5b8079a0fd05312f5f96d"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.8083,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντόκρεμες"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b5c4c94be90ba582b9e8bf"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.8083,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντότσιχλες"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b67db30d3e320e31cba86f"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7833,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντόβουρτσες",
+          "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b5b8079a0fd05312f5f96d",
+          "69b5b8079a0fd05312f5f96e"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/stomatiki-ygieini",
+    "product_count": 343,
+    "sample_barcodes": [
+      "8712561524995",
+      "8710604793568",
+      "7317400017631"
+    ],
+    "transliterated": "φαρμακειο/στοματικι-υγιεινι",
+    "tokens": [
+      "φαρμακιο",
+      "στοματικι",
+      "ιγιινι"
+    ],
+    "top_score": 0.6667,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.6667,
+        "path": [
+          "Στοματική Υγιεινή"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντόβουρτσες"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b5b8079a0fd05312f5f96d"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντόκρεμες"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b5c4c94be90ba582b9e8bf"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντότσιχλες"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b67db30d3e320e31cba86f"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5667,
+        "path": [
+          "Στοματική Υγιεινή",
+          "Οδοντόβουρτσες",
+          "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f952",
+          "69b5b8079a0fd05312f5f96d",
+          "69b5b8079a0fd05312f5f96e"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "epochiaka/xeimonas",
+    "product_count": 320,
+    "sample_barcodes": [
+      "5207270000234",
+      "4260105980676",
+      "745114703224"
+    ],
+    "transliterated": "εποχιακα/ξειμονασ",
+    "tokens": [
+      "εποχιακα",
+      "ξιμονασ"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Σώμα",
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.35,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά",
+          "Αντηλιακά Σώματος"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291",
+          "69bbc66d251fa1145e59f926"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.325,
+        "path": [
+          "Σώμα",
+          "Εποχιακά",
+          "Αντηλιακά Σώματος"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a",
+          "69b5982e762ac3fc3c18fd5b"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "pet",
+    "product_count": 320,
+    "sample_barcodes": [
+      "5420031932272",
+      "5201263078309",
+      "5201263078316"
+    ],
+    "transliterated": "πετ",
+    "tokens": [
+      "πετ"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "farmakeio/frontida-ygeias",
+    "product_count": 308,
+    "sample_barcodes": [
+      "4021457632862",
+      "4075700044544",
+      "40757742"
+    ],
+    "transliterated": "φαρμακειο/φροντιδα-υγειασ",
+    "tokens": [
+      "φαρμακιο",
+      "φροντιδα",
+      "ιγιασ"
+    ],
+    "top_score": 0.5833,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5833,
+        "path": [
+          "Φαρμακείο",
+          "Συσκευές Υγείας"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f991"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "Φαρμακείο",
+          "Συσκευές Υγείας",
+          "Νεφελοποιητές"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f991",
+          "69b5b8079a0fd05312f5f992"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4667,
+        "path": [
+          "Φαρμακείο",
+          "Συσκευές Υγείας",
+          "Μάσκες Εισπνοών"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f991",
+          "69b67db30d3e320e31cba8dd"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "slug": "gynaika/mallia",
+    "product_count": 294,
+    "sample_barcodes": [
+      "3700221319628",
+      "SOL1960",
+      "3858891401188"
+    ],
+    "transliterated": "γυναικα/μαλλια",
+    "tokens": [
+      "γινεκα",
+      "μαλλια"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.8083,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά",
+          "Σαμπουάν"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5",
+          "69baa114f38fe8bf68f180b6"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.625,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά",
+          "Λοσιόν - Λάδι Μαλλιών"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5",
+          "69baa95f4999aee443ef1261"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Γυναίκα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31"
+        ],
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "slug": "sex",
+    "product_count": 256,
+    "sample_barcodes": [
+      "5200408701980",
+      "5200408701973",
+      "4028403156250"
+    ],
+    "transliterated": "σεξ",
+    "tokens": [
+      "σεξ"
+    ],
+    "top_score": 0.725,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.725,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ",
+          "Διεγερτικά"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75",
+          "69b5994f762ac3fc3c18fd76"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ",
+          "Λιπαντικά"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75",
+          "69b67db30d3e320e31cba8db"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ",
+          "Προφυλακτικά"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75",
+          "69b67db30d3e320e31cba8dc"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ",
+          "Sex Toys"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75",
+          "69b5b8079a0fd05312f5f990"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "andras/soma",
+    "product_count": 253,
+    "sample_barcodes": [
+      "5206469011228",
+      "3111219189411",
+      "19-650009"
+    ],
+    "transliterated": "ανδρασ/σομα",
+    "tokens": [
+      "ανδρασ",
+      "σομα"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Άνδρας"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Σώμα",
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Σώμα",
+          "Αρώματα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59a09762ac3fc3c18fd7d"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Σώμα",
+          "Αποσμητικά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5b8079a0fd05312f5f981"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "epochiaka/antiliaka",
+    "product_count": 241,
+    "sample_barcodes": [
+      "5201279098926",
+      "5205962000661",
+      "5213001490953"
+    ],
+    "transliterated": "εποχιακα/αντιλιακα",
+    "tokens": [
+      "εποχιακα",
+      "αντιλιακα"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7833,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά",
+          "Αντηλιακά Σώματος"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291",
+          "69bbc66d251fa1145e59f926"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "Σώμα",
+          "Εποχιακά",
+          "Αντηλιακά Σώματος"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a",
+          "69b5982e762ac3fc3c18fd5b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.675,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά",
+          "Αντηλιακά Παιδικά - Βρεφικά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291",
+          "69baaa6b4999aee443ef1292"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290"
+        ],
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/diagnostika-iatrika-syskeves",
+    "product_count": 231,
+    "sample_barcodes": [
+      "8002712023621",
+      "MRD3000",
+      "9370055693504"
+    ],
+    "transliterated": "φαρμακειο/διαγνοστικα-ιατρικα-συσκεβεσ",
+    "tokens": [
+      "φαρμακιο",
+      "διαγνοστικα",
+      "ιατρικα",
+      "σισκεβεσ"
+    ],
+    "top_score": 0.3679,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.3679,
+        "path": [
+          "ΙΑΤΡΙΚΑ ΕΙΔΗ",
+          "ΙΑΤΡΙΚΑ ΒΟΗΘΗΜΑΤΑ",
+          "ΔΙΑΓΝΩΣΤΙΚΑ ΤΕΣΤ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19ce",
+          "69b55d81d3b5c2a242ac19cf",
+          "69b55d81d3b5c2a242ac19d2"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.25,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.25,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.225,
+        "path": [
+          "ΙΑΤΡΙΚΑ ΕΙΔΗ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19ce"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.225,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "mama-paidi/trofes",
+    "product_count": 231,
+    "sample_barcodes": [
+      "4260105980683",
+      "3515450025871",
+      "8008843135714"
+    ],
+    "transliterated": "μαμα-παιδι/τροφεσ",
+    "tokens": [
+      "μαμα",
+      "πεδι",
+      "τροφεσ"
+    ],
+    "top_score": 0.6667,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.6667,
+        "path": [
+          "Μαμά - Παιδί"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4667,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3917,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού",
+          "Πάνες - Μωρομάντηλα"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4",
+          "69b6b01dd175e71cefb175f5"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γονείς & Παιδί"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2667,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d"
+        ],
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "slug": "mama-paidi/frontida-morou-paidiou",
+    "product_count": 226,
+    "sample_barcodes": [
+      "5201100693627",
+      "RIL8234",
+      "6221601402503"
+    ],
+    "transliterated": "μαμα-παιδι/φροντιδα-μορου-παιδιου",
+    "tokens": [
+      "μαμα",
+      "πεδι",
+      "φροντιδα",
+      "μοροι",
+      "πεδιοι"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.8071,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού",
+          "Πάνες - Μωρομάντηλα"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4",
+          "69b6b01dd175e71cefb175f5"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "Γονείς & Παιδί",
+          "Φροντίδα Μωρού"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5940f274580527e42541d"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "Γονείς & Παιδί",
+          "Φροντίδα Παιδιου"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5982e762ac3fc3c18fd4c"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5143,
+        "path": [
+          "Γονείς & Παιδί",
+          "Διατροφή Μωρού - Παιδιού"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b59f6a9a0fd05312f5f947"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "μαλλια",
+    "product_count": 214,
+    "sample_barcodes": [
+      "4743318183022",
+      "4744183011908",
+      "4260285395499"
+    ],
+    "transliterated": "μαλλια",
+    "tokens": [
+      "μαλλια"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Μαλλιά",
+          "Σαμπουάν"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b590cc274580527e42541a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Άνδρας",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69b84c86b3100ba3238f0b04"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.725,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "Μαλλιά",
+          "Conditioner Μαλλιών"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b5982e762ac3fc3c18fd4e"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "vitamins-dietary-supplements/vitamins",
+    "product_count": 207,
+    "sample_barcodes": [
+      "5206856001191",
+      "SOL3110",
+      "5212002703802"
+    ],
+    "transliterated": "βιταμινσ-διεταρυ-συππλεμεντσ/βιταμινσ",
+    "tokens": [
+      "βιταμινσ",
+      "διεταρι",
+      "σιππλεμεντσ",
+      "βιταμινσ"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "enallaktikes-therapeies/aromatotherapeia",
+    "product_count": 202,
+    "sample_barcodes": [
+      "4086900101821",
+      "8901059700243",
+      "5200132630228"
+    ],
+    "transliterated": "εναλλακτικεσ-θεραπειεσ/αροματοθεραπεια",
+    "tokens": [
+      "εναλλακτικεσ",
+      "θεραπιεσ",
+      "αροματοθεραπια"
+    ],
+    "top_score": 0.2214,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2214,
+        "path": [
+          "Μαλλιά",
+          "Scalp Scrub",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b5b8079a0fd05312f5f966",
+          "69b5b8079a0fd05312f5f967"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5bd32f4593d846e2a797e"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Καθαρισμός Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425421",
+          "69b67db30d3e320e31cba84b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ : STYLING",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a1e",
+          "69b55d81d3b5c2a242ac1a22"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΦΡΟΝΤΙΔΑ ΔΕΡΜΑΤΟΣ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a96",
+          "69b55d81d3b5c2a242ac1ab0",
+          "69b55d81d3b5c2a242ac1ab4"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "vitamines-simpliromata/votana-ekxylismata",
+    "product_count": 199,
+    "sample_barcodes": [
+      "MET1089",
+      "4036185003204",
+      "5206856001139"
+    ],
+    "transliterated": "βιταμινεσ-σιμπλιροματα/βοτανα-εκξυλισματα",
+    "tokens": [
+      "βιταμινεσ",
+      "σιμπλιροματα",
+      "βοτανα",
+      "εκξιλισματα"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Συμπληρώματα",
+          "Βότανα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5b8079a0fd05312f5f971"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a46"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες",
+          "Πολυβιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51",
+          "69b5994f762ac3fc3c18fd6c"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/protes-voitheies",
+    "product_count": 182,
+    "sample_barcodes": [
+      "5206609030218",
+      "5205030600021",
+      "4075700044452"
+    ],
+    "transliterated": "φαρμακειο/προτεσ-βοιθειεσ",
+    "tokens": [
+      "φαρμακιο",
+      "προτεσ",
+      "βιθιεσ"
+    ],
+    "top_score": 0.5833,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5833,
+        "path": [
+          "Φαρμακείο",
+          "Πρώτες Βοήθειες"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5982e762ac3fc3c18fd62"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "Φαρμακείο",
+          "Πρώτες Υλες Καλλυντικών"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b59f6a9a0fd05312f5f960"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "Φαρμακείο",
+          "Πρώτες Βοήθειες",
+          "Αντιμικροβιακά"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5982e762ac3fc3c18fd62",
+          "69b5b8079a0fd05312f5f98f"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "Φαρμακείο",
+          "Πρώτες Βοήθειες",
+          "Τσιρότα"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5982e762ac3fc3c18fd62",
+          "69b5e0912fdd6a25874075bc"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "Φαρμακείο",
+          "Πρώτες Βοήθειες",
+          "Άρνικα"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5982e762ac3fc3c18fd62",
+          "69b67db30d3e320e31cba8d6"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "vitamines-simpliromata/eidika-sympliromata",
+    "product_count": 177,
+    "sample_barcodes": [
+      "5021265245222",
+      "5060086380552",
+      "97467030060"
+    ],
+    "transliterated": "βιταμινεσ-σιμπλιροματα/ειδικα-συμπλιροματα",
+    "tokens": [
+      "βιταμινεσ",
+      "σιμπλιροματα",
+      "ιδικα",
+      "σιμπλιροματα"
+    ],
+    "top_score": 0.825,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.825,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΕΙΔΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a4e"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΕΙΔΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+          "ΓΑΣΤΡΟΕΙΣΟΦΑΓΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a4e",
+          "69b55d81d3b5c2a242ac1a50"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΕΙΔΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΑΝΟΣΟΠΟΙΗΤΙΚΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a4e",
+          "69b55d81d3b5c2a242ac1a52"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΕΙΔΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΑΠΟΤΟΞΙΝΩΣΗΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a4e",
+          "69b55d81d3b5c2a242ac1a53"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΕΙΔΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΑΡΘΡΩΣΕΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a4e",
+          "69b55d81d3b5c2a242ac1a54"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "andras/prosopo",
+    "product_count": 175,
+    "sample_barcodes": [
+      "8052787972379",
+      "5201100319350",
+      "2030690830852"
+    ],
+    "transliterated": "ανδρασ/προσοπο",
+    "tokens": [
+      "ανδρασ",
+      "προσοπο"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Άνδρας",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69bab305c15d04453c57bb80"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.625,
+        "path": [
+          "Άνδρας",
+          "Πρόσωπο",
+          "Ακμή - Κρέμες - Καθαριστικά"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69bab305c15d04453c57bb80",
+          "69bab305c15d04453c57bb81"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Άνδρας"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Πρόσωπο",
+          "Serum"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b596a4762ac3fc3c18fd43"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "mama-paidi/aksesouar-morou",
+    "product_count": 142,
+    "sample_barcodes": [
+      "MAM0040",
+      "9001616673160",
+      "MAM0124"
+    ],
+    "transliterated": "μαμα-παιδι/αξεσουαρ-μορου",
+    "tokens": [
+      "μαμα",
+      "πεδι",
+      "αξεσοιαρ",
+      "μοροι"
+    ],
+    "top_score": 0.675,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.675,
+        "path": [
+          "Γονείς & Παιδί",
+          "Αξεσουάρ Μωρού"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5b8079a0fd05312f5f962"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6062,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6062,
+        "path": [
+          "Γονείς & Παιδί",
+          "Αξεσουάρ Μωρού",
+          "Κύπελα"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5b8079a0fd05312f5f962",
+          "69b5e7ee808abf7a2b8faeb0"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.6062,
+        "path": [
+          "Γονείς & Παιδί",
+          "Αξεσουάρ Μωρού",
+          "Μπιμπερό"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5b8079a0fd05312f5f962",
+          "69b5e7ee808abf7a2b8faeb1"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.6062,
+        "path": [
+          "Γονείς & Παιδί",
+          "Αξεσουάρ Μωρού",
+          "Πιπίλες"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5b8079a0fd05312f5f962",
+          "69b5e7ee808abf7a2b8faeb2"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "andras/mallia",
+    "product_count": 132,
+    "sample_barcodes": [
+      "796554041797",
+      "5060003591603",
+      "5200408701928"
+    ],
+    "transliterated": "ανδρασ/μαλλια",
+    "tokens": [
+      "ανδρασ",
+      "μαλλια"
+    ],
+    "top_score": 1.0,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 1.0,
+        "path": [
+          "Άνδρας",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69b84c86b3100ba3238f0b04"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7,
+        "path": [
+          "Άνδρας",
+          "Μαλλιά",
+          "Αντρική Τριχόπτωση"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69b84c86b3100ba3238f0b04",
+          "69b84c86b3100ba3238f0b05"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Άνδρας"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Μαλλιά",
+          "Σαμπουάν"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b590cc274580527e42541a"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "mama-moro",
+    "product_count": 132,
+    "sample_barcodes": [
+      "5099514002810",
+      "4103040001726",
+      "4654821215865"
+    ],
+    "transliterated": "μαμα-μορο",
+    "tokens": [
+      "μαμα",
+      "μορο"
+    ],
+    "top_score": 0.4167,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.4167,
+        "path": [
+          "Μαμά - Παιδί"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2958,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.25,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού",
+          "Πάνες - Μωρομάντηλα"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4",
+          "69b6b01dd175e71cefb175f5"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "viologika-trofima/trofima-2",
+    "product_count": 128,
+    "sample_barcodes": [
+      "API2010",
+      "9004145008434",
+      "5204217917587"
+    ],
+    "transliterated": "βιολογικα-τροφιμα/τροφιμα-2",
+    "tokens": [
+      "βιολογικα",
+      "τροφιμα",
+      "τροφιμα",
+      "2"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "gynaika/evaisthiti-perioxi",
+    "product_count": 117,
+    "sample_barcodes": [
+      "3574660234541",
+      "8052787971853",
+      "8052787970474"
+    ],
+    "transliterated": "γυναικα/εβαισθιτι-περιοξι",
+    "tokens": [
+      "γινεκα",
+      "εβεσθιτι",
+      "περιοξι"
+    ],
+    "top_score": 0.3333,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.3333,
+        "path": [
+          "Γυναίκα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2667,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά",
+          "Σαμπουάν"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5",
+          "69baa114f38fe8bf68f180b6"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "athlites/energeia-antoxi",
+    "product_count": 97,
+    "sample_barcodes": [
+      "SOL1320",
+      "5060003590255",
+      "5206609300915"
+    ],
+    "transliterated": "αθλιτεσ/ενεργεια-αντοξι",
+    "tokens": [
+      "αθλιτεσ",
+      "ενεργια",
+      "αντοξι"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "farmakeio/orthopedika-anatomika",
+    "product_count": 96,
+    "sample_barcodes": [
+      null,
+      "3435170200016",
+      "5204914322028"
+    ],
+    "transliterated": "φαρμακειο/ορθοπεδικα-ανατομικα",
+    "tokens": [
+      "φαρμακιο",
+      "ορθοπεδικα",
+      "ανατομικα"
+    ],
+    "top_score": 0.3333,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.3333,
+        "path": [
+          "ΟΡΘΟΠΕΔΙΚΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a08"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Ορθοπεδικά Είδη"
+        ],
+        "node_ids": [
+          "69b5ec8e2a7ebb92bddbad52"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "ΟΡΘΟΠΕΔΙΚΑ",
+          "ΕΠΙΠΔΕΣΜΟΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a08",
+          "69b55d81d3b5c2a242ac1a0a"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "athlites/athlitikes-etaireies",
+    "product_count": 94,
+    "sample_barcodes": [
+      "8051764431595",
+      "8051764431335",
+      "8051764430185"
+    ],
+    "transliterated": "αθλιτεσ/αθλιτικεσ-εταιρειεσ",
+    "tokens": [
+      "αθλιτεσ",
+      "αθλιτικεσ",
+      "ετεριεσ"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "viologika-trofima/snak",
+    "product_count": 86,
+    "sample_barcodes": [
+      "5200250131256",
+      "3760151014413",
+      "3760151014604"
+    ],
+    "transliterated": "βιολογικα-τροφιμα/σνακ",
+    "tokens": [
+      "βιολογικα",
+      "τροφιμα",
+      "σνακ"
+    ],
+    "top_score": 0.2667,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2667,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΑΛΜΥΡΑ ΣΝΑΚ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19b6"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2333,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΑΛΜΥΡΑ ΣΝΑΚ",
+          "ΑΛΛΑ ΣΝΑΚ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19b6",
+          "69b55d81d3b5c2a242ac19b7"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.175,
+        "path": [
+          "ΒΡΕΦΟΣ ΚΑΙ ΠΑΙΔΙ",
+          "ΒΡΕΦΙΚΗ : ΠΑΙΔΙΚΗ ΔΙΑΤΡΟΦΗ",
+          "ΠΑΙΔΙΚΑ ΣΝΑΚ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac197d",
+          "69b55d81d3b5c2a242ac197e",
+          "69b55d81d3b5c2a242ac1980"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "athlites/travmatismoi-arthroseis",
+    "product_count": 84,
+    "sample_barcodes": [
+      "5206087110105",
+      "710013001009",
+      "5019781000296"
+    ],
+    "transliterated": "αθλιτεσ/τραβματισμοι-αρθροσεισ",
+    "tokens": [
+      "αθλιτεσ",
+      "τραβματισμι",
+      "αρθροσισ"
+    ],
+    "top_score": 0.1722,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.1722,
+        "path": [
+          "Συμπληρώματα",
+          "Συμπληρώματα Ανα Ανάγκη",
+          "Οστά – Αρθρώσεις – Οστεοπόρωση"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd57",
+          "69b5b8079a0fd05312f5f97d"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "vitamines",
+    "product_count": 83,
+    "sample_barcodes": [
+      "5055148414900",
+      "5055148401559",
+      "5060269020763"
+    ],
+    "transliterated": "βιταμινεσ",
+    "tokens": [
+      "βιταμινεσ"
+    ],
+    "top_score": 0.725,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.725,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.6167,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες",
+          "Πολυβιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51",
+          "69b5994f762ac3fc3c18fd6c"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5917,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a46"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΙΧΝΟΣΤΟΙΧΕΙΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a5b"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "viologika-trofima/rofimata",
+    "product_count": 80,
+    "sample_barcodes": [
+      "5031013100192",
+      "5029354000233",
+      "5029354007027"
+    ],
+    "transliterated": "βιολογικα-τροφιμα/ροφιματα",
+    "tokens": [
+      "βιολογικα",
+      "τροφιμα",
+      "ροφιματα"
+    ],
+    "top_score": 0.2917,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2917,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΡΟΦΗΜΑΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19c7"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2667,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΡΟΦΗΜΑΤΑ",
+          "ΚΑΦΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19c7",
+          "69b55d81d3b5c2a242ac19c8"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2667,
+        "path": [
+          "ΔΙΑΤΡΟΦΗ",
+          "ΡΟΦΗΜΑΤΑ",
+          "ΤΣΑΙ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19b5",
+          "69b55d81d3b5c2a242ac19c7",
+          "69b55d81d3b5c2a242ac19c9"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "adynatisma/adynatistika",
+    "product_count": 77,
+    "sample_barcodes": [
+      "9763007120560",
+      "MET1079",
+      "33984015609"
+    ],
+    "transliterated": "αδυνατισμα/αδυνατιστικα",
+    "tokens": [
+      "αδινατισμα",
+      "αδινατιστικα"
+    ],
+    "top_score": 0.325,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.325,
+        "path": [
+          "Σώμα",
+          "Αδυνάτισμα και Κυτταρίτιδα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59f6a9a0fd05312f5f956"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3,
+        "path": [
+          "Συμπληρώματα",
+          "Συμπληρώματα Ανα Ανάγκη",
+          "Αδυνατιστικά Συμπληρώματα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd57",
+          "69b5982e762ac3fc3c18fd58"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2958,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΑΔΥΝΑΤΙΣΤΙΚΑ ΠΡΟΪΟΝΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a3f"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2958,
+        "path": [
+          "Σώμα",
+          "Κρέμες Σώματος",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5998e762ac3fc3c18fd79",
+          "69b59f6a9a0fd05312f5f95a"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2958,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5b8079a0fd05312f5f96c"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/peripoiisi-podion",
+    "product_count": 75,
+    "sample_barcodes": [
+      "5205352013516",
+      "5205352001452",
+      "5200250130839"
+    ],
+    "transliterated": "φαρμακειο/περιποιισι-ποδιον",
+    "tokens": [
+      "φαρμακιο",
+      "περιπιισι",
+      "ποδιον"
+    ],
+    "top_score": 0.4667,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.4667,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ/ ΠΕΛΜΑΤΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a29"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4333,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ/ ΠΕΛΜΑΤΩΝ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a29",
+          "69b55d81d3b5c2a242ac1a2a"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4333,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ/ ΠΕΛΜΑΤΩΝ",
+          "ΥΓΙΕΙΝΗ ΠΟΔΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a29",
+          "69b55d81d3b5c2a242ac1a2b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "slug": "enallaktikes-therapeies/fytotherapeia",
+    "product_count": 73,
+    "sample_barcodes": [
+      "8002738988737",
+      "3578830132088",
+      "3578830132132"
+    ],
+    "transliterated": "εναλλακτικεσ-θεραπειεσ/φυτοθεραπεια",
+    "tokens": [
+      "εναλλακτικεσ",
+      "θεραπιεσ",
+      "φιτοθεραπια"
+    ],
+    "top_score": 0.2214,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2214,
+        "path": [
+          "Μαλλιά",
+          "Scalp Scrub",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b5b8079a0fd05312f5f966",
+          "69b5b8079a0fd05312f5f967"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5bd32f4593d846e2a797e"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Καθαρισμός Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425421",
+          "69b67db30d3e320e31cba84b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ : STYLING",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a1e",
+          "69b55d81d3b5c2a242ac1a22"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΦΡΟΝΤΙΔΑ ΔΕΡΜΑΤΟΣ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a96",
+          "69b55d81d3b5c2a242ac1ab0",
+          "69b55d81d3b5c2a242ac1ab4"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "epochiaka/antikounoupika",
+    "product_count": 70,
+    "sample_barcodes": [
+      "5029354008321",
+      "5202888224393",
+      "5214000633471"
+    ],
+    "transliterated": "εποχιακα/αντικουνουπικα",
+    "tokens": [
+      "εποχιακα",
+      "αντικοινοιπικα"
+    ],
+    "top_score": 0.7,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.7,
+        "path": [
+          "Σώμα",
+          "Εποχιακά",
+          "Εντομοαπωθητικά-Αντικουνουπικά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a",
+          "69b5b8079a0fd05312f5f982"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Σώμα",
+          "Εποχιακά"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5982e762ac3fc3c18fd5a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.35,
+        "path": [
+          "Εποχιακά",
+          "Αντηλιακά",
+          "Αντηλιακά Σώματος"
+        ],
+        "node_ids": [
+          "69baaa6b4999aee443ef1290",
+          "69baaa6b4999aee443ef1291",
+          "69bbc66d251fa1145e59f926"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "enallaktikes-therapeies/ayurveda",
+    "product_count": 69,
+    "sample_barcodes": [
+      "AYR4157",
+      "AYR4159",
+      "AYR4156"
+    ],
+    "transliterated": "εναλλακτικεσ-θεραπειεσ/αυυρβεδα",
+    "tokens": [
+      "εναλλακτικεσ",
+      "θεραπιεσ",
+      "αιιρβεδα"
+    ],
+    "top_score": 0.2214,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2214,
+        "path": [
+          "Μαλλιά",
+          "Scalp Scrub",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b5b8079a0fd05312f5f966",
+          "69b5b8079a0fd05312f5f967"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5bd32f4593d846e2a797e"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Καθαρισμός Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425421",
+          "69b67db30d3e320e31cba84b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ : STYLING",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a1e",
+          "69b55d81d3b5c2a242ac1a22"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΦΡΟΝΤΙΔΑ ΔΕΡΜΑΤΟΣ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a96",
+          "69b55d81d3b5c2a242ac1ab0",
+          "69b55d81d3b5c2a242ac1ab4"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "epohika",
+    "product_count": 69,
+    "sample_barcodes": [
+      "5201100532179",
+      "5201100693764",
+      "5201100693207"
+    ],
+    "transliterated": "εποηικα",
+    "tokens": [
+      "εποιικα"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "akrateia",
+    "product_count": 67,
+    "sample_barcodes": [
+      "5201263866517",
+      "5201263083518",
+      "5201263083198"
+    ],
+    "transliterated": "ακρατεια",
+    "tokens": [
+      "ακρατια"
+    ],
+    "top_score": 0.55,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.55,
+        "path": [
+          "Φαρμακείο",
+          "Ακράτεια - Βοηθήματα Ακράτειας"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45",
+          "69b596d3762ac3fc3c18fd47"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.55,
+        "path": [
+          "Φαρμακείο",
+          "Ακράτεια - Βοηθήματα Ακράτειας"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b596d3762ac3fc3c18fd48"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.525,
+        "path": [
+          "ΙΑΤΡΙΚΑ ΕΙΔΗ",
+          "ΙΑΤΡΙΚΑ ΒΟΗΘΗΜΑΤΑ",
+          "ΑΚΡΑΤΕΙΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19ce",
+          "69b55d81d3b5c2a242ac19cf",
+          "69b55d81d3b5c2a242ac19d0"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Φαρμακείο",
+          "Ακράτεια - Βοηθήματα Ακράτειας",
+          "Υποσέντονα"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b596d3762ac3fc3c18fd48",
+          "69b67db30d3e320e31cba8be"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.475,
+        "path": [
+          "Φαρμακείο",
+          "Ακράτεια - Βοηθήματα Ακράτειας",
+          "Εσώρουχα Ακράτειας"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45",
+          "69b596d3762ac3fc3c18fd47",
+          "69b596d3762ac3fc3c18fd49"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "vitamines-simpliromata/lipara-oksea",
+    "product_count": 64,
+    "sample_barcodes": [
+      "0807205105567",
+      "00807205105567",
+      "5200131350127"
+    ],
+    "transliterated": "βιταμινεσ-σιμπλιροματα/λιπαρα-οξεα",
+    "tokens": [
+      "βιταμινεσ",
+      "σιμπλιροματα",
+      "λιπαρα",
+      "οξεα"
+    ],
+    "top_score": 0.875,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 0.875,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΛΙΠΑΡΑ ΟΞΕΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a63"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.75,
+        "path": [
+          "Συμπληρώματα",
+          "Λιπαρά Οξέα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd53"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.7107,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΛΙΠΑΡΑ ΟΞΕΑ",
+          "KRILL OIL"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a63",
+          "69b55d81d3b5c2a242ac1a64"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.675,
+        "path": [
+          "Συμπληρώματα",
+          "Λιπαρά Οξέα",
+          "CLA"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd53",
+          "69b5982e762ac3fc3c18fd54"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.675,
+        "path": [
+          "Συμπληρώματα",
+          "Λιπαρά Οξέα",
+          "Μουρουνέλαιο"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd53",
+          "69b67db30d3e320e31cba896"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "vitamines-simpliromata/kollagono",
+    "product_count": 59,
+    "sample_barcodes": [
+      "733739024206",
+      "33984040687",
+      "5200250130648"
+    ],
+    "transliterated": "βιταμινεσ-σιμπλιροματα/κολλαγονο",
+    "tokens": [
+      "βιταμινεσ",
+      "σιμπλιροματα",
+      "κολλαγονο"
+    ],
+    "top_score": 0.85,
+    "confidence": "high",
+    "candidates": [
+      {
+        "score": 0.85,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΚΟΛΛΑΓΟΝΟ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a62"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6667,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες",
+          "Πολυβιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51",
+          "69b5994f762ac3fc3c18fd6c"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5667,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a46"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "dontia",
+    "product_count": 57,
+    "sample_barcodes": [
+      "5200201444619",
+      "5200201333616",
+      "5200202229666"
+    ],
+    "transliterated": "δοντια",
+    "tokens": [
+      "δοντια"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "vitamines-simpliromata/metalla-ixnostoixeia",
+    "product_count": 55,
+    "sample_barcodes": [
+      "5200421900421",
+      "5200421900865",
+      "4260006585277"
+    ],
+    "transliterated": "βιταμινεσ-σιμπλιροματα/μεταλλα-ιξνοστοιξεια",
+    "tokens": [
+      "βιταμινεσ",
+      "σιμπλιροματα",
+      "μεταλλα",
+      "ιξνοστιξια"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a46"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "Συμπληρώματα",
+          "Μέταλλα - Ιχνοστοιχεία"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd55"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες",
+          "Πολυβιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51",
+          "69b5994f762ac3fc3c18fd6c"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "vitamines-simpliromata/antiokseidotika",
+    "product_count": 48,
+    "sample_barcodes": [
+      "737870182962",
+      "5212002710480",
+      "8606108635407"
+    ],
+    "transliterated": "βιταμινεσ-σιμπλιροματα/αντιοξειδοτικα",
+    "tokens": [
+      "βιταμινεσ",
+      "σιμπλιροματα",
+      "αντιοξιδοτικα"
+    ],
+    "top_score": 0.6667,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.6667,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες",
+          "Πολυβιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51",
+          "69b5994f762ac3fc3c18fd6c"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5667,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a46"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΙΧΝΟΣΤΟΙΧΕΙΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a5b"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/filtra-nerou",
+    "product_count": 47,
+    "sample_barcodes": [
+      "814547018080",
+      "814547030266",
+      "4006387074821"
+    ],
+    "transliterated": "φαρμακειο/φιλτρα-νερου",
+    "tokens": [
+      "φαρμακιο",
+      "φιλτρα",
+      "νεροι"
+    ],
+    "top_score": 0.6143,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.6143,
+        "path": [
+          "Φαρμακείο",
+          "Προϊόντα Οικιακής Χρήσης",
+          "Ανταλλακτικά Φίλτρα Νερού"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98d",
+          "69b67db30d3e320e31cba8cf"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3917,
+        "path": [
+          "ΓΕΝΙΚΑ ΕΙΔΗ",
+          "ΚΟΥΖΙΝΑ ΚΑΙ ΜΠΑΝΙΟ",
+          "ΦΙΛΤΡΑ ΝΕΡΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac199e",
+          "69b55d81d3b5c2a242ac19af",
+          "69b55d81d3b5c2a242ac19b0"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3611,
+        "path": [
+          "Φαρμακείο",
+          "Προϊόντα Οικιακής Χρήσης",
+          "Κανάτες Με Φίλτρο Νερού"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98d",
+          "69b67db30d3e320e31cba8d5"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.3333,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/ktiniatrika",
+    "product_count": 45,
+    "sample_barcodes": [
+      "5200129920066",
+      "5200321012811",
+      "5200321012798"
+    ],
+    "transliterated": "φαρμακειο/κτινιατρικα",
+    "tokens": [
+      "φαρμακιο",
+      "κτινιατρικα"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Φαρμακείο",
+          "Μάτια"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98b"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Φαρμακείο",
+          "Αλλεργίες"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b67db30d3e320e31cba8bf"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "athlites/eidiko-sympliroma",
+    "product_count": 44,
+    "sample_barcodes": [
+      "5212002710848",
+      "5200250130174",
+      "3578831410413"
+    ],
+    "transliterated": "αθλιτεσ/ειδικο-συμπλιρομα",
+    "tokens": [
+      "αθλιτεσ",
+      "ιδικο",
+      "σιμπλιρομα"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "athlhtismos",
+    "product_count": 42,
+    "sample_barcodes": [
+      "5060469988511",
+      "5060469988467",
+      "3411800018091"
+    ],
+    "transliterated": "αθλητισμοσ",
+    "tokens": [
+      "αθλιτισμοσ"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "vitamines-simpliromata/aminoksea",
+    "product_count": 37,
+    "sample_barcodes": [
+      "SOL2760",
+      "SOL1680",
+      "5200124761046"
+    ],
+    "transliterated": "βιταμινεσ-σιμπλιροματα/αμινοξεα",
+    "tokens": [
+      "βιταμινεσ",
+      "σιμπλιροματα",
+      "αμινοξεα"
+    ],
+    "top_score": 0.6667,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.6667,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.6667,
+        "path": [
+          "Συμπληρώματα",
+          "Αμινοξέα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5ec112a7ebb92bddbad48"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "Συμπληρώματα",
+          "Βιταμίνες",
+          "Πολυβιταμίνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd51",
+          "69b5994f762ac3fc3c18fd6c"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5833,
+        "path": [
+          "Συμπληρώματα",
+          "Αμινοξέα",
+          "Κρεατίνη"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5ec112a7ebb92bddbad48",
+          "69b67db30d3e320e31cba87d"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "adynatisma/adynatistika-kallyntika",
+    "product_count": 35,
+    "sample_barcodes": [
+      "5200250130846",
+      "8002410068214",
+      "5200124761169"
+    ],
+    "transliterated": "αδυνατισμα/αδυνατιστικα-καλλυντικα",
+    "tokens": [
+      "αδινατισμα",
+      "αδινατιστικα",
+      "καλλιντικα"
+    ],
+    "top_score": 0.2417,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2417,
+        "path": [
+          "Σώμα",
+          "Αδυνάτισμα και Κυτταρίτιδα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59f6a9a0fd05312f5f956"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.225,
+        "path": [
+          "Συμπληρώματα",
+          "Συμπληρώματα Ανα Ανάγκη",
+          "Αδυνατιστικά Συμπληρώματα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5982e762ac3fc3c18fd57",
+          "69b5982e762ac3fc3c18fd58"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2214,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΑΔΥΝΑΤΙΣΤΙΚΑ ΠΡΟΪΟΝΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a3f"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2214,
+        "path": [
+          "Σώμα",
+          "Κρέμες Σώματος",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5998e762ac3fc3c18fd79",
+          "69b59f6a9a0fd05312f5f95a"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2214,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5b8079a0fd05312f5f96c"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "hlektrikes-suskeues",
+    "product_count": 35,
+    "sample_barcodes": [
+      "4099702001886",
+      "4099702001770",
+      "4099702001145"
+    ],
+    "transliterated": "ηλεκτρικεσ-συσκευεσ",
+    "tokens": [
+      "ιλεκτρικεσ",
+      "σισκειεσ"
+    ],
+    "top_score": 0.625,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.625,
+        "path": [
+          "Γονείς & Παιδί",
+          "Ηλεκτρικές Συσκευές Μωρού"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5e12dfd1a74f7fa68277c"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5667,
+        "path": [
+          "ΟΜΟΡΦΙΑ",
+          "ΕΡΓΑΛΕΙΑ : ΑΞΕΣΟΥΑΡ",
+          "ΑΛΛΕΣ ΗΛΕΚΤΡΙΚΕΣ ΣΥΣΚΕΥΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19eb",
+          "69b55d81d3b5c2a242ac19fb",
+          "69b55d81d3b5c2a242ac19fc"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.5667,
+        "path": [
+          "Γονείς & Παιδί",
+          "Ηλεκτρικές Συσκευές Μωρού",
+          "Θερμόμετρα"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5e12dfd1a74f7fa68277c",
+          "69b5e12dfd1a74f7fa68277d"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3625,
+        "path": [
+          "Φαρμακείο",
+          "Διαγνωστικές Συσκευές"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f985"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3625,
+        "path": [
+          "Φαρμακείο",
+          "Συσκευές Υγείας"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f991"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "mama-paidi/egkymosyni-thhlasmos",
+    "product_count": 35,
+    "sample_barcodes": [
+      "2457952863623",
+      "4009932957969",
+      "4086900745612"
+    ],
+    "transliterated": "μαμα-παιδι/εγκυμοσυνι-θηλασμοσ",
+    "tokens": [
+      "μαμα",
+      "πεδι",
+      "εγκιμοσινι",
+      "θιλασμοσ"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Μαμά - Παιδί"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "Γονείς & Παιδί",
+          "Θηλασμός"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b59f6a9a0fd05312f5f94a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.45,
+        "path": [
+          "Γονείς & Παιδί",
+          "Εγκυμοσύνη"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5ec112a7ebb92bddbad44"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Γονείς & Παιδί",
+          "Θηλασμός",
+          "Θήλαστρα"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b59f6a9a0fd05312f5f94a",
+          "69b67db30d3e320e31cba802"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3804,
+        "path": [
+          "Μαμά - Παιδί",
+          "Φροντίδα Μωρού - Παιδιού"
+        ],
+        "node_ids": [
+          "69b6b01dd175e71cefb175f3",
+          "69b6b01dd175e71cefb175f4"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "athlites/proteines",
+    "product_count": 31,
+    "sample_barcodes": [
+      "5200408701171",
+      "733739020086",
+      "033984020603"
+    ],
+    "transliterated": "αθλιτεσ/προτεινεσ",
+    "tokens": [
+      "αθλιτεσ",
+      "προτινεσ"
+    ],
+    "top_score": 0.4167,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.4167,
+        "path": [
+          "Συμπληρώματα",
+          "Πρωτεΐνες"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5994f762ac3fc3c18fd6f"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3125,
+        "path": [
+          "Συμπληρώματα",
+          "Πρωτεΐνες",
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΕΙΔΙΚΗΣ ΔΙΑΤΡΟΦΗΣ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5994f762ac3fc3c18fd6f",
+          "69b5994f762ac3fc3c18fd70"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "enallaktikes-therapeies/anthoiamata",
+    "product_count": 26,
+    "sample_barcodes": [
+      "5032587001717",
+      "5032587001731",
+      "5032587001724"
+    ],
+    "transliterated": "εναλλακτικεσ-θεραπειεσ/ανθοιαματα",
+    "tokens": [
+      "εναλλακτικεσ",
+      "θεραπιεσ",
+      "ανθιαματα"
+    ],
+    "top_score": 0.2667,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2667,
+        "path": [
+          "ΦΑΡΜΑΚΕΥΤΙΚΑ ΕΙΔΗ",
+          "ΑΝΘΟΪΑΜΑΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a6e",
+          "69b55d81d3b5c2a242ac1a75"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2214,
+        "path": [
+          "Μαλλιά",
+          "Scalp Scrub",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b5b8079a0fd05312f5f966",
+          "69b5b8079a0fd05312f5f967"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5bd32f4593d846e2a797e"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Καθαρισμός Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425421",
+          "69b67db30d3e320e31cba84b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ : STYLING",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a1e",
+          "69b55d81d3b5c2a242ac1a22"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/proionta-diaviti",
+    "product_count": 19,
+    "sample_barcodes": [
+      "5701780718011",
+      "9120015780139",
+      "0109010727001120"
+    ],
+    "transliterated": "φαρμακειο/προιοντα-διαβιτι",
+    "tokens": [
+      "φαρμακιο",
+      "πριοντα",
+      "διαβιτι"
+    ],
+    "top_score": 0.5167,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5167,
+        "path": [
+          "Φαρμακείο",
+          "Προϊόντα Οικιακής Χρήσης"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98d"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4667,
+        "path": [
+          "Φαρμακείο",
+          "Προϊόντα Οικιακής Χρήσης",
+          "Ζυγαριές"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98d",
+          "69b5b8079a0fd05312f5f98e"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4262,
+        "path": [
+          "Φαρμακείο",
+          "Προϊόντα Οικιακής Χρήσης",
+          "Απολυμαντικά Ρούχων"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98d",
+          "69b67db30d3e320e31cba8d0"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4262,
+        "path": [
+          "Φαρμακείο",
+          "Προϊόντα Οικιακής Χρήσης",
+          "Αρωματικά Χώρου"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98d",
+          "69b67db30d3e320e31cba8d2"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.4262,
+        "path": [
+          "Φαρμακείο",
+          "Προϊόντα Οικιακής Χρήσης",
+          "Αρωματικές Συσκευές"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98d",
+          "69b67db30d3e320e31cba8d3"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "andras/seks-limpito",
+    "product_count": 16,
+    "sample_barcodes": [
+      "5200145500112",
+      "5214001257010",
+      "5200321010947"
+    ],
+    "transliterated": "ανδρασ/σεξ-λιμπιτο",
+    "tokens": [
+      "ανδρασ",
+      "σεξ",
+      "λιμπιτο"
+    ],
+    "top_score": 0.3333,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.3333,
+        "path": [
+          "Άνδρας"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Άνδρας",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69b84c86b3100ba3238f0b04"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Άνδρας",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69bab305c15d04453c57bb80"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2667,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ",
+          "Διεγερτικά"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75",
+          "69b5994f762ac3fc3c18fd76"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "gynaika/simpliroma-diatrofis",
+    "product_count": 14,
+    "sample_barcodes": [
+      "733739033383",
+      "5212002710954",
+      "5200146070041"
+    ],
+    "transliterated": "γυναικα/σιμπλιρομα-διατροφισ",
+    "tokens": [
+      "γινεκα",
+      "σιμπλιρομα",
+      "διατροφισ"
+    ],
+    "top_score": 0.3333,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.3333,
+        "path": [
+          "Γυναίκα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2667,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "slug": "viologika-trofima/melissokomia",
+    "product_count": 12,
+    "sample_barcodes": [
+      "5200111770129",
+      "3558283230524",
+      "3558283230654"
+    ],
+    "transliterated": "βιολογικα-τροφιμα/μελισσοκομια",
+    "tokens": [
+      "βιολογικα",
+      "τροφιμα",
+      "μελισσοκομια"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "athlites/aksesouar",
+    "product_count": 12,
+    "sample_barcodes": [
+      "814547031362",
+      "814547031379",
+      "814547031393"
+    ],
+    "transliterated": "αθλιτεσ/αξεσουαρ",
+    "tokens": [
+      "αθλιτεσ",
+      "αξεσοιαρ"
+    ],
+    "top_score": 0.4042,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.4042,
+        "path": [
+          "Μακιγιαζ",
+          "Αξεσουάρ Μακιγιάζ"
+        ],
+        "node_ids": [
+          "69b59f6a9a0fd05312f5f94c",
+          "69b67db30d3e320e31cba812"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3625,
+        "path": [
+          "ΟΜΟΡΦΙΑ",
+          "ΕΡΓΑΛΕΙΑ : ΑΞΕΣΟΥΑΡ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19eb",
+          "69b55d81d3b5c2a242ac19fb"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.325,
+        "path": [
+          "Γονείς & Παιδί",
+          "Αξεσουάρ Μωρού"
+        ],
+        "node_ids": [
+          "69b5940f274580527e42541c",
+          "69b5b8079a0fd05312f5f962"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.3125,
+        "path": [
+          "ΓΕΝΙΚΑ ΕΙΔΗ",
+          "ΚΑΤΟΙΚΙΔΙΑ",
+          "ΑΞΕΣΟΥΑΡ ΓΙΑ ΚΑΤΟΙΚΙΔΙΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac199e",
+          "69b55d81d3b5c2a242ac19ab",
+          "69b55d81d3b5c2a242ac19ac"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.3125,
+        "path": [
+          "ΟΜΟΡΦΙΑ",
+          "ΕΡΓΑΛΕΙΑ : ΑΞΕΣΟΥΑΡ",
+          "ΑΞΕΣΟΥΑΡ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19eb",
+          "69b55d81d3b5c2a242ac19fb",
+          "69b55d81d3b5c2a242ac19fd"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "andras/aromata",
+    "product_count": 11,
+    "sample_barcodes": [
+      "5203069130311",
+      "5201279098759",
+      "5200312244573"
+    ],
+    "transliterated": "ανδρασ/αροματα",
+    "tokens": [
+      "ανδρασ",
+      "αροματα"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Άνδρας"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "ΟΜΟΡΦΙΑ",
+          "ΑΡΩΜΑΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac19eb",
+          "69b55d81d3b5c2a242ac19f6"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Σώμα",
+          "Αρώματα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59a09762ac3fc3c18fd7d"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Άνδρας",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69b84c86b3100ba3238f0b04"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Άνδρας",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84c86b3100ba3238f0b03",
+          "69bab305c15d04453c57bb80"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "andras/simpliromata-diatrofis",
+    "product_count": 11,
+    "sample_barcodes": [
+      "8437014519044",
+      "ABM0003",
+      "604776736769"
+    ],
+    "transliterated": "ανδρασ/σιμπλιροματα-διατροφισ",
+    "tokens": [
+      "ανδρασ",
+      "σιμπλιροματα",
+      "διατροφισ"
+    ],
+    "top_score": 0.5833,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5833,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5667,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΒΙΤΑΜΙΝΕΣ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a46"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΙΧΝΟΣΤΟΙΧΕΙΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a5b"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5167,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΚΟΛΛΑΓΟΝΟ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a62"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ : ΒΙΤΑΜΙΝΕΣ",
+          "ΦΥΤΙΚΑ ΣΥΜΠΛΗΡΩΜΑΤΑ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a3e",
+          "69b55d81d3b5c2a242ac1a67"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "enallaktikes-therapeies/orthomoriaka",
+    "product_count": 11,
+    "sample_barcodes": [
+      "5031013102448",
+      "5213000680713",
+      "5213000680720"
+    ],
+    "transliterated": "εναλλακτικεσ-θεραπειεσ/ορθομοριακα",
+    "tokens": [
+      "εναλλακτικεσ",
+      "θεραπιεσ",
+      "ορθομοριακα"
+    ],
+    "top_score": 0.2214,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2214,
+        "path": [
+          "Μαλλιά",
+          "Scalp Scrub",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b590cc274580527e425419",
+          "69b5b8079a0fd05312f5f966",
+          "69b5b8079a0fd05312f5f967"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5bd32f4593d846e2a797e"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2131,
+        "path": [
+          "Πρόσωπο",
+          "Καθαρισμός Προσώπου",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425421",
+          "69b67db30d3e320e31cba84b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΠΡΟΣΩΠΙΚΗ ΥΓΙΕΙΝΗ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ : STYLING",
+          "ΘΕΡΑΠΕΙΕΣ ΜΑΛΛΙΩΝ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a0f",
+          "69b55d81d3b5c2a242ac1a1e",
+          "69b55d81d3b5c2a242ac1a22"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.1958,
+        "path": [
+          "ΦΡΟΝΤΙΔΑ ΔΕΡΜΑΤΟΣ",
+          "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+          "ΕΙΔΙΚΕΣ ΘΕΡΑΠΕΙΕΣ ΠΡΟΣΩΠΟΥ"
+        ],
+        "node_ids": [
+          "69b55d81d3b5c2a242ac1a96",
+          "69b55d81d3b5c2a242ac1ab0",
+          "69b55d81d3b5c2a242ac1ab4"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "farmakeio/vivlia",
+    "product_count": 9,
+    "sample_barcodes": [
+      "9789608977822",
+      "9789608977808",
+      "9789609878906"
+    ],
+    "transliterated": "φαρμακειο/βιβλια",
+    "tokens": [
+      "φαρμακιο",
+      "βιβλια"
+    ],
+    "top_score": 0.5,
+    "confidence": "low",
+    "candidates": [
+      {
+        "score": 0.5,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd45"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.5,
+        "path": [
+          "Φαρμακείο"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Φαρμακείο",
+          "Μάτια"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5b8079a0fd05312f5f98b"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.4167,
+        "path": [
+          "Φαρμακείο",
+          "Αλλεργίες"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b67db30d3e320e31cba8bf"
+        ],
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "slug": "viologika-trofima/ypertrofes",
+    "product_count": 9,
+    "sample_barcodes": [
+      "5200300106432",
+      "5200300111054",
+      "5200300118794"
+    ],
+    "transliterated": "βιολογικα-τροφιμα/υπερτροφεσ",
+    "tokens": [
+      "βιολογικα",
+      "τροφιμα",
+      "ιπερτροφεσ"
+    ],
+    "top_score": 0.2667,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.2667,
+        "path": [
+          "Συμπληρώματα",
+          "Superfoods - Υπερτροφές"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5994f762ac3fc3c18fd6a"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2417,
+        "path": [
+          "Συμπληρώματα",
+          "Superfoods - Υπερτροφές",
+          "Κουρκουμάς"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5994f762ac3fc3c18fd6a",
+          "69b5994f762ac3fc3c18fd6b"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2417,
+        "path": [
+          "Συμπληρώματα",
+          "Superfoods - Υπερτροφές",
+          "Ιπποφαές"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5994f762ac3fc3c18fd6a",
+          "69b67db30d3e320e31cba876"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2417,
+        "path": [
+          "Συμπληρώματα",
+          "Superfoods - Υπερτροφές",
+          "Σκόρδο"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5994f762ac3fc3c18fd6a",
+          "69b67db30d3e320e31cba878"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2214,
+        "path": [
+          "Συμπληρώματα",
+          "Superfoods - Υπερτροφές",
+          "Κράνμπερι - Cranberry"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd50",
+          "69b5994f762ac3fc3c18fd6a",
+          "69b5b8079a0fd05312f5f96f"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "athlites/lipodialitika-thermogenetika",
+    "product_count": 8,
+    "sample_barcodes": [
+      "5200398515307",
+      "SOL1570",
+      "5206087110136"
+    ],
+    "transliterated": "αθλιτεσ/λιποδιαλιτικα-θερμογενετικα",
+    "tokens": [
+      "αθλιτεσ",
+      "λιποδιαλιτικα",
+      "θερμογενετικα"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "korean-beauty",
+    "product_count": 7,
+    "sample_barcodes": [
+      "8809416470184",
+      "8809598455382",
+      "8809598455399"
+    ],
+    "transliterated": "κορεαν-βεαυτυ",
+    "tokens": [
+      "κορεαν",
+      "βεαιτι"
+    ],
+    "top_score": 0.0,
+    "confidence": "none",
+    "candidates": []
+  },
+  {
+    "slug": "δερμοκαλλυντικα",
+    "product_count": 3,
+    "sample_barcodes": [
+      "732013250188",
+      "5206562000464",
+      "5206807100379"
+    ],
+    "transliterated": "δερμοκαλλυντικα",
+    "tokens": [
+      "δερμοκαλλιντικα"
+    ],
+    "top_score": 0.6167,
+    "confidence": "medium",
+    "candidates": [
+      {
+        "score": 0.6167,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο",
+          "Δερμοκαλλυντικά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79",
+          "69babbddc15d04453c57bb86"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "adynatisma/trofima",
+    "product_count": 2,
+    "sample_barcodes": [
+      "5213008740419",
+      "5213008741195"
+    ],
+    "transliterated": "αδυνατισμα/τροφιμα",
+    "tokens": [
+      "αδινατισμα",
+      "τροφιμα"
+    ],
+    "top_score": 0.325,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.325,
+        "path": [
+          "Σώμα",
+          "Αδυνάτισμα και Κυτταρίτιδα"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59f6a9a0fd05312f5f956"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2958,
+        "path": [
+          "Σώμα",
+          "Κρέμες Σώματος",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5998e762ac3fc3c18fd79",
+          "69b59f6a9a0fd05312f5f95a"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2958,
+        "path": [
+          "Πρόσωπο",
+          "Κρέμες Προσώπου",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5940f274580527e425420",
+          "69b5940f274580527e425423",
+          "69b5b8079a0fd05312f5f96c"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2958,
+        "path": [
+          "Σώμα",
+          "Λάδια Σώματος",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b5c18c86554eb788cdf842",
+          "69b67db30d3e320e31cba8b6"
+        ],
+        "depth": 3
+      },
+      {
+        "score": 0.2833,
+        "path": [
+          "Σώμα",
+          "Αδυνάτισμα και Κυτταρίτιδα",
+          "ΤΟΠΙΚΟ ΑΔΥΝΑΤΙΣΜΑ"
+        ],
+        "node_ids": [
+          "69b5982e762ac3fc3c18fd59",
+          "69b59f6a9a0fd05312f5f956",
+          "69b67db30d3e320e31cba8a4"
+        ],
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "slug": "gynaika/sex-limpinto",
+    "product_count": 1,
+    "sample_barcodes": [
+      "5200141060016"
+    ],
+    "transliterated": "γυναικα/σεξ-λιμπιντο",
+    "tokens": [
+      "γινεκα",
+      "σεξ",
+      "λιμπιντο"
+    ],
+    "top_score": 0.3333,
+    "confidence": "none",
+    "candidates": [
+      {
+        "score": 0.3333,
+        "path": [
+          "Γυναίκα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31"
+        ],
+        "depth": 1
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Φαρμακείο",
+          "Σεξ"
+        ],
+        "node_ids": [
+          "69b596d3762ac3fc3c18fd46",
+          "69b5994f762ac3fc3c18fd75"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Σώμα"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69b84d42b3100ba3238f0b32"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Μαλλιά"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69baa114f38fe8bf68f180b5"
+        ],
+        "depth": 2
+      },
+      {
+        "score": 0.2917,
+        "path": [
+          "Γυναίκα",
+          "Πρόσωπο"
+        ],
+        "node_ids": [
+          "69b84d42b3100ba3238f0b31",
+          "69bab08bc15d04453c57bb79"
+        ],
+        "depth": 2
+      }
+    ]
+  }
+]

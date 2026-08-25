@@ -1,0 +1,812 @@
+{
+  "stats": {
+    "examined": 410,
+    "barcode_matched": 109,
+    "barcode_missed": 301,
+    "would_activate": 0,
+    "stays_inactive": 0,
+    "modified": 109
+  },
+  "rows": [
+    {
+      "barcode": "3282770204667",
+      "title": "Avene Cicalfate+ Repairing Protective Cream Επανορθωτική Προστατευτική Κρέμα, 40",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770205633",
+      "title": "Avene Cicalfate+ Absorbing Repair Spray Ξηραντικό - Επανορθωτικό Σπρέι για το Ερ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος το ευαίσθητο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770207088",
+      "title": "Avene Cicalfate+ Gel Cicatrice Τζελ για τις Ουλές Προσώπου & Σώματος, 30ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770207224",
+      "title": "Avene Couvrance High Definition Mascara Μάσκαρα Υψηλής Ακρίβειας σε Μαύρο Χρώμα,",
+      "c1": "Μακιγιάζ",
+      "c2": "Μακιγιάζ ματιών",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770207576",
+      "title": "Avene SunsiStick KA SPF 50+ Αντιηλιακό Στικ για το Ευαίσθητο Δέρμα με Τάση για Α",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770203493",
+      "title": "Avene Hydrance Aqua Gel Hydrating Aqua Cream-in-Gel Ενυδατική Κρέμα Προσώπου, 50",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος το ευαίσθητο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770390179",
+      "title": "Avene Make Up Removing Micellar Water Νερό Καθαρισμού & Ντεμακιγιάζ, 400ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770388961",
+      "title": "Avene Reflex Sun Αντηλιακό Προσώπου & Σώματος SPF50+, 30ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770208764",
+      "title": "Avene Hydrance BB Riche Ενυδατική Κρέμα με Χρώμα SPF30 για Ξηρό & Πολύ Ξηρό - Αφ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Κρέμες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770208771",
+      "title": "Avene Hydrance BB Legere Ενυδατική Emulsion με Χρώμα SPF30 για Κανονικό & Μικτό ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος το ευαίσθητο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770208795",
+      "title": "Avene Hydrance UV Riche Ενυδατική Κρέμα SPF30 για Ξηρό & πολύ Ξηρό - Αφυδατωμένο",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770209396",
+      "title": "Avene Les Essentiels Rich Revitalizing Nourishing Cream Πλούσια Κρέμα Θρέψης & Α",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770209099",
+      "title": "Avene Couvrance Baume Ανάδειξης Χειλιών Βελούδινο Ροζ, 3gr",
+      "c1": "Μακιγιάζ",
+      "c2": "Μακιγιάζ χειλιών",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770209402",
+      "title": "Avene Revitalizing Nourishing Cream Κρέμα Θρέψης & Αναζωογόνησης για το Ξηρό Ευα",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770209938",
+      "title": "Avene Les Essentiels Soothing Radiance Mask Ενυδατική Καταπραϋντική Μάσκα Λάμψης",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μάσκες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770388299",
+      "title": "Avene Tolerance HYDRA 10 Fluide για Κανονικό-Μικτό Δέρμα, 40ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770388336",
+      "title": "Avene Tolerance HYDRA 10 Creme για Ξηρό-Πολύ Ξηρό Δέρμα, 40ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Κρέμες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770388381",
+      "title": "Avene Tinted Mineral Fluid SPF50+ Αντιηλιακό Προσώπου με Χρώμα, 40ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770388954",
+      "title": "Avene Hydrance Boost Concentrated Hydrating Serum Ορός Ενυδάτωσης Προσώπου, 30ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Οροί",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770149494",
+      "title": "Avene TriAsorB Fragrance- free Cream SPF50+ Αντιηλιακή Κρέμα Προσώπου Χωρίς Άρωμ",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Αντηλιακή κρέμα προσώπου με υψηλή προστασία",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770149487",
+      "title": "Avene TriAsorB Cream SPF50+ Αντιηλιακή Κρέμα Προσώπου για Ξηρό/ Πολύ Ξηρό Δέρμα,",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Αντηλιακή προστασία SPF 50+",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770149524",
+      "title": "Avene Eau Thermale Cream Tinted SPF50+ Αντηλιακή Κρέμα Προσώπου με Χρώμα, 50ml",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Αντηλιακές κρέμες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770149562",
+      "title": "Avene Cleanance Solaire Teintee SPF50+ Αντιηλιακή Κρέμα Προσώπου με Χρώμα, 50ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770150261",
+      "title": "Avene Cicalfate+ Gel Nettoyant Assainissant Εξυγιαντικό Τζελ Καθαρισμού για Ευαί",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770146264",
+      "title": "Avene Hydrating Lip Balm Ενυδατικό Στικ Χειλιών, 4g",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Θεραπείες με ιαματικό νερό Avène.",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770146394",
+      "title": "Avene Cleanance Mattifying Aqua-Gel Κρέμα Προσώπου για Ματ Αποτέλεσμα 50 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770146790",
+      "title": "Avene XeraCalm A.D Λάδι Καθαρισμού για το Ξηρό Δέρμα Με Τάση Ατοπίας, 400ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770148763",
+      "title": "Avene Cicalfate+ Hydrating Skin Repairing Emulsion Post Tattoo Επανορθωτική Ενυδ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770154238",
+      "title": "Avene After Sun Λοσιόν Eπανόρθωσης μετά τον Ήλιο με Iαματικό Nερό, 400ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770154566",
+      "title": "Avene XeraCalm A.D Baume Relipidant Βάλσαμο για Αναπλήρωση των Λιπιδίων, 400ml",
+      "c1": "Βρεφική φροντίδα",
+      "c2": "Ενυδατικές θεραπείες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770154597",
+      "title": "Avene XeraCalm A.D Creme Relipidante Κρέμα για Αναπλήρωση των Λιπιδίων, 400ml",
+      "c1": "Φροντίδα σώματος",
+      "c2": "Φροντίδα για ξηρό δέρμα και έκζεμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770155051",
+      "title": "Avene XeraCalm Nutrition Shower Cream Κρεμοντούς Καθαρισμού & Ενυδάτωσης για Πρό",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ξηρό δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770155099",
+      "title": "Avene XeraCalm Nutrition Moisturizing Balm Ενυδατικό & Καταπραϋντικό Βάλσαμο για",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για πολύ ξηρό δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770155105",
+      "title": "Avene XeraCalm Nutrition Cleansing Gel Τζελ Καθαρισμού για Πρόσωπο & Σώμα, 500ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ξηρό δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770155181",
+      "title": "Avene XeraCalm Nutrition Moisturizing Lotion Ενυδατική & Καταπραϋντική Λοσιόν γι",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ξηρό δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770152265",
+      "title": "Avene Makeup Removing Micellar Gel Τζελ Ντεμακιγιάζ για Ευαίσθητες Επιδερμίδες, ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770152371",
+      "title": "Avene Eau Thermale Mousse Nettoyante Αφρός Καθαρισμού, 150ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770152586",
+      "title": "Avene Les Essentiels Gentle Exfoliating Gel Απαλό Peeling Προσώπου, 75ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ενήλικες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770152517",
+      "title": "Avene Soothing Toning Lotion Καταπραϋντική Τονωτική Λοσιόν, 200ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770390315",
+      "title": "Avene Cleanance Micellar Water Νερό Καθαρισμού & Ντεμακιγιάζ για Λιπαρές Επιδερμ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770153101",
+      "title": "Avene Hyaluron Activ B3 Συμπυκνωμένο Serum Σύσφιξης, 30ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Αντιρυτιδική φροντίδα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770153200",
+      "title": "Avene Hyaluron Activ B3 Εντατική Κρέμα Νύχτας, 40ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770390414",
+      "title": "Avene Cleanance Comedomed Φροντίδα για το Λιπαρό Δέρμα με τάση Ακμής 30 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770153170",
+      "title": "Avene Hyaluron Activ B3 Κρέμα Κυτταρικής Ανανέωσης, 50ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770392920",
+      "title": "Avene Antirougeurs Rosamed Συμπύκνωμα κατά της Χρόνιας Ερυθρότητας 30 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770393477",
+      "title": "Avene Vitamin Activ Cg Serum Επανορθωτικός Ορός Λάμψης 30 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Οροί",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770393507",
+      "title": "Avene Vitamin Activ Cg Cream Κρέμα Εντατικής Λάμψης 50 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770393620",
+      "title": "Avene Cicalfate+ Serum Ορός Εντατικής Επανόρθωσης, 30ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος το ευαίσθητο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770393408",
+      "title": "Avene Hyaluron Activ B3 Aqua Gel-Cream Κρέμα-Τζελ Κυτταρικής Αναγέννησης 50 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Κρέμες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770395365",
+      "title": "Avene Cleanance Comedomed Peeling Εντατική Κρέμα για την Ακμή, 40ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για κηλίδες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770395938",
+      "title": "Avene Intense Protect Αντηλιακό για Σώμα & Πρόσωπο SPF50+, 150ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770395952",
+      "title": "Avene Dermabsolu Consentrated Resculpting Serum Συμπυκνωμένος Oρός Aναδόμησης, 3",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ενήλικες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770395976",
+      "title": "Avene DermAbsolu Redensifying Day Cream Κρέμα Ημέρας Αναπλήρωσης Όγκου, 50ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ενήλικες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770395990",
+      "title": "Avene Dermabsolu Intensive Resculpting Night Cream Κρέμα Nυκτός Eντατικής Aναδόμ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ενήλικες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770396072",
+      "title": "Avene DermAbsolu Filler Eye Contour Cream Κρέμα Ματιών για Ρυτίδες, Μαύρους Κύκλ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ενήλικες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770392852",
+      "title": "Avene Couvrance High Tolerance Mascara Μάσκαρα Υψηλής Ανοχής, 7ml - BLACK",
+      "c1": "Μακιγιάζ",
+      "c2": "Μακιγιάζ ματιών",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770392791",
+      "title": "Avene SunsiMed Pigment Αντηλιακή Προστασία για το Δέρμα Υψηλού Κινδύνου SPF50+, ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770392692",
+      "title": "Avene Ultra Fluid Perfecteur SPF50+ Αντηλιακή Κρέμα Προσώπου με Χρώμα, 50ml",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Λεπτόρρευστες αντηλιακές",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770390445",
+      "title": "Avene Cleanance Detox Mask Μάσκα Aποτοξίνωσης, 50ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για εφήβους",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770390469",
+      "title": "Avene Cleanance A.H.A Exfoliating Serum Ορός Απολέπισης, 30ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770390476",
+      "title": "Avene Cleanance Hydra Soothing Cleansing Cream Κρέμα Καθαρισμού για το Δέρμα υπό",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα του δέρματος για την ακμή",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770391855",
+      "title": "Avene XeraCalm A.D Καθαριστικό Έλαιο Αναπλήρωσης Λιπιδίων, 750ml",
+      "c1": "Φροντίδα σώματος",
+      "c2": "Φροντίδα για ξηρό δέρμα και έκζεμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770392654",
+      "title": "Avene Ultra Fluid Invisible Aντηλιακή Κρέμα Προσώπου SPF50, 50ml",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Αντηλιακή προστασία για ανοιχτόχρωμο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779355773",
+      "title": "Avene Eau Thermale Creme Minerale SPF50+ Αντιηλιακή Κρέμα Προσώπου Χωρίς Άρωμα γ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779355872",
+      "title": "Avene Mineral Lotion SPF50+ Αντιηλιακό Γαλάκτωμα Προσώπου & Σώματος για το Μη Αν",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Αντηλιακή προστασία για το σώμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779416139",
+      "title": "Avene Cicalfate Hand Repair Barrier Cream Επανορθωτική Κρέμα Χεριών, 100ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Covid-19: Φροντίστε το δέρμα σας",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779002738",
+      "title": "Avene Cold Cream Κρέμα για Ευαίσθητο & Ξηρό Δέρμα, 40ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος το ευαίσθητο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779003131",
+      "title": "2 x Avene Eau Thermale Spray Ιαματικό Νερό με Καταπραϋντικές, Απαλυντικές & Αντι",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779003889",
+      "title": "Avene Men After Shave Balm Ανδρικό Βάλσαμο για μετά το Ξύρισμα, 75ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ανδρική φροντίδα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779051378",
+      "title": "Avene Les Essentiels Gentle Eye Make-Up Remover Απαλό Gel για Ντεμακιγιάζ Ματιών",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770114669",
+      "title": "Avene Silky Mist SPF30 Αντιηλιακό Mist για Πρόσωπο & Σώμα, 150ml",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Αντηλιακή προστασία για το σώμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770138856",
+      "title": "Avene Tolerance Control Baume Καταπραϋντικό Βάλσαμο για το Υπερευαίσθητο προς Αν",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770111583",
+      "title": "Avene Body Ενυδατικό Baume Σώματος, 250ml",
+      "c1": "Φροντίδα σώματος",
+      "c2": "Φροντίδα δέρματος το ευαίσθητο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770111552",
+      "title": "Avene Body Gentle Shower Gel Απαλό Gel Σώματος για το Ντους, 500ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770104684",
+      "title": "Avene Xeracalm A.D Υπερλιπαντική Στερεή Πλάκα Καθαρισμού για το Ξηρό Δέρμα με Tά",
+      "c1": "Βρεφική φροντίδα",
+      "c2": "Φροντίδα δέρματος για πολύ ξηρό δέρμα και έκζεμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770144512",
+      "title": "Avene Couvrance Soleil Mosaic Powder Πολύχρωμη Πούδρα Σκουρόχρωμη με Καφέ & Χρυσ",
+      "c1": "Μακιγιάζ",
+      "c2": "Μακιγιάζ που αναδεικνύει την επιδερμίδα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770144550",
+      "title": "Avene Couvrance Πολύχρωμη Πούδρα για Φυσικό Αποτέλεσμα, Bonne Mine, 10gr",
+      "c1": "Μακιγιάζ",
+      "c2": "Μακιγιάζ που αναδεικνύει την επιδερμίδα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770144536",
+      "title": "Avene Couvrance Πολύχρωμη Πούδρα για Αποτέλεσμα Nude Mat - Translucide, 10g",
+      "c1": "Μακιγιάζ",
+      "c2": "Μακιγιάζ που αναδεικνύει την επιδερμίδα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770142327",
+      "title": "Avene Cicalfate Lips Repair Balm Βάλσαμο Χειλιών για Επανόρθωση & Θρέψη, 10ml",
+      "c1": "Φροντίδα σώματος",
+      "c2": "Θεραπείες με [C+-Restore]™",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770142280",
+      "title": "Avene Tolerance Control Λοσιόν Καθαρισμού & Ντεμακιγιάζ για το Υπερευαίσθητο προ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770101362",
+      "title": "Avene Fluide Sport SPF50+ Αντιηλιακό Γαλάκτωμα για Πρόσωπο & Σώμα Ιδανικό για Αθ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770072815",
+      "title": "Avene Cold Cream Concentrated Hand Cream Συμπυκνωμένη Κρέμα Χεριών, 50ml",
+      "c1": "Φροντίδα σώματος",
+      "c2": "Κρέμες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770073126",
+      "title": "Avene Les Essentiels Διφασικό Ντεμακιγιάζ Ματιών, 125ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ενήλικες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770082357",
+      "title": "Avene Couvrance Μέικ Απ σε Μορφή Κρέμας - 5.0 Soleil, 10gr",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770100228",
+      "title": "Avene Compact Teinte SPF50 Αντηλιακό Make Up Χρώμα Sable, 10g",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770100242",
+      "title": "Avene Compact Teinte SPF50 Αντηλιακό Make Up Χρώμα Dore, 10g",
+      "c1": "Αντηλιακή προστασία: ανακαλύψτε τα προϊόντα μας",
+      "c2": "Αντηλιακή προστασία για πολύ ανοιχτόχρωμο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770050158",
+      "title": "Avene Couvrance Υγρό Διορθωτικό Make Up SPF20 - 5.0 Dore, 30ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770038545",
+      "title": "Avene Men Anti-Aging Hydrating Care Ενυδατική Αντιγηραντική Κρέμα για Άνδρες, 50",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος το ευαίσθητο δέρμα",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770100891",
+      "title": "Avene Cleanance Hydra Κρέμα για Δέρμα υπό Ξηραντική Αγωγή Κατά της Ακμής 40 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Covid-19: Φροντίστε το δέρμα σας",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770207774",
+      "title": "Avene Cleanance Gel Καθαρισμού για το Λιπαρό Δέρμα 400 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770200553",
+      "title": "Avene DermAbsolu Αντιγηραντική Κρέμα Ματιών 15 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα δέρματος για ενήλικες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770200478",
+      "title": "Avene DermAbsolu Αντιγηραντικό Baume Νύχτας για Αναζωογόνηση & Θρέψη 40 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770114171",
+      "title": "Avene XeraCalm A.D Baume Relipidant για Αναπλήρωση των Λιπιδίων 400 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770138801",
+      "title": "Avene Tolerance Control Creme Apaisant Restaurateur Καταπραϋντική Κρέμα Αποκατάσ",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770394313",
+      "title": "Avene Hyaluron Activ B3 Κρέμα Ματιών Τριπλής Δράσης 15 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Κρέμες",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770142112",
+      "title": "Avene Cold Cream Θρεπτικό Στικ για Ξηρά & Σκασμένα Χείλη 4 g",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Θεραπείες με ιαματικό νερό Avène.",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770139204",
+      "title": "Avene Cleanance Gel Nettoyant Tube Τζελ Καθαρισμού Για Λιπαρές Επιδερμίδες 200 m",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Φροντίδα του δέρματος για την ακμή",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770147261",
+      "title": "Avene Cold Cream Baume Levres Nutrition Intense 24ωρη Εντατική Ενυδάτωση Χειλιών",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Ντεμακιγιάζ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282779390132",
+      "title": "Avene Hydrance Rich Creme Hydratante Ενυδατική Κρέμα Πλούσιας Υφής 40 ml",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "3282770148671",
+      "title": "Avene Fluide Mineral Αντιηλιακό Προσώπου Για Το Ευαίσθητο Μη Ανεκτικό Δέρμα SPF5",
+      "c1": "Φροντίδα προσώπου",
+      "c2": "Μη-φαγεσωρογόνος φροντίδα του δέρματος",
+      "c3": "",
+      "result_status": "active"
+    }
+  ]
+}

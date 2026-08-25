@@ -141,14 +141,31 @@ export async function uploadItemImagesManual(
   options?: {
     replaceExisting?: boolean;
     setUploadedAsMain?: boolean;
+    replacePosition?: number;
   },
 ): Promise<CmsItem> {
   const formData = new FormData();
   files.forEach((file) => formData.append('files', file));
   formData.append('replace_existing', options?.replaceExisting ? 'true' : 'false');
   formData.append('set_uploaded_as_main', options?.setUploadedAsMain === false ? 'false' : 'true');
+  if (options?.replacePosition && options.replacePosition >= 1) {
+    formData.append('replace_position', String(options.replacePosition));
+  }
   const response = await apiFetch<ApiSuccessResponse<{ uploaded_count: number; uploaded_urls: string[]; item: CmsItem }>>(
     `/cms/catalog/items/${itemId}/images/manual`,
+    {
+      method: 'POST',
+      body: formData,
+    },
+  );
+  return response.data.item;
+}
+
+export async function setItemImagePrimary(itemId: string, position: number): Promise<CmsItem> {
+  const formData = new FormData();
+  formData.append('position', String(position));
+  const response = await apiFetch<ApiSuccessResponse<{ item: CmsItem }>>(
+    `/cms/catalog/items/${itemId}/images/set-primary`,
     {
       method: 'POST',
       body: formData,
@@ -233,6 +250,20 @@ export async function approveItemGoLive(itemId: string): Promise<CmsItem> {
   const response = await apiFetch<ApiSuccessResponse<CmsItem>>(`/cms/catalog/items/${itemId}/approve-go-live`, {
     method: 'POST',
   });
+  return response.data;
+}
+
+export interface ApproveReviewQueueBulkResult {
+  approved: number;
+  skipped_missing_requirements: number;
+  errors: number;
+}
+
+export async function approveReviewQueueBulk(): Promise<ApproveReviewQueueBulkResult> {
+  const response = await apiFetch<ApiSuccessResponse<ApproveReviewQueueBulkResult>>(
+    '/cms/catalog/items/approve-review-queue-bulk',
+    { method: 'POST' },
+  );
   return response.data;
 }
 

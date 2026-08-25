@@ -61,3 +61,10 @@ export async function updateUser(userId: string, payload: CmsUserUpdatePayload) 
   });
   return response.data;
 }
+
+export async function unlockUser(userId: string) {
+  const response = await apiFetch<ApiSuccessResponse<CmsAdminUser>>(`/cms/users/${userId}/unlock`, {
+    method: 'POST',
+  });
+  return response.data;
+}

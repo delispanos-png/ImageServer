@@ -12,6 +12,11 @@ from pydantic import BaseModel
 
 from api_clients import resolve_request_ip, verify_api_client_password
 from cms_activity import log_cms_audit_event
+from login_lockout import (
+    raise_if_locked,
+    record_failed_login,
+    record_successful_login,
+)
 
 
 def _utcnow() -> datetime:
@@ -127,9 +132,20 @@ def create_portal_auth_router(db) -> APIRouter:
         if not client_doc or not bool(client_doc.get("is_active", True)):
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
 
+        raise_if_locked(client_doc)
+
         password_hash = str(client_doc.get("api_password_hash", "")).strip()
         if not password_hash or not verify_api_client_password(payload.password, password_hash):
+            outcome = await record_failed_login(
+                db, clients_collection, client_doc,
+                kind="portal_client", request=request, identifier=normalized_login,
+            )
+            if outcome["locked"]:
+                client_doc["locked_until"] = outcome["locked_until"]
+                raise_if_locked(client_doc)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
+
+        await record_successful_login(clients_collection, client_doc)
 
         token = secrets.token_urlsafe(48)
         now = _utcnow()

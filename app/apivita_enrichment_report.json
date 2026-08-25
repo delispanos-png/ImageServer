@@ -1,0 +1,3893 @@
+{
+  "stats": {
+    "examined": 311,
+    "with_l1_only": 76,
+    "with_full_match": 235,
+    "by_confidence": {
+      "high": 148,
+      "medium": 87,
+      "low": 48,
+      "none": 28
+    },
+    "would_activate": 0,
+    "modified": 311
+  },
+  "rows": [
+    {
+      "barcode": "5201279058289",
+      "title": "Apivita Grape Eye Mask Aντιρυτιδική Μάσκα Ματιών με Σταφύλι, 2 x 2ml",
+      "score": 0.7429,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-176",
+        "name": "Αντιρυτιδική Μάσκα Ματιών Σταφύλι",
+        "score": 0.7429,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ],
+          [
+            3,
+            "Περιποίηση Ματιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279004477",
+      "title": "Apivita Propolis Βιολογικό διάλυμα Πρόπολης 50 ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-60-267",
+        "name": "Βιολογικό Διάλυμα Πρόπολης - Συμπλήρωμα Διατροφής",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Προϊόντα Πρόπολης"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279013813",
+      "title": "Apivita Cream Eucalyptus Κρέμα με Ευκάλυπτο, 40ml",
+      "score": 0.2833,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279013790",
+      "title": "Apivita Gel Arnica Κρέμα Τζελ με Άρνικα, 40ml",
+      "score": 0.5067,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-59-016",
+        "name": "ΤΖΕΛ ΑΝΑΚΟΥΦΙΣΗΣ ΜΕ ΑΡΝΙΚΑ",
+        "score": 0.5067,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Κρέμες Με Θεραπευτικά Βότανα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279013783",
+      "title": "2x Apivita Cream Propolis Κρέμα με Πρόπολη, 2x40ml",
+      "score": 0.4667,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-59-017",
+        "name": "ΠΡΟΣΤΑΤΕΥΤΙΚΗ ΚΡΕΜΑ ΜΕ ΠΡΟΠΟΛΗ",
+        "score": 0.4667,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Κρέμες Με Θεραπευτικά Βότανα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008024",
+      "title": "Apivita Men's Care Απαλή κρέμα ξυρίσματος κατά των ερεθισμών, 100ml",
+      "score": 0.85,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-097",
+        "name": "Απαλή Κρέμα Ξυρίσματος Κατά Των Ερεθισμών",
+        "score": 0.85,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Ανδρική Περιποίηση & Ξύρισμα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279078041",
+      "title": "Apivita Body Milk Κρέμα Σώματος με Μέλι & Τσάι του Βουνού, 50ml",
+      "score": 0.3214,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279094218",
+      "title": "Apivita Beevine Elixir Firming Activating Lift Serum Ορός Ενεργοποίησης για Σύσφ",
+      "score": 0.45,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-502",
+        "name": "Ορός Ενεργοποίησης Σύσφιξης & Lifting",
+        "score": 0.45,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279094201",
+      "title": "Apivita Beevine Elixir Ιntense Recovery Lift Night Cream Κρέμα Νύχτας Εντατικής ",
+      "score": 0.65,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-01-671",
+        "name": "Κρέμα Νύχτας Εντατικής Επανόρθωσης & Lifting",
+        "score": 0.65,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279094188",
+      "title": "Apivita Beevine Elixir Wrinkle & Firmness Lift Cream Light Αντιρυτιδική Κρέμα Ημ",
+      "score": 0.3886,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279094195",
+      "title": "Apivita Beevine Elixir Wrinkle & Firmness Lift Cream Rich Αντιρυτιδική Κρέμα Ημέ",
+      "score": 0.3886,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279081829",
+      "title": "Apivita Ginkgo Biloba Eye Mask, Μάσκα Ματιών Για Μαύρους Κύκλους & Για Την Κούρα",
+      "score": 0.58,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-187",
+        "name": "Μάσκα Ματιών Ginkgo Biloba για Μαύρους Κύκλους και Σημάδια Κούρασης",
+        "score": 0.58,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ],
+          [
+            3,
+            "Περιποίηση Ματιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279082253",
+      "title": "Apivita Express Mask AHA & PHA Μάσκα Προσώπου με Αγκινάρα για Λάμψη & Λεία Υφή, ",
+      "score": 0.85,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-189",
+        "name": "AHA & PHA Μάσκα Προσώπου Αγκινάρα για Λάμψη & Λεία Υφή",
+        "score": 0.85,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279083809",
+      "title": "Apivita Face Mask Aloe Μάσκα Προσώπου με Αλόη, για βαθιά ενυδάτωση & προστασία α",
+      "score": 0.5641,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-45-053",
+        "name": "Μάσκα Προσώπου Αλόη για Ενυδάτωση & Αναζωογόνηση",
+        "score": 0.5641,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279078034",
+      "title": "Apivita Shower Gel Αφρόλουτρο με Μέλι & Τσάι του Βουνού, 50ml",
+      "score": 0.4167,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-429",
+        "name": "Αφρόλουτρο – Μέλι & Αλόη",
+        "score": 0.4167,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Αφρόλουτρα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279077990",
+      "title": "Apivita Shampoo Σαμπουάν Λάμψης & Αναζωογόνησης με Πορτοκάλι & Μέλι, 50ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65224111",
+        "name": "Σαμπουάν Αναζωογόνησης",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279078003",
+      "title": "Apivita Conditioner Κρέμα Mαλλιών για Λάμψη & Αναζωογόνηση με Πορτοκάλι & Μέλι, ",
+      "score": 0.42,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-75-057",
+        "name": "Μαλακτική Κρέμα Μαλλιών Για Παιδιά",
+        "score": 0.42,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Παιδική Περιποίηση Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279094225",
+      "title": "Apivita Beevine Elixir Wrinkle Lift Eye & Lip Cream Αντιρυτιδική Κρέμα Ματιών & ",
+      "score": 0.2923,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279094232",
+      "title": "Apivita Beevine Elixir Replenishing Firming Face Oil Έλαιο Προσώπου για Αναζωογο",
+      "score": 0.3686,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099398",
+      "title": "Apivita Keratin Repair Nourish & Repair Hair Oil Λάδι Θρέψης & Επανόρθωσης με Μέ",
+      "score": 0.45,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-439",
+        "name": "Ξηρό Λάδι Θρέψης & Επανόρθωσης",
+        "score": 0.45,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Κρέμες & Λάδια Σώματος"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099251",
+      "title": "Apivita Bee Sun Safe Daily Age Repair Dry Touch Λεπτόρευστη Κρέμα Προσώπου κατά ",
+      "score": 0.775,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244242",
+        "name": "BEE SUN SAFE - Κρέμα Προσώπου Κατά των Πανάδων & των Ρυτίδων SPF50",
+        "score": 0.775,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099237",
+      "title": "Apivita Just Bee Clear Purifying Lotion Λοσιόν Σύσφιξης Πόρων, 200ml",
+      "score": 0.5,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65224122",
+        "name": "Just Bee Clear Ρουτίνα",
+        "score": 0.5,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099244",
+      "title": "Apivita Just Bee Clear Purifying Cleansing Gel, Καθαριστικό Τζελ Προσώπου για Λι",
+      "score": 0.42,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65224122",
+        "name": "Just Bee Clear Ρουτίνα",
+        "score": 0.42,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098773",
+      "title": "Apivita Winter Waterland Promo με Aqua Beelicious Gel-Cream Κρέμα Ενυδάτωσης Ελα",
+      "score": 0.5111,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-507",
+        "name": "Λοσιόν Ενυδάτωσης Κατά των Ατελειών",
+        "score": 0.5111,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098728",
+      "title": "Apivita Cleansing Foam Face & Eyes Κρεμώδης Αφρός Καθαρισμού για Πρόσωπο & Μάτια",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-536",
+        "name": "Αφρός Καθαρισμού 300ml - Πρόσωπο & Μάτια",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ],
+          [
+            3,
+            "Eco Packs - Μεγάλες Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098711",
+      "title": "Apivita Cleansing Milk Γαλάκτωμα Καθαρισμού 3 σε 1 με Χαμομήλι & Μέλι για Πρόσωπ",
+      "score": 0.6667,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-604",
+        "name": "Γαλάκτωμα καθαρισμού 3 σε 1 – Πρόσωπο & Mάτια",
+        "score": 0.6667,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098667",
+      "title": "Apivita Promo Bee My Honey Eau De Toilette Γυναικείο Άρωμα, 100ml & Δώρο Επαναγε",
+      "score": 0.5,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-441",
+        "name": "BEE MY HONEY",
+        "score": 0.5,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098766",
+      "title": "Apivita Time to Glow Up Promo με Beesential Oils Strengthening & Hydrating Skin ",
+      "score": 0.4889,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-604",
+        "name": "Γαλάκτωμα καθαρισμού 3 σε 1 – Πρόσωπο & Mάτια",
+        "score": 0.4889,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097981",
+      "title": "Apivita Just Bee Clear Κρέμα Κατά των Ατελειών για Λιπαρή ή με Τάση Ακμής Επιδερ",
+      "score": 0.4385,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65224122",
+        "name": "Just Bee Clear Ρουτίνα",
+        "score": 0.4385,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097851",
+      "title": "Apivita Propolis Protecting Cream Προστατευτική Κρέμα με Πρόπολη, 50ml",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-59-017",
+        "name": "ΠΡΟΣΤΑΤΕΥΤΙΚΗ ΚΡΕΜΑ ΜΕ ΠΡΟΠΟΛΗ",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Κρέμες Με Θεραπευτικά Βότανα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097868",
+      "title": "Apivita Eucalyptus Κρέμα με Ευκάλυπτο για Εντριβή στο Στήθος, 50ml",
+      "score": 0.9143,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-59-018",
+        "name": "ΚΡΕΜΑ ΜΕ ΕΥΚΑΛΥΠΤΟ ΓΙΑ ΕΝΤΡΙΒΗ ΣΤΟ ΣΤΗΘΟΣ",
+        "score": 0.9143,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Κρέμες Με Θεραπευτικά Βότανα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097844",
+      "title": "Apivita Arnica Discomfort Relief Gel Τζελ Ανακούφισης με Άρνικα, 50ml",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-59-016",
+        "name": "ΤΖΕΛ ΑΝΑΚΟΥΦΙΣΗΣ ΜΕ ΑΡΝΙΚΑ",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Κρέμες Με Θεραπευτικά Βότανα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097615",
+      "title": "Apivita Gentle Daily Conditioner Απαλή Κρέμα Καθημερινής Χρήσης με Χαμομήλι & Μέ",
+      "score": 0.5286,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-09-132",
+        "name": "Κρέμα Καθημερινής Χρήσης",
+        "score": 0.5286,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Κρέμες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097837",
+      "title": "Apivita Calendula Καταπραϋντική Κρέμα με Καλέντουλα, 50ml",
+      "score": 0.85,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-59-015",
+        "name": "ΚΑΤΑΠΡΑΫΝΤΙΚΗ ΚΡΕΜΑ ΜΕ ΚΑΛΕΝΤΟΥΛΑ",
+        "score": 0.85,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Κρέμες Με Θεραπευτικά Βότανα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099442",
+      "title": "Apivita Πακέτο Προσφοράς Men's Tonic με Hair Loss Lotion Κατά της Τριχόπτωσης, 1",
+      "score": 0.6125,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-08-169",
+        "name": "Τονωτικό Σαμπουάν Κατά της Τριχόπτωσης για Άνδρες Ecopack 500ml",
+        "score": 0.6125,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ],
+          [
+            3,
+            "Eco Packs - Μεγάλες Συσκευασίες"
+          ],
+          [
+            3,
+            "Ανδρική Περιποίηση Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097530",
+      "title": "Apivita Hyaluronic Hydra Moisturizing Shampoo Fine Hair Σαμπουάν Ενυδάτωσης για ",
+      "score": 0.6182,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-08-188",
+        "name": "Σαμπουάν Ενυδάτωσης – Λεπτά Μαλλιά",
+        "score": 0.6182,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279103002",
+      "title": "Apivita Promo Bee Sun Safe Hydra Sensitive Soothing Face Cream Καταπραϋντική Κρέ",
+      "score": 0.4091,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244243",
+        "name": "BEE SUN SAFE - Ενυδατική Κρέμα-Gel Προσώπου SPF50",
+        "score": 0.4091,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279102999",
+      "title": "Apivita Promo Bee Sun Safe Dry Touch Invisible Face Fluid Λεπτόρευστη Κρέμα Προσ",
+      "score": 0.4091,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244243",
+        "name": "BEE SUN SAFE - Ενυδατική Κρέμα-Gel Προσώπου SPF50",
+        "score": 0.4091,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279102982",
+      "title": "Apivita Promo Bee Sun Safe Anti Spot & Anti Age Defense Face Cream Κρέμα Προσώπο",
+      "score": 0.4091,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244243",
+        "name": "BEE SUN SAFE - Ενυδατική Κρέμα-Gel Προσώπου SPF50",
+        "score": 0.4091,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279102852",
+      "title": "Apivita Cleansing Milk Γαλάκτωμα Καθαρισμού 3 σε 1 με Χαμομήλι & Μέλι για Πρόσωπ",
+      "score": 0.6667,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-604",
+        "name": "Γαλάκτωμα καθαρισμού 3 σε 1 – Πρόσωπο & Mάτια",
+        "score": 0.6667,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279102975",
+      "title": "Apivita Promo Bee Sun Safe Hydra Fresh GelApivita Promo Bee Sun Safe Hydra Fresh",
+      "score": 0.5,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244243",
+        "name": "BEE SUN SAFE - Ενυδατική Κρέμα-Gel Προσώπου SPF50",
+        "score": 0.5,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279102456",
+      "title": "Apivita Μπάρα Καθαρισμου & Ντεμακιγιαζ για Πρόσωπο & Μάτια με Honey FerM, Πρεβιο",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-603",
+        "name": "Μπάρα Καθαρισμού & Ντεμακιγιάζ – Πρόσωπο & Mάτια",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279102425",
+      "title": "Apivita Hyaluronic Hydra Μάσκα Μαλλιών Ενυδάτωσης με Honey StB & Υαλουρονικό Οξύ",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-07-101",
+        "name": "Μάσκα Μαλλιών Ενυδάτωσης",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Μάσκες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099725",
+      "title": "Apivita Bee My Honey Promo Eau De Toilette Unisex Άρωμα, 100ml & Δώρο Shower Gel",
+      "score": 0.4923,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-441",
+        "name": "BEE MY HONEY",
+        "score": 0.4923,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279101312",
+      "title": "Apivita Beevine Elixir Promo Firming Activating Lift Serum Ορός Ενεργοποίησης Σύ",
+      "score": 0.6609,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244242",
+        "name": "BEE SUN SAFE - Κρέμα Προσώπου Κατά των Πανάδων & των Ρυτίδων SPF50",
+        "score": 0.6609,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279101411",
+      "title": "Apivita Hyaluronic Hydra Moisturizing Shampoo Eco Pack Σαμπουάν Ενυδάτωσης, 500m",
+      "score": 0.55,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-08-891",
+        "name": "Σαμπουάν Ενυδάτωσης",
+        "score": 0.55,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279102401",
+      "title": "Apivita Hyaluronic Hydra Κρέμα Μαλλιών Ενυδάτωσης Travel με Honey StB & Υαλουρον",
+      "score": 0.58,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-09-135",
+        "name": "Κρέμα Μαλλιών Ενυδάτωσης",
+        "score": 0.58,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Κρέμες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099763",
+      "title": "Apivita Gentlemen Only Promo Men's Care Face & Eye Cream Κρέμα για Πρόσωπο & Μάτ",
+      "score": 0.472,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-528",
+        "name": "Gel καθαρισμού – Πρόσωπο",
+        "score": 0.472,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279085421",
+      "title": "Apivita Propolis Βιολογικό διάλυμα Πρόπολης 50 ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-60-267",
+        "name": "Βιολογικό Διάλυμα Πρόπολης - Συμπλήρωμα Διατροφής",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Natural Remedies"
+          ],
+          [
+            4,
+            "Προϊόντα Πρόπολης"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279088941",
+      "title": "Apivita Herbal gel Arnica 40 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008130",
+      "title": "Apivita Express Beauty Face mask Green clay Deep cleansing 2 x 8 ml",
+      "score": 0.2333,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008239",
+      "title": "Apivita Express Beauty Face mask Honey Moisturizing & Nourishing 2 x 8 ml",
+      "score": 0.275,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279072315",
+      "title": "Apivita Express Beauty Eye mask Grape Line smoothing 2 x 2 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008048",
+      "title": "Apivita Express Beauty Eye mask Grape Line smoothing 2 x 2 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008055",
+      "title": "Apivita Express Beauty Eye mask Grape Line smoothing 2 x 2 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008178",
+      "title": "Apivita Express Beauty Face scrub Olive Deep exfoliating 2 x 8 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098735",
+      "title": "Apivita Bee Party-Ready Exfoliation & Radiance Set Απολέπιση και Λάμψη",
+      "score": 0.4667,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-609",
+        "name": "Ready To Go",
+        "score": 0.4667,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Outlet"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097059",
+      "title": "Apivita Hydrating Menu Μηνιαία Ρουτίνα Ενυδάτωσης με Μάσκες Προσώπου 4 + 1 Δώρο",
+      "score": 0.55,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-197",
+        "name": "HYDRATING MENU",
+        "score": 0.55,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098797",
+      "title": "Apivita Making Spirits Bright Set Bee Radiant Κρέμα-Gel για Σημάδια Γήρανσης & Ξ",
+      "score": 0.5546,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-672",
+        "name": "Κρέμα Ματιών για Σημάδια Γήρανσης & Ξεκούραστη Όψη",
+        "score": 0.5546,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Περιποίηση Ματιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097042",
+      "title": "Apivita Vitality Snack Μηνιαία Ρουτίνα Αναζωογόνησης με Μάσκες Προσώπου 4 + 1 Δώ",
+      "score": 0.55,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-196",
+        "name": "VITALITY SNACK",
+        "score": 0.55,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099664",
+      "title": "Apivita Queen Bee Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Πλούσιας Υφής 50 ml ",
+      "score": 0.7273,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-01-595",
+        "name": "Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Πλούσιας Υφής",
+        "score": 0.7273,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099657",
+      "title": "Apivita Queen Bee Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Ελαφριάς Υφής 50 ml ",
+      "score": 0.7818,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-01-714",
+        "name": "Mini Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Ελαφριάς Υφής",
+        "score": 0.7818,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098780",
+      "title": "Apivita Winter Waterland Hydration + Freshness Aqua Beelicious Hydrating Rich Te",
+      "score": 0.25,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099794",
+      "title": "Apivita Beevine Elixir Wrinkle & Firmness Lift Cream Light 50 ml + Night Cream 1",
+      "score": 0.3667,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099756",
+      "title": "Apivita Light It Up Hydration & Radiance Express Masks Aloe 2 x 8 ml + Pomegrana",
+      "score": 0.1467,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5272279099299",
+      "title": "Apivita Hydra Essentials to Go Ολοκληρωμένο Σετ Φροντίδας Προσώπου",
+      "score": 0.1667,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099299",
+      "title": "Apivita Hydra Essentials to Go Ολοκληρωμένο Σετ Φροντίδας Προσώπου",
+      "score": 0.1667,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099800",
+      "title": "Apivita Beevine Elixir Wrinkle & Firmness Lift Cream Rich 50 ml + Night Cream 15",
+      "score": 0.3667,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099282",
+      "title": "Apivita Destination Beauty Essentials to Go Ολοκληρωμένο Σετ Καθαρισμού Προσώπου",
+      "score": 0.2256,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099770",
+      "title": "Apivita Hydration + Freshness Aqua Beelicious Hydrating Gel-Cream Light Texture ",
+      "score": 0.2462,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099787",
+      "title": "Apivita Hydration + Freshness Aqua Beelicious Hydrating Rich Texture Cream 40 ml",
+      "score": 0.25,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098643",
+      "title": "Apivita A Kiss On The Hand Hypericum",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279036331",
+      "title": "Apivita Express Beauty Face scrub Bilberry Brightening 2 x 8 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098827",
+      "title": "Apivita Your Majesty Queen Bee Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Πλούσια",
+      "score": 0.4513,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-511",
+        "name": "Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Ελαφριάς Υφής",
+        "score": 0.4513,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098810",
+      "title": "Apivita Your Majesty Queen Bee Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Ελαφριά",
+      "score": 0.5238,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-769",
+        "name": "QUEEN BEE Ρουτίνα Απόλυτης Αντιγήρανσης Ελαφριά Υφή Σετ Δώρο",
+        "score": 0.5238,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Outlet"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279029289",
+      "title": "Apivita Express Beauty Face mask Sea lavender Moisturizing 2 x 8 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279101305",
+      "title": "Apivita Bee Radiant Ορός Ενεργοποίησης Λάμψης 30 ml + Δώρο Bee Sun Safe Anti-Spo",
+      "score": 0.48,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-751",
+        "name": "BEE RADIANT Ορός - σετ δώρο",
+        "score": 0.48,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008222",
+      "title": "Apivita Express Beauty Face mask Prickly Pear Moisturizing Soothing 2 x 8 ml",
+      "score": 0.2333,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008185",
+      "title": "Apivita Express Beauty Face scrub Apricot Gentle exfoliating 2 x 8 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279097035",
+      "title": "Apivita Detox Diet Μηνιαία Ρουτίνα Καθαρισμού με Μάσκες Προσώπου 4 + 1 Δώρο",
+      "score": 0.55,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-195",
+        "name": "DETOX DIET",
+        "score": 0.55,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279053727",
+      "title": "Apivita Express Beauty Face mask Royal jelly Firming 2 x 8 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279018863",
+      "title": "Apivita Express Beauty Face mask Royal jelly Firming 2 x 8 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279082734",
+      "title": "Apivita Express Beauty Eye mask Ginkgo biloba 2 x 2 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279072308",
+      "title": "Apivita Express Beauty Eye mask Ginkgo biloba 2 x 2 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008116",
+      "title": "Apivita Express Beauty Eye mask Ginkgo biloba 2 x 2 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279053710",
+      "title": "Apivita Express Beauty Eye mask Ginkgo biloba 2 x 2 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008062",
+      "title": "Apivita Express Beauty Face mask Pomegranate Radiance 2 x 8 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "ΑPI2216",
+      "title": "Apivita Express Beauty Black Face mask Propolis 2 x 8 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279090609",
+      "title": "Apivita Face mask Grape Line reducing 50 ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008086",
+      "title": "Apivita Express Beauty Face mask Grape Line reducing 2 x 8 ml",
+      "score": 0.2424,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008147",
+      "title": "Apivita Express Beauty Face mask Pink clay Gentle cleansing 2 x 8 ml",
+      "score": 0.2333,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008215",
+      "title": "Apivita Express Beauty Face mask Aloe Moisturizing 2 x 8 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279008208",
+      "title": "Apivita Express Beauty Face mask Orange Radiance 2 x 8 ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279028428",
+      "title": "Apivita Natural oil Massage oil Eucalyptus  50 ml",
+      "score": 0.1171,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279080273",
+      "title": "Apivita Bee Sun Safe Hydra Sun Kids Lotion SPF50 200 ml",
+      "score": 0.4182,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244243",
+        "name": "BEE SUN SAFE - Ενυδατική Κρέμα-Gel Προσώπου SPF50",
+        "score": 0.4182,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279082840",
+      "title": "Apivita Hair Loss Lotion 150 ml & Shampoo Women's Tonic 250 ml",
+      "score": 0.1212,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279099428",
+      "title": "Apivita Color Seal Σαμπουάν Προστασίας Χρώματος 250 ml + Color Seal Κρέμα Μαλλιώ",
+      "score": 0.7429,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-09-116",
+        "name": "Κρέμα Μαλλιών  Προστασίας Χρώματος",
+        "score": 0.7429,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Κρέμες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279101404",
+      "title": "Apivita Keratin Repair Shampoo 250 ml + Keratin Repair Conditioner 150 ml",
+      "score": 0.1857,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279036027",
+      "title": "Apivita Royal Honey Body Scrub with Sea Salts 200 gr",
+      "score": 0.275,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279060343",
+      "title": "Apivita Pure Jasmine Gentle exfoliating cream 200 ml",
+      "score": 0.219,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279079833",
+      "title": "Apivita Pure Jasmine Gentle exfoliating cream 200 ml",
+      "score": 0.219,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279071769",
+      "title": "Apivita Hair Care Gentle Daily Conditioner all hair types Travel size 50 ml",
+      "score": 0.1879,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279041960",
+      "title": "Apivita Hair Care Gentle Daily Conditioner all hair types Travel size 50 ml",
+      "score": 0.1879,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279086701",
+      "title": "Apivita Promo Bee My Honey Set Eau de Toilette 100 ml & Δώρο Rich Moisturizing B",
+      "score": 0.5091,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-441",
+        "name": "BEE MY HONEY",
+        "score": 0.5091,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279094720",
+      "title": "Apivita Quick Getaway Essentials to Go Gentle Daily Shampoo 75 ml + Mountain Tea",
+      "score": 0.2083,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098759",
+      "title": "Apivita Men's Care Boys Boys Boys Gift Set Eau de Toilette Cedar & Cardamon 100 ",
+      "score": 0.28,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279225049",
+      "title": "Apivita Κεραμική Συσκευή Για Αιθέρια Έλαια Μαύρη 1τμχ",
+      "score": 0.9,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-15-008",
+        "name": "Κεραμική Συσκευή για Αιθέρια Έλαια",
+        "score": 0.9,
+        "categories": [
+          [
+            2,
+            "Well Being"
+          ],
+          [
+            3,
+            "Αρωματοθεραπεία"
+          ],
+          [
+            4,
+            "Αρωματικά Κεριά"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "52012796058227",
+      "title": "Apivita Express Beauty Face Mask Πρόπολη Για Βαθύ Καθαρισμό 2x8ml",
+      "score": 0.35,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279098803",
+      "title": "Apivita PROMO Bee Radiant Κρέμα Gel Πλούσιας Υφής για Σημάδια Γήρανσης 50ml - ΔΩ",
+      "score": 0.4612,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65247656",
+        "name": "ΒΕΕ ΜΟΝΤΗ-BEE RADIANT ΠΛΟΥΣΙΑΣ ΥΦΗΣ",
+        "score": 0.4612,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Κρέμες Προσώπου"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279016692",
+      "title": "Apivita Lip Care SPF20 με Βούτυρο Κακάο & Μέλι 4.4gr",
+      "score": 0.9,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-40-114",
+        "name": "Lip Care Βούτυρο Κακάο SPF20",
+        "score": 0.9,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Περιποίηση Χειλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201279035785",
+      "title": "Apivita Μάσκα Σύσφιγξης & Ανάπλασης με Βασιλικό Πολτό 50ml",
+      "score": 0.219,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005168",
+      "title": "Apivita Bee my Honey Shower Gel Honey & Aloe-Αφρόλουτρο  με Μέλι & Αλόη, 250ml",
+      "score": 0.625,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-429",
+        "name": "Αφρόλουτρο – Μέλι & Αλόη",
+        "score": 0.625,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Αφρόλουτρα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005167",
+      "title": "Apivita Bee my Honey Moisturizing Body Milk Honey & Aloe-Ενυδατικό Γαλάκτωμα Σώμ",
+      "score": 0.65,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-430",
+        "name": "Ενυδατικό Γαλάκτωμα Σώματος – Μέλι & Αλόη",
+        "score": 0.65,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Κρέμες & Λάδια Σώματος"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005210",
+      "title": "Apivita Lip Care Βούτυρο Κακάο SPF20, 4.4g",
+      "score": 1.0,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-40-114",
+        "name": "Lip Care Βούτυρο Κακάο SPF20",
+        "score": 1.0,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Περιποίηση Χειλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005316",
+      "title": "Apivita After Sun Cool & Sooth Face & Body Gel Cream Travel Size-Δροσιστική & Κα",
+      "score": 0.7882,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-30-01-863",
+        "name": "After Sun Δροσιστική & Καταπραϋντική Κρέμα-Gel για Πρόσωπο & Σώμα - Travel Size",
+        "score": 0.7882,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Περιποίηση Μετά Τον Ήλιο"
+          ],
+          [
+            3,
+            "Travel Size - Μικρές Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109003876",
+      "title": "Apivita Mini Pure Jasmine Ενυδατικό Γαλάκτωμα Σώματος με Γιασεμί, 75ml",
+      "score": 0.7429,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-395",
+        "name": "Mini Ενυδατικό Γαλάκτωμα Σώματος",
+        "score": 0.7429,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Κρέμες & Λάδια Σώματος"
+          ],
+          [
+            3,
+            "Travel Size - Μικρές Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109004030",
+      "title": "Apivita Sensitive Scalp Shampoo Σαμπουάν για το Ευαίσθητο Τριχωτό με Πρεβιωτικά ",
+      "score": 0.6667,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-492",
+        "name": "Σαμπουάν για το Ευαίσθητο Τριχωτό",
+        "score": 0.6667,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109004736",
+      "title": "Apivita After Sun Δροσιστική & Καταπροϋντική Κρέμα-Gel για Πρόσωπο & Σώμα, 200ml",
+      "score": 0.8356,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-30-01-862",
+        "name": "After Sun Δροσιστική & Καταπραϋντική Κρέμα-Gel για Πρόσωπο & Σώμα",
+        "score": 0.8356,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            3,
+            "Περιποίηση Μετά Τον Ήλιο"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109004275",
+      "title": "Apivita Face Mask - Μάσκα Λάμψης Με Πορτοκάλι, 50ml",
+      "score": 0.31,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109004236",
+      "title": "Apivita My Color Elixir N6.87- Μόνιμη Βαφή Μαλλιών Ξανθό Σκούρο Περλέ , 50+ 75ML",
+      "score": 0.6667,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-063",
+        "name": "Βαφή Μαλλιών Ξανθό Σκούρο 6.0",
+        "score": 0.6667,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109004438",
+      "title": "Apivita Queen Bee-Ορός Ολιστικής Αντιγήρανσης με Βασιλικό Πολτό, 30ml",
+      "score": 0.4182,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-771",
+        "name": "QUEEN BEE Ρουτίνα Απόλυτης Αντιγήρανσης Ορός Σετ Δώρο",
+        "score": 0.4182,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Outlet"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109004439",
+      "title": "Apivita Queen Bee-Κρέμα Ημέρας Πλούσιας Υφής Απόλυτης Αντιγήρανσης με Βασιλικό Π",
+      "score": 0.6061,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-01-595",
+        "name": "Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Πλούσιας Υφής",
+        "score": 0.6061,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109007150",
+      "title": "Apivita Ready to Go Essentials to Go Σαμπουάν Καθημερινής Χρήσης με Χαμομήλι & Μ",
+      "score": 0.5143,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-536",
+        "name": "Αφρός Καθαρισμού 300ml - Πρόσωπο & Μάτια",
+        "score": 0.5143,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ],
+          [
+            3,
+            "Eco Packs - Μεγάλες Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957081",
+      "title": "Apivita Hyaluronic Hydra Μάσκα Μαλλιών Ενυδάτωσης με Μέλι & Υαλουρονικό Οξύ, 200",
+      "score": 0.625,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-07-101",
+        "name": "Μάσκα Μαλλιών Ενυδάτωσης",
+        "score": 0.625,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Μάσκες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957082",
+      "title": "Apivita Hyaluronic Hydra Moisturizing Shampoo-Σαμπουάν Ενυδάτωσης Μαλλιών, 250ml",
+      "score": 0.5714,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-08-891",
+        "name": "Σαμπουάν Ενυδάτωσης",
+        "score": 0.5714,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957090",
+      "title": "Apivita Bee Sun Safe Beach Essentials Travel Size Set Ενυδατικό Αναζωογονητικό Γ",
+      "score": 0.73,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-30-01-863",
+        "name": "After Sun Δροσιστική & Καταπραϋντική Κρέμα-Gel για Πρόσωπο & Σώμα - Travel Size",
+        "score": 0.73,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Περιποίηση Μετά Τον Ήλιο"
+          ],
+          [
+            3,
+            "Travel Size - Μικρές Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957091",
+      "title": "Apivita Bee Sun Safe Ενυδατική Αντηλιακή Λοσιόν για Παιδιά SPF50, 200ml & ΔΩΡΟ 2",
+      "score": 0.6769,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-30-01-898",
+        "name": "Ενυδατική Αντηλιακή Λοσιόν για Παιδιά SPF50",
+        "score": 0.6769,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Outlet"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957092",
+      "title": "Apivita Bee Sun Safe Hydra Sensitive Set Ενυδατική Κρέμα Τζελ Προσώπου SPF50, 50",
+      "score": 0.6087,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244243",
+        "name": "BEE SUN SAFE - Ενυδατική Κρέμα-Gel Προσώπου SPF50",
+        "score": 0.6087,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957093",
+      "title": "Apivita Bee Sun Safe Dry Touch Invisible Set Λεπτόρρευστη Kρέμα Προσώπου SPF50, ",
+      "score": 0.5565,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-30-01-896",
+        "name": "Λεπτόρρευστη Kρέμα Προσώπου Dry Touch SPF50",
+        "score": 0.5565,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Outlet"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957094",
+      "title": "Apivita Bee Sun Safe Anti Spot & Anti Age Set-Αντηλιακή Κρέμα κατά των Πανάδων &",
+      "score": 0.6222,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244242",
+        "name": "BEE SUN SAFE - Κρέμα Προσώπου Κατά των Πανάδων & των Ρυτίδων SPF50",
+        "score": 0.6222,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957095",
+      "title": "Apivita Bee Sun Safe Hydra Fresh Gel Cream Set-Ενυδατική Κρέμα Τζελ SPF50, 50ml ",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65244243",
+        "name": "BEE SUN SAFE - Ενυδατική Κρέμα-Gel Προσώπου SPF50",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957096",
+      "title": "Apivita Bee Sun Safe Daily Age Repair Λεπτόρρευστη Κρέμα Προσώπου Λάμψης για Ρυτ",
+      "score": 0.72,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-30-01-882",
+        "name": "Daily Age Repair SPF 50 - Λεπτόρρευστη Κρέμα Λάμψης Για Ρυτίδες & Πανάδες",
+        "score": 0.72,
+        "categories": [
+          [
+            2,
+            "Αντηλιακά"
+          ],
+          [
+            3,
+            "Αντηλιακά Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957080",
+      "title": "Apivita Hyaluronic Hydra Moisturizing Leave in Conditioner-Κρέμα Μαλλιών Ενυδάτω",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-09-137",
+        "name": "Κρέμα Μαλλιών Ενυδάτωσης Χωρίς Ξέβγαλμα",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Κρέμες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957494",
+      "title": "Apivita Solid Foamy Cleanser Μπάρα Καθαρισμού & Ντεμακιγιάζ για Πρόσωπο & Σώμα μ",
+      "score": 0.52,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-603",
+        "name": "Μπάρα Καθαρισμού & Ντεμακιγιάζ – Πρόσωπο & Mάτια",
+        "score": 0.52,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "957499",
+      "title": "Apivita Hydration Σαμπουάν Ενυδάτωσης με Υαλουρονικό Οξύ & Αλόη, 500ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-08-891",
+        "name": "Σαμπουάν Ενυδάτωσης",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "946419",
+      "title": "Apivita Queen Bee Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Πλούσιας Υφής με Βασ",
+      "score": 0.575,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-45-055",
+        "name": "Μάσκα Προσώπου Βασιλικός Πολτός για Σύσφιξη & Αναζωογόνηση",
+        "score": 0.575,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "946420",
+      "title": "Apivita Queen Bee Κρέμα Τζελ Απόλυτης Αντιγήρανσης & Αναγέννησης Ελαφριάς Υφής μ",
+      "score": 0.568,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-45-055",
+        "name": "Μάσκα Προσώπου Βασιλικός Πολτός για Σύσφιξη & Αναζωογόνηση",
+        "score": 0.568,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "946429",
+      "title": "Apivita Prickly Pear Μάσκα Προσώπου Φραγκόσυκο για Ενυδάτωση & Καταπράυνση, 50ml",
+      "score": 0.85,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-45-065",
+        "name": "Μάσκα Προσώπου Φραγκόσυκο για Ενυδάτωση & Καταπράυνση",
+        "score": 0.85,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953812",
+      "title": "Apivita Hydra Shot Hydration Σαμπουάν Ενυδάτωσης με Υαλουρονικό Οξύ, 250ml & Κρέ",
+      "score": 0.6727,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-09-137",
+        "name": "Κρέμα Μαλλιών Ενυδάτωσης Χωρίς Ξέβγαλμα",
+        "score": 0.6727,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Κρέμες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953813",
+      "title": "Apivita Beessential Oils Set Έλαιο Προσώπου Ημέρας Συμπλήρωμα Ενδυνάμωσης & Ενυδ",
+      "score": 0.6118,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-10-567",
+        "name": "Έλαιο Προσώπου Ημέρας Συμπλήρωμα Ενδυνάμωσης & Ενυδάτωσης",
+        "score": 0.6118,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953810",
+      "title": "Apivita Gentlemen Only Men's Care Κρέμα Προσώπου και Ματιών Κατά Των Ρυτίδων και",
+      "score": 0.6348,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-202",
+        "name": "Κρέμα Πρόσωπου και Ματιών Κατά Των Ρυτίδων και της Κούρασης",
+        "score": 0.6348,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953814",
+      "title": "Apivita Bee My Honey Eau de Toilette Άρωμα, 100ml & Αφρόλουτρο, 250ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-441",
+        "name": "BEE MY HONEY",
+        "score": 0.6,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προτάσεις Δώρων"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953815",
+      "title": "Apivita Body Treats Tonic Mountain Αφρόλουτρο με Αιθέρια Έλαια, 250ml & Ενυδατικ",
+      "score": 0.58,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-421",
+        "name": "Ενυδατικό Γαλάκτωμα Σώματος",
+        "score": 0.58,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Κρέμες & Λάδια Σώματος"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953817",
+      "title": "Apivita Winter Wonders Hypericum Κρέμα Χεριών για Ξηρά-Σκασμένα Χέρια Συμπυκνωμέ",
+      "score": 0.68,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-402",
+        "name": "Κρέμα για Ξηρά-Σκασμένα Χέρια Συμπυκνωμένης Υφής",
+        "score": 0.68,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Περιποίηση Χεριών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953822",
+      "title": "Apivita Just Bee Clear-Τζελ Καθαρισμού με Πρόπολη AMC & Φυτικό Σαλικυλικό Οξύ, 2",
+      "score": 0.4636,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65224122",
+        "name": "Just Bee Clear Ρουτίνα",
+        "score": 0.4636,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953823",
+      "title": "Apivita Just Bee Clear Λοσιόν Σύσφιξης Πόρων με Πρόπολη AMC & Φυτικό Σαλικυλικό ",
+      "score": 0.45,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "65224122",
+        "name": "Just Bee Clear Ρουτίνα",
+        "score": 0.45,
+        "categories": [
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Προσφορές"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953824",
+      "title": "Apivita Just Bee Clear-Κρέμα Τζελ κατά των Ατελειών για Ενυδάτωση & Ματ Αποτέλεσ",
+      "score": 0.6471,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-729",
+        "name": "Κρέμα Κατά Των Ατελειών - Ενυδάτωση & Ματ Αποτέλεσμα",
+        "score": 0.6471,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Κρέμες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "953820",
+      "title": "Apivita Queen Bee Set Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Ελαφριάς Υφής με",
+      "score": 0.6769,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-511",
+        "name": "Κρέμα Απόλυτης Αντιγήρανσης & Αναγέννησης Ελαφριάς Υφής",
+        "score": 0.6769,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "951893",
+      "title": "Apivita Tonic Hair Care Women's Tonic Shampoo-Τονωτικό Σαμπουάν για Γυναίκες, 25",
+      "score": 0.6125,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-08-168",
+        "name": "Τονωτικό Σαμπουάν Κατά της Τριχόπτωσης για Γυναίκες Ecopack 500ml",
+        "score": 0.6125,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ],
+          [
+            3,
+            "Eco Packs - Μεγάλες Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002831",
+      "title": "Apivita Promo Limited Edition Cleansing Κρεμώδης Αφρός Καθαρισμού για Πρόσωπο κα",
+      "score": 0.5714,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-536",
+        "name": "Αφρός Καθαρισμού 300ml - Πρόσωπο & Μάτια",
+        "score": 0.5714,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ],
+          [
+            3,
+            "Eco Packs - Μεγάλες Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002832",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 10.3 Kατάξανθο Μελί (Βαφή 50ml & ",
+      "score": 0.64,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-096",
+        "name": "Βαφή Μαλλιών Κατάξανθο Μελί 10.3",
+        "score": 0.64,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002834",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 7.3 Ξανθό Μελί (Βαφή 50ml & Γαλ.Ε",
+      "score": 0.64,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-093",
+        "name": "Βαφή Μαλλιών Ξανθό Μελί 7.3",
+        "score": 0.64,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002836",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 8.3 Ξανθό Ανοιχτό Χρυσό (Βαφή 50m",
+      "score": 0.6182,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-065",
+        "name": "Βαφή Μαλλιών Ξανθό Ανοιχτό 8.0",
+        "score": 0.6182,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002837",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 7.43 Ξανθό Χάλκινο Μελί (Βαφή 50m",
+      "score": 0.6727,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-098",
+        "name": "Βαφή Μαλλιών Ξανθό Χάλκινο Μελί 7.43",
+        "score": 0.6727,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002833",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 9.3 Ξανθό Πολύ Ανοιχτό Μελί (Βαφή",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-095",
+        "name": "Βαφή Μαλλιών Ξανθό Πολύ Ανοιχτό Μελί 9.3",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002503",
+      "title": "Apivita Women's Tonic Shampoo- Σαμπουάν Τριχόπτωσης με Hippophae Tc & Δάφνη, 500",
+      "score": 0.275,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002506",
+      "title": "Apivita Express Beauty Αντιρυτιδική Μάσκα Ματιών με Σταφύλι, 2x2ml",
+      "score": 0.7429,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-176",
+        "name": "Αντιρυτιδική Μάσκα Ματιών Σταφύλι",
+        "score": 0.7429,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ],
+          [
+            3,
+            "Περιποίηση Ματιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002450",
+      "title": "Apivita Rose Pepper Κρέμα Σύσφιγξης και Αναδιαμόρφωσης Σώματος, 150ml",
+      "score": 0.3333,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002541",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 6.78 Ξανθό Σκούρο Μπέζ Περλέ (Βαφ",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-068",
+        "name": "Βαφή Μαλλιών Ξανθό Σκούρο Περλέ Μπεζ 6.87",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002650",
+      "title": "Apivita Men's Tonic Shampoo-Σαμπουάν Τριχόπτωσης με Hippophae Tc & Δεντρολίβανο,",
+      "score": 0.275,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002676",
+      "title": "Apivita Express Beauty Pomegranate Μάσκα Αναζωογόνησης και Λάμψης Ρόδι, 2x8ml",
+      "score": 0.6333,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-07-095",
+        "name": "Μάσκα Μαλλιών Express Beauty Λάμψης & Αναζωογόνησης",
+        "score": 0.6333,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Μάσκες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002542",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 6.65 Έντονο Κόκκινο (Βαφή 50ml & ",
+      "score": 0.64,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-091",
+        "name": "Βαφή Μαλλιών Έντονο Κόκκινο 6.65",
+        "score": 0.64,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109003465",
+      "title": "Apivita Aqua Beelicious Booster Αναζωογόνησης και Ενυδάτωσης, 30ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-646",
+        "name": "Booster Αναζωογόνησης και Ενυδάτωσης",
+        "score": 0.8,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Οροί & Λάδια Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109003549",
+      "title": "Apivita 5 Αction Eye Serum Ορός Ματιών Λευκό Κρίνο, 15ml",
+      "score": 0.2,
+      "confidence": "none",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109003062",
+      "title": "Apivita Shine & Revitalizing Conditioner Κρέμα Μαλλιών Λάμψης & Αναζωογόνησης με",
+      "score": 0.3867,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002981",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 6.18 Ξανθό Σκούρο Σαντρέ Περλέ (Β",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-086",
+        "name": "Βαφή Μαλλιών Ξανθό σκούρο σαντρέ περλέ 6.18",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109003063",
+      "title": "Apivita Oily Dandruff Σαμπουάν Κατά της Λιπαρής Πιτυρίδας με Λευκή Ιτιά & Πρόπολ",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-08-174",
+        "name": "Σαμπουάν κατά της Λιπαρής Πιτυρίδας",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Σαμπουάν"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109003177",
+      "title": "Apivita Express Beauty Hair Mask - Μάσκα Μαλλιών Πορτοκάλι για Λάμψη και Αναζωογ",
+      "score": 0.5833,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-07-098",
+        "name": "Μάσκα Μαλλιών Express Beauty για Ενυδάτωση",
+        "score": 0.5833,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Μάσκες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001205",
+      "title": "Apivita Σαπούνι με Πρόπολη, 125gr",
+      "score": 1.0,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-386",
+        "name": "Σαπούνι με Πρόπολη",
+        "score": 1.0,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Σαπούνια"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001625",
+      "title": "Apivita Men's Tonic Shampoo-Σαμπουάν Τριχόπτωσης με Hippophae Tc & Δεντρολίβανο,",
+      "score": 0.275,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001487",
+      "title": "Apivita Intimate Lady Απαλό Gel Καθαρισμού για την Ευαίσθητη Περιοχή για Προστασ",
+      "score": 0.6756,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-72-041",
+        "name": "Απαλό Gel Καθαρισμού για την Ευαίσθητη Περιοχή για Επιπλέον Προστασία",
+        "score": 0.6756,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Ευαίσθητη Περιοχή"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001488",
+      "title": "Apivita Express Beauty Κρέμα Βαθιάς Απολέπισης με Ελιά, 2x8ml",
+      "score": 0.4167,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-44-418",
+        "name": "Κρέμα Ήπιας Απολέπισης",
+        "score": 0.4167,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Scrubs & Άλατα Σώματος"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001448",
+      "title": "Apivita Queen Bee-Kρέμα Ματιών Απόλυτης Αντιγήρανσης & Αναζωογόνησης με Βασιλικό",
+      "score": 0.7333,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-508",
+        "name": "Κρέμα Ματιών Απόλυτης Αντιγήρανσης & Αναζωογόνησης",
+        "score": 0.7333,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001450",
+      "title": "Apivita Natural Soap Σαπούνι με Τριαντάφυλλο & Μαύρο Πιπέρι 125gr",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-391",
+        "name": "Σαπούνι με Τριαντάφυλλο & Μαύρο Πιπέρι",
+        "score": 0.8,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Σαπούνια"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001486",
+      "title": "Apivita Royal Honey Κρεμώδες Aφρόλουτρο με Aιθέρια Έλαια 250ml",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-379",
+        "name": "Aφρόλουτρο με Aιθέρια Έλαια",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Αφρόλουτρα"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002069",
+      "title": "Apivita Bee Radiant Ορός Ενεργοποίησης Λάμψης Για Ξεκούραστη Όψη, 30ml",
+      "score": 0.85,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-464",
+        "name": "Ορός Ενεργοποίησης Λάμψης για Ξεκούραστη Όψη",
+        "score": 0.85,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002072",
+      "title": "Apivita Bee Radiant Κρέμα-Gel για Σημάδια Γήρανσης & Ξεκούραστη Όψη Ελαφριάς Υφή",
+      "score": 0.6429,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-672",
+        "name": "Κρέμα Ματιών για Σημάδια Γήρανσης & Ξεκούραστη Όψη",
+        "score": 0.6429,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Περιποίηση Ματιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002071",
+      "title": "Apivita Bee Radiant Κρέμα για Σημάδια Γήρανσης & Ξεκούραστη Όψη Πλούσιας Υφής, 5",
+      "score": 0.6701,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-672",
+        "name": "Κρέμα Ματιών για Σημάδια Γήρανσης & Ξεκούραστη Όψη",
+        "score": 0.6701,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Περιποίηση Ματιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001981",
+      "title": "Apivita Express Beauty Grape Αντιρυτιδική & Συσφιγκτική Μάσκα με Σταφύλι, 2x8ml",
+      "score": 0.5067,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-45-063",
+        "name": "Αντιρυτιδική και Συσφιγκτική Μάσκα Προσώπου Σταφύλι",
+        "score": 0.5067,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001987",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 5.65 Καστανό Ανοιχτό Κόκκινο Μαον",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-089",
+        "name": "Βαφή Μαλλιών Καστανό Ανοιχτό Κόκκινο Μαονί 5.65",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001759",
+      "title": "Apivita My Color Elixir Μόνιμη Βαφή Μαλλιών Νο 5.35 Καστανό Ανοιχτό Μελι Μαονί (",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "00-10-16-074",
+        "name": "Βαφή Μαλλιών Καστανό Ανοιχτό Μελί Μαονί 5.35",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Βαφές Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001663",
+      "title": "Apivita Express Beauty Μάσκα Αναζωογόνησης με Πορτοκάλι, 2x8ml",
+      "score": 0.5667,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-07-095",
+        "name": "Μάσκα Μαλλιών Express Beauty Λάμψης & Αναζωογόνησης",
+        "score": 0.5667,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Μάσκες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001669",
+      "title": "Apivita Tonic Lotion Soothing & Moisturizing Toner, Ενυδατική Τονωτική Λοσιόν, 2",
+      "score": 0.2691,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001915",
+      "title": "Apivita Cleansing  Γαλάκτωμα 3 σε 1 με Χαμομήλι & Μέλι για Πρόσωπο & Μάτια, 200m",
+      "score": 0.525,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-604",
+        "name": "Γαλάκτωμα καθαρισμού 3 σε 1 – Πρόσωπο & Mάτια",
+        "score": 0.525,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001916",
+      "title": "Apivita Royal Honey Body Scrub Sea Salts Απολέπιση Σώματος με Θαλάσσια Άλατα & Μ",
+      "score": 0.6182,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-413",
+        "name": "Scrub Σώματος με Θαλάσσια Άλατα",
+        "score": 0.6182,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Scrubs & Άλατα Σώματος"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109001885",
+      "title": "Apivita Women's Tonic Shampoo Σαμπουάν Τριχόπτωσης με Hippophae Tc & Δάφνη, 250m",
+      "score": 0.275,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109300687",
+      "title": "Apivita Face Mask Pumpkin Μάσκα Προσώπου Κολοκύθα για Αποτοξίνωση & Καθαρισμό, 5",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-45-064",
+        "name": "Μάσκα Προσώπου Κολοκύθα για Αποτοξίνωση & Καθαρισμό",
+        "score": 0.8,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109200347",
+      "title": "Apivita Clean Μάσκα για Βαθύ Καθαρισμό με Πράσινη Άργιλο, 50ml",
+      "score": 0.619,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-45-056",
+        "name": "Μάσκα Προσώπου Πράσινη Άργιλος για Βαθύ Καθαρισμό",
+        "score": 0.619,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            3,
+            "Μάσκες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109200430",
+      "title": "Apivita Hydration Leave in Conditioner Hyaluronic Acid & Aloe-Κρέμα Μαλλιών Ενυδ",
+      "score": 0.6143,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-09-137",
+        "name": "Κρέμα Μαλλιών Ενυδάτωσης Χωρίς Ξέβγαλμα",
+        "score": 0.6143,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Κρέμες Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109200431",
+      "title": "Apivita Bee Fresh 24H Deodorant Propolis & Probiotics-Αποσμητικό με Πρόπολη & Πρ",
+      "score": 0.26,
+      "confidence": "low",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109301239",
+      "title": "Apivita Bee Radiant Gel-Balm Νύχτας για Λείανση & Αναζωογόνηση, 50ml",
+      "score": 0.85,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-01-694",
+        "name": "Gel-Balm Νύχτας για Λείανση & Αναζωογόνηση",
+        "score": 0.85,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Βραδινή Ρουτίνα Ομορφιάς"
+          ],
+          [
+            3,
+            "Κρέμες Προσώπου"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109301738",
+      "title": "Apivita Beevine Elixir Cream Night - Κρέμα Νυχτός για Σύσφιξη & Lifting, 50ml",
+      "score": 0.4286,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-500",
+        "name": "Αντιρυτιδική Κρέμα για Σύσφιξη & Lifting Πλούσιας Υφής",
+        "score": 0.4286,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109301736",
+      "title": "Apivita Beevine Elixir Cream Light - Κρέμα για Σύσφιξη & Lifting Ελαφριάς Υφής, ",
+      "score": 0.6701,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-499",
+        "name": "Αντιρυτιδική Κρέμα για Σύσφιξη & Lifting Ελαφριάς Υφής",
+        "score": 0.6701,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109301740",
+      "title": "Apivita Beevine Elixir Αντιρυτιδική Κρέμα Lifting για τα Μάτια & τα Χείλη, 15ml",
+      "score": 0.85,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-503",
+        "name": "Αντιρυτιδική Κρέμα Lifting για τα Μάτια & τα Χείλη",
+        "score": 0.85,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109301741",
+      "title": "Apivita Beevine Oil Ελαιο Προσώπου για Αναδόμηση & Σύσφιξη με Λάδι Πρόπολης & Έλ",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-01-675",
+        "name": "Έλαιο Προσώπου για Αναδόμηση & Σύσφιξη",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109301739",
+      "title": "Apivita Beevine Elixir Serum - Ορός Ενεργοποίησης & Lifting, 30ml",
+      "score": 0.5571,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "81-22-20-502",
+        "name": "Ορός Ενεργοποίησης Σύσφιξης & Lifting",
+        "score": 0.5571,
+        "categories": [
+          [
+            2,
+            "Free Samples"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "906686",
+      "title": "Apivita Natural Soap Σαπούνι με Χαμομήλι 125g",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-387",
+        "name": "Σαπούνι με Χαμομήλι",
+        "score": 0.7,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Σαπούνια"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "906678",
+      "title": "Apivita Dandruff Relief Oil, Λάδι Κατά της Ξηροδερμίας και της Πιτυρίδας, 50ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-10-07-034",
+        "name": "Λάδι κατά της Ξηροδερμίας και της Πιτυρίδας",
+        "score": 0.8,
+        "categories": [
+          [
+            2,
+            "Μαλλιά"
+          ],
+          [
+            3,
+            "Λάδια & Λοσιόν Μαλλιών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "906711",
+      "title": "Apivita Hand Cream Κρέμα Χεριών για Ξηρά-Σκασμένα Χέρια με Hypericum & Beewax, 5",
+      "score": 0.5357,
+      "confidence": "medium",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-12-402",
+        "name": "Κρέμα για Ξηρά-Σκασμένα Χέρια Συμπυκνωμένης Υφής",
+        "score": 0.5357,
+        "categories": [
+          [
+            2,
+            "Σώμα"
+          ],
+          [
+            3,
+            "Περιποίηση Χεριών"
+          ]
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "906715",
+      "title": "Apivita Cleansing Κρεμώδης Αφρός Καθαρισμού για Πρόσωπο και Μάτια με Ελιά & Λεβά",
+      "score": 0.6182,
+      "confidence": "high",
+      "applied_l1": "ΟΜΟΡΦΙΑ",
+      "matched_apivita": {
+        "sku": "10-22-00-536",
+        "name": "Αφρός Καθαρισμού 300ml - Πρόσωπο & Μάτια",
+        "score": 0.6182,
+        "categories": [
+          [
+            2,
+            "Πρόσωπο"
+          ],
+          [
+            2,
+            "Προσφορές & Δώρα"
+          ],
+          [
+            3,
+            "Καθαρισμός & Τόνωση"
+          ],
+          [
+            3,
+            "Eco Packs - Μεγάλες Συσκευασίες"
+          ]
+        ]
+      },
+      "result_status": "active"
+    }
+  ]
+}

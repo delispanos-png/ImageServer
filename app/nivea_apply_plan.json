@@ -1,0 +1,356 @@
+[
+  {
+    "barcode": "4006000127422",
+    "category_1": "Σώμα",
+    "category_2": "Περιποίηση Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000087382",
+    "category_1": "Σώμα",
+    "category_2": "Περιποίηση Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900490612",
+    "category_1": "Σώμα",
+    "category_2": "Περιποίηση Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005808247233",
+    "category_1": "Σώμα",
+    "category_2": "Περιποίηση Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "5201178031284",
+    "category_1": "Σώμα",
+    "category_2": "Περιποίηση Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "9005800388335",
+    "category_1": "Σώμα",
+    "category_2": "Περιποίηση Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900013057",
+    "category_1": "Σώμα",
+    "category_2": "Περιποίηση Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005808781935",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900830784",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000095837",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900835079",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000095851",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000247595",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "9005800354873",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000260556",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000068497",
+    "category_1": "Σώμα",
+    "category_2": "Καθαρισμός Σώματος",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000166803",
+    "category_1": "Σώμα",
+    "category_2": "Αποσμητικά",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900725295",
+    "category_1": "Σώμα",
+    "category_2": "Αποσμητικά",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000201948",
+    "category_1": "Σώμα",
+    "category_2": "Αποσμητικά",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000248639",
+    "category_1": "Σώμα",
+    "category_2": "Αποσμητικά",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900730275",
+    "category_1": "Σώμα",
+    "category_2": "Αποσμητικά",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000012643",
+    "category_1": "Σώμα",
+    "category_2": "Αποσμητικά",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000175812",
+    "category_1": "Σώμα",
+    "category_2": "Αποσμητικά",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900600721",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000068435",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000011400",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000155074",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900676054",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900786975",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "9005800396811",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900476616",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005808669806",
+    "category_1": "Πρόσωπο",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000021980",
+    "category_1": "Πρόσωπο",
+    "category_2": "Αντιγήρανση",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900092403",
+    "category_1": "Πρόσωπο",
+    "category_2": "Αντιγήρανση",
+    "category_3": ""
+  },
+  {
+    "barcode": "9005800399218",
+    "category_1": "Πρόσωπο",
+    "category_2": "Αντιγήρανση",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000025568",
+    "category_1": "Πρόσωπο",
+    "category_2": "Αντιγήρανση",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900886651",
+    "category_1": "Πρόσωπο",
+    "category_2": "Αντιγήρανση",
+    "category_3": "Nivea Luminous"
+  },
+  {
+    "barcode": "4005900786968",
+    "category_1": "Πρόσωπο",
+    "category_2": "Αντιγήρανση",
+    "category_3": "Nivea Luminous"
+  },
+  {
+    "barcode": "4005900974563",
+    "category_1": "Πρόσωπο",
+    "category_2": "Katharismos Prosopou",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000259499",
+    "category_1": "Πρόσωπο",
+    "category_2": "Katharismos Prosopou",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900798886",
+    "category_1": "Πρόσωπο",
+    "category_2": "Katharismos Prosopou",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000196114",
+    "category_1": "Πρόσωπο",
+    "category_2": "Katharismos Prosopou",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000068428",
+    "category_1": "Πρόσωπο",
+    "category_2": "Katharismos Prosopou",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900079008",
+    "category_1": "Πρόσωπο",
+    "category_2": "Katharismos Prosopou",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005808194087",
+    "category_1": "Πρόσωπο",
+    "category_2": "Katharismos Prosopou",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900388971",
+    "category_1": "Andres",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900874962",
+    "category_1": "Andres",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "5900017078694",
+    "category_1": "Andres",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900743886",
+    "category_1": "Andres",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000247977",
+    "category_1": "Andres",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900915559",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005808407460",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000239088",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000064970",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900689207",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900995308",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4006000173009",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900689177",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  },
+  {
+    "barcode": "4005900689146",
+    "category_1": "Ilios",
+    "category_2": "",
+    "category_3": ""
+  }
+]

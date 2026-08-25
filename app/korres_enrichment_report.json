@@ -1,0 +1,2201 @@
+{
+  "stats": {
+    "examined": 591,
+    "with_l1_only": 423,
+    "with_full_match": 168,
+    "by_confidence": {
+      "high": 91,
+      "medium": 77,
+      "low": 107,
+      "none": 316
+    },
+    "would_activate": 0,
+    "modified": 591
+  },
+  "rows": [
+    {
+      "barcode": "5203069112430",
+      "title": "Korres Santorini Grape Poreless Light Skin Cream Κρέμα Προσώπου για Ενυδάτωση & ",
+      "score": 0.6308,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Santorini Grape Poreless Skin Cream",
+        "score": 0.6308,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": "Κρέμες Προσώπου"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069108761",
+      "title": "Korres Revitalizing Miracle Milk Triple-Hyaluronic Sleeping Facial Κρέμα Νυκτός ",
+      "score": 0.2306,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069120855",
+      "title": "Korres Body Butter Κρέμα Σώματος Φυστίκι, 50ml",
+      "score": 0.31,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069120756",
+      "title": "Korres Whitening Toothpaste Anisum & Eucalyptus Flavour Λευκαντική Οδοντόκρεμα μ",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069120640",
+      "title": "Korres Elasti-Smooth Βοdy Butter Βούτυρο Σώματος Ρόδι, 50ml",
+      "score": 0.44,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Elasti-Smooth™ Body Butter Unscented 400ML",
+        "score": 0.44,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": "Κρέμες Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069118869",
+      "title": "Korres Yoghurt Sunscreen Face & Body Αντιηλιακό Γαλάκτωμα Προσώπου & Σώματος SPF",
+      "score": 0.2786,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069116766",
+      "title": "Korres Volcanic Minerals Velvet Dual Παλέτα Σκιών - Blue Teal 58, 3g",
+      "score": 0.1545,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069116759",
+      "title": "Korres Volcanic Minerals Velvet Dual Παλέτα Σκιών - Orange Brick 22, 3g",
+      "score": 0.13,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069113611",
+      "title": "Korres Pomegranate Grove Αφρόλουτρο Ρόδι, 250ml",
+      "score": 0.1857,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069116711",
+      "title": "Korres Volcanic Minerals Velvet Dual Παλέτα Σκιών - Pink Rose 18, 3g",
+      "score": 0.2066,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069116728",
+      "title": "Korres Volcanic Minerals Velvet Dual Παλέτα Σκιών - Grey Taupe 38, 3g",
+      "score": 0.13,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069116735",
+      "title": "Korres Volcanic Minerals Velvet Dual Παλέτα Σκιών - Khakis 48, 3g",
+      "score": 0.1345,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069116742",
+      "title": "Korres Volcanic Minerals Velvet Dual Παλέτα Σκιών - Golden Amber 28, 3g",
+      "score": 0.1545,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069099199",
+      "title": "Korres Body Smoothing Milk Ενυδατικό Γαλάκτωμα Σώματος Γιαπωνέζικο Τριαντάφυλλο,",
+      "score": 0.5,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Body Smoothing Milk Grapefruit",
+        "score": 0.5,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": "Κρέμες Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069098550",
+      "title": "Korres Pure Greek Olive Lip Oil Color Crush Ενυδατικό Χειλιών με Χρώμα, 10ml - G",
+      "score": 0.5046,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive 3-In-1 Nourishing Oil",
+        "score": 0.5046,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": "Λάδια Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069098277",
+      "title": "Korres Yoghurt Sunscreen Face Cream-Gel Αντηλιακή Κρέμα-Tζελ Προσώπου SPF30, 50m",
+      "score": 0.39,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069098260",
+      "title": "Korres Yoghurt Sunscreen Face Cream-Gel Αντηλιακή Κρέμα-Tζελ Προσώπου SPF50, 50m",
+      "score": 0.39,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069105289",
+      "title": "Korres Renewing Body Cleanser Aναζωογονητικό Αφρόλουτρο με Άρωμα Grapefruit, 100",
+      "score": 0.525,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Renewing Body Cleanser Jasmine",
+        "score": 0.525,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069105296",
+      "title": "Korres Renewing Body Cleanser Grapefruit Αφρόλουτρο Σώματος, 250ml",
+      "score": 0.5571,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Renewing Body Cleanser Jasmine",
+        "score": 0.5571,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069104831",
+      "title": "Korres Miracle Milk Multi-Tasking Απαλό Σαπούνι Καθαρισμού με Γάλα Γαϊδούρας, 25",
+      "score": 0.15,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069100048",
+      "title": "Korres Total Clarity Purifying Milk Cleanse Αφρώδες Γαλάκτωμα Καθαρισμού & Τόνωσ",
+      "score": 0.1429,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069101144",
+      "title": "Korres Renewing Body Cleanser Αφρόλουτρο Σώματος Πασχαλιά, 250ml",
+      "score": 0.5571,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Renewing Body Cleanser Jasmine",
+        "score": 0.5571,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069101755",
+      "title": "Korres Pure Greek Olive Lip Oil Color Crush Ενυδατικό Χειλιών με Χρώμα, 10ml - S",
+      "score": 0.48,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive 3-In-1 Nourishing Oil",
+        "score": 0.48,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": "Λάδια Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069122897",
+      "title": "Korres Cashmere Kumquat Eau de Toilette Γυναικείο Άρωμα, 10ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Cashmere Kumquat",
+        "score": 0.8,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069122903",
+      "title": "Korres White Tea Eau de Toilette Γυναικείο Άρωμα Λευκό Τσάι, 10ml",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette White Tea",
+        "score": 0.7,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131622",
+      "title": "Korres Athenian Grooming Eau de Cologne Bergamot & Leather Άρωμα για Άνδρες, 100",
+      "score": 0.4848,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Cologne Bergamot + Leather for Men",
+        "score": 0.4848,
+        "product_type": "Men",
+        "l2": "Άνδρας",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131615",
+      "title": "Korres Athenian Grooming 4in1 Ξηρό Λάδι Περιποίησης για Άνδρες, 100ml",
+      "score": 0.1128,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131639",
+      "title": "Korres Athenian Grooming Δροσιστικό Gel Καθαρισμού για Πρόσωπο & Γένια, 250ml",
+      "score": 0.13,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131813",
+      "title": "Korres Athenian Grooming Eau de Cologne Vetiver & Spices Άρωμα για Άνδρες, 100ml",
+      "score": 0.4848,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Cologne Vetiver + Spices for Men",
+        "score": 0.4848,
+        "product_type": "Men",
+        "l2": "Άνδρας",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069134982",
+      "title": "Korres Promo (50% στο Δεύτερο Προϊόν) Σαμπουάν για Ξηρά & Αφυδατωμένα Μαλλιά με ",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131608",
+      "title": "Korres Athenian Grooming 2in1 Σαμπουάν & Αφρόλουτρο για Άνδρες, 250ml",
+      "score": 0.1167,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131400",
+      "title": "Korres Oceanic Amber Eau de Parfum Άρωμα, 50ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Oceanic Amber",
+        "score": 0.6,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131387",
+      "title": "Korres Cashmere Kumquat Eau de Parfum Άρωμα, 50ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Cashmere Kumquat",
+        "score": 0.6,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127038",
+      "title": "Korres Eau De Toilette White Tea Γυναικείο Άρωμα Λευκό Τσάι, 100ml",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette White Tea",
+        "score": 0.7,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127021",
+      "title": "Korres Mountain Pepper Eau De Toilette Ανδρικό Άρωμα, 100ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Mountain Pepper",
+        "score": 0.8,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126994",
+      "title": "Korres Avgoustos Eau De Toilette Ανδρικό Άρωμα, 10ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Avgoustos",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126987",
+      "title": "Korres Κύμα Eau de Toilette Ανδρικό Άρωμα, 10ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Kyma",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126505",
+      "title": "Korres Yoghurt Sunscreen Emulsion Body & Face Αντηλιακό Γαλάκτωμα Σώματος & Προσ",
+      "score": 0.27,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126451",
+      "title": "Korres Yoghurt Tinted Sunscreen Face Cream SPF30 Αντηλιακή Κρέμα Προσώπου με Χρώ",
+      "score": 0.2523,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126444",
+      "title": "Korres Yoghurt Tinted Sunscreen Face Cream SPF50 Αντηλιακή Κρέμα Προσώπου με Χρώ",
+      "score": 0.2523,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126437",
+      "title": "Korres Yoghurt Sunscreen Face Cream SPF30 Αντηλιακή Κρέμα Προσώπου, 50ml",
+      "score": 0.2691,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126413",
+      "title": "Korres Yoghurt Sunscreen Face Cream SPF50 Αντηλιακή Κρέμα Προσώπου, 50ml",
+      "score": 0.2691,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124327",
+      "title": "Korres Midnight Dahlia Eau de Toilette Άρωμα για Γυναίκες, 10ml",
+      "score": 0.7429,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Midnight Dahlia",
+        "score": 0.7429,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126420",
+      "title": "Korres Yoghurt Sunscreen Face & Eyes Cream SPF50 Αντηλιακή Κρέμα Προσώπου & Ματι",
+      "score": 0.2523,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124310",
+      "title": "Korres Black Pepper Eau De Toilette Ανδρικό Άρωμα, 10ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Black Pepper",
+        "score": 0.8,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069122972",
+      "title": "Korres Pure Greek Olive Αφρόλουτρο Δενδρολίβανο, 250ml",
+      "score": 0.4971,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive Nourishing Shampoo",
+        "score": 0.4971,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123009",
+      "title": "Korres Santorini Grape Volcanic SkinReset Mask Ηφαιστειακή Μάσκα Καθαρισμού Προσ",
+      "score": 0.7333,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Santorini Grape Volcanic SkinReset Mask",
+        "score": 0.7333,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123016",
+      "title": "Korres Gel Effect Nail Colour Νο.87 Infinity Blue Bερνίκι Νυχιών, 11ml",
+      "score": 0.1545,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123023",
+      "title": "Korres Gel Effect Nail Colour Νο.66 Aegean Bronze Bερνίκι Νυχιών, 11ml",
+      "score": 0.32,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123030",
+      "title": "Korres Gel Effect Nail Colour Νο.94 Sand Dune Bερνίκι Νυχιών, 11ml",
+      "score": 0.1545,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127045",
+      "title": "Korres Kyma Eau de Toilette Ανδρικό Άρωμα, 100ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Kyma",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123078",
+      "title": "Korres Aegean Bronzer Natural Tan Look Healthy Glow Πούδρα Bronzing, 7g - LIGHT",
+      "score": 0.1462,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123092",
+      "title": "Korres Σταγόνες Στεγνώματος Βερνικιού Νυχιών με Αμυγδαλέλαιο, 11ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123108",
+      "title": "Korres Renewing Shower Gel Αφρόλουτρο Κέδρος, 250ml",
+      "score": 0.2667,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123115",
+      "title": "Korres Renewing Shower Gel Αφρόλουτρο Μέλι-Θυμάρι, 250ml",
+      "score": 0.2533,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123160",
+      "title": "Korres Lefko Αφρόλουτρο, 250ml",
+      "score": 0.2833,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123146",
+      "title": "Korres Lefko Eau de Toilette Γυναικείο Άρωμα, 50ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Lefko",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131394",
+      "title": "Korres Black Pepper Eau de Parfum Άρωμα, 50ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Black Pepper",
+        "score": 0.6,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069123085",
+      "title": "Korres Aegean Bronzer Natural Tan Look Healthy Glow Πούδρα Bronzing, 7g - Warm",
+      "score": 0.1462,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131370",
+      "title": "Korres Black Sugar Eau de Parfum Άρωμα, 50ml",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Black Sugar",
+        "score": 0.6,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131257",
+      "title": "Korres Athenian Grooming Αντιγηραντική Κρέμα Προσώπου & Ματιών για Άνδρες, 50ml",
+      "score": 0.1128,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131240",
+      "title": "Korres Athenian Grooming Κρέμα Gel Προσώπου για Άνδρες, 50ml",
+      "score": 0.1345,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130847",
+      "title": "Korres Lefko Eau de Toilette Γυναικείο Άρωμα, 100ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Lefko",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130540",
+      "title": "Korres Argan Oil Σαμπουάν για Μετά τη Βαφή, 400ml",
+      "score": 0.14,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130533",
+      "title": "Korres Σαμπουάν κατά της Πιτυρίδας & της Ξηροδερμίας με Δάφνη & Echinacea, 400ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130526",
+      "title": "Korres Σαμπουάν για Γυναίκες κατά της Τριχόπτωσης με Κυστίνη & Γλυκοπρωτεϊνες, 4",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130519",
+      "title": "Korres Σαμπουάν κατά της Τριχόπτωσης για Άντρες με Κυστίνη & Ιχνοστοιχεία, 400ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127052",
+      "title": "Korres Avgoustos Eau de Toilette Ανδρικό Άρωμα, 100ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Avgoustos",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130205",
+      "title": "Korres 2-Step 24h Routine Promo Μαύρη Πεύκη 4D Κρέμα Ημέρας Σύσφιξης & Lifting γ",
+      "score": 0.1073,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130502",
+      "title": "Korres Σαμπουάν για Κανονικά Μαλλιά με Αλόη & Δίκταμο, 400ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069129179",
+      "title": "Korres Yoghurt Promo Hydrate Your Skin Προστασία & Ενυδάτωση με Αντηλιακό Προσώπ",
+      "score": 0.2171,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069129155",
+      "title": "Korres Hydrate Your Skin Promo με Αντηλιακή Κρέμα Προσώπου SPF30, 50ml & Δώρο Αφ",
+      "score": 0.11,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069129131",
+      "title": "Korres Hydrate Your Skin Promo με Αντηλιακή Κρέμα Προσώπου SPF50, 50ml & ΔΩΡΟ Αφ",
+      "score": 0.1153,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127298",
+      "title": "Korres Gel Καθαρισμού με Τσάι Ολύμπου για Ρύθμιση της Λιπαρότητας, 200ml",
+      "score": 0.13,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127724",
+      "title": "Korres Promo με White Tea Αφρόλουτρο, 250ml & White Tea Eau de Toilette Γυναικεί",
+      "score": 0.6667,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette White Tea",
+        "score": 0.6667,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127908",
+      "title": "Korres Gel Καθαρισμού με Τσάι Ολύμπου για Ρύθμιση της Λιπαρότητας, 400ml",
+      "score": 0.13,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127199",
+      "title": "Korres Eau de Toilette Philosia Γυναικείο Άρωμα, 50ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Philosia",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069128721",
+      "title": "Korres Yoghurt Sunscreen Emulsion Body & Face Αντηλιακό Γαλάκτωμα Σώματος & Προσ",
+      "score": 0.27,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069128349",
+      "title": "Korres Cashmere Kumquat Eau de Toilette Γυναικείο Άρωμα, 100ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Cashmere Kumquat",
+        "score": 0.8,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069094163",
+      "title": "Korres Renewing Body Cleanser Aναζωογονητικό Αφρόλουτρο με Άρωμα Βασιλικός & Λεμ",
+      "score": 0.5,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Renewing Body Cleanser Jasmine",
+        "score": 0.5,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069093289",
+      "title": "Korres Corrective Stick Concealer SPF30 Διορθωτικό Concealer Ενεργού Άνθρακα ACS",
+      "score": 0.1545,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069080722",
+      "title": "Korres Pomegranate Resurfacing Mask Ρόδι Απολεπιστική Μάσκα Με Ahas & Ένζυμα για",
+      "score": 0.14,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069079351",
+      "title": "Korres Wild Rose Brightening Concealer Άγριο Τριαντάφυλλο WRC2 για Φωτεινότητα σ",
+      "score": 0.3286,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069077371",
+      "title": "Korres Magnesium & Vitamins B1, B6 & C, 12eff.tabs",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069070808",
+      "title": "Korres Gel Effect Chip Free Base Coat Διάφανο Βερνίκι Βάσης Νυχιών, 11ml",
+      "score": 0.3,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090578",
+      "title": "Korres White Tea Eau De Toilette Γυναικείο Άρωμα Λευκό Τσάι, 50ml",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette White Tea",
+        "score": 0.7,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069070792",
+      "title": "Korres Gel Effect Nail Colour Top Coat Διάφανο Βερνίκι Νυχιών, 11ml",
+      "score": 0.3091,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090592",
+      "title": "Korres Black Sugar Eau De Toilette Γυναικείο Άρωμα, 50ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Black Sugar",
+        "score": 0.8,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069093241",
+      "title": "Korres Corrective Compact Foundation SPF 20/Accf2 Διορθωτικό Compact Make Up για",
+      "score": 0.1229,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069093234",
+      "title": "Korres Corrective Compact Foundation Spf 20/Accf1 Διορθωτικό Compact Make Up για",
+      "score": 0.1229,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069093227",
+      "title": "Korres Corrective Foundation SPF15 / Acf4 Διορθωτικό Make Up για Μέτριες Ατέλειε",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069091971",
+      "title": "Korres Renewing Body Cleanser Aναζωογονητικό Αφρόλουτρο με Άρωμα Γαρδένια, 1000m",
+      "score": 0.5333,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Renewing Body Cleanser Grecian Gardenia 1 Liter",
+        "score": 0.5333,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069091032",
+      "title": "Korres Pure Greek Olive Lip Oil Color Crush Ενυδατικό Χειλιών με Χρώμα, 10ml - P",
+      "score": 0.5046,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive 3-In-1 Nourishing Oil",
+        "score": 0.5046,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": "Λάδια Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090646",
+      "title": "Korres Mountain Pepper Eau De Toilette Ανδρικό Άρωμα, 50ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Mountain Pepper",
+        "score": 0.8,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090653",
+      "title": "Korres Vetiver Root Eau de Toilette Ανδρικό Άρωμα, 50ml",
+      "score": 0.8,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Vetiver Root",
+        "score": 0.8,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090691",
+      "title": "Korres White Tea Αρωματικό Αφρόλουτρο Με Ενυδατικούς Παράγοντες, 250ml",
+      "score": 0.35,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090837",
+      "title": "Korres Mountain Pepper Aftershave Γαλακτωμα για μετα το ξυρισμα, 125ml",
+      "score": 0.3333,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069091988",
+      "title": "Korres Renewing Body Cleanser Aναζωογονητικό Αφρόλουτρο με Άρωμα Λευκά Άνθη, 100",
+      "score": 0.5,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Renewing Body Cleanser Jasmine",
+        "score": 0.5,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090844",
+      "title": "Korres Vetiver Root Aftershave Γαλακτωμα για μετα το ξυρισμα, 125ml",
+      "score": 0.3333,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069054617",
+      "title": "Korres Argan Oil Advanced Colorant 10.0 Ξανθό Πλατίνας Μόνιμη Βαφή Μαλλιών με Τε",
+      "score": 0.1116,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069042614",
+      "title": "Korres Ginseng, Vitamins & Minerals, 18eff.tabs",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069045394",
+      "title": "Korres Ξύστρα Μολυβιών Black, 1 τεμάχιο",
+      "score": 0.1857,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069048449",
+      "title": "Korres Παιδική Λοσιόν με Μηλόξιδο για καθαρά και υγιή μαλλιά κατά τη διάρκεια τη",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069047510",
+      "title": "Korres Black Volcanic Minerals Professional Kohl Eyeliner Μαύρο Μολύβι Ματιών με",
+      "score": 0.1353,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069064708",
+      "title": "Korres Μελισσόχορτο Μίγμα Βοτάνων για Όλα τα Τσιμπήματα, 15ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069063893",
+      "title": "Korres Insect Repellent Εντομοαπωθητικό Σπρέι Ευκάλυπτος Μύρτιλο, 100ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069055355",
+      "title": "Korres Αγγούρι Μάσκα Ματιών, 8ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069056994",
+      "title": "Korres Echinacea & Vitamin C, 18eff.tabs",
+      "score": 0.1171,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069079610",
+      "title": "Korres Echinacea & Vitamin C 18 eff tabs 1+1 Δώρο",
+      "score": 0.1071,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069109386",
+      "title": "Korres Vitamin C 1000 mg 18 eff tabs 1 + 1 Δώρο",
+      "score": 0.1171,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069107306",
+      "title": "Korres Vitamin D3 50 μg (2000 IU) 60 tabs",
+      "score": 0.1321,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "2030690830852",
+      "title": "Korres Ρόδι Gel Καθαρισμού για Ρύθμιση της Λιπαρότητας 400 ml",
+      "score": 0.1345,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069101656",
+      "title": "Korres Deep Detox Μαντηλάκια Καθαρισμού & Ντεμακιγιάζ 100 τμχ",
+      "score": 0.2667,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069085024",
+      "title": "Korres Pure Greek Olive Lip Oil 10 ml",
+      "score": 0.72,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive 3-In-1 Nourishing Oil",
+        "score": 0.72,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": "Λάδια Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127625",
+      "title": "Korres Black Pine Μαύρη Πεύκη Σύσφιξη & Lifting Κρέμα Ημέρας για το Κανονικό-Μικ",
+      "score": 0.5875,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Black Pine Sculpt + Lift Serum",
+        "score": 0.5875,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124037",
+      "title": "Korres Black Pine Μαύρη Πεύκη Overnight Total Revival Φροντίδα Νύχτας για Ολική ",
+      "score": 0.5333,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Black Pine Overnight Total Revival Serum",
+        "score": 0.5333,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124198",
+      "title": "Korres White Pine Λευκή Πεύκη Menopause Essentials Night Routine",
+      "score": 0.2333,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069073267",
+      "title": "Korres Wild Rose Άγριο Τριαντάφυλλο Λάδι Προσώπου Με Βιταμίνη C Για Λάμψη & Ενυδ",
+      "score": 0.219,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127601",
+      "title": "Korres Apothecary Wild Rose Άγριο Τριαντάφυλλο Κρέμα-Gel Ημέρας 40 ml + Δώρο Spo",
+      "score": 0.4732,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Apothecary Wild Rose 15% Vitamin C Spotless Serum",
+        "score": 0.4732,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127595",
+      "title": "Korres Greek Yoghurt Ελληνικό Γιαούρτι Ενυδάτωση με Προβιοτικά Κρέμα-Gel 40 ml +",
+      "score": 0.3785,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069128882",
+      "title": "Korres Black Pine Μαύρη Πεύκη 2-Step 24h Routine Κρέμα Ημέρας για το Κανονικό-Μι",
+      "score": 0.2267,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069101410",
+      "title": "Korres Mediterranean Donkey Milk Γάλα Γαϊδούρας Κρέμα Προσώπου με Πρωτεΐνες για ",
+      "score": 0.14,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127618",
+      "title": "Korres Santorini Grape Poreless Skin Cream Κρέμα-Τζελ για Σύσφιξη Πόρων 40 ml + ",
+      "score": 0.6143,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Santorini Grape Volcanic SkinReset Mask",
+        "score": 0.6143,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127632",
+      "title": "Korres Black Pine Μαύρη Πεύκη 2-Step Overnight Renewal Κρέμα Νύχτας 40 ml + Δώρο",
+      "score": 0.6769,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Black Pine Overnight Total Revival Serum",
+        "score": 0.6769,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130229",
+      "title": "Korres Greek Yoghurt Ελληνικό Γιαούρτι Τζελ Ματιών 15 ml + Κρέμα-Gel με Προβιοτι",
+      "score": 0.3785,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "KOR5731",
+      "title": "Korres White Τea Eau De Toilette 50 ml",
+      "score": 1.0,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette White Tea",
+        "score": 1.0,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069135033",
+      "title": "Korres Grape Σαντορίνης Αφρόλουτρο 2x250 ml (Sticker -50% στο 2ο Προϊόν)",
+      "score": 0.13,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124242",
+      "title": "Korres Golden Krocus Golden Elixir Duo Face + Body Χρυσός Κρόκος Ελιξήριο Νεότητ",
+      "score": 0.3686,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127663",
+      "title": "Korres Lefko Eau De Toilette 50 ml + Lefko Αρωματικό Αφρόλουτρο 250 ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Lefko",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069131462",
+      "title": "Korres Avgoustos Eau De Toilette 50 ml + Avgoustos Γαλάκτωμα Σώματος 125 ml",
+      "score": 0.76,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Avgoustos",
+        "score": 0.76,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "KOR3982",
+      "title": "Korres Vanilla Freesia Eau De Toilette 50 ml",
+      "score": 1.0,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Vanilla Freesia",
+        "score": 1.0,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127731",
+      "title": "Korres Cashmere Kumquat Eau De Toilette 50 ml + Cashmere Kumquat Αφρόλουτρο 250 ",
+      "score": 0.88,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Cashmere Kumquat",
+        "score": 0.88,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069091575",
+      "title": "Korres Mediterranean Donkey Milk Γάλα Γαϊδούρας Πολυβιταμινούχο Ενυδατικό Serum ",
+      "score": 0.1943,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130199",
+      "title": "Korres White Pine 2-Step Meno Reverse Ultra-Replenishing Deep Wrinkle Cream 40 m",
+      "score": 0.6556,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "White Pine Meno-Reverse™ Ultra-Replenishing Deep Wrinkle Cream",
+        "score": 0.6556,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": "Κρέμες Προσώπου"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127649",
+      "title": "Korres White Pine 2-Step Meno Reverse Volumizing Serum-In-Moisturizer 40 ml + Δώ",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "White Pine Meno-Reverse™ Volumizing Serum-In-Moisturizer",
+        "score": 0.6,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": "Κρέμες Προσώπου"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130182",
+      "title": "Korres White Pine 2-Step Night Routine Restorative Overnight Facial 40 ml + Δώρο",
+      "score": 0.4857,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "White Pine Meno-Reverse™ Restorative Overnight Facial",
+        "score": 0.4857,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": "Κρέμες Προσώπου"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069104824",
+      "title": "Korres Mediterranean Donkey Milk Γάλα Γαϊδούρας Πολυβιταμινούχο Ενυδατικό Serum ",
+      "score": 0.1943,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124099",
+      "title": "Korres Spread Joy Greek Yoghurt Glow Recipe Μάσκα Προσώπου 20 ml + Τζελ Ματιών 1",
+      "score": 0.235,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136207",
+      "title": "Korres Red Grape Antiageing + Antispot Suncare Ritual Αντηλιακή Κρέμα Προσώπου μ",
+      "score": 0.1353,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136214",
+      "title": "Korres Red Grape Antiageing + Antispot Suncare Ritual Αντηλιακή Κρέμα Προσώπου μ",
+      "score": 0.1375,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069100338",
+      "title": "Korres Αντισηπτικό Gel Χεριών με Αντλία 400 ml",
+      "score": 0.155,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069133633",
+      "title": "Korres Yoghurt Γιαούρτι Αντηλιακή Κρέμα Προσώπου με Χρώμα SPF30 50 ml",
+      "score": 0.1345,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069133596",
+      "title": "Korres Yoghurt Γιαούρτι Αντηλιακή Κρέμα Προσώπου SPF30 50 ml",
+      "score": 0.14,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069133626",
+      "title": "Korres Yoghurt Γιαούρτι Αντηλιακή Κρέμα Προσώπου με Χρώμα SPF50 50 ml",
+      "score": 0.1345,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069126475",
+      "title": "Korres Yoghurt Γιαούρτι Παιδικό Αντηλιακό Spray Σώματος + Προσώπου SPF50 150 ml",
+      "score": 0.13,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069133657",
+      "title": "Korres Aegean Bronze Bronzing Dry Touch Oil Ξηρό Αντηλιακό Λάδι για Έντονο Μαύρι",
+      "score": 0.4914,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Aegean Bronze Shimmering Dry Oil",
+        "score": 0.4914,
+        "product_type": "Body Care",
+        "l2": "Σώμα",
+        "l3": "Λάδια Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069133640",
+      "title": "Korres Aegean Bronze Intense Bronzing Oil Αντηλιακό Λάδι για Βαθύ Μαύρισμα SPF10",
+      "score": 0.3785,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136238",
+      "title": "Korres Yoghurt Γιαούρτι Παιδικό Αντηλιακό Spray Σώματος + Προσώπου SPF50 150 ml ",
+      "score": 0.1153,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136252",
+      "title": "Korres Yoghurt Hydrating + Protective Suncare Ritual Γιαούρτι Αντηλιακή Κρέμα Πρ",
+      "score": 0.1153,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136245",
+      "title": "Korres Yoghurt Hydrating + Protective Suncare Ritual Γιαούρτι Αντηλιακή Κρέμα Πρ",
+      "score": 0.1175,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069102769",
+      "title": "Korres Καρύδα & Αμύγδαλο Παιδικό Αντηλιακό Spray SPF50 150 ml",
+      "score": 0.1212,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136276",
+      "title": "Korres Yoghurt Hydrating + Protective Suncare Ritual Γιαούρτι Αντηλιακή Κρέμα Πρ",
+      "score": 0.1175,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136269",
+      "title": "Korres Yoghurt Hydrating + Protective Suncare Ritual Γιαούρτι Αντηλιακή Κρέμα Πρ",
+      "score": 0.1153,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069136221",
+      "title": "Korres Yoghurt Hydrating Suncare Ritual Αντηλιακό Γαλάκτωμα Spray Σώματος & Προσ",
+      "score": 0.28,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069129186",
+      "title": "Korres Yoghurt Face + Body Hydration Skin & Sun Care Αντηλιακό Γαλάκτωμα Spray S",
+      "score": 0.6125,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Greek Yoghurt Cooling After-Sun Gel Face & Body",
+        "score": 0.6125,
+        "product_type": "Skincare",
+        "l2": "Πρόσωπο",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069129148",
+      "title": "Korres Yoghurt Hydrate Your Skin Promo Γιαούρτι Αντηλιακή Κρέμα Προσώπου με Χρώμ",
+      "score": 0.1175,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069129162",
+      "title": "Korres Yoghurt Hydrate Your Skin Promo Γιαούρτι Αντηλιακή Κρέμα Προσώπου με Χρώμ",
+      "score": 0.1175,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "KOR5091",
+      "title": "Korres Καραμέλες Με Μέλι & Echinacea 60 g",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "KOR3100",
+      "title": "Korres Καραμέλες Με Αιθέριο Έλαιο Από Ευκάλυπτο & Μενθόλη 60 g",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130212",
+      "title": "Korres Color Essentials Herbarium of Volcanic Minerals Drama Volume Mascara Blac",
+      "score": 0.6,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Drama Volume Mascara Black",
+        "score": 0.6,
+        "product_type": "Makeup",
+        "l2": "Μακιγιάζ",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069083280",
+      "title": "Korres Πινέλο Βαφής με Χτένα",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069135019",
+      "title": "Korres Κυστίνη και Ιχνοστοιχεία Σαμπουάν κατά της Τριχόπτωσης για Άντρες 2 x 250",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069135026",
+      "title": "Korres Κυστίνη + Γλυκοπρωτεΐνες Σαμπουάν κατά της Τριχόπτωσης για Γυναίκες 2 x 2",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069085468",
+      "title": "Korres Angled Blush Brush",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069071423",
+      "title": "Korres Twist Raspberry Lipstick Matte Daring Plum 1.5 gr",
+      "score": 0.14,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069101922",
+      "title": "Korres Apothecary Wild Rose Iconic Glow Liquid Highlighter 14.5 ml",
+      "score": 0.38,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069093296",
+      "title": "Korres Colour Correcting Palette Activated Charcoal 5.5 gr",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069116698",
+      "title": "Korres Morello Matte Lasting Lip Fluid Υγρό Κραγιόν Μεγάλης Διάρκειας Chestnut 6",
+      "score": 0.1462,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124228",
+      "title": "Korres Hair & Body Dailies Πρωτεΐνες Ρυζιού & Τίλιο Σαμπουάν Λεπτά-Αδύναμα Μαλλι",
+      "score": 0.2306,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "KOR0245",
+      "title": "Korres Χαμομήλι απαλυντικό Σαπούνι 125 gr",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069118388",
+      "title": "Korres Butter Soap Promo Pure Cotton 150 g + Sea Lavender 150 g + Kumquat 150 g ",
+      "score": 0.24,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090776",
+      "title": "Korres Bellflower Ενυδατικό Γαλάκτωμα Σώματος 125 ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069072390",
+      "title": "Korres Αμπέλι Σαντορίνης Αφρόλουτρο 250 ml 1+1 Δώρο",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069085819",
+      "title": "Korres Pure Greek Olive Intensive Body Treatment Θρεπτικό Βάλσαμο Σώματος 200 ml",
+      "score": 0.4848,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive Body Cream Olive Blossom",
+        "score": 0.4848,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": "Κρέμες Σώματος"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069048630",
+      "title": "Korres Αχλάδι Περγαμόντο Αφρόλουτρο 250 ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069109171",
+      "title": "Korres Βιολέτα Αφρόλουτρο 250 ml 1+1 Δώρο",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069129223",
+      "title": "Korres Forest Cedar Κέδρος Αφρόλουτρο 250 ml 1+1 Δώρο",
+      "score": 0.2933,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069101137",
+      "title": "Korres Μαστίχα Αφρόλουτρο 250 ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090714",
+      "title": "Korres Vanilla Freesia Ενυδατικό Αφρόλουτρο 250 ml",
+      "score": 0.4,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Vanilla Freesia",
+        "score": 0.4,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069079825",
+      "title": "Korres Pure Greek Olive Showergel Χρυσό Μήλο 250 ml",
+      "score": 0.465,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive Nourishing Shampoo",
+        "score": 0.465,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127779",
+      "title": "Korres Herbarium of Jasmine Γιασεμί Αφρόλουτρο 250 ml + Ενυδατικό Γαλάκτωμα Σώμα",
+      "score": 0.16,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069127670",
+      "title": "Korres Santorini Grape Set Αμπέλι Σαντορίνης Αφρόλουτρο 250 ml + Ενυδατικό Γαλάκ",
+      "score": 0.26,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130298",
+      "title": "Korres Set Argan Oil Post-Colour Shampoo 250 ml + Korres Argan Oil Μαλακτική Κρέ",
+      "score": 0.1795,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130281",
+      "title": "Korres Promo Set Αλόη & Δίκταμο Σαμπουάν για Κανονικά Μαλλιά 250 ml + Αλόη & Δίκ",
+      "score": 0.1262,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069130304",
+      "title": "Korres Set Αμύγδαλο & Λινάρι Σαμπουάν Ξηρά Μαλλιά 250 ml +Korres Αμύγδαλο & Λινά",
+      "score": 0.1345,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069104565",
+      "title": "Korres Grecian Almond Blossom Άνθη Αμυγδαλιάς Ορός Σφριγηλότητας Σώματος με Υαλο",
+      "score": 0.1833,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069090615",
+      "title": "Korres Saffron Oris Eau De Toilette 50 ml",
+      "score": 0.5067,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette Philosia",
+        "score": 0.5067,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069124259",
+      "title": "Korres Spread Joy White Tea Eau De Toilette 50 ml + Αρωματικό Αφρόλουτρο 250 ml",
+      "score": 0.7,
+      "confidence": "high",
+      "applied_l1": null,
+      "matched": {
+        "title": "Eau de Toilette White Tea",
+        "score": 0.7,
+        "product_type": "Fragrance",
+        "l2": "Αρώματα",
+        "l3": "Αρώματα"
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069099960",
+      "title": "Korres Pure Greek Olive Αφρόλουτρο Χαμομήλι 1000 ml",
+      "score": 0.4971,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive Nourishing Shampoo",
+        "score": 0.4971,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069084881",
+      "title": "Korres Yoghurt Γιαούρτι Αφρόλουτρο 1000 ml",
+      "score": 0.1657,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069095658",
+      "title": "Korres Pure Cotton Αγνό Βαμβάκι Αφρόλουτρο 1000 ml",
+      "score": 0.2667,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069094224",
+      "title": "Korres Guava Mango Αφρόλουτρο 1000 ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069094156",
+      "title": "Korres Bergamot Pear Αχλάδι Περγαμόντο Αφρόλουτρο 1000 ml",
+      "score": 0.31,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069095641",
+      "title": "Korres Sea Lavender Θαλάσσια Λεβάντα Αφρόλουτρο 1000 ml",
+      "score": 0.31,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069094187",
+      "title": "Korres Cashmere Rose Κασμίρ Τριαντάφυλλο Αφρόλουτρο 1000 ml",
+      "score": 0.2667,
+      "confidence": "low",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069105760",
+      "title": "Korres Καρύδα Guava Αφρόλουτρο 1000 ml",
+      "score": 0.0,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069094170",
+      "title": "Korres Basil Mandarin Βασιλικός Μανταρίνι Αφρόλουτρο 1000 ml",
+      "score": 0.175,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069114861",
+      "title": "Korres Kumquat Κουμκουάτ Αφρόλουτρο 1000 ml",
+      "score": 0.2,
+      "confidence": "none",
+      "applied_l1": null,
+      "matched": null,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069101748",
+      "title": "Korres Pure Greek Olive Αφρόλουτρο Μέλι Αχλάδι 1000 ml",
+      "score": 0.465,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive Nourishing Shampoo",
+        "score": 0.465,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5203069089244",
+      "title": "Korres Pure Greek Olive Αφρόλουτρο Περγαμόντο 1000 ml",
+      "score": 0.4971,
+      "confidence": "medium",
+      "applied_l1": null,
+      "matched": {
+        "title": "Pure Greek Olive Nourishing Shampoo",
+        "score": 0.4971,
+        "product_type": "Pure Greek Olive",
+        "l2": "Σώμα",
+        "l3": ""
+      },
+      "result_status": "active"
+    }
+  ]
+}

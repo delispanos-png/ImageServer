@@ -63,6 +63,18 @@ def create_cms_dashboard_router(db):
         active_clients = await db.cms_clients.count_documents({"is_active": True})
         pending_notifications = await db.cms_notification_events.count_documents({"status": "pending"})
 
+        # Operational queues — admins need at-a-glance counts to know whether
+        # there is work waiting for them in the new admin pages.
+        pending_brand_queue = await db.pending_brand_imports.count_documents({"status": "pending"})
+        pending_missing_barcodes = await db.missing_barcode_requests.count_documents({"status": "pending"})
+        watermark_dead_ends = await db.products.count_documents(
+            {"catalog_missing_requirements": "watermark_no_replacement"}
+        )
+        missing_hosted_image = await db.products.count_documents(
+            {"catalog_missing_requirements": "missing_hosted_image", "cms_status": "inactive"}
+        )
+        pending_duplicates = await db.duplicate_candidates.count_documents({"status": "pending"})
+
         recent_items_docs = await db.products.find({}).sort("cms_created_at", -1).limit(8).to_list(length=8)
         recent_changes_docs = (
             await db.cms_item_changes.find({}).sort("created_at", -1).limit(8).to_list(length=8)
@@ -158,6 +170,11 @@ def create_cms_dashboard_router(db):
                     "total_categories": total_categories,
                     "active_clients": active_clients,
                     "pending_notifications": pending_notifications,
+                    "pending_brand_queue": pending_brand_queue,
+                    "pending_missing_barcodes": pending_missing_barcodes,
+                    "watermark_dead_ends": watermark_dead_ends,
+                    "missing_hosted_image": missing_hosted_image,
+                    "pending_duplicates": pending_duplicates,
                 },
                 "recent_item_changes": recent_item_changes,
                 "recent_user_activity": recent_user_activity,

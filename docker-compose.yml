@@ -40,7 +40,11 @@ services:
     deploy:
       resources:
         limits:
-          memory: 1G
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 2G
+          cpus: '1.0'
     build:
       context: ./app
       network: host
@@ -57,17 +61,29 @@ services:
       MONGO_PASSWORD: ${MONGO_PASSWORD}
       MONGO_DB: ${MONGO_DB}
       KPDHELLAS_BRIDGE_URL: http://host.docker.internal:8765
+      FLARESOLVERR_URL: http://flaresolverr:8191/v1
+      SKROUTZ_MIN_DELAY_SECONDS: "0.4"
+      SKROUTZ_DELAY_JITTER_SECONDS: "0.2"
+      CLOUDFLARE_API_TOKEN: ${CLOUDFLARE_API_TOKEN:-}
+      CLOUDFLARE_ZONE_ID: ${CLOUDFLARE_ZONE_ID:-}
     depends_on:
       - mongodb
       - xml_generator
       - kpdhellas_bridge
+      - flaresolverr
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./app:/app
       - ${IMAGES_PATH}:/app/images
       - ${CATEGORY_LOOKUP_XLSX_HOST_PATH}:/app/295_categories.xlsx:ro
-    command: uvicorn main:app --host 0.0.0.0 --port 80
+    command: sh -c "/app/auto_resume_jobs.sh; exec uvicorn main:app --host 0.0.0.0 --port 80 --workers 2"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   kpdhellas_bridge:
     init: true
@@ -83,6 +99,25 @@ services:
     command: python /app/kpdhellas_bridge_server.py
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:8765/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Cloudflare bypass proxy used by sources behind Turnstile (newgenpharmacy
+  # and any future Cloudflare-protected feeds). FlareSolverr runs a headless
+  # browser internally and exposes a JSON API at /v1. fastapi reaches it via
+  # http://flaresolverr:8191/v1 on the compose network.
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    restart: always
+    environment:
+      LOG_LEVEL: info
+      TZ: Europe/Athens
+    ports:
+      - "8191:8191"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8191/health || python3 -c 'import urllib.request; urllib.request.urlopen(\"http://127.0.0.1:8191/health\").read()'"]
       interval: 30s
       timeout: 5s
       retries: 3

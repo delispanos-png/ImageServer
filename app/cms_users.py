@@ -11,6 +11,7 @@ from cms_activity import log_cms_audit_event, serialize_datetime
 from cms_auth import _pbkdf2_hash
 from cms_permissions import normalize_cms_role
 from cms_permissions import require_cms_permissions
+from login_lockout import admin_unlock_account, is_account_locked
 
 
 def _utcnow() -> datetime:
@@ -38,6 +39,7 @@ class CmsUserUpdatePayload(BaseModel):
 
 
 def _serialize_user(doc: Dict[str, Any]) -> Dict[str, Any]:
+    locked_until_dt = is_account_locked(doc)
     return {
         "id": str(doc.get("_id", "")),
         "email": str(doc.get("email", "")).strip(),
@@ -48,6 +50,9 @@ def _serialize_user(doc: Dict[str, Any]) -> Dict[str, Any]:
         "created_at": serialize_datetime(doc.get("created_at")),
         "updated_at": serialize_datetime(doc.get("updated_at")),
         "password_reset_required": bool(doc.get("password_reset_required", False)),
+        "failed_login_count": int(doc.get("failed_login_count", 0) or 0),
+        "locked_until": locked_until_dt.isoformat() if locked_until_dt else None,
+        "is_locked": locked_until_dt is not None,
     }
 
 
@@ -247,6 +252,31 @@ def create_cms_users_router(db):
                 "is_active": bool(payload.is_active),
                 "password_changed": bool(password),
             },
+        )
+        return {"success": True, "data": _serialize_user(updated or existing)}
+
+    @router.post(
+        "/{user_id}/unlock",
+        dependencies=[Depends(require_cms_permissions("users.update"))],
+    )
+    async def unlock_user(
+        user_id: str,
+        current_user: Dict[str, Any] = Depends(require_cms_permissions("users.update")),
+    ):
+        if not ObjectId.is_valid(user_id):
+            raise HTTPException(status_code=404, detail="User not found")
+        existing = await users_collection.find_one({"_id": ObjectId(user_id)})
+        if not existing:
+            raise HTTPException(status_code=404, detail="User not found")
+        await admin_unlock_account(users_collection, ObjectId(user_id))
+        updated = await users_collection.find_one({"_id": ObjectId(user_id)})
+        await log_cms_audit_event(
+            db,
+            action="unlock_user",
+            entity_type="cms_user",
+            entity_id=user_id,
+            user=current_user,
+            metadata={"email": str(existing.get("email", "")).strip()},
         )
         return {"success": True, "data": _serialize_user(updated or existing)}
 

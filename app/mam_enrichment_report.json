@@ -1,0 +1,27 @@
+{
+  "stats": {
+    "examined": 642,
+    "matched": 2,
+    "missed": 640,
+    "would_activate": 1,
+    "modified": 2
+  },
+  "rows": [
+    {
+      "barcode": "9001616207105",
+      "title": "Mam Breast Pads Επιθέματα Στήθους, 30 τμχ",
+      "name": "MAM",
+      "c2": "Breastfeeding",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "9001616706615",
+      "title": "Mam Perfect Πιπίλα Σιλικόνης Κρεμ 2-6 Μηνών 2τμχ 131S",
+      "name": "MAM",
+      "c2": "Oral Care &amp; Teethers",
+      "c3": "",
+      "result_status": "active"
+    }
+  ]
+}

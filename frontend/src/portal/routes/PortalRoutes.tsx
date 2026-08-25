@@ -13,6 +13,7 @@ import PortalNewItemsPage from '../pages/PortalNewItemsPage';
 import PortalCategoriesPage from '../pages/PortalCategoriesPage';
 import PortalRemarksPage from '../pages/PortalRemarksPage';
 import PortalProfilePage from '../pages/PortalProfilePage';
+import PortalSubmitProductPage from '../pages/PortalSubmitProductPage';
 import PortalItemDetailPage from '../pages/PortalItemDetailPage';
 
 export default function PortalRoutes() {
@@ -39,6 +40,7 @@ export default function PortalRoutes() {
                 <Route path={portalRoutes.categories} element={<PortalCategoriesPage />} />
                 <Route path={portalRoutes.myRemarks} element={<PortalRemarksPage />} />
                 <Route path={portalRoutes.profile} element={<PortalProfilePage />} />
+                <Route path={portalRoutes.submitProduct} element={<PortalSubmitProductPage />} />
                 <Route path={portalRoutes.itemDetails} element={<PortalItemDetailPage />} />
               </Route>
             </Route>

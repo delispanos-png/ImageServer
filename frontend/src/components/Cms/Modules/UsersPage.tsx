@@ -13,7 +13,7 @@ import {
   Table,
 } from 'react-bootstrap';
 import ModulePage from '../ModulePage';
-import { createUser, fetchUser, fetchUsers, updateUser } from '../../../services/cms-users';
+import { createUser, fetchUser, fetchUsers, unlockUser, updateUser } from '../../../services/cms-users';
 import type { CmsAdminUser, CmsRole } from '../../../types';
 
 function formatDate(value?: string) {
@@ -48,6 +48,7 @@ export default function UsersPage() {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [createSubmitting, setCreateSubmitting] = useState(false);
   const [editingUser, setEditingUser] = useState<CmsAdminUser | null>(null);
+  const [unlockingUserId, setUnlockingUserId] = useState<string | null>(null);
   const [createForm, setCreateForm] = useState({
     full_name: '',
     email: '',
@@ -157,6 +158,21 @@ export default function UsersPage() {
     });
     setError('');
     setShowCreateModal(true);
+  };
+
+  const handleUnlock = async (user: CmsAdminUser) => {
+    if (!window.confirm(`Ξεκλείδωμα του χρήστη ${user.email || user.full_name};`)) return;
+    setUnlockingUserId(user.id);
+    setError('');
+    try {
+      const updated = await unlockUser(user.id);
+      setUsers((prev) => prev.map((item) => (item.id === user.id ? updated : item)));
+      if (selectedUser?.id === user.id) setSelectedUser(updated);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Αποτυχία ξεκλειδώματος χρήστη.');
+    } finally {
+      setUnlockingUserId(null);
+    }
   };
 
   const handleCreateSubmit = async (event: FormEvent) => {
@@ -316,17 +332,36 @@ export default function UsersPage() {
                         <td>{user.full_name || '-'}</td>
                         <td>{user.email || '-'}</td>
                         <td>{roleBadge(user.role)}</td>
-                        <td>{statusBadge(user.is_active)}</td>
+                        <td>
+                          <div className="d-flex flex-wrap gap-1">
+                            {statusBadge(user.is_active)}
+                            {user.is_locked ? <Badge bg="warning" text="dark">Κλειδωμένο</Badge> : null}
+                          </div>
+                        </td>
                         <td>{formatDate(user.last_login_at)}</td>
                         <td>{formatDate(user.updated_at)}</td>
                         <td>
-                          <div className="d-flex gap-2">
+                          <div className="d-flex gap-2 flex-wrap">
                             <Button size="sm" variant="outline-info" onClick={() => void openDetails(user.id)}>
                               Λεπτομέρειες
                             </Button>
                             <Button size="sm" variant="outline-primary" onClick={() => openEdit(user)}>
                               Επεξεργασία
                             </Button>
+                            {user.is_locked ? (
+                              <Button
+                                size="sm"
+                                variant="outline-warning"
+                                onClick={() => void handleUnlock(user)}
+                                disabled={unlockingUserId === user.id}
+                              >
+                                {unlockingUserId === user.id ? (
+                                  <Spinner animation="border" size="sm" />
+                                ) : (
+                                  'Ξεκλείδωμα'
+                                )}
+                              </Button>
+                            ) : null}
                           </div>
                         </td>
                       </tr>
@@ -369,6 +404,35 @@ export default function UsersPage() {
               <div><strong>Δημιουργήθηκε:</strong> {formatDate(selectedUser.created_at)}</div>
               <div><strong>Ενημερώθηκε:</strong> {formatDate(selectedUser.updated_at)}</div>
               <div><strong>Απαίτηση αλλαγής κωδικού:</strong> {selectedUser.password_reset_required ? 'Ναι' : 'Όχι'}</div>
+              <div>
+                <strong>Αποτυχημένες προσπάθειες σύνδεσης:</strong> {selectedUser.failed_login_count ?? 0}
+              </div>
+              <div>
+                <strong>Κατάσταση κλειδώματος:</strong>{' '}
+                {selectedUser.is_locked ? (
+                  <Badge bg="warning" text="dark">
+                    Κλειδωμένο έως {formatDate(selectedUser.locked_until ?? undefined)}
+                  </Badge>
+                ) : (
+                  <Badge bg="success">Ξεκλείδωτο</Badge>
+                )}
+              </div>
+              {selectedUser.is_locked ? (
+                <div>
+                  <Button
+                    size="sm"
+                    variant="outline-warning"
+                    onClick={() => void handleUnlock(selectedUser)}
+                    disabled={unlockingUserId === selectedUser.id}
+                  >
+                    {unlockingUserId === selectedUser.id ? (
+                      <Spinner animation="border" size="sm" />
+                    ) : (
+                      'Ξεκλείδωμα χρήστη'
+                    )}
+                  </Button>
+                </div>
+              ) : null}
             </div>
           ) : (
             <div className="text-muted">Δεν έχει επιλεγεί χρήστης.</div>

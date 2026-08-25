@@ -1,0 +1,502 @@
+{
+  "stats": {
+    "examined": 12852,
+    "fetched": 9990,
+    "fetch_failed": 2862,
+    "with_breadcrumb": 9834,
+    "image_downloaded": 9990,
+    "would_activate": 8936,
+    "modified": 9990
+  },
+  "sample": [
+    {
+      "barcode": "5201109003304",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109003304-2_2.png",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201109003489",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109003489_3.png",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201109002000",
+      "categories": [
+        "Γυναίκα"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109002000.png",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201109002017",
+      "categories": [
+        "Σπίτι",
+        "Απολυμαντικά & Καθαριστικά Σπιτιού",
+        "Απολυμαντικά Χώρου - Καθαριστικά"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109002017.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109002307",
+      "categories": [
+        "Γυναίκα",
+        "Κρέμες Χεριών",
+        "Καθημερινή Ενυδάτωση"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109002307.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109002338",
+      "categories": [
+        "Γυναίκα",
+        "Κρέμες - Σπρέι Σώματος"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109002338.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109002208",
+      "categories": [
+        "Γυναίκα"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109002208.png",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201109002314",
+      "categories": [
+        "Γυναίκα",
+        "Κρέμες - Σπρέι Σώματος"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109002314.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109002239",
+      "categories": [
+        "Γυναίκα",
+        "Αφρόλουτρα & Καθαρισμός Σώματος"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109002239.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201143747806",
+      "categories": [
+        "Άνδρας",
+        "Μαλλιά",
+        "Σαμπουάν"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143747806_0.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109004301",
+      "categories": [
+        "Σπίτι",
+        "Απολυμαντικά & Καθαριστικά Σπιτιού",
+        "Απολυμαντικά Χώρου - Καθαριστικά"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109004301.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201143747745",
+      "categories": [
+        "Άνδρας",
+        "Μαλλιά",
+        "Σαμπουάν"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143747745.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201143734264",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν",
+        "Σαμπουάν για Λιπαρά Μαλλιά"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143734264_1.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201143734288",
+      "categories": [
+        "Μαλλιά",
+        "Conditioner"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143734288_1.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109390039",
+      "categories": [
+        "Μαλλιά",
+        "Conditioner"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/4302.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201143729024",
+      "categories": [
+        "Γυναίκα",
+        "Αφρόλουτρα & Καθαρισμός Σώματος"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143729024.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109390046",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/4298.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109390008",
+      "categories": [
+        "Γυναίκα",
+        "Κρέμες - Σπρέι Σώματος"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/4304.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201143734653",
+      "categories": [
+        "Μαλλιά",
+        "Βαφές",
+        "Βαφές Μαλλιών"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143734653_1.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109390015",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν",
+        "Σαμπουάν για Κανονικά Μαλλιά"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/4297.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109655015",
+      "categories": [
+        "Γυναίκα",
+        "Αφρόλουτρα & Καθαρισμός Σώματος"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109655015.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201143150125",
+      "categories": [
+        "Άνδρας",
+        "Ανδρικές Βαφές"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143150125_1.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201143151993",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν",
+        "Σαμπουάν για Βαμμένα Μαλλιά"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143151993_1.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201143155199",
+      "categories": [
+        "Γυναίκα"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143155199_0.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201143149242",
+      "categories": [
+        "Γυναίκα"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143149242_1.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201100874927",
+      "categories": [
+        "Γυναίκα",
+        "Πρόσωπο",
+        "Ενυδάτωση"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100874927_1.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100586264",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100586264_p_1_.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100585748",
+      "categories": [
+        "Γυναίκα",
+        "Πρόσωπο",
+        "Σύσφιξη - Επανόρθωση"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100585748.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100572816",
+      "categories": [
+        "Γυναίκα",
+        "Πρόσωπο",
+        "Ενυδάτωση"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100572816-1.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201100122509",
+      "categories": [
+        "Μαλλιά",
+        "Styling",
+        "Gel"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100122509.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100532209",
+      "categories": [
+        "Γυναίκα",
+        "Πρόσωπο",
+        "Αντιρυτιδική Προστασία"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/filler_set.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100116331",
+      "categories": [
+        "Μαλλιά",
+        "Styling",
+        "Gel"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100116331.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201109001539",
+      "categories": [
+        "Γυναίκα",
+        "Κρέμες - Σπρέι Σώματος"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201109001539.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100599042",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν",
+        "Σαμπουάν για Βαμμένα Μαλλιά"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100599042.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201100872640",
+      "categories": [
+        "Μαλλιά",
+        "Βαφές",
+        "Βαφές Μαλλιών"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100872640_1.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100693764",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100693764_4.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100693207",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100693207_4.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100693221",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100693221_5.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100868469",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100868469.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100609444",
+      "categories": [
+        "Γυναίκα",
+        "Τύπος Επιδερμίδας",
+        "Όλοι οι Τύποι Επιδερμίδας"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/structure-force.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100599028",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100599028.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201100678716",
+      "categories": [
+        "Γυναίκα",
+        "Πρόσωπο",
+        "Λεπτές Γραμμές"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201100678716.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201143748827",
+      "categories": [
+        "Μαλλιά",
+        "Σαμπουάν",
+        "Σαμπουάν για Ταλαιπωρημένα Μαλλιά"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201143748827-9_2.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201100660629",
+      "categories": [
+        "Γυναίκα"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/3600542523035_2.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201263083198",
+      "categories": [
+        "Ακράτεια",
+        "Επιθέματα Ακράτειας"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/sani_maximizers_packaging.png",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201263083839",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201263083839.jpg",
+      "image_downloaded": true,
+      "result_status": "active"
+    },
+    {
+      "barcode": "5201263083518",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201263083518_0.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201263083631",
+      "categories": [],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201263083631_0.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201263078408",
+      "categories": [
+        "Γυναίκα"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201263078408.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "5201263078521",
+      "categories": [
+        "Γυναίκα"
+      ],
+      "image": "https://www.ofarmakopoiosmou.gr/sites/default/files/5201263078521.jpg",
+      "image_downloaded": true,
+      "result_status": "inactive"
+    }
+  ]
+}

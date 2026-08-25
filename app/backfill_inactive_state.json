@@ -1,0 +1,11 @@
+{
+  "next_index": 2862,
+  "scheduled": 2862,
+  "counts": {
+    "downloaded": 434,
+    "exists": 0,
+    "failed": 2417,
+    "skipped": 0
+  },
+  "updated_at": 1779131985.0545309
+}

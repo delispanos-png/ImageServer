@@ -68,6 +68,60 @@ def resolve_request_ip(request) -> str:
     return ""
 
 
+def normalize_allowed_ip_entry(raw: str) -> str:
+    """Return a canonical form of one IP whitelist entry, or '' if invalid.
+
+    Accepts:
+      - IPv4 / IPv6 address:      "1.2.3.4"       -> "1.2.3.4"
+      - CIDR block (any prefix):  "10.0.0.0/8"    -> "10.0.0.0/8"
+      - Wrapped/paddedstrings are stripped. Anything unparseable returns "".
+    """
+    import ipaddress
+    value = str(raw or "").strip()
+    if not value:
+        return ""
+    try:
+        if "/" in value:
+            return str(ipaddress.ip_network(value, strict=False))
+        return str(ipaddress.ip_address(value))
+    except (ValueError, TypeError):
+        return ""
+
+
+def is_request_ip_allowed(request_ip: str, allowed_entries) -> bool:
+    """Check whether request_ip matches any entry in allowed_entries.
+
+    - Empty allowed_entries means "no whitelist configured" → allow all.
+      Enforcement of "must be non-empty" happens at the caller (feature flag).
+    - Entries may be single IPs or CIDR blocks (any format
+      `normalize_allowed_ip_entry` produces).
+    """
+    import ipaddress
+    if not allowed_entries:
+        return True
+    ip = str(request_ip or "").strip()
+    if not ip:
+        return False
+    try:
+        parsed_ip = ipaddress.ip_address(ip)
+    except (ValueError, TypeError):
+        return False
+    for entry in allowed_entries:
+        canonical = normalize_allowed_ip_entry(entry)
+        if not canonical:
+            continue
+        try:
+            if "/" in canonical:
+                if parsed_ip in ipaddress.ip_network(canonical, strict=False):
+                    return True
+            else:
+                if parsed_ip == ipaddress.ip_address(canonical):
+                    return True
+        except (ValueError, TypeError):
+            continue
+    return False
+
+
 async def sync_legacy_api_clients_to_cms(db) -> None:
     now = datetime.now(timezone.utc)
     for client in LEGACY_API_CLIENTS:
@@ -137,43 +191,60 @@ async def track_api_client_usage(
     referer = request.headers.get("referer", "").strip()
     host = request.headers.get("host", "").strip()
 
-    await db.cms_clients.update_one(
-        {"api_client_key": api_client_key},
-        {
-            "$setOnInsert": {
-                "name": client.get("domain", "") or client.get("username", ""),
-                "company": client.get("domain", ""),
-                "email": "",
-                "phone": "",
-                "is_active": True,
-                "receive_all_categories": False,
-                "notes": "Auto-synced from legacy /api/products basic-auth client.",
-                "category_ids": [],
-                "created_at": now,
-                "created_by": "system:api_usage_tracker",
-            },
-            "$set": {
-                "updated_at": now,
-                "updated_by": "system:api_usage_tracker",
-                "last_api_access_at": now,
-                "last_api_endpoint": endpoint,
-                "last_api_ip": request_ip,
-                "last_api_user_agent": user_agent,
-                "last_api_origin": origin,
-                "last_api_referer": referer,
-                "last_api_host": host,
-                "last_api_barcodes_count": int(max(0, barcode_count)),
-                "api_domain": client.get("domain", ""),
-                "api_username": client.get("username", ""),
-                "source_type": "api_basic",
-                "auth_provider": "legacy_basic",
-            },
-            "$inc": {"api_request_count": 1},
-        },
-        upsert=True,
-    )
+    cms_client_id = client.get("cms_client_id")
+    set_fields = {
+        "updated_at": now,
+        "updated_by": "system:api_usage_tracker",
+        "last_api_access_at": now,
+        "last_api_endpoint": endpoint,
+        "last_api_ip": request_ip,
+        "last_api_user_agent": user_agent,
+        "last_api_origin": origin,
+        "last_api_referer": referer,
+        "last_api_host": host,
+        "last_api_barcodes_count": int(max(0, barcode_count)),
+    }
 
-    cms_client = await db.cms_clients.find_one({"api_client_key": api_client_key}, {"_id": 1})
+    if cms_client_id is not None:
+        await db.cms_clients.update_one(
+            {"_id": cms_client_id},
+            {
+                "$set": {**set_fields, "api_client_key": api_client_key},
+            },
+        )
+    else:
+        await db.cms_clients.update_one(
+            {"api_client_key": api_client_key},
+            {
+                "$setOnInsert": {
+                    "name": client.get("domain", "") or client.get("username", ""),
+                    "company": client.get("domain", ""),
+                    "email": "",
+                    "phone": "",
+                    "is_active": True,
+                    "receive_all_categories": False,
+                    "notes": "Auto-synced from legacy /api/products basic-auth client.",
+                    "category_ids": [],
+                    "created_at": now,
+                    "created_by": "system:api_usage_tracker",
+                    "api_request_count": 0,
+                },
+                "$set": {
+                    **set_fields,
+                    "api_domain": client.get("domain", ""),
+                    "api_username": client.get("username", ""),
+                    "source_type": "api_basic",
+                    "auth_provider": "legacy_basic",
+                },
+            },
+            upsert=True,
+        )
+
+    cms_client = (
+        await db.cms_clients.find_one({"_id": cms_client_id}, {"_id": 1})
+        if cms_client_id is not None
+        else await db.cms_clients.find_one({"api_client_key": api_client_key}, {"_id": 1})
+    )
     await db.cms_client_api_events.insert_one(
         {
             "client_id": str(cms_client.get("_id")) if cms_client else "",

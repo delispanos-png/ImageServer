@@ -30,6 +30,10 @@ from runtime_settings import (
     is_watermark_cleanup_enabled,
 )
 from source_locks import get_trusted_photo_lock_source, normalize_source_name
+from google_images_source import (
+    is_configured as is_google_images_configured,
+    search_image_urls as google_search_image_urls,
+)
 
 _MIN_DELAY_SECONDS = float(os.getenv("SKROUTZ_MIN_DELAY_SECONDS", "4.0"))
 _DELAY_JITTER_SECONDS = float(os.getenv("SKROUTZ_DELAY_JITTER_SECONDS", "1.0"))
@@ -57,6 +61,7 @@ _VITA4YOU_KLEVU_API_KEY = os.getenv("VITA4YOU_KLEVU_API_KEY", "").strip()
 _VITA4YOU_TEXT_SOURCE_TIMEOUT_SECONDS = int(os.getenv("VITA4YOU_TEXT_SOURCE_TIMEOUT_SECONDS", "12"))
 _VITA4YOU_IMAGE_SOURCE_TIMEOUT_SECONDS = int(os.getenv("VITA4YOU_IMAGE_SOURCE_TIMEOUT_SECONDS", "25"))
 _TOFARMAKEIOMOU_BASE_URL = os.getenv("TOFARMAKEIOMOU_BASE_URL", "https://www.tofarmakeiomou.gr").strip()
+_NEWGENPHARMACY_BASE_URL = os.getenv("NEWGENPHARMACY_BASE_URL", "https://www.newgenpharmacy.gr").strip()
 _PLAYWRIGHT_STORAGE_STATE_PATH = os.getenv("PLAYWRIGHT_STORAGE_STATE_PATH", "").strip()
 _IMAGE_FILE_UID = int(os.getenv("IMAGE_FILE_UID", "1000"))
 _IMAGE_FILE_GID = int(os.getenv("IMAGE_FILE_GID", "1000"))
@@ -92,6 +97,12 @@ _MONGO_DB = os.getenv("MONGO_DB", "imageDB").strip()
 _MONGO_URI = f"mongodb://{_MONGO_USER}:{_MONGO_PASSWORD}@{_MONGO_HOST}:{_MONGO_PORT}"
 _SOURCE_LOCK_CLIENT = AsyncMongoClient(_MONGO_URI)
 _SOURCE_LOCK_DB = _SOURCE_LOCK_CLIENT[_MONGO_DB]
+
+# Shared Anubis cookie jar for ofarmakopoiosmou. The pass-challenge cookie
+# is valid for hours, so we solve PoW once and reuse the jar for every
+# subsequent product-page fetch in this worker process.
+_FARMAKOPOIOSMOU_ANUBIS_JAR = None
+_FARMAKOPOIOSMOU_ANUBIS_LOCK = asyncio.Lock()
 
 
 def _canonicalize_farmakopoiosmou_url(url: str) -> str:
@@ -169,6 +180,51 @@ def _canonicalize_youpharmacy_url(url: str) -> str:
     if parsed.netloc == "youpharmacy.gr":
         parsed = parsed._replace(netloc="www.youpharmacy.gr")
     return urlunparse(parsed)
+
+
+async def _lookup_youpharmacy_product_url(barcode: str) -> str:
+    """Return a known /product/<slug>/ URL for this barcode, or "" if none.
+
+    youpharmacy.gr renders search results client-side, so live FlareSolverr
+    search never finds product hrefs. Two backing stores are consulted:
+
+      1) `youpharmacy_url_index` collection — populated by the live
+         sitemap+page crawler (`youpharmacy_index_builder.py`). This is
+         the long-term source: every product the site lists in its public
+         sitemap eventually ends up here with its barcode resolved.
+      2) `db.products.Product_Link` — legacy mappings from the original
+         XML photo-import (March 2026). Kept as fallback so we don't lose
+         the existing coverage while the live index is being built up.
+    """
+    barcode = str(barcode or "").strip()
+    if not barcode:
+        return ""
+
+    try:
+        from youpharmacy_url_index import lookup_url_for_barcode
+        index_url = await lookup_url_for_barcode(_SOURCE_LOCK_DB, barcode)
+        if index_url:
+            return _canonicalize_youpharmacy_url(index_url)
+    except Exception as exc:
+        print(f"youpharmacy index lookup error for {barcode}: {exc}")
+
+    try:
+        doc = await _SOURCE_LOCK_DB.products.find_one(
+            {"Barcode": barcode},
+            {"Product_Link": 1, "Other_Sites.youpharmacy_xml.Product_Link": 1},
+        )
+    except Exception as exc:
+        print(f"youpharmacy legacy slug lookup db error for {barcode}: {exc}")
+        return ""
+    if not doc:
+        return ""
+    for candidate in (
+        str(doc.get("Product_Link", "") or "").strip(),
+        str(((doc.get("Other_Sites") or {}).get("youpharmacy_xml") or {}).get("Product_Link", "") or "").strip(),
+    ):
+        if "youpharmacy.gr/product/" in candidate.lower():
+            return _canonicalize_youpharmacy_url(candidate)
+    return ""
 
 
 def _canonicalize_gohealthy_url(url: str) -> str:
@@ -461,9 +517,114 @@ def _get_launch_options(*, use_proxy: bool = True) -> Dict[str, Any]:
     return launch_options
 
 
+# Shared Playwright + Chromium browsers, keyed by use_proxy. Each fetch call
+# creates a fresh BrowserContext (so cookies/session don't leak between calls)
+# but reuses the underlying Chromium process. Before this was a per-call
+# launch/teardown of the whole stack — 250+ chromium subprocesses accumulated
+# under bulk loads, taking load average past 50 on an 8-core VM.
+_SHARED_PLAYWRIGHT = None
+_SHARED_BROWSERS: Dict[bool, Any] = {}
+_SHARED_BROWSER_LOCK = asyncio.Lock()
+# How many pages each browser instance may serve before we tear it down
+# and recreate it. Chromium leaks zombie renderer/utility subprocesses
+# faster than context.close() can reap them; a periodic full teardown of
+# the browser process itself is the only reliable way to keep the
+# subprocess count bounded (was seeing 200+ chromium after ~100 barcodes).
+# Tunable via env for load-testing.
+_BROWSER_RECYCLE_AFTER = int(os.getenv("PLAYWRIGHT_BROWSER_RECYCLE_AFTER", "40"))
+_BROWSER_PAGES_SERVED: Dict[bool, int] = {}
+
+
+async def _get_shared_browser(use_proxy: bool):
+    global _SHARED_PLAYWRIGHT
+    async with _SHARED_BROWSER_LOCK:
+        if _SHARED_PLAYWRIGHT is None:
+            _SHARED_PLAYWRIGHT = await async_playwright().start()
+        existing = _SHARED_BROWSERS.get(use_proxy)
+        pages_served = _BROWSER_PAGES_SERVED.get(use_proxy, 0)
+        # Recycle when the browser has served >= _BROWSER_RECYCLE_AFTER pages,
+        # when it's disconnected, or when it was never created.
+        needs_recycle = (
+            existing is None
+            or not existing.is_connected()
+            or pages_served >= _BROWSER_RECYCLE_AFTER
+        )
+        if not needs_recycle:
+            _BROWSER_PAGES_SERVED[use_proxy] = pages_served + 1
+            return existing
+        if existing is not None:
+            try:
+                await existing.close()
+            except Exception:
+                pass
+        # After browser.close() Playwright's driver reaps most subprocesses.
+        # Belt-and-braces: also reap any orphaned chromium/chromedriver
+        # processes older than 60s that don't have a parent in our tree.
+        _reap_orphan_chromium_processes()
+        browser = await _SHARED_PLAYWRIGHT.chromium.launch(
+            **_get_launch_options(use_proxy=use_proxy)
+        )
+        _SHARED_BROWSERS[use_proxy] = browser
+        _BROWSER_PAGES_SERVED[use_proxy] = 1
+        return browser
+
+
+def _reap_orphan_chromium_processes() -> None:
+    """Best-effort: kill any chromium process whose parent PID isn't in our
+    process tree. Playwright normally cleans up, but zombie renderer /
+    utility processes accumulate under load and don't die on browser.close().
+    Silent on any error — this is defense-in-depth.
+    """
+    try:
+        import os as _os
+        import signal as _signal
+        my_pid = _os.getpid()
+        # Walk /proc, find chromium processes whose parent isn't us
+        # (transitively) and aren't already zombie.
+        my_children: set = {my_pid}
+        # BFS from my_pid to collect the whole tree
+        pending = [my_pid]
+        while pending:
+            pid = pending.pop()
+            try:
+                with open(f"/proc/{pid}/task/{pid}/children") as _f:
+                    kids = _f.read().split()
+                for k in kids:
+                    try:
+                        kid = int(k)
+                        if kid not in my_children:
+                            my_children.add(kid)
+                            pending.append(kid)
+                    except ValueError:
+                        continue
+            except FileNotFoundError:
+                continue
+            except OSError:
+                continue
+        # Scan /proc for chromium processes not in my_children
+        for entry in _os.listdir("/proc"):
+            if not entry.isdigit():
+                continue
+            other_pid = int(entry)
+            if other_pid in my_children:
+                continue
+            try:
+                with open(f"/proc/{other_pid}/comm") as _f:
+                    comm = _f.read().strip()
+            except (FileNotFoundError, OSError):
+                continue
+            if comm not in ("chromium", "chrome_crashpad", "chromium-browser"):
+                continue
+            try:
+                _os.kill(other_pid, _signal.SIGKILL)
+            except (ProcessLookupError, PermissionError):
+                continue
+    except Exception:
+        pass
+
+
 async def _new_page(*, use_proxy: bool = True):
-    playwright = await async_playwright().start()
-    browser = await playwright.chromium.launch(**_get_launch_options(use_proxy=use_proxy))
+    browser = await _get_shared_browser(use_proxy)
     context = await browser.new_context(
         user_agent=_USER_AGENT,
         viewport={"width": 1920, "height": 1080},
@@ -482,14 +643,16 @@ async def _new_page(*, use_proxy: bool = True):
     page = await context.new_page()
     page.set_default_timeout(_ELEMENT_WAIT_SECONDS * 1000)
     page.set_default_navigation_timeout(_PAGE_LOAD_TIMEOUT_SECONDS * 1000)
-    return playwright, browser, context, page
+    # Keep return-tuple shape compatible with existing callers: they pass the
+    # first two values straight back to _close_page, which now ignores them.
+    return None, None, context, page
 
 
 async def _close_page(playwright, browser, context) -> None:
-    await context.close()
-    if browser is not None:
-        await browser.close()
-    await playwright.stop()
+    try:
+        await context.close()
+    except Exception:
+        pass
 
 
 async def _goto(page, url: str) -> bool:
@@ -1327,9 +1490,27 @@ def _remove_farmakopoiosmou_watermark(image: Image.Image) -> Image.Image:
     return working if changed_pixels else cropped.convert("RGB")
 
 
+class _RejectedImageError(Exception):
+    """Raised by `_prepare_image_bytes_for_storage` when the incoming bytes
+    look like a site logo / placeholder rather than a real product photo.
+    Callers can catch this and treat the download as a miss."""
+
+
 def _prepare_image_bytes_for_storage(content: bytes, site_name: str) -> bytes:
     with Image.open(io.BytesIO(content)) as image:
         prepared = image.convert("RGB")
+        w, h = prepared.size
+        # Reject obvious logos / placeholders BEFORE we spend cycles running
+        # watermark cleanup and writing to disk. Product photos on the sites
+        # we scrape are ~near-square, minimum ~250px per side. Logos are
+        # typically banner-shaped (aspect > 2.5) or tiny (< 120px per side).
+        min_side = min(w, h) if min(w, h) > 0 else 0
+        max_side = max(w, h) if max(w, h) > 0 else 0
+        aspect = (max_side / min_side) if min_side > 0 else 999.0
+        if min_side < 120 or aspect > 2.5:
+            raise _RejectedImageError(
+                f"image looks like a logo/placeholder (size={w}x{h}, aspect={aspect:.2f})"
+            )
         if (
             site_name == "farmakopoiosmou"
             and is_source_enabled_for_images("farmakopoiosmou")
@@ -1340,6 +1521,18 @@ def _prepare_image_bytes_for_storage(content: bytes, site_name: str) -> bytes:
         output = io.BytesIO()
         prepared.save(output, format="JPEG", quality=92, optimize=True)
         return output.getvalue()
+
+
+def was_watermark_cleanup_applied_for_source(site_name: str) -> bool:
+    """True if a farmakopoiosmou-sourced image would have been passed through
+    `_remove_farmakopoiosmou_watermark` when it was saved to disk. Used by
+    the persist path to keep the `watermark_cleanup_applied` flag in the DB
+    honest without having to thread a return value through every fetcher."""
+    return (
+        site_name == "farmakopoiosmou"
+        and is_source_enabled_for_images("farmakopoiosmou")
+        and is_watermark_cleanup_enabled()
+    )
 
 
 def _strip_source_image_payload(doc: Dict[str, Any]) -> Dict[str, Any]:
@@ -1839,7 +2032,86 @@ async def _fetch_farmakopoiosmou_instant_search_json(barcode: str, page_number: 
                 return {}
 
 
+# Map hostname → source key for the runtime FlareSolverr toggle. Adding
+# a new host here only enables the auto-routing path; whether requests
+# *actually* go through FlareSolverr is controlled per-source via the
+# `use_flaresolverr` toggle in runtime_settings (Sources admin page).
+_HOST_TO_SOURCE = {
+    "newgenpharmacy.gr": "newgenpharmacy",
+    "www.newgenpharmacy.gr": "newgenpharmacy",
+    "skroutz.gr": "skroutz",
+    "www.skroutz.gr": "skroutz",
+    "pharmacy295.gr": "pharmacy295",
+    "www.pharmacy295.gr": "pharmacy295",
+    "youpharmacy.gr": "youpharmacy",
+    "www.youpharmacy.gr": "youpharmacy",
+    "gohealthy.gr": "gohealthy",
+    "www.gohealthy.gr": "gohealthy",
+    "cure4u.gr": "cure4u",
+    "www.cure4u.gr": "cure4u",
+    "pharm16.gr": "pharm16",
+    "www.pharm16.gr": "pharm16",
+    "tofarmakeiomou.gr": "tofarmakeiomou",
+    "www.tofarmakeiomou.gr": "tofarmakeiomou",
+    "boxpharmacy.gr": "boxpharmacy",
+    "www.boxpharmacy.gr": "boxpharmacy",
+    "vita4you.gr": "vita4you",
+    "www.vita4you.gr": "vita4you",
+    "kpdhellas.gr": "kpdhellas",
+    "www.kpdhellas.gr": "kpdhellas",
+    "ofarmakopoiosmou.gr": "farmakopoiosmou",
+    "www.ofarmakopoiosmou.gr": "farmakopoiosmou",
+}
+
+
+def _needs_flaresolverr(url: str) -> bool:
+    """Check whether the URL's host has FlareSolverr enabled via the
+    Sources admin toggle. Returns False if host is unknown or toggle off.
+    """
+    from urllib.parse import urlparse
+    try:
+        from runtime_settings import should_use_flaresolverr
+    except ImportError:
+        return False
+    try:
+        host = urlparse(url).netloc.lower()
+    except Exception:
+        return False
+    source_key = _HOST_TO_SOURCE.get(host)
+    if not source_key:
+        return False
+    return should_use_flaresolverr(source_key)
+
+
+async def _fetch_text_via_flaresolverr(url: str) -> str:
+    """Route a fetch through FlareSolverr. Returns HTML on success, '' on
+    failure. Falls back silently — callers see the same empty-string
+    behaviour as the legacy aiohttp path.
+    """
+    try:
+        from flaresolverr_client import get as _fs_get, is_configured as _fs_ok
+    except ImportError:
+        return ""
+    if not _fs_ok():
+        return ""
+    solution = await _fs_get(url, max_timeout_ms=45000)
+    html = (solution or {}).get("response") or ""
+    if isinstance(html, str) and html:
+        return html
+    return ""
+
+
 async def _fetch_text_response(url: str, *, referer: str = "") -> str:
+    # Cloudflare-protected hosts go straight to FlareSolverr — bypass the
+    # aiohttp path that would 403 / ERR_ABORTED anyway.
+    if _needs_flaresolverr(url):
+        html = await _fetch_text_via_flaresolverr(url)
+        if html:
+            return html
+        # If FlareSolverr is down or returned nothing, fall through to the
+        # direct path so the legacy behaviour (empty string + log) is
+        # preserved instead of silently masking a deeper problem.
+
     timeout = aiohttp.ClientTimeout(total=30)
     connector = aiohttp.TCPConnector(ssl=False)
     headers = {
@@ -1854,6 +2126,12 @@ async def _fetch_text_response(url: str, *, referer: str = "") -> str:
         async with session.get(url, headers=headers) as response:
             if response.status != 200:
                 print(f"farmakopoiosmou product fetch status {response.status} for {url}")
+                # Cloudflare challenge — give FlareSolverr a shot for any
+                # host we did not pre-enumerate above.
+                if response.status in (403, 503):
+                    fallback = await _fetch_text_via_flaresolverr(url)
+                    if fallback:
+                        return fallback
                 return ""
             return await response.text()
 
@@ -1943,6 +2221,86 @@ async def _download_image_via_kpdhellas_bridge(
     except Exception as exc:
         print(f"kpdhellas bridge image download error for {img_url}: {exc}")
         return ""
+
+
+_WEIGHT_PATTERN = re.compile(
+    r"""(?<![a-zA-Z0-9])         # not preceded by alnum
+        (\d+(?:[.,]\d+)?)        # number, optional decimal
+        \s*
+        (ml|l|lt|gr|g|kg|mg|mcg|μg|μl|caps?|capsules?|tabs?|tablets?|τεμ|tem|tmx|pcs|veg\ tabs|sachets?)
+        \b
+    """,
+    re.I | re.X,
+)
+
+
+def _extract_weight_from_text(*fields: str) -> str:
+    """Find common weight/volume/quantity tokens (e.g. 200ml, 50 caps) in title/description."""
+    for raw in fields:
+        if not raw:
+            continue
+        match = _WEIGHT_PATTERN.search(str(raw))
+        if match:
+            number = match.group(1).replace(",", ".")
+            unit = match.group(2).lower().replace(" ", "")
+            return f"{number}{unit}"
+    return ""
+
+
+def _extract_jsonld_breadcrumb_values(page_html: str) -> list[str]:
+    """Parse JSON-LD scripts and return the BreadcrumbList items (in order)."""
+    if not page_html:
+        return []
+    values: list[str] = []
+    seen: set[str] = set()
+    for script_match in re.finditer(
+        r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        page_html,
+        flags=re.I | re.S,
+    ):
+        raw = script_match.group(1).strip()
+        if not raw:
+            continue
+        try:
+            payload = json.loads(raw)
+        except Exception:
+            continue
+        graph_nodes = []
+        if isinstance(payload, list):
+            graph_nodes = payload
+        elif isinstance(payload, dict):
+            if isinstance(payload.get("@graph"), list):
+                graph_nodes = payload["@graph"]
+            else:
+                graph_nodes = [payload]
+        for node in graph_nodes:
+            if not isinstance(node, dict):
+                continue
+            type_value = node.get("@type")
+            if type_value not in ("BreadcrumbList", ["BreadcrumbList"]) and "BreadcrumbList" not in (type_value or ""):
+                continue
+            items = node.get("itemListElement") or []
+            if not isinstance(items, list):
+                continue
+            ordered = sorted(
+                (it for it in items if isinstance(it, dict)),
+                key=lambda it: int(it.get("position", 0) or 0) or 999,
+            )
+            for entry in ordered:
+                name = ""
+                item_value = entry.get("item")
+                if isinstance(item_value, dict):
+                    name = str(item_value.get("name", "") or "").strip()
+                if not name:
+                    name = str(entry.get("name", "") or "").strip()
+                if not name:
+                    continue
+                key = name.casefold()
+                if key in {"home", "αρχική", "αρχικη", "kpdhellas"} or key in seen:
+                    continue
+                seen.add(key)
+                values.append(name)
+    return values
 
 
 def _strip_html(value: str) -> str:
@@ -2483,6 +2841,10 @@ def _extract_kpdhellas_product_data_from_html(page_html: str, barcode: str, prod
     description_candidates = _extract_all_matches(
         page_html,
         [
+            # Greedy closer for the nested div wrapper used on kpdhellas product pages
+            r'<div[^>]+class="[^"]*block-description[^"]*"[^>]*>(.*?)</div>\s*</div>',
+            r'<div[^>]+class="[^"]*block-short_description[^"]*"[^>]*>(.*?)</div>\s*</div>',
+            # Fallback shapes
             r'<div[^>]+class="[^"]*block-description[^"]*"[^>]*>(.*?)</div>',
             r'<div[^>]+class="[^"]*block-short_description[^"]*"[^>]*>(.*?)</div>',
         ],
@@ -2514,6 +2876,12 @@ def _extract_kpdhellas_product_data_from_html(page_html: str, barcode: str, prod
         if value not in breadcrumb_values:
             breadcrumb_values.append(value)
 
+    if not breadcrumb_values:
+        jsonld_breadcrumb = _extract_jsonld_breadcrumb_values(page_html)
+        for value in jsonld_breadcrumb:
+            if value and value != title and value not in breadcrumb_values:
+                breadcrumb_values.append(value)
+
     hierarchy = breadcrumb_values[-3:]
     category_1 = hierarchy[0] if len(hierarchy) >= 1 else ""
     category_2 = hierarchy[1] if len(hierarchy) >= 2 else ""
@@ -2544,6 +2912,7 @@ def _extract_kpdhellas_product_data_from_html(page_html: str, barcode: str, prod
         "Category_1": category_1,
         "Category_2": category_2,
         "Category_3": category_3,
+        "Weight": _extract_weight_from_text(title, sml_title, description),
     }
 
 
@@ -2588,6 +2957,27 @@ def _extract_vita4you_candidate_urls_from_search_html(page_html: str, barcode: s
                 urls.append(candidate)
             if len(urls) >= limit:
                 return urls
+
+    # Fallback: when vita4you uses an internal SKU (e.g. "KRP1001") in the
+    # mpn meta instead of the GTIN-13, the strict pairing above finds
+    # nothing even though the search results clearly list a product. If the
+    # search results page references our exact barcode anywhere (page
+    # title, input value, JSON-LD), and the page also surfaces product
+    # hrefs under itemprop="url", treat the first product href as a
+    # high-confidence candidate.
+    if not urls and barcode in (page_html or ""):
+        product_href_re = re.compile(
+            r'<a[^>]+itemprop="url"[^>]+href="(https://www\.vita4you\.gr/el/[^"]+)"',
+            re.I,
+        )
+        for raw_href in product_href_re.findall(page_html or ""):
+            candidate = _canonicalize_vita4you_url(html.unescape(raw_href))
+            # Avoid category/utility URLs (e.g. /el/andras/aromata/...).
+            # Real product pages have a slug WITHOUT extra path segments.
+            if candidate and candidate.count("/") <= 5 and candidate not in urls:
+                urls.append(candidate)
+            if len(urls) >= limit:
+                break
     return urls
 
 
@@ -2912,13 +3302,52 @@ def _extract_vita4you_product_data_from_html(page_html: str, barcode: str, produ
         "Category_1": category_1,
         "Category_2": category_2,
         "Category_3": category_3,
-        "Weight": "",
+        "Weight": _extract_weight_from_text(title, sml_title, description),
     }
+
+
+# Domain-name suffixes that some source sites append to their <title> tag
+# (e.g. "Foo Product - oFarmakopoiosMou.gr"). Stripped in one place so every
+# title-extraction path stays clean.
+_SITE_TITLE_SUFFIXES = [
+    r"o?[Ff]armakopoios[Mm]ou\.gr",
+    r"[Vv]ita4you\.gr",
+    r"[Vv]ita4you",
+    r"[Yy]ou[Pp]harmacy\.gr",
+    r"[Yy]ou[Pp]harmacy",
+    r"[Nn]ewgen[Pp]harmacy\.gr",
+    r"[Nn]ewgen[Pp]harmacy",
+    r"[Pp]harmacy295\.gr",
+    r"[Pp]harmacy295",
+    r"[Tt]o[Ff]armakeio[Mm]ou\.gr",
+    r"[Kk]pd[Hh]ellas\.gr",
+    r"[Ss]kroutz\.gr",
+    r"[Gg]oogle",
+]
+_SITE_TITLE_SUFFIX_RE = re.compile(
+    r"\s*[-–|]\s*(?:" + "|".join(_SITE_TITLE_SUFFIXES) + r")\s*$",
+    re.IGNORECASE,
+)
+
+
+def _strip_site_title_suffix(title: str) -> str:
+    """Remove trailing domain-name suffixes from a page title.
+
+    Runs the regex up to 3 times because a few sites double-suffix
+    (e.g. "Title - Site - Site.gr"). Whitespace is trimmed.
+    """
+    t = str(title or "").strip()
+    for _ in range(3):
+        new = _SITE_TITLE_SUFFIX_RE.sub("", t).strip()
+        if new == t:
+            break
+        t = new
+    return t
 
 
 def _extract_product_data_from_farmakopoiosmou_html(page_html: str, barcode: str, product_url: str) -> Dict[str, Any]:
     title = _extract_meta_content(page_html, "og:title")
-    title = re.sub(r"\s*-\s*oFarmakopoiosMou\.gr\s*$", "", title, flags=re.I).strip()
+    title = _strip_site_title_suffix(title)
     if not title:
         title = _extract_first_match(page_html, [r"<h1[^>]*>(.*?)</h1>"])
 
@@ -2946,6 +3375,13 @@ def _extract_product_data_from_farmakopoiosmou_html(page_html: str, barcode: str
         breadcrumb_text = _strip_html(breadcrumb_match.group(1))
         parts = [part.strip() for part in re.split(r"/|›|»", breadcrumb_text) if part.strip()]
         category_values = [part for part in parts if "online φαρμακείο" not in part.lower()]
+    if not category_values:
+        category_values = _extract_jsonld_breadcrumb_values(page_html)
+    title_compare = (title or "").strip().casefold()
+    category_values = [
+        value for value in category_values
+        if value and value.strip().casefold() != title_compare
+    ]
 
     brand = _extract_first_match(
         page_html,
@@ -2981,7 +3417,7 @@ def _extract_product_data_from_farmakopoiosmou_html(page_html: str, barcode: str
         "Category_1": category_1,
         "Category_2": category_2,
         "Category_3": category_3,
-        "Weight": "",
+        "Weight": _extract_weight_from_text(title, sml_title, description),
     }
 
 
@@ -3030,11 +3466,12 @@ def _extract_farmakopoiosmou_candidate_urls_from_search_json(search_json: Dict[s
             continue
         absolute_url = _canonicalize_farmakopoiosmou_url(urljoin(_FARMAKOPOIOSMOU_BASE_URL, item_url))
         ecommerce_id = str(item.get("enhanced-ecommerce-id", "")).strip()
+        sku = str(item.get("sku", "")).strip()
         title = _normalize_space(str(item.get("title", "")))
         body = _normalize_space(re.sub(r"<[^>]+>", " ", str(item.get("body", ""))))
-        haystack = " ".join([ecommerce_id, title, body])
+        haystack = " ".join([ecommerce_id, sku, title, body])
 
-        if ecommerce_id == barcode:
+        if ecommerce_id == barcode or sku == barcode:
             exact_urls.append(absolute_url)
         elif barcode in haystack:
             related_urls.append(absolute_url)
@@ -3046,6 +3483,210 @@ def _extract_farmakopoiosmou_candidate_urls_from_search_json(search_json: Dict[s
         return _unique_urls(prioritized_urls, limit=min(limit, 4))
 
     return _unique_urls(fallback_urls, limit=min(limit, 3))
+
+
+_FARMAKOPOIOSMOU_DESC_RE = re.compile(
+    r'<div[^>]+field--name-field-description[^>]*>(.*?)</div>\s*</div>\s*</div>',
+    re.DOTALL | re.IGNORECASE,
+)
+_FARMAKOPOIOSMOU_INSTRUCTIONS_RE = re.compile(
+    r'<div[^>]+field--name-field-instructions[^>]*>(.*?)</div>\s*</div>\s*</div>',
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+_FARMAKOPOIOSMOU_ANUBIS_SESSION = None
+
+
+async def _enrich_farmakopoiosmou_with_full_page(
+    product: Dict[str, Any], product_url: str
+) -> Dict[str, Any]:
+    """Best-effort: fetch the actual product page via the existing Anubis
+    solver in `brand_enrichment.anubis_solver` and overwrite Description
+    with the richer `field-description` + `field-instructions` text. Any
+    transient solver failure leaves the JSON-derived dict intact so the
+    source still scores a hit.
+    """
+    global _FARMAKOPOIOSMOU_ANUBIS_SESSION
+    if not product_url:
+        return product
+    try:
+        from brand_enrichment.anubis_solver import fetch_protected
+    except Exception as exc:
+        print(f"farmakopoiosmou anubis import failed: {exc}")
+        return product
+
+    def _do_fetch():
+        global _FARMAKOPOIOSMOU_ANUBIS_SESSION
+        html_text, session = fetch_protected(
+            product_url,
+            session=_FARMAKOPOIOSMOU_ANUBIS_SESSION,
+            timeout=30,
+        )
+        _FARMAKOPOIOSMOU_ANUBIS_SESSION = session
+        return html_text
+
+    try:
+        async with _FARMAKOPOIOSMOU_ANUBIS_LOCK:
+            html_text = await asyncio.to_thread(_do_fetch)
+    except Exception as exc:
+        print(f"farmakopoiosmou anubis fetch failed for {product_url}: {exc}")
+        return product
+
+    if not html_text:
+        return product
+
+    import html as html_module
+    description_parts: list[str] = []
+    for pat in (_FARMAKOPOIOSMOU_DESC_RE, _FARMAKOPOIOSMOU_INSTRUCTIONS_RE):
+        m = pat.search(html_text)
+        if not m:
+            continue
+        text = re.sub(r"<[^>]+>", " ", m.group(1))
+        text = re.sub(r"\s+", " ", text).strip()
+        if text:
+            description_parts.append(html_module.unescape(text))
+    if description_parts:
+        merged_desc = "\n\n".join(description_parts)
+        existing = str(product.get("Description") or "").strip()
+        if len(merged_desc) > len(existing):
+            product = dict(product)
+            product["Description"] = merged_desc
+            print(f"farmakopoiosmou anubis enriched description ({len(existing)} -> {len(merged_desc)} chars)")
+    return product
+
+
+def _build_farmakopoiosmou_product_from_search_json(
+    search_json: Dict[str, Any], barcode: str
+) -> Dict[str, Any]:
+    """Build a complete product dict from the instant-search JSON itself.
+
+    Match precedence:
+      1. Exact: an item whose `image` filename contains our barcode (each
+         variant's image is `{variant_barcode}_N.jpg`). This is the most
+         reliable variant-level signal — sku/eei carry only the parent.
+      2. Exact: sku/eei == barcode.
+      3. Family variant: sku/eei "{X}-mother" sharing the 10-digit GTIN
+         prefix with our barcode.
+      4. Family variant: first result, when search was triggered by our
+         exact barcode and at least one result came back.
+    Returns {} when there are no results at all.
+
+    Output uses these JSON fields directly: title, body, enhanced-ecommerce-
+    brand, enhanced-ecommerce-category, image, addtocartlink/url.
+    """
+    results = search_json.get("data", {}).get("results", {}).get("all", []) or []
+    if not results:
+        return {}
+
+    barcode_prefix = barcode[:10] if len(barcode) >= 13 else barcode
+
+    def _image_filename_barcode(item: Dict[str, Any]) -> str:
+        img_html = str(item.get("image", "") or "")
+        m = re.search(r"/(\d{13})_\d+\.(?:jpg|jpeg|png|webp)", img_html, re.I)
+        return m.group(1) if m else ""
+
+    exact_via_image: Dict[str, Any] = {}
+    exact_via_sku: Dict[str, Any] = {}
+    sibling_match: Dict[str, Any] = {}
+
+    for item in results:
+        if not isinstance(item, dict):
+            continue
+        img_bc = _image_filename_barcode(item)
+        if img_bc and img_bc == barcode:
+            exact_via_image = item
+            break
+        sku = str(item.get("sku", "")).strip()
+        ecommerce_id = str(item.get("enhanced-ecommerce-id", "")).strip()
+        if sku == barcode or ecommerce_id == barcode:
+            if not exact_via_sku:
+                exact_via_sku = item
+            continue
+        for key_value in (sku, ecommerce_id):
+            parent = key_value.split("-", 1)[0] if key_value else ""
+            if (
+                parent
+                and len(parent) >= 13
+                and len(barcode) >= 13
+                and parent[:10] == barcode_prefix
+                and not sibling_match
+            ):
+                sibling_match = item
+                break
+
+    # NEVER fall back to sibling_match or first-result for a barcode that
+    # doesn't have an exact match — sibling matching by 10-digit prefix
+    # produced Frankenstein records (title from one variant, image from
+    # another, product URL from yet a third). If the exact barcode isn't
+    # in the search results, treat the source as a miss so downstream can
+    # fall through to the next source (or Google Images).
+    chosen = exact_via_image or exact_via_sku
+    if not chosen:
+        return {}
+    match_quality = "exact"
+
+    # Prefer the variant-specific URL embedded in `addtocartlink`
+    # (e.g. `/slug?id=134420`) over the canonical `url` field, which is
+    # often a truncated slug that 404s. Falls back to `url` if no parse.
+    addtocart = str(chosen.get("addtocartlink", "") or "")
+    addtocart_match = re.search(r'href="([^"]+)"', addtocart)
+    raw_path = ""
+    if addtocart_match:
+        raw_path = addtocart_match.group(1).strip()
+    if not raw_path:
+        raw_path = str(chosen.get("url", "")).strip()
+    absolute_url = (
+        _canonicalize_farmakopoiosmou_url(urljoin(_FARMAKOPOIOSMOU_BASE_URL, raw_path))
+        if raw_path
+        else ""
+    )
+    title = _strip_site_title_suffix(_normalize_space(str(chosen.get("title", ""))))
+    if not title:
+        return {}
+
+    body_html = str(chosen.get("body", "") or "")
+    description = _normalize_space(re.sub(r"<[^>]+>", " ", body_html))
+
+    brand = str(chosen.get("enhanced-ecommerce-brand", "") or "").strip()
+
+    # Category path comes as "Cat1/Cat2/Cat3" — split into our 3-level slots.
+    category_raw = str(chosen.get("enhanced-ecommerce-category", "") or "").strip()
+    cat_parts = [p.strip() for p in re.split(r"\s*/\s*", category_raw) if p.strip()]
+    cat1 = cat_parts[0] if len(cat_parts) >= 1 else ""
+    cat2 = cat_parts[1] if len(cat_parts) >= 2 else ""
+    cat3 = cat_parts[2] if len(cat_parts) >= 3 else ""
+
+    # Image: prefer a clean variant image URL stripped of Drupal style/itok
+    # tokens. Style "product_list" is the small thumbnail; replace with the
+    # original public path if available.
+    img_html = str(chosen.get("image", "") or "")
+    img_src = ""
+    img_match = re.search(r"src=[\"']([^\"']+\.(?:jpe?g|png|webp))[^\"']*[\"']", img_html, re.I)
+    if img_match:
+        img_src = img_match.group(1)
+        # Drop the ?itok=... cache token if present
+        img_src = re.sub(r"\?itok=[^&\"']+", "", img_src)
+        # Replace the resized style path with the original
+        img_src = re.sub(r"/styles/[^/]+/public/", "/", img_src)
+
+    return {
+        "Barcode": barcode,
+        "Site": "farmakopoiosmou",
+        "last_source": "farmakopoiosmou",
+        "Title": title,
+        "Description": description,
+        "Sml_Title": "",
+        "Brand": brand,
+        "Category_1": cat1,
+        "Category_2": cat2,
+        "Category_3": cat3,
+        "Categ": cat3 or cat2 or cat1,
+        "Product_Link": absolute_url,
+        "Img_src": img_src,
+        "Img_src_List": [img_src] if img_src else [],
+        "match_quality": match_quality,
+    }
 
 
 async def _page_has_exact_barcode(page, barcode: str, site_name: str) -> bool:
@@ -3634,26 +4275,13 @@ async def fetch_from_pharmacy295(
         print(f"pharmacy295 excel hit for barcode {barcode}")
         return excel_result
 
-    search_urls = [
-        f"{_PHARMACY295_BASE_URL}/search-results?query={{barcode}}",
-        f"{_PHARMACY295_BASE_URL}/search-results?search={{barcode}}",
-        f"{_PHARMACY295_BASE_URL}/search?keyphrase={{barcode}}",
-        f"{_PHARMACY295_BASE_URL}/search?query={{barcode}}",
-        f"{_PHARMACY295_BASE_URL}/?s={{barcode}}",
-    ]
-    result = await _fetch_from_generic_site(
-        barcode,
-        "pharmacy295",
-        _PHARMACY295_BASE_URL,
-        search_urls,
-        download_images=download_images,
-        replace_existing_images=replace_existing_images,
-        search_terms=search_terms,
-    )
-    if result:
-        await _set_cache_value(cache_key, result)
-        return result
-
+    # Fast-fail for unknown barcodes: pharmacy295's live search is fully
+    # JS-rendered, so we cannot discover product URLs from a search response
+    # for a barcode we don't already have in the Excel feed. Trying anyway
+    # burns the source-per-site timeout (25s) and surfaces as a misleading
+    # "Timeout" in the scanner UI. Return no_data immediately and let admins
+    # know via the source notes that re-uploading the Excel is the fix.
+    print(f"pharmacy295 no Excel mapping for barcode {barcode}; skipping live search")
     await _set_cache_value(cache_key, {})
     return {}
 
@@ -3680,6 +4308,61 @@ async def fetch_from_youpharmacy(
         f"{_YOUPHARMACY_BASE_URL}/?post_type=product&s={{query}}",
         f"{_YOUPHARMACY_BASE_URL}/search/{{query}}",
     ]
+
+    known_url = await _lookup_youpharmacy_product_url(barcode)
+
+    # Fast-fail when we don't already know the slug. youpharmacy.gr renders
+    # search results entirely client-side, so any FlareSolverr round-trip
+    # against `/?s=barcode` is guaranteed to return zero product hrefs and
+    # ~25s of wasted latency. The index builder
+    # (`youpharmacy_index_builder.py`) populates `youpharmacy_url_index`
+    # with every public sitemap product, so a missing mapping means the
+    # crawler simply hasn't reached this barcode yet (or it isn't on the
+    # site at all). Return no_data instead of burning the timeout.
+    if not known_url:
+        print(f"youpharmacy no known URL mapping for barcode {barcode}; skipping live search")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    # FlareSolverr-based path: youpharmacy.gr is behind Cloudflare so the
+    # legacy Playwright generic fetcher hits net::ERR_ABORTED. Route through
+    # the sidecar first; fall back to the legacy path only if it can't
+    # produce a usable record. The on-site search is JS-rendered, so when we
+    # already know the product slug from a prior XML import we skip the
+    # search step and request the product page directly.
+    flaresolverr_result = await _fetch_from_flaresolverr_generic(
+        barcode,
+        "youpharmacy",
+        _YOUPHARMACY_BASE_URL,
+        search_url_templates=[
+            f"{_YOUPHARMACY_BASE_URL}/?s={{barcode}}&post_type=product",
+            f"{_YOUPHARMACY_BASE_URL}/?post_type=product&s={{barcode}}",
+        ],
+        product_link_regex=r"youpharmacy\.gr/product/[a-z0-9\-]+/?",
+        image_path_regex=r'data-large_image=["\']([^"\']+youpharmacy\.gr/wp-content/uploads/[^"\']+\.(?:jpe?g|png|webp))["\']',
+        download_images=download_images,
+        replace_existing_images=replace_existing_images,
+        known_product_url=known_url,
+        image_skip_keywords=(
+            "/logo", "logo.png", "logo.jpg", "logo.webp",
+            "screenshot", "cropped-", "favicon", "placeholder",
+        ),
+        breadcrumb_container_patterns=(
+            r'<nav[^>]+rank-math-breadcrumb[^>]*>(.*?)</nav>',
+            r'<nav[^>]+breadcrumb[^>]*>(.*?)</nav>',
+            r'<(?:ol|ul)[^>]*(?:breadcrumb|breadcrumbs)[^>]*>(.*?)</(?:ol|ul)>',
+        ),
+        short_description_patterns=(
+            r'<div[^>]+woocommerce-product-details__short-description[^>]*>(.*?)</div>',
+            r'<div[^>]+class=["\'][^"\']*\bshort-description\b[^"\']*["\'][^>]*>(.*?)</div>',
+        ),
+    )
+    if flaresolverr_result:
+        if flaresolverr_result.get("Product_Link"):
+            flaresolverr_result["Product_Link"] = _canonicalize_youpharmacy_url(str(flaresolverr_result.get("Product_Link", "")))
+        await _set_cache_value(cache_key, flaresolverr_result)
+        return flaresolverr_result
+
     result = await _fetch_from_generic_site(
         barcode,
         "youpharmacy",
@@ -3730,6 +4413,24 @@ async def fetch_from_gohealthy(
     if _can_use_cached_source_result(cached, download_images=download_images):
         print(f"Using cached result for gohealthy barcode {barcode}: {bool(cached)}")
         return cached
+
+    # FlareSolverr-first path
+    flaresolverr_result = await _fetch_from_flaresolverr_generic(
+        barcode,
+        "gohealthy",
+        _GOHEALTHY_BASE_URL,
+        search_url_templates=[
+            f"{_GOHEALTHY_BASE_URL}/search-results?search={{barcode}}",
+            f"{_GOHEALTHY_BASE_URL}/?search={{barcode}}",
+        ],
+        product_link_regex=r"gohealthy\.gr/[a-z0-9][a-z0-9\-]+/?$",
+        image_path_regex=r"https?://[^\s\"']+gohealthy\.gr/[^\s\"']+\.(?:jpe?g|png|webp)",
+        download_images=download_images,
+        replace_existing_images=replace_existing_images,
+    )
+    if flaresolverr_result:
+        await _set_cache_value(cache_key, flaresolverr_result)
+        return flaresolverr_result
 
     effective_search_terms = _build_source_search_terms(barcode, *(search_terms or []))
     reference_query = next((term for term in effective_search_terms if term != barcode), "")
@@ -3872,6 +4573,27 @@ async def fetch_from_cure4u(
     if _can_use_cached_source_result(cached, download_images=download_images):
         print(f"Using cached result for cure4u barcode {barcode}: {bool(cached)}")
         return cached
+
+    # FlareSolverr-first path. cure4u sits behind a Cloudflare gateway that
+    # 403s plain HTTP and confuses the legacy Playwright fetcher; the
+    # sidecar receives the rendered HTML so the rest of the existing parser
+    # (called inline below) keeps working.
+    flaresolverr_result = await _fetch_from_flaresolverr_generic(
+        barcode,
+        "cure4u",
+        _CURE4U_BASE_URL,
+        search_url_templates=[
+            f"{_CURE4U_BASE_URL}/module/ambjolisearch/jolisearch?s={{barcode}}",
+            f"{_CURE4U_BASE_URL}/search?controller=search&s={{barcode}}",
+        ],
+        product_link_regex=r"cure4u\.gr/[a-z0-9][a-z0-9\-]+\.html(?:[?#].*)?$",
+        image_path_regex=r"https?://(?:www\.)?cure4u\.gr/\d+[^\s\"']+\.(?:jpe?g|png|webp)",
+        download_images=download_images,
+        replace_existing_images=replace_existing_images,
+    )
+    if flaresolverr_result:
+        await _set_cache_value(cache_key, flaresolverr_result)
+        return flaresolverr_result
 
     effective_search_terms = _build_source_search_terms(barcode, *(search_terms or []))
     reference_query = next((term for term in effective_search_terms if term != barcode), "")
@@ -4119,7 +4841,11 @@ async def fetch_from_vita4you(
         print(f"Using cached result for vita4you barcode {barcode}: {bool(cached)}")
         return cached
 
-    search_urls = [f"{_VITA4YOU_BASE_URL}/el/search/?q={{query}}"]
+    search_urls = [
+        f"{_VITA4YOU_BASE_URL}/el/catalogsearch/result/?q={{query}}",
+        f"{_VITA4YOU_BASE_URL}/catalogsearch/result/index/?q={{query}}",
+        f"{_VITA4YOU_BASE_URL}/el/search/?q={{query}}",
+    ]
 
     effective_search_terms = _build_source_search_terms(barcode, *(search_terms or []))
     reference_query = next((term for term in effective_search_terms if term != barcode), "")
@@ -4153,6 +4879,14 @@ async def fetch_from_vita4you(
         else:
             print(f"No product link found for barcode {barcode} on vita4you via query {query}")
 
+        # Soft-match holder: when query == barcode and the search engine
+        # surfaced a product, but that product page uses an internal SKU
+        # (e.g. KRP1001 for Korres) instead of the GTIN in mpn/structural
+        # fields, the strict barcode-in-page check rejects everything.
+        # Keep the first such result and return it as a "family_variant"
+        # if no exact match comes through.
+        soft_match_data: Dict[str, Any] = {}
+        soft_match_html = ""
         for product_url in candidate_urls:
             product_html = await _fetch_text_response(product_url, referer=_VITA4YOU_BASE_URL)
             if not product_html:
@@ -4163,6 +4897,9 @@ async def fetch_from_vita4you(
             if query == barcode:
                 if not _html_has_exact_barcode(product_html, barcode):
                     print(f"vita4you barcode mismatch for {barcode} at {product_url}")
+                    if not soft_match_data:
+                        soft_match_data = product_data
+                        soft_match_html = product_html
                     continue
             elif not _title_matches_source_query_strict(product_data.get("Title", ""), query):
                 print(f"vita4you title mismatch for {barcode} query {query} at {product_url}")
@@ -4199,6 +4936,12 @@ async def fetch_from_vita4you(
             await _set_cache_value(cache_key, product_data)
             print(f"vita4you hit for barcode {barcode} via query {query}")
             return product_data
+
+        if soft_match_data and query == barcode:
+            soft_match_data["match_quality"] = "family_variant"
+            await _set_cache_value(cache_key, soft_match_data)
+            print(f"vita4you soft-match (family variant) for {barcode} via query {query}")
+            return soft_match_data
 
     stored_snapshot = await _fetch_from_stored_source_snapshot(
         barcode,
@@ -4289,6 +5032,405 @@ async def fetch_from_tofarmakeiomou(
     return {}
 
 
+async def _fetch_from_flaresolverr_generic(
+    barcode: str,
+    site_name: str,
+    base_url: str,
+    *,
+    search_url_templates: list[str],
+    product_link_regex: str,
+    image_path_regex: str | None = None,
+    download_images: bool = True,
+    replace_existing_images: bool = False,
+    known_product_url: str = "",
+    image_skip_keywords: tuple[str, ...] = (),
+    breadcrumb_container_patterns: tuple[str, ...] = (),
+    short_description_patterns: tuple[str, ...] = (),
+) -> Dict[str, Any]:
+    """Fetch a product from a Cloudflare-protected site via FlareSolverr.
+
+    Flow:
+      1. Hit each search URL template (substituting {barcode}) and run the
+         result through FlareSolverr.
+      2. Find the first href in the search HTML that matches
+         `product_link_regex` and is NOT a category/utility URL.
+      3. GET that product page via FlareSolverr.
+      4. Verify the barcode appears in the product page; if not, mismatch.
+      5. Extract Title (h1 > title), Description (itemprop="description"),
+         Image (first match of `image_path_regex` or og:image meta),
+         Categories (breadcrumb).
+
+    Each site only needs to supply its URL templates + a regex for the
+    product href shape — extraction is shared.
+    """
+    import re as _re
+    from urllib.parse import urljoin, quote_plus
+
+    try:
+        from flaresolverr_client import is_configured as _fs_ok
+    except ImportError:
+        return {}
+    if not _fs_ok():
+        return {}
+
+    queries = [barcode]
+    search_html = ""
+    matched_url = ""
+
+    product_link_re = _re.compile(product_link_regex, _re.I)
+
+    if known_product_url and product_link_re.search(known_product_url):
+        matched_url = known_product_url.strip()
+        print(f"{site_name} flaresolverr using known product url for {barcode}: {matched_url}")
+
+    for query in queries:
+        if matched_url:
+            break
+        for tmpl in search_url_templates:
+            search_url = tmpl.format(barcode=quote_plus(query))
+            page_search_html = await _fetch_text_via_flaresolverr(search_url)
+            if not page_search_html:
+                continue
+            # Pick first href that matches the product-link regex and is
+            # not a category/utility path.
+            for raw_href in _re.findall(r'href=["\']([^"\']+)["\']', page_search_html):
+                href = raw_href.strip()
+                if href.startswith("//"):
+                    href = "https:" + href
+                elif href.startswith("/"):
+                    href = urljoin(base_url, href)
+                if not href.startswith("http"):
+                    continue
+                if any(skip in href.lower() for skip in (
+                    "/cart", "/checkout", "/login", "/account", "/wp-admin",
+                    "/category/", "/categories/", "/brand/", "/brands/",
+                    "/page/", "/blog/", "/wishlist", "/contact", "?add-to-cart",
+                )):
+                    continue
+                if product_link_re.search(href):
+                    matched_url = href
+                    search_html = page_search_html
+                    break
+            if matched_url:
+                break
+        if matched_url:
+            break
+
+    if not matched_url:
+        return {}
+
+    product_html = await _fetch_text_via_flaresolverr(matched_url)
+    if not product_html:
+        return {}
+
+    if barcode not in product_html:
+        print(f"{site_name} flaresolverr barcode mismatch for {barcode} at {matched_url}")
+        return {}
+
+    # Title — h1 first, then <title>. Strip site-branding suffixes so
+    # things like "Product - oFarmakopoiosMou.gr" don't leak into the DB.
+    title = ""
+    h1_m = _re.search(r"<h1[^>]*>([^<]+)</h1>", product_html)
+    if h1_m:
+        title = h1_m.group(1).strip()
+    if not title:
+        t_m = _re.search(r"<title>([^<]+)</title>", product_html)
+        if t_m:
+            title = t_m.group(1).strip()
+    title = _strip_site_title_suffix(title)
+    if not title:
+        return {}
+
+    # Description — itemprop="description" or product description div
+    description = ""
+    for pattern in (
+        r'<div[^>]+itemprop=["\']description["\'][^>]*>(.*?)</div>',
+        r'<div[^>]+id=["\'](?:tab-description|product-description|description)["\'][^>]*>(.*?)</div>',
+        r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"\']+)["\']',
+    ):
+        m = _re.search(pattern, product_html, _re.DOTALL | _re.I)
+        if m:
+            description = _re.sub(r"<[^>]+>", " ", m.group(1))
+            description = html.unescape(_re.sub(r"\s+", " ", description).strip())
+            if len(description) >= 30:
+                break
+
+    # Short title / short description — opt-in via short_description_patterns
+    sml_title = ""
+    for pattern in short_description_patterns:
+        m = _re.search(pattern, product_html, _re.DOTALL | _re.I)
+        if m:
+            sml_title = _re.sub(r"<[^>]+>", " ", m.group(1) if m.groups() else m.group(0))
+            sml_title = html.unescape(_re.sub(r"\s+", " ", sml_title).strip())
+            if sml_title:
+                break
+
+    # Image: site-specific regex first, else og:image
+    image_urls: list[str] = []
+    skip_lower = tuple(s.lower() for s in image_skip_keywords)
+    if image_path_regex:
+        for raw in _re.findall(image_path_regex, product_html):
+            url = raw.strip().rstrip(")")
+            if skip_lower and any(k in url.lower() for k in skip_lower):
+                continue
+            cleaned = _re.sub(r"-\d+x\d+(\.[a-zA-Z]+)$", r"\1", url)
+            if cleaned not in image_urls:
+                image_urls.append(cleaned)
+            if len(image_urls) >= 8:
+                break
+    if not image_urls:
+        og_m = _re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', product_html)
+        if og_m:
+            image_urls.append(og_m.group(1).strip())
+
+    # Breadcrumb categories
+    c1 = c2 = c3 = ""
+    breadcrumb_patterns: tuple[str, ...] = breadcrumb_container_patterns or (
+        r'<(?:ol|ul)[^>]*(?:breadcrumb|breadcrumbs)[^>]*>(.*?)</(?:ol|ul)>',
+    )
+    bc_inner = ""
+    for pat in breadcrumb_patterns:
+        bc_m = _re.search(pat, product_html, _re.DOTALL | _re.I)
+        if bc_m:
+            bc_inner = bc_m.group(1) if bc_m.groups() else bc_m.group(0)
+            break
+    if bc_inner:
+        crumbs = _re.findall(r"<a[^>]*>([^<]+)</a>", bc_inner)
+        crumbs = [c.strip() for c in crumbs if c.strip()]
+        # First crumb is usually "Home"; skip it.
+        if crumbs and crumbs[0].lower() in ("home", "αρχική", "αρχικη"):
+            crumbs = crumbs[1:]
+        if len(crumbs) >= 1: c1 = crumbs[0]
+        if len(crumbs) >= 2: c2 = crumbs[1]
+        if len(crumbs) >= 3: c3 = crumbs[2]
+
+    # Brand: og:brand or schema or first crumb word
+    brand = ""
+    brand_m = _re.search(
+        r'(?:itemprop=["\']brand["\']|property=["\']product:brand["\']|og:brand[^>]+content=)[^>]*?[>"\']([^"\'<>]{2,60})',
+        product_html, _re.I,
+    )
+    if brand_m:
+        brand = brand_m.group(1).strip()
+    if not brand and title:
+        brand = title.split()[0]
+
+    product_data: Dict[str, Any] = {
+        "Barcode": barcode,
+        "Site": site_name,
+        "last_source": site_name,
+        "Title": title,
+        "Sml_Title": sml_title,
+        "Description": description,
+        "Brand": brand,
+        "Category_1": c1,
+        "Category_2": c2,
+        "Category_3": c3,
+        "Img_src": image_urls[0] if image_urls else "",
+        "Img_src_List": image_urls,
+        "Product_Link": matched_url,
+    }
+
+    if download_images and image_urls:
+        try:
+            await _download_image_collection(
+                image_urls, barcode, site_name=site_name,
+                replace_existing=replace_existing_images,
+            )
+        except Exception as exc:
+            print(f"{site_name} flaresolverr image download failed for {barcode}: {exc}")
+
+    print(f"{site_name} flaresolverr hit for barcode {barcode}")
+    return product_data
+
+
+async def fetch_from_newgenpharmacy(
+    barcode: str,
+    *,
+    download_images: bool = True,
+    replace_existing_images: bool = False,
+    search_terms: list[str] | None = None,
+) -> Dict[str, Any]:
+    """Fetch product data from newgenpharmacy.gr.
+
+    The site sits behind Cloudflare Turnstile that our Playwright stack
+    cannot beat, so we route every request through FlareSolverr (a sidecar
+    container) which solves the challenge with its own headless browser.
+
+    Strategy:
+      1. POST to FlareSolverr with the OpenCart `product/search` URL for
+         the barcode — the rendered page exposes the matching item id and
+         basic data in ga4_items dataLayer JSON.
+      2. POST again with the product detail URL to extract description,
+         images and verify the EAN appears in the page.
+    """
+    import re as _re
+    from urllib.parse import urljoin
+
+    barcode = str(barcode).strip()
+    if not barcode:
+        return {}
+
+    cache_key = ("newgenpharmacy", barcode)
+    cached = await _get_cache_value(cache_key)
+    if _can_use_cached_source_result(cached, download_images=download_images):
+        print(f"Using cached result for newgenpharmacy barcode {barcode}: {bool(cached)}")
+        return cached
+
+    try:
+        from flaresolverr_client import get as _flaresolverr_get, is_configured as _flaresolverr_ok
+    except ImportError:
+        print("flaresolverr_client missing — skipping newgenpharmacy")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    if not _flaresolverr_ok():
+        print("FLARESOLVERR_URL not configured — skipping newgenpharmacy")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    search_url = (
+        f"{_NEWGENPHARMACY_BASE_URL}/index.php?route=product/search&search={barcode}"
+    )
+    search_solution = await _flaresolverr_get(search_url, max_timeout_ms=60000)
+    search_html = (search_solution or {}).get("response") or ""
+    if not search_html:
+        print(f"newgenpharmacy: empty search response for {barcode}")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    # Pull every (item_id, item_name) pair from the ga4_items dataLayer
+    # block and pick the one whose category context references the queried
+    # barcode (the search page emits `search_string`: barcode for the item
+    # that matched the query).
+    items_matches = _re.findall(
+        r'"item_id":"(\d+)","item_name":"([^"]+)"', search_html
+    )
+    if not items_matches:
+        print(f"newgenpharmacy: no ga4 items for {barcode}")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    # Use the first ga4 item — the search page only emits results for the
+    # exact-match list; the barcode being present on the search page is
+    # already strong evidence the first item is the right product.
+    item_id, raw_name = items_matches[0]
+    item_name = raw_name.encode("utf-8").decode("unicode_escape", errors="ignore")
+
+    if barcode not in search_html:
+        print(f"newgenpharmacy: barcode {barcode} not present in search page text")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    product_url = (
+        f"{_NEWGENPHARMACY_BASE_URL}/index.php?route=product/product&product_id={item_id}"
+    )
+    product_solution = await _flaresolverr_get(product_url, max_timeout_ms=60000)
+    product_html = (product_solution or {}).get("response") or ""
+    if not product_html:
+        print(f"newgenpharmacy: product page empty for item {item_id}")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    if barcode not in product_html:
+        # Reject mismatches up-front — match the same defensive check as
+        # other fetchers (e.g. farmakopoiosmou) so we never persist the
+        # wrong barcode against this product.
+        print(f"newgenpharmacy barcode mismatch for {barcode} at {product_url}")
+        await _set_cache_value(cache_key, {})
+        return {}
+
+    # Title — prefer <h1> over <title> because the latter sometimes wraps
+    # marketing copy. Strip site-branding suffixes either way.
+    title = ""
+    h1_match = _re.search(r"<h1[^>]*>([^<]+)</h1>", product_html)
+    if h1_match:
+        title = h1_match.group(1).strip()
+    if not title:
+        title_match = _re.search(r"<title>([^<]+)</title>", product_html)
+        if title_match:
+            title = title_match.group(1).strip()
+    title = _strip_site_title_suffix(title)
+    if not title and item_name:
+        title = item_name
+
+    # Brand / categories from dataLayer
+    def _extract_field(field: str) -> str:
+        m = _re.search(
+            rf'"item_id":"{item_id}"[^}}]*?"{field}":"([^"]+)"', product_html,
+        )
+        if not m:
+            return ""
+        try:
+            return m.group(1).encode("utf-8").decode("unicode_escape", errors="ignore").strip()
+        except Exception:
+            return m.group(1).strip()
+
+    brand = _extract_field("item_brand")
+    c1 = _extract_field("item_category")
+    c2 = _extract_field("item_category2")
+    c3 = _extract_field("item_category3")
+
+    # Description block: OpenCart marks it with itemprop="description".
+    description = ""
+    desc_match = _re.search(
+        r'<div[^>]+itemprop=["\']description["\'][^>]*>(.*?)</div>',
+        product_html, _re.DOTALL,
+    )
+    if desc_match:
+        description = _re.sub(r"<[^>]+>", " ", desc_match.group(1))
+        description = _re.sub(r"\s+", " ", description).strip()
+
+    # Product image: prefer URLs namespaced by the product's barcode under
+    # /image/cache/catalog/products/{barcode}/ — that's where OpenCart on
+    # newgenpharmacy stores the high-res product asset. Strip the size
+    # suffix (-900x900, -300x300) so we get the originals.
+    image_urls: list[str] = []
+    for raw in _re.findall(
+        r'(https?://www\.newgenpharmacy\.gr/image/cache/catalog/products/' + _re.escape(barcode) + r'/[^\s"\'<>]+)',
+        product_html,
+    ):
+        url = raw.strip().rstrip(")")
+        # Drop the OpenCart -WxH suffix so we hit the original; if that
+        # 404s the caller can retry the suffixed URL.
+        cleaned = _re.sub(r"-\d+x\d+(\.[a-zA-Z]+)$", r"\1", url)
+        if cleaned not in image_urls:
+            image_urls.append(cleaned)
+        if len(image_urls) >= 8:
+            break
+
+    product_data: Dict[str, Any] = {
+        "Barcode": barcode,
+        "Site": "newgenpharmacy",
+        "last_source": "newgenpharmacy",
+        "Site_Id": item_id,
+        "Title": title,
+        "Description": description,
+        "Brand": brand,
+        "Category_1": c1,
+        "Category_2": c2,
+        "Category_3": c3,
+        "Img_src": image_urls[0] if image_urls else "",
+        "Img_src_List": image_urls,
+        "Product_Link": urljoin(_NEWGENPHARMACY_BASE_URL, product_url),
+    }
+
+    # Optional: hosted image download. Mirrors the pattern of fetch_from_*
+    # peers — only triggered when caller asked for images.
+    if download_images and image_urls:
+        try:
+            await _download_image_collection(
+                image_urls, barcode, site_name="newgenpharmacy",
+                replace_existing=replace_existing_images,
+            )
+        except Exception as exc:
+            print(f"newgenpharmacy image download failed for {barcode}: {exc}")
+
+    await _set_cache_value(cache_key, product_data)
+    print(f"newgenpharmacy hit for barcode {barcode}")
+    return product_data
+
+
 async def fetch_from_farmakopoiosmou(
     barcode: str,
     *,
@@ -4306,6 +5448,72 @@ async def fetch_from_farmakopoiosmou(
         print(f"Using cached result for farmakopoiosmou barcode {barcode}: {bool(cached)}")
         return cached
 
+    # Fast path: if we have a stored Product_Link for this barcode, try the
+    # Anubis-based HTTP fetcher first. Much faster than Playwright and avoids
+    # ERR_ABORTED issues we've seen with browser navigation.
+    try:
+        from ofarmakopoiosmou_source import fetch_ofarmakopoiosmou_product
+
+        stored_snapshot = await _get_stored_source_snapshot(barcode, "farmakopoiosmou")
+        product_link = ""
+        if stored_snapshot:
+            product_link = (stored_snapshot.get("Product_Link") or "").strip()
+        if product_link and ("ofarmakopoiosmou" in product_link or "farmakopoiosmou" in product_link):
+            fast_result = await fetch_ofarmakopoiosmou_product(
+                barcode,
+                product_link=product_link,
+                download_images=False,  # defer image download until barcode verified
+                replace_existing_images=replace_existing_images,
+            )
+            # Verify the fetched product actually IS for this barcode. The
+            # stored snapshot may hold a Product_Link that used to point to
+            # a sibling variant (bug that mass-produced 21 items all with
+            # the same "Mad Beauty Stitch Lip Balm" image). We check the
+            # barcode against every place it should surface: Site_Id, URL,
+            # image URLs, and (weakly) the title/link slug. If nothing
+            # matches, discard the result and let the caller fall through
+            # to the Playwright search which does its own explicit match.
+            def _fast_result_matches_barcode(res: Dict[str, Any], bc: str) -> bool:
+                if not res or not bc:
+                    return False
+                site_id = str(res.get("Site_Id", "") or "")
+                if bc in site_id:
+                    return True
+                for field in ("Img_src", "Product_Link"):
+                    if bc in str(res.get(field, "") or ""):
+                        return True
+                for u in (res.get("Img_src_List") or []):
+                    if bc in str(u or ""):
+                        return True
+                return False
+            if fast_result and not _fast_result_matches_barcode(fast_result, barcode):
+                print(f"farmakopoiosmou fast-path rejected for {barcode}: stored product_link points to different SKU ({product_link})")
+                fast_result = None
+            elif fast_result and download_images:
+                # Barcode matched — re-fetch WITH images so the caller gets a
+                # fully-populated record. Cheap: HTML is already cached.
+                fast_result = await fetch_ofarmakopoiosmou_product(
+                    barcode,
+                    product_link=product_link,
+                    download_images=True,
+                    replace_existing_images=replace_existing_images,
+                )
+            if fast_result and fast_result.get("Title") and fast_result.get("Category_1"):
+                print(f"farmakopoiosmou fast-path hit for {barcode} via Anubis")
+                # Fast-path only pulls the short summary from the search-adjacent
+                # JSON; the product page has `field-description` + `field-instructions`
+                # (ΧΡΗΣΗ + ΠΡΟΦΥΛΑΞΕΙΣ) that's ~10× longer. Same enrichment as
+                # the JSON-match path above.
+                fast_result = await _enrich_farmakopoiosmou_with_full_page(
+                    fast_result, str(fast_result.get("Product_Link") or "")
+                )
+                await _set_cache_value(cache_key, fast_result)
+                return fast_result
+            elif fast_result:
+                print(f"farmakopoiosmou fast-path partial for {barcode}; falling back to Playwright")
+    except Exception as exc:
+        print(f"farmakopoiosmou Anubis fast-path error for {barcode}: {exc}")
+
     playwright = browser = context = page = None
     try:
         print(f"Fetching farmakopoiosmou for barcode {barcode}")
@@ -4315,6 +5523,24 @@ async def fetch_from_farmakopoiosmou(
         product_urls: list[str] = []
         search_json = await _fetch_farmakopoiosmou_instant_search_json(barcode)
         if search_json:
+            # Fast path: when the search JSON itself has a result whose sku
+            # equals our barcode, build the product dict directly. Avoids
+            # the Playwright product-page navigation that fails silently
+            # for variant URLs.
+            json_match = _build_farmakopoiosmou_product_from_search_json(search_json, barcode)
+            if json_match:
+                # Enrich the JSON-derived dict by also fetching the actual
+                # product page through the Anubis solver. The page exposes
+                # `field-description` + `field-instructions` (ΧΡΗΣΗ +
+                # ΠΡΟΦΥΛΑΞΕΙΣ) which the search summary truncates to ~150
+                # chars. This is best-effort: solver failure leaves the
+                # JSON-only dict intact so the source still scores a hit.
+                json_match = await _enrich_farmakopoiosmou_with_full_page(
+                    json_match, str(json_match.get("Product_Link") or "")
+                )
+                await _set_cache_value(cache_key, json_match)
+                print(f"farmakopoiosmou hit via search JSON for barcode {barcode}")
+                return json_match
             product_urls.extend(_extract_farmakopoiosmou_candidate_urls_from_search_json(search_json, barcode, limit=12))
             for page_number in _extract_farmakopoiosmou_search_pages(search_json)[:2]:
                 next_page_json = await _fetch_farmakopoiosmou_instant_search_json(barcode, page_number=page_number)
@@ -4407,13 +5633,25 @@ async def fetch_from_farmakopoiosmou(
         else:
             print(f"No product link found for barcode {barcode} on farmakopoiosmou")
 
-        for product_url in product_urls:
+        # Track first family-match: when the search engine surfaces variant
+        # pages whose barcode column matches a sibling SKU instead of ours,
+        # the exact-barcode check rejects all candidates. Keep the first one
+        # as a soft fallback so the scanner doesn't silently miss products
+        # that the site clearly indexes under our barcode.
+        soft_match_url = ""
+        soft_match_html = ""
+        # Hard cap to bound scanner latency: trying every variant page is
+        # wasted work once the first 4 mismatch.
+        for product_url in product_urls[:4]:
             product_html = await _fetch_text_response(product_url, referer=_FARMAKOPOIOSMOU_BASE_URL)
             if not product_html:
                 continue
 
             if not _html_has_exact_barcode(product_html, barcode):
                 print(f"farmakopoiosmou barcode mismatch for {barcode} at {product_url}")
+                if not soft_match_url:
+                    soft_match_url = product_url
+                    soft_match_html = product_html
                 continue
 
             product_data = _extract_product_data_from_farmakopoiosmou_html(product_html, barcode, product_url)
@@ -4421,6 +5659,15 @@ async def fetch_from_farmakopoiosmou(
                 product_data = _strip_source_image_fields(product_data)
                 await _set_cache_value(cache_key, product_data)
                 print(f"farmakopoiosmou hit for barcode {barcode}")
+                return product_data
+
+        if soft_match_url and soft_match_html:
+            product_data = _extract_product_data_from_farmakopoiosmou_html(soft_match_html, barcode, soft_match_url)
+            if product_data.get("Title"):
+                product_data = _strip_source_image_fields(product_data)
+                product_data["match_quality"] = "family_variant"
+                await _set_cache_value(cache_key, product_data)
+                print(f"farmakopoiosmou soft-match (family variant) for {barcode} at {soft_match_url}")
                 return product_data
 
         direct_fallback_url = _FARMAKOPOIOSMOU_DIRECT_FALLBACKS.get(barcode)
@@ -4459,6 +5706,25 @@ async def fetch_from_skroutz(barcode: str) -> Dict[str, Any]:
     if cached is not None:
         print(f"Using cached result for skroutz barcode {barcode}: {bool(cached)}")
         return cached
+
+    # FlareSolverr first — skroutz is heavily protected by Cloudflare
+    # and our Playwright stack hits net::ERR_ABORTED. The product page
+    # URL pattern is /s/<id>/<slug>.html (skroutz aggregates listings).
+    flaresolverr_result = await _fetch_from_flaresolverr_generic(
+        barcode,
+        "skroutz",
+        "https://www.skroutz.gr",
+        search_url_templates=[
+            f"https://www.skroutz.gr/search?keyphrase={{barcode}}",
+        ],
+        product_link_regex=r"skroutz\.gr/s/\d+/[^\s\"']+\.html",
+        image_path_regex=r"https?://[^\s\"']+skroutz\.gr/[^\s\"']+\.(?:jpe?g|png|webp)",
+        download_images=False,
+        replace_existing_images=False,
+    )
+    if flaresolverr_result:
+        await _set_cache_value(cache_key, flaresolverr_result)
+        return flaresolverr_result
 
     playwright = browser = context = page = None
     try:
@@ -4558,6 +5824,59 @@ async def fetch_from_skroutz(barcode: str) -> Dict[str, Any]:
     print(f"skroutz miss for barcode {barcode}")
 
 
+async def fetch_from_google_images(
+    barcode: str,
+    *,
+    download_images: bool = True,
+    replace_existing_images: bool = False,
+    search_terms: list[str] | None = None,
+    **_kwargs: Any,
+) -> Dict[str, Any]:
+    """Image-only source: queries Google Custom Search and downloads top results."""
+    if not download_images:
+        return {}
+    if not is_google_images_configured():
+        return {}
+
+    queries: list[str] = [str(barcode).strip()]
+    for term in search_terms or []:
+        t = str(term).strip()
+        if t and t not in queries:
+            queries.append(t)
+
+    image_urls: list[str] = []
+    for q in queries:
+        candidates = await google_search_image_urls(q, limit=5)
+        for u in candidates:
+            if u not in image_urls:
+                image_urls.append(u)
+        if image_urls:
+            break
+
+    if not image_urls:
+        print(f"google_images: no candidates for barcode {barcode}")
+        return {}
+
+    print(f"google_images candidate urls for {barcode}: {image_urls}")
+    image_local_paths = await _download_image_collection(
+        image_urls,
+        barcode,
+        site_name="google_images",
+        replace_existing=replace_existing_images,
+    )
+    if not image_local_paths:
+        return {}
+
+    return {
+        "Barcode": str(barcode).strip(),
+        "Site": "google_images",
+        "last_source": "google_images",
+        "Img_src": image_urls[0],
+        "Img_src_List": image_urls,
+        "Image_Path_Collection": image_local_paths,
+    }
+
+
 async def _fetch_with_named_chain(
     barcode: str,
     source_chain: list[str],
@@ -4585,6 +5904,8 @@ async def _fetch_with_named_chain(
         "kpdhellas": fetch_from_kpdhellas,
         "vita4you": fetch_from_vita4you,
         "tofarmakeiomou": fetch_from_tofarmakeiomou,
+        "newgenpharmacy": fetch_from_newgenpharmacy,
+        "google_images": fetch_from_google_images,
     }
     forced_sources = {str(source_name).strip().lower() for source_name in (force_source_names or set()) if str(source_name).strip()}
     for source_name in source_chain:

@@ -14,6 +14,13 @@ import ItemsByCategoryPage from '../../modules/items-by-category';
 import CategoriesPage from '../../modules/categories';
 import ClientsPage from '../../modules/clients';
 import CustomerRemarksPage from '../../modules/customer-remarks';
+import MissingBarcodesPage from '../../modules/missing-barcodes';
+import SourceScannerPage from '../../modules/source-scanner';
+import ProductSubmissionsPage from '../../modules/product-submissions';
+import BrandQueuePage from '../../modules/brand-queue';
+import DuplicatesPage from '../../modules/duplicates';
+import AnalyticsPage from '../../modules/analytics';
+import ProductAttributesPage from '../../modules/product-attributes';
 import UsersPage from '../../modules/users';
 import RolesPage from '../../modules/roles';
 import NotificationsPage from '../../modules/notifications';
@@ -136,6 +143,62 @@ export default function AppRoutes() {
                   element={
                     <ModuleAccessRoute moduleKey="customer_remarks">
                       <CustomerRemarksPage />
+                    </ModuleAccessRoute>
+                  }
+                />
+                <Route
+                  path={cmsRoutes.missingBarcodes}
+                  element={
+                    <ModuleAccessRoute moduleKey="missing_barcodes">
+                      <MissingBarcodesPage />
+                    </ModuleAccessRoute>
+                  }
+                />
+                <Route
+                  path={cmsRoutes.sourceScanner}
+                  element={
+                    <ModuleAccessRoute moduleKey="missing_barcodes">
+                      <SourceScannerPage />
+                    </ModuleAccessRoute>
+                  }
+                />
+                <Route
+                  path={cmsRoutes.productSubmissions}
+                  element={
+                    <ModuleAccessRoute moduleKey="missing_barcodes">
+                      <ProductSubmissionsPage />
+                    </ModuleAccessRoute>
+                  }
+                />
+                <Route
+                  path={cmsRoutes.brandQueue}
+                  element={
+                    <ModuleAccessRoute moduleKey="brand_queue">
+                      <BrandQueuePage />
+                    </ModuleAccessRoute>
+                  }
+                />
+                <Route
+                  path={cmsRoutes.duplicates}
+                  element={
+                    <ModuleAccessRoute moduleKey="duplicates">
+                      <DuplicatesPage />
+                    </ModuleAccessRoute>
+                  }
+                />
+                <Route
+                  path={cmsRoutes.analytics}
+                  element={
+                    <ModuleAccessRoute moduleKey="dashboard">
+                      <AnalyticsPage />
+                    </ModuleAccessRoute>
+                  }
+                />
+                <Route
+                  path={cmsRoutes.productAttributes}
+                  element={
+                    <ModuleAccessRoute moduleKey="items">
+                      <ProductAttributesPage />
                     </ModuleAccessRoute>
                   }
                 />

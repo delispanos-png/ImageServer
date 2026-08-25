@@ -58,6 +58,8 @@ def normalize_source_name(*candidates: Any) -> str:
             return "tofarmakeiomou"
         if "pharm16" in combined:
             return "pharm16"
+        if "newgenpharmacy" in combined:
+            return "newgenpharmacy"
         if "skroutz" in combined:
             return "skroutz"
 

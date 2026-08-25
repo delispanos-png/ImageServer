@@ -313,25 +313,52 @@ export default function PortalItemsPage({
               <Table responsive className="table table-striped align-middle mb-0">
                 <thead>
                   <tr>
+                    <th style={{ width: '56px' }}></th>
                     <th>{t('portal.table.title')}</th>
-                    <th>{t('portal.table.code')}</th>
+                    <th>{t('portal.table.brand') || 'Μάρκα'}</th>
                     <th>{t('portal.table.category')}</th>
-                    <th>{t('portal.table.created')}</th>
-                    <th>{t('portal.table.updated')}</th>
+                    <th className="text-nowrap">{t('portal.table.updated')}</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   {items.map((item) => (
                     <tr key={item.id}>
+                      <td style={{ width: '56px' }}>
+                        {item.main_image ? (
+                          <span className="cloudon-portal-thumb">
+                            <img
+                              src={item.main_image}
+                              alt={item.title || ''}
+                              className="cloudon-portal-thumb__image"
+                              onError={(event) => {
+                                (event.currentTarget as HTMLImageElement).style.visibility = 'hidden';
+                              }}
+                            />
+                            <span className="cloudon-portal-thumb__zoom">
+                              <img src={item.main_image} alt="" />
+                            </span>
+                          </span>
+                        ) : (
+                          <div
+                            style={{
+                              width: '44px',
+                              height: '44px',
+                              borderRadius: '6px',
+                              background: '#f0f0f0',
+                            }}
+                          />
+                        )}
+                      </td>
                       <td>
                         <div className="fw-semibold">{item.title || '-'}</div>
-                        <div className="text-muted fs-12">{item.barcode || '-'}</div>
+                        <div className="text-muted fs-12">
+                          {item.barcode || '-'}{item.code ? ` · ${item.code}` : ''}
+                        </div>
                       </td>
-                      <td>{item.code || '-'}</td>
+                      <td>{item.brand || '-'}</td>
                       <td>{itemCategoryLabel(item)}</td>
-                      <td>{formatDate(item.created_at)}</td>
-                      <td>{formatDate(item.updated_at)}</td>
+                      <td className="text-nowrap">{formatDate(item.updated_at)}</td>
                       <td className="text-end">
                         <Link to={`/items/${item.id}`} className="cloudon-portal-view-action">
                           <span>{t('portal.actions.view')}</span>

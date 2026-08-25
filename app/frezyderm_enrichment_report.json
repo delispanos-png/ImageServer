@@ -1,0 +1,1867 @@
+{
+  "stats": {
+    "examined": 647,
+    "barcode_matched": 281,
+    "barcode_missed": 366,
+    "would_activate": 3,
+    "stays_inactive": 2,
+    "modified": 281
+  },
+  "rows": [
+    {
+      "barcode": "5201235656002",
+      "title": "Frezyderm Baby ΠΑΚΕΤΟ με Baby Cream Κρέμα για την Αλλαγή της Πάνας, 175ml, Baby ",
+      "matched": false
+    },
+    {
+      "barcode": "5201235656003",
+      "title": "2 x Frezyderm Baby Cream Προστατευτική & Αδιάβροχη Κρέμα για Αλλαγή Πάνας, 2 x 1",
+      "matched": false
+    },
+    {
+      "barcode": "5203275407924",
+      "title": "Πακέτο Προσφοράς με Frezyderm Sun Screen Velvet Face Cream SPF50+ Αντιηλιακή Κρέ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888295010",
+      "title": "Frezyderm Atoprel Bath Cream Κρεμώδες Καθαριστικό Για Το Ξηρό & Ευαίσθητο Δέρμα,",
+      "matched": true,
+      "name_apply": "ATOPREL BATH CREAM",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888283017",
+      "title": "Frezyderm Homeopathy Mouthwash Στοματικό Διάλυμα Κατάλληλο για Ομοιοπαθητική, 25",
+      "matched": true,
+      "name_apply": "HOMEOPATHY MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΣΤΟΜΑΤΙΚΗΣ ΥΓΙΕΙΝΗΣ ΚΑΙ ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888295003",
+      "title": "Frezyderm Atoprel Barrier Cream Κρέμα Προσώπου & Σώματος για την Ατοπική Δερματί",
+      "matched": true,
+      "name_apply": "ATOPREL BARRIER CREAM",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888283000",
+      "title": "Frezyderm Homeopathy Toothpaste Οδοντόκρεμα Κατάλληλη για Ομοιοπαθητική, 75ml",
+      "matched": true,
+      "name_apply": "HOMEOPATHY TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΣΤΟΜΑΤΙΚΗΣ ΥΓΙΕΙΝΗΣ ΚΑΙ ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282133",
+      "title": "Frezyderm Black & Polish Oxygen Mouthwash Στοματικό Διάλυμα, 250ml",
+      "matched": true,
+      "name_apply": "BLACK &amp; POLISH OXYGEN MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΛΕΥΚΑΝΣΗ ΔΟΝΤΙΩΝ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282102",
+      "title": "Frezyderm Mouthwash Oxygen Pro Στοματικό Διάλυμα Με Ενεργό Οξυγόνο, Βιονεργό Πεπ",
+      "matched": true,
+      "name_apply": "OXYGEΝ PRO MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282096",
+      "title": "Frezyderm Odor Blocker Mouth Spray Στοματικό Σπρέι για την Αντιπετώπιση της Στομ",
+      "matched": true,
+      "name_apply": "ODOR BLOCKER SPRAY",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΓΙΑ ΚΑΚΟΣΜΙΑ ΣΤΟΜΑΤΟΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282089",
+      "title": "Frezyderm Hydroral Xero Mouth Spray Στοματικό Σπρέι για την Αντιμετώπιση της Ξηρ",
+      "matched": true,
+      "name_apply": "HYDRORAL XERO SPRAY",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΚΑΤΑ ΤΗΣ ΞΗΡΟΣΤΟΜΙΑΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282072",
+      "title": "Frezyderm Odor Blocker Mouthwash Στοματικό Διάλυμα για την Κακοσμία του Στόματος",
+      "matched": true,
+      "name_apply": "ODOR BLOCKER MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΓΙΑ ΚΑΚΟΣΜΙΑ ΣΤΟΜΑΤΟΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282065",
+      "title": "Frezyderm Hydroral Xero Mouthwash Στοματικό Διάλυμα για την Αντιμετώπιση της Ξηρ",
+      "matched": true,
+      "name_apply": "HYDRORAL XERO MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΚΑΤΑ ΤΗΣ ΞΗΡΟΣΤΟΜΙΑΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282041",
+      "title": "Frezyderm Chlorhexene Pro Mouthwash Στοματικό Διάλυμα με Ισχυρή Αντιμικροβιακή Δ",
+      "matched": true,
+      "name_apply": "CHLORHEXENE PRO MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΠΕΡΙΟΔΟΝΤΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282027",
+      "title": "Frezyderm Gingivital Mouthwash Στοματικό Διάλυμα για την Αντιμετώπιση της Ουλίτι",
+      "matched": true,
+      "name_apply": "GINGIVITAL MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΟΥΛΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282010",
+      "title": "Frezyderm Periodigum Mouthwash Στοματικό Διάλυμα κατά της Περιοδοντίτιδας, 250ml",
+      "matched": true,
+      "name_apply": "PERIODIGUM MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΠΕΡΙΟΔΟΝΤΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282003",
+      "title": "Frezyderm Sensitive Teeth Mouthwash Στοματικό Διάλυμα για τα Ευαίσθητα Δόντια, 2",
+      "matched": true,
+      "name_apply": "SENSITIVE TEETH MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΣΤΟΜΑΤΙΚΗΣ ΥΓΙΕΙΝΗΣ ΓΙΑ ΕΥΑΙΣΘΗΤΑ ΔΟΝΤΙΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281112",
+      "title": "Frezyderm Black & Polish Toothpaste Οδοντόκρεμα για Λεύκανση με Ενεργό Άνθρακα, ",
+      "matched": true,
+      "name_apply": "BLACK &amp; POLISH TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΛΕΥΚΑΝΣΗ ΔΟΝΤΙΩΝ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281105",
+      "title": "Frezyderm Odor Blocker Toothpaste Οδοντόκρεμα Κατά της Στοματικής Κακοσμίας & τη",
+      "matched": true,
+      "name_apply": "ODOR BLOCKER TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΓΙΑ ΚΑΚΟΣΜΙΑ ΣΤΟΜΑΤΟΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273247",
+      "title": "Frezyderm Face Serum Retinol Ορός Aντιγήρανσης με Ρετινόλη, 30ml",
+      "matched": true,
+      "name_apply": "FACE SERUM RETINOL - Ορός Αντιγήρανσης Προσώπου με Ρετινόλη",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "SERUM ΠΡΟΣΩΠΟΥ",
+      "c3": "FACE SERUM RETINOL - ΟΡΟΣ ΑΝΤΙΓΗΡΑΝΣΗΣ ΠΡΟΣΩΠΟΥ ΜΕ ΡΕΤΙΝΟΛΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273254",
+      "title": "Frezyderm Face Serum Super Skincode 30 ml",
+      "matched": true,
+      "name_apply": "FACE SERUM SUPER SKIN CODE - Αντιρυτιδικός Ορός",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "SERUM ΠΡΟΣΩΠΟΥ",
+      "c3": "FACE SERUM SUPER SKIN CODE - ΑΝΤΙΡΥΤΙΔΙΚΟΣ ΟΡΟΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273261",
+      "title": "Frezyderm Serum Vitamin 5C3 Stable Ορός Λάμψης & Ανανέωσης, 30ml",
+      "matched": true,
+      "name_apply": "FACE SERUM VITAMIN 5C&#179; STABLE - Ορός Λάμψης Προσώπου",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "SERUM ΠΡΟΣΩΠΟΥ",
+      "c3": "FACE SERUM VITAMIN 5C&#179; STABLE - ΟΡΟΣ ΛΑΜΨΗΣ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273278",
+      "title": "Frezyderm Face Serum Wrinkle Plumper 30 ml",
+      "matched": true,
+      "name_apply": "FACE SERUM WRINKLE PLUMPER - Ορός Αντιγήρανσης προσώπου",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "SERUM ΠΡΟΣΩΠΟΥ",
+      "c3": "FACE SERUM WRINKLE PLUMPER - ΟΡΟΣ ΑΝΤΙΓΗΡΑΝΣΗΣ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888278006",
+      "title": "Frezyderm Promo Eye Cream Anti Wrinkle Effect Αντιρυτιδική Κρέμα Ματιών, 15ml & ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888281006",
+      "title": "Frezyderm Instant Whitening Blue Toothpaste Οδοντόκρεμα Άμεσης Λεύκανσης, 75ml",
+      "matched": true,
+      "name_apply": "INSTANT WHITENING BLUE TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΛΕΥΚΑΝΣΗ ΔΟΝΤΙΩΝ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888295027",
+      "title": "Frezyderm Atoprel Foamy Shampoo Ειδικό Σαμπουάν για την Ατοπική Δερματίτιδα, 250",
+      "matched": true,
+      "name_apply": "ATOPREL FOAMY SHAMPOO",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281013",
+      "title": "Frezyderm Whitening Toothpaste Λευκαντική Οδοντόκρεμα, 75ml",
+      "matched": true,
+      "name_apply": "WHITENING TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΛΕΥΚΑΝΣΗ ΔΟΝΤΙΩΝ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281044",
+      "title": "Frezyderm Periodigum Toothpaste Οδοντόκρεμα κατά της Περιοδοντίτιδας, 75ml",
+      "matched": true,
+      "name_apply": "PERIODIGUM TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΠΕΡΙΟΔΟΝΤΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281051",
+      "title": "Frezyderm Pregnancy Toothpaste Οδοντόκρεμα για Χρήση κατά την Εγκυμοσύνη & το Θη",
+      "matched": true,
+      "name_apply": "PREGNANCY TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΣΤΟΜΑΤΙΚΗΣ ΥΓΙΕΙΝΗΣ ΚΑΙ ΕΓΚΥΜΟΣΥΝΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281068",
+      "title": "Frezyderm Gingivital Toothpaste Οδοντόκρεμα για την Αντιμετώπιση της Ουλίτιδας, ",
+      "matched": true,
+      "name_apply": "GINGIVITAL TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΟΥΛΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281075",
+      "title": "Frezyderm Diabeteeth Toothpaste Οδοντόκρεμα για Διαβητικούς, 75ml",
+      "matched": true,
+      "name_apply": "DIABETEETH TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΣΤΟΜΑΤΙΚΗΣ ΥΓΙΕΙΝΗΣ ΚΑΙ ΔΙΑΒΗΤΗΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281082",
+      "title": "Frezyderm Periodigum Chlorhexene Gel Στοματική Γέλη για την Αντιμετώπιση της Περ",
+      "matched": true,
+      "name_apply": "PERIODIGUM CHLORHEXENE GEL",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΠΕΡΙΟΔΟΝΤΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888282034",
+      "title": "Frezyderm Plaque & Tartar Mouthwash Στοματικό Διάλυμα κατά της Πλάκας, 250ml",
+      "matched": true,
+      "name_apply": "PLAQUE &amp; TARTAR MOUTHWASH",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΤΕΡΗΔΟΝΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281099",
+      "title": "Frezyderm Hydroral Xero Toothpaste Οδοντόκρεμα για την Αντιμετώπιση της Ξηροστομ",
+      "matched": true,
+      "name_apply": "HYDRORAL XERO TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΪΟΝΤΑ ΚΑΤΑ ΤΗΣ ΞΗΡΟΣΤΟΜΙΑΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888281037",
+      "title": "Frezyderm Plaque & Tartar Toothpaste Οδοντόκρεμα κατά της Πλάκας, 75ml",
+      "matched": true,
+      "name_apply": "PLAQUE &amp; TARTAR TOOTHPASTE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΠΡΟΣΤΑΣΙΑ ΑΠΟ ΤΗΝ ΤΕΡΗΔΟΝΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888295058",
+      "title": "Frezyderm Atoprel Emollient Mousse Μαλακτικός Αφρός, 200ml",
+      "matched": true,
+      "name_apply": "ATOPREL EMOLLIENT MOUSSE",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400131",
+      "title": "Frezyderm AC-Norm Sun Screen Fluid Tinted SPF50+ Αντιηλιακή Κρέμα Προσώπου με Χρ",
+      "matched": true,
+      "name_apply": "AC-NORM SUN SCREEN FLUID TINTED ΜΑΤ SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ ΜΕ ΧΡΩΜΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400124",
+      "title": "Frezyderm Sun Screen Cream-To-Powder Spf 50+ - Αντηλιακό Προσώπου Με Αίσθηση Πού",
+      "matched": true,
+      "name_apply": "SUN SCREEN CREAM-TO-POWDER SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400117",
+      "title": "Frezyderm Sun Screen Fluid-To-Powder Spf 50+ - Αντηλιακό Προσώπου Με Αίσθηση Πού",
+      "matched": true,
+      "name_apply": "SUN SCREEN FLUID-TO-POWDER SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400100",
+      "title": "Frezyderm Active Sun Screen Tinted Face Cream SPF 50+ Aντηλιακή Kρέμα Προσώπου μ",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN TINTED FACE CREAM SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ ΜΕ ΧΡΩΜΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400094",
+      "title": "Frezyderm Active Sun Screen Face Cream SPF 50+ Aντηλιακή Kρέμα Προσώπου, 50ml",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN FACE CREAM SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400087",
+      "title": "2 x Frezyderm Active Sun Screen Face Cream SPF30 Aντηλιακή Kρέμα Προσώπου, 2 x 5",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN FACE CREAM SPF 30",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400063",
+      "title": "Frezyderm Active Sun Screen Body Make Up SPF 30+ Aντηλιακό Make Up Σώματος, 75ml",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN BODY FOUNDATION SPF 30",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400056",
+      "title": "Frezyderm Active Sun Screen Sensitive Face & Body SPF 50+ Aντηλιακή Kρέμα Ευαίσθ",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN SENSITIVE FACE - BODY SPF 50",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400049",
+      "title": "Frezyderm Active Sun Screen Tinted Face Fluid SPF 50+ Aντηλιακή Kρέμα Προσώπου μ",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN TINTED FACE FLUID SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ ΜΕ ΧΡΩΜΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888295034",
+      "title": "Frezyderm Atoprel Milky Bath Oil Ενυδατικό Λάδι Καθαρισμού, 250ml",
+      "matched": true,
+      "name_apply": "ATOPREL MILKY BATH OIL",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400032",
+      "title": "Frezyderm Active Sun Screen Face Fluid SPF 50+ Aντηλιακή Kρέμα Προσώπου με SPF 5",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN FACE FLUID SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888295201",
+      "title": "Frezyderm Atoprel Emollient Classic Ατοπική Δερματίτιδα Έκζεμα - Κνησμός, 200ml",
+      "matched": true,
+      "name_apply": "ATOPREL EMOLLIENT CLASSIC",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888320095",
+      "title": "Frezyderm Prodilac Start Προβιοτικά για Βρέφη & Παιδιά έως 2 ετών, 30sachets",
+      "matched": false
+    },
+    {
+      "barcode": "5202888320125",
+      "title": "Frezyderm Prodilac Immuno Shield Fast Melt Συμπληρώμα Διατροφής για την Ενίσχυση",
+      "matched": false
+    },
+    {
+      "barcode": "5202888331008",
+      "title": "Frezyderm Cough Syrup Adults Σιρόπι για το Βήχα για Ενήλικες με Γεύση Λεμόνι, Ευ",
+      "matched": true,
+      "name_apply": "COUGH SYRUP ADULTS",
+      "c1": "ΣΙΡΟΠΙΑ ΓΙΑ ΤΟΝ ΒΗΧΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888331015",
+      "title": "Frezyderm Cough Syrup Kids Σιρόπι για το Βήχα για Παιδιά με Γεύση Φράουλα & Μέλι",
+      "matched": true,
+      "name_apply": "COUGH SYRUP KIDS",
+      "c1": "ΣΙΡΟΠΙΑ ΓΙΑ ΤΟΝ ΒΗΧΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888320118",
+      "title": "Frezyderm Prodilac Immuno Shield Start Συμπλήρωμα Διατροφής για την Ενίσχυση του",
+      "matched": false
+    },
+    {
+      "barcode": "5202888295041",
+      "title": "Frezyderm Atoprel Emollient Baume Μαλακτική Κρέμα, 300ml",
+      "matched": true,
+      "name_apply": "ATOPREL EMOLLIENT BAUME",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888331022",
+      "title": "Frezyderm Propolis Oral Spray, 30ml",
+      "matched": true,
+      "name_apply": "FREZYDERM PROPOLIS ORAL SPRAY",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888331559",
+      "title": "Frezyderm VomiFree, 30chew.tabs",
+      "matched": false
+    },
+    {
+      "barcode": "5202888331565",
+      "title": "Frezyderm Meno, 30caps",
+      "matched": true,
+      "name_apply": "MENO",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ ΓΙΑ ΓΥΝΑΙΚΕΣ ΣΕ ΕΜΜΗΝΟΠΑΥΣΗ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888331589",
+      "title": "Frezyderm Vomifree, 30chew.tabs",
+      "matched": true,
+      "name_apply": "VOMI FREE",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ ΓΙΑ ΚΑΤΑΠΟΛΕΜΗΣΗ ΝΑΥΤΙΑΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888331558",
+      "title": "Frezyderm Immuno Defence, 30caps",
+      "matched": true,
+      "name_apply": "IMMUNO",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400018",
+      "title": "Frezyderm Active Sun Screen Lip Balm SPF 50+ Aντηλιακή Προστασία Χειλιών, 15ml",
+      "matched": true,
+      "name_apply": "ACTIVE SUN SCREEN LIP BALM SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888331534",
+      "title": "Frezyderm Hair Force Tabs Oral Συμπλήρωμα Διατροφής για τη Διατήρηση της Φυσιολο",
+      "matched": true,
+      "name_apply": "HAIR FORCE TABS",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΘΕΡΑΠΕΙΑ ΤΡΙΧΟΠΤΩΣΗΣ",
+      "c3": "ΣΥΜΠΛΗΡΩΜΑ ΔΙΑΤΡΟΦΗΣ ΓΙΑ ΜΑΛΛΙΑ, ΝΥΧΙΑ, ΔΕΡΜΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888400025",
+      "title": "Frezyderm Active Ac-Norm Face Sun Screen Fluid SPF 50+ Αντηλιακή Kρέμα Προσώπου ",
+      "matched": true,
+      "name_apply": "AC-NORM SUN SCREEN FLUID ΜΑΤ SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273230",
+      "title": "Frezyderm Face Serum Pure Collagen 30 ml",
+      "matched": true,
+      "name_apply": "FACE SERUM PURE COLLAGEN - Ορός Σύσφιξης Προσώπου με Κολλαγόνο",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "SERUM ΠΡΟΣΩΠΟΥ",
+      "c3": "FACE SERUM PURE COLLAGEN - ΟΡΟΣ ΣΥΣΦΙΞΗΣ ΠΡΟΣΩΠΟΥ ΜΕ ΚΟΛΛΑΓΟΝΟ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273223",
+      "title": "Frezyderm Face Serum Niacinamide 10% 30 ml",
+      "matched": true,
+      "name_apply": "FACE SERUM NIACINAMIDE 10% - Ορός με Νιασιναμίδη",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "SERUM ΠΡΟΣΩΠΟΥ",
+      "c3": "FACE SERUM NIACINAMIDE 10% - ΟΡΟΣ ΜΕ ΝΙΑΣΙΝΑΜΙΔΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273209",
+      "title": "Frezyderm Face Serum Face Tightener 30 ml",
+      "matched": true,
+      "name_apply": "FACE SERUM FACE TIGHTENER - Ορός Σύσφιξης Προσώπου",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "SERUM ΠΡΟΣΩΠΟΥ",
+      "c3": "FACE SERUM FACE TIGHTENER - ΟΡΟΣ ΣΥΣΦΙΞΗΣ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109515",
+      "title": "Frezyderm Sensiteeth Baby Toothbrush Soft Μαλακή Οδοντόβουρτσα για 6-36 Μηνών, 1",
+      "matched": true,
+      "name_apply": "SENSITEETH BABY TOOTHBRUSH SOFT PINK",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΒΡΕΦΗ ΚΑΙ ΠΑΙΔΙΑ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109478",
+      "title": "FrezyDerm Frezylac Gold 3 Βιολογικό Γάλα 2ης Βρεφικής Ηλικίας, 900gr",
+      "matched": true,
+      "name_apply": "FREZYLAC GOLD UPGRADE 3 900gr",
+      "c1": "ΠΑΙΔΙΚΗ &amp; ΒΡΕΦΙΚΗ ΔΙΑΤΡΟΦΗ",
+      "c2": "ΑΓΕΛΑΔΙΝΟ ΒΙΟΛΟΓΙΚΟ ΓΑΛΑ FREZYLAC",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109355",
+      "title": "Frezyderm Organic Chamomile Tea Ρόφημα από Ελληνικό Βιολογικό Χαμομήλι σε Φακελά",
+      "matched": false
+    },
+    {
+      "barcode": "5202888106200",
+      "title": "Frezyderm dMannosa & Cranberry Extract D-Μαννόζη & Εκχύλισμα Κράνμπερι Συμπλήρωμ",
+      "matched": true,
+      "name_apply": "dMANNOSA",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106194",
+      "title": "Frezyderm Intimeo 325mg, 14caps",
+      "matched": true,
+      "name_apply": "INTIMEO&#174;",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ ΓΙΑ ΤΗΝ ΚΟΛΠΙΚΗ ΧΛΩΡΙΔΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106170",
+      "title": "Frezyderm Nazal Cleaner Baby Isotonic Ρινικό Διάλυμα Καθημερινής Υγιεινής Ισότον",
+      "matched": true,
+      "name_apply": "NAZAL CLEANER ΙSOTONIC",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΕΚΝΕΦΩΜΑΤΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106163",
+      "title": "Frezyderm Frezymar Cleaner Medium Diffusion Ρινικό Αποσυμφορητικό Διάλυμα με Μεσ",
+      "matched": true,
+      "name_apply": "FREZYMAR CLEANER HYPERTONIC ALOE &amp; EUCALYPTUS MEDIUM",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΣΠΡΕΙ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106156",
+      "title": "Frezyderm Frezymar Cleaner Isotonic Aloe Soft Ρινικό Διάλυμα, 120ml",
+      "matched": true,
+      "name_apply": "FREZYMAR CLEANER ISOTONIC ALOE SOFT",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΣΠΡΕΙ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106149",
+      "title": "Frezyderm Frezymar Cleaner Hypertonic Strong Υπέρτονο Ρινικό Αποσυμφορητικό με Θ",
+      "matched": true,
+      "name_apply": "FREZYMAR CLEANER HYPERTONIC STRONG",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΣΠΡΕΙ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106125",
+      "title": "Frezyderm Frezymar Cleaner Hypertonic Soft Diffusion Ρινικό Αποσυμφορητικό Διάλυ",
+      "matched": true,
+      "name_apply": "FREZYMAR CLEANER HYPERTONIC SOFT",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΣΠΡΕΙ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106002",
+      "title": "Frezyderm Frezylac Τραχαχανάκης Τραχάνας με Λαχανικά 6m+, 2x165gr",
+      "matched": true,
+      "name_apply": "FREZYLAC ΤΡΑΧΑΧΑΝΑΚΗΣ ΤΡΑΧΑΝΑΣ ΜΕ ΛΑΧΑΝΙΚΑ",
+      "c1": "ΠΑΙΔΙΚΗ &amp; ΒΡΕΦΙΚΗ ΔΙΑΤΡΟΦΗ",
+      "c2": "ΒΙΟΛΟΓΙΚΟΣ ΤΡΑΧΑΝΑΣ ΤΡΑΧΑΧΑΝΑΚΗΣ - FREZYLAC",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888106019",
+      "title": "Frezyderm Frezylac Τραχαχανάκης Τραχάνας με Φρουτα 6m+, 2x165gr",
+      "matched": true,
+      "name_apply": "FREZYLAC ΤΡΑΧΑΧΑΝΑΚΗΣ ΤΡΑΧΑΝΑΣ ΜΕ ΦΡΟΥΤΑ",
+      "c1": "ΠΑΙΔΙΚΗ &amp; ΒΡΕΦΙΚΗ ΔΙΑΤΡΟΦΗ",
+      "c2": "ΒΙΟΛΟΓΙΚΟΣ ΤΡΑΧΑΝΑΣ ΤΡΑΧΑΧΑΝΑΚΗΣ - FREZYLAC",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105999",
+      "title": "Frezyderm Frezylac Τραχαχανάκης Τραχάνας με Γάλα Κατσίκας 6m+, 2x165gr",
+      "matched": true,
+      "name_apply": "FREZYLAC ΤΡΑΧΑΧΑΝΑΚΗΣ ΜΕ ΓΑΛΑ ΚΑΤΣΙΚΑΣ",
+      "c1": "ΠΑΙΔΙΚΗ &amp; ΒΡΕΦΙΚΗ ΔΙΑΤΡΟΦΗ",
+      "c2": "ΒΙΟΛΟΓΙΚΟΣ ΤΡΑΧΑΝΑΣ ΤΡΑΧΑΧΑΝΑΚΗΣ - FREZYLAC",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105494",
+      "title": "Frezyderm Prodilac Kids Προβιοτικά για Παιδιά 2-16 ετών, 30 Μασώμενα Δισκία",
+      "matched": true,
+      "name_apply": "PRODILAC KIDS",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ ΓΙΑ ΤΗΝ ΕΝΤΕΡΙΚΗ ΧΛΩΡΙΔΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105517",
+      "title": "Frezyderm Prodilac Restore Προβιοτικά για Εφήβους & Ενήλικες, 30 caps",
+      "matched": true,
+      "name_apply": "PRODILAC RESTORE",
+      "c1": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ",
+      "c2": "ΣΥΜΠΛΗΡΩΜΑΤΑ ΔΙΑΤΡΟΦΗΣ ΓΙΑ ΤΗΝ ΕΝΤΕΡΙΚΗ ΧΛΩΡΙΔΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109522",
+      "title": "Frezyderm Sensiteeth Baby Toothbrush Soft Μαλακή Οδοντόβουρτσα για 6-36 Μηνών, 1",
+      "matched": true,
+      "name_apply": "SENSITEETH BABY TOOTHBRUSH SOFT LIGHT BLUE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΒΡΕΦΗ ΚΑΙ ΠΑΙΔΙΑ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105982",
+      "title": "Frezyderm Frezylac Τραχαχανάκης Τραχάνας με Γάλα Αγελάδας 6m+, 2x165gr",
+      "matched": true,
+      "name_apply": "FREZYLAC ΤΡΑΧΑΧΑΝΑΚΗΣ ΜΕ ΓΑΛΑ ΑΓΕΛΑΔΑΣ",
+      "c1": "ΠΑΙΔΙΚΗ &amp; ΒΡΕΦΙΚΗ ΔΙΑΤΡΟΦΗ",
+      "c2": "ΒΙΟΛΟΓΙΚΟΣ ΤΡΑΧΑΝΑΣ ΤΡΑΧΑΧΑΝΑΚΗΣ - FREZYLAC",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109539",
+      "title": "Frezyderm Sensiteeth Junior Toothbrush Soft Μαλακή Οδοντόβουρτσα για 3-6 Ετών, 1",
+      "matched": true,
+      "name_apply": "SENSITEETH JUNIOR TOOTHBRUSH SOFT RED",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΒΡΕΦΗ ΚΑΙ ΠΑΙΔΙΑ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222429",
+      "title": "Frezyderm Kids Suncare SPF50+ Παιδικό Αντηλιακό Γαλάκτωμα για Πρόσωπο & Σώμα, 17",
+      "matched": true,
+      "name_apply": "KIDS SUN CARE SPF 50+",
+      "c1": "ΠΑΙΔΙΚΗ ΠΕΡΙΠΟΙΗΣΗ",
+      "c2": "ΠΑΙΔΙΚΑ ΑΝΤΗΛΙΑΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109553",
+      "title": "Frezyderm Sensiteeth Kids Toothbrush Soft Μαλακή Οδοντόβουρτσα για 7+ Eτών,1τεμ ",
+      "matched": true,
+      "name_apply": "SENSITEETH KIDS TOOTHBRUSH SOFT PURPLE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΒΡΕΦΗ ΚΑΙ ΠΑΙΔΙΑ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222412",
+      "title": "Frezyderm Sun Screen Mousse SPF30 Αντηλιακό Προσώπου & Σώματος σε Μορφή Αφρού, 2",
+      "matched": true,
+      "name_apply": "SUN SCREEN MOUSSE SPF 30",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222405",
+      "title": "Frezyderm Sun Screen Invisible SPF50+ Αντηλιακό Διάφανο Spray Προσώπου & Σώματος",
+      "matched": false
+    },
+    {
+      "barcode": "5202888222399",
+      "title": "3 x Frezyderm Sun Screen Color Velvet Face Cream SPF30 Αντηλιακό Προσώπου με Χρώ",
+      "matched": true,
+      "name_apply": "SUN SCREEN COLOR VELVET FACE SPF 30",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ ΜΕ ΧΡΩΜΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222382",
+      "title": "Frezyderm Water Color Mist Αυτομαυριστικό για Ομοιόμορφο Φυσικό Bronze Χρώμα στη",
+      "matched": true,
+      "name_apply": "BRONZE WATER COLOR MIST",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΥΤΟΜΑΥΡΙΣΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222375",
+      "title": "Frezyderm Sun Screen Velvet Face Cream SPF50+ Αντηλιακή Κρέμα Προσώπου, 50ml & F",
+      "matched": true,
+      "name_apply": "SEA SIDE DRY MIST SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222368",
+      "title": "Frezyderm Anti Thermal Water Mist Καταπραϋντικό Ενυδατικό Νερό με Αντιθερμική Δρ",
+      "matched": true,
+      "name_apply": "ANTI-THERMAL SPRING SEA WATER MIST",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΣΠΡΕΙ ΝΕΡΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222351",
+      "title": "3 x Frezyderm Sun Screen Color Velvet Face Cream SPF50+ Αντηλιακή Κρέμα Προσώπου",
+      "matched": true,
+      "name_apply": "SUN SCREEN COLOR VELVET FACE SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ ΜΕ ΧΡΩΜΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222313",
+      "title": "Frezyderm ΠΑΚΕΤΟ με Sun Screen Colour Velvet Face Cream SPF50+ Αντηλιακή Κρέμα Π",
+      "matched": true,
+      "name_apply": "SUN SCREEN VELVET BODY LOTION SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222306",
+      "title": "3 x Frezyderm Sun Screen Velvet Face Cream SPF30 Αντηλιακή Κρέμα Προσώπου, 3 x 5",
+      "matched": true,
+      "name_apply": "SUN SCREEN VELVET FACE SPF 30",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222290",
+      "title": "3 x Frezyderm Sun Screen Velvet Face Cream SPF50+ Αντηλιακή Κρέμα Προσώπου, 3 x ",
+      "matched": true,
+      "name_apply": "SUN SCREEN VELVET FACE SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221279",
+      "title": "Frezyderm Kids Sun Care Wet Skin Spray SPF50+ Παιδικό Αντιηλιακό Spray που Ψεκάζ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888222283",
+      "title": "Frezyderm Self Tan Body Shape Αυτομαυριστικό Γαλάκτωμα με Συσφικτική Δράση, 150m",
+      "matched": true,
+      "name_apply": "SELF TAN BODY SHAPE",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΥΤΟΜΑΥΡΙΣΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221255",
+      "title": "Frezyderm Baby Bath Απαλό Βρεφικό Αφρόλουτρο, 300ml",
+      "matched": true,
+      "name_apply": "BABY BATH",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΑΦΡΟΛΟΥΤΡΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221262",
+      "title": "Frezyderm Summer Pack με Baby Sun Care Βρεφικό Αντηλιακό Γαλάκτωμα Προσώπου & Σώ",
+      "matched": true,
+      "name_apply": "BABY SUN CARE SPF 25",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΑΝΤΗΛΙΑΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221248",
+      "title": "Frezyderm Baby Shampoo Απαλό Βρεφικό Σαμπουάν, 300ml",
+      "matched": true,
+      "name_apply": "BABY SHAMPOO",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΣΑΜΠΟΥΑΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109560",
+      "title": "Frezyderm Sensiteeth Kids Toothbrush Soft Μαλακή Οδοντόβουρτσα για 7+ Eτών,1τεμ ",
+      "matched": true,
+      "name_apply": "SENSITEETH KIDS TOOTHBRUSH SOFT ORANGE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΒΡΕΦΗ ΚΑΙ ΠΑΙΔΙΑ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221231",
+      "title": "Frezyderm Colic Relief Massage Gel Τζελ Μασάζ για την Ανακούφιση από τους Κολικο",
+      "matched": false
+    },
+    {
+      "barcode": "5202888109577",
+      "title": "Frezyderm Toothbrush Extra Soft Πολύ Μαλακή Οδοντόβουρτσα για Ενήλικες, 1τεμ - L",
+      "matched": true,
+      "name_apply": "FREZYDERM TOOTHBRUSH EXTRA SOFT LIGHT BLUE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΣΤΕΣ ΓΙΑ ΕΝΗΛΙΚΕΣ | FREZYDERM",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109584",
+      "title": "Frezyderm Toothbrush Extra Soft Πολύ Μαλακή Οδοντόβουρτσα για Ενήλικες, 1τεμ - P",
+      "matched": true,
+      "name_apply": "FREZYDERM TOOTHBRUSH EXTRA SOFT PURPLE",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΣΤΕΣ ΓΙΑ ΕΝΗΛΙΚΕΣ | FREZYDERM",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109591",
+      "title": "Frezyderm Toothbrush Soft Mαλακή Οδοντόβουρτσα για Ενήλικες, 1τεμ - GREEN",
+      "matched": true,
+      "name_apply": "FREZYDERM TOOTHBRUSH SOFT GREEN",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΣΤΕΣ ΓΙΑ ΕΝΗΛΙΚΕΣ | FREZYDERM",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109607",
+      "title": "Frezyderm Toothbrush Soft Mαλακή Οδοντόβουρτσα για Ενήλικες, 1τεμ - Burgundy",
+      "matched": true,
+      "name_apply": "FREZYDERM TOOTHBRUSH EXPERIENCE ACTIVE CARBON SOFT",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΕΝΗΛΙΚΕΣ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΣΤΕΣ ΓΙΑ ΕΝΗΛΙΚΕΣ | FREZYDERM",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109614",
+      "title": "Frezyderm Toothbrush Experience Active Carbon Soft Μαλακή Οδοντόβουρτσα με Ίνες ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888109546",
+      "title": "Frezyderm Sensiteeth Junior Toothbrush Soft Μαλακή Οδοντόβουρτσα για 3-6 Ετών, 1",
+      "matched": true,
+      "name_apply": "SENSITEETH JUNIOR TOOTHBRUSH SOFT GREEN",
+      "c1": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c2": "ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ ΓΙΑ ΒΡΕΦΗ ΚΑΙ ΠΑΙΔΙΑ",
+      "c3": "ΟΔΟΝΤΟΒΟΥΡΤΣΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109621",
+      "title": "Frezyderm Frezylac The Snack Organic Corn Hearts Βιολογικές Καρδίες Καλαμποκιού,",
+      "matched": true,
+      "name_apply": "FREZYLAC THE SNACK- Βιολογικές καρδιές καλαμποκιού",
+      "c1": "ΠΑΙΔΙΚΗ &amp; ΒΡΕΦΙΚΗ ΔΙΑΤΡΟΦΗ",
+      "c2": "ΒΙΟΛΟΓΙΚΑ ΣΝΑΚ FREZYLAC",
+      "c3": "FREZYLAC THE SNACK- ΒΙΟΛΟΓΙΚΕΣ ΚΑΡΔΙΕΣ ΚΑΛΑΜΠΟΚΙΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888111006",
+      "title": "Frezyderm Macrogol Adults (3350) Σκόνη για Συμπτωματική Θεραπεία Δυσκοιλιότητας,",
+      "matched": true,
+      "name_apply": "MACROGOL ADULTS 3350",
+      "c1": "ΔΥΣΚΟΙΛΙΟΤΗΤΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221187",
+      "title": "3 x Frezyderm Baby Cream Προστατευτική & Αδιάβροχη Κρέμα για Αλλαγή Πάνας, 3 x 1",
+      "matched": true,
+      "name_apply": "BABY CREAM",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΓΙΑ ΣΥΓΚΑΜΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221200",
+      "title": "Frezyderm First Aid Butter Gel που Αντιμετωπίζει Χτυπήματα, Εκχυμώσεις & Μώλωπες",
+      "matched": true,
+      "name_apply": "FIRST AID BUTTER",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΚΑΛΛΥΝΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221217",
+      "title": "Frezyderm Reform Abdomen Care Body Cream Συσφικτική Κρέμα Σώματος, 150ml",
+      "matched": false
+    },
+    {
+      "barcode": "5202888221224",
+      "title": "Frezyderm AC-Norm Baby Απαλή Κρέμα για τη Νεογνική, Βρεφική & Παιδική Ακμή, 40ml",
+      "matched": true,
+      "name_apply": "AC-NORM BABY CREAM",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΚΑΛΛΥΝΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888109638",
+      "title": "FrezyDerm Frezylac The Snack Organic Corn Salted Caramel Βιολογικές Καρδιές Καλα",
+      "matched": true,
+      "name_apply": "FREZYLAC THE SNACK Βιολογικές καρδιές καλαμποκιού με αλατισμένη καραμέλα",
+      "c1": "ΠΑΙΔΙΚΗ &amp; ΒΡΕΦΙΚΗ ΔΙΑΤΡΟΦΗ",
+      "c2": "ΒΙΟΛΟΓΙΚΑ ΣΝΑΚ FREZYLAC",
+      "c3": "FREZYLAC THE SNACK ΒΙΟΛΟΓΙΚΕΣ ΚΑΡΔΙΕΣ ΚΑΛΑΜΠΟΚΙΟΥ ΜΕ ΑΛΑΤΙΣΜΕΝΗ ΚΑΡΑΜΕΛΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222436",
+      "title": "Frezyderm Kids Sun + Nip SPF50+ Παιδικό Αντιηλιακό Γαλάκτωμα για Πρόσωπο & Σώμα ",
+      "matched": true,
+      "name_apply": "KIDS SUN + NIP SPF 50+",
+      "c1": "ΠΑΙΔΙΚΗ ΠΕΡΙΠΟΙΗΣΗ",
+      "c2": "ΠΑΙΔΙΚΑ ΑΝΤΗΛΙΑΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888221170",
+      "title": "Frezyderm Baby Pack με Baby Cream Κρέμα Αλλαγή Πάνας 175ml, Baby Bath Βρεφικό Αφ",
+      "matched": true,
+      "name_apply": "BABY GUMS GEL",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΗ ΣΤΟΜΑΤΙΚΗ ΥΓΙΕΙΝΗ",
+      "c3": "ΤΖΕΛ ΓΙΑ ΟΥΛΑ &amp; ΔΟΝΤΙΑ ΒΡΕΦΟΥΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105173",
+      "title": "Frezyderm Every Day Shampoo Απαλό Σαμπουάν για Καθημερινή Χρήση, 200ml",
+      "matched": true,
+      "name_apply": "EVERY DAY USE SHAMPOO",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΚΑΝΟΝΙΚΑ ΜΑΛΛΙΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888101090",
+      "title": "Frezyderm Baby Hydra Milk Ενυδατικό Βρεφικό Γαλάκτωμα, 200ml",
+      "matched": false
+    },
+    {
+      "barcode": "5202888101076",
+      "title": "Frezyderm Baby Cream Προστατευτική & Αδιάβροχη Κρέμα για Αλλαγή Πάνας, 50ml",
+      "matched": true,
+      "name_apply": "BABY CREAM",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΓΙΑ ΣΥΓΚΑΜΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888101106",
+      "title": "Frezyderm Baby Liquid Talc Κρέμα Talc για Χρήση κατά την Αλλαγή Πάνας, 150ml",
+      "matched": true,
+      "name_apply": "BABY LIQUID TALC",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΚΑΛΛΥΝΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888101069",
+      "title": "Frezyderm Baby ΠΑΚΕΤΟ με 2 x Baby Cream Απαλή, Προστατευτική & Αδιάβροχη Κρέμα γ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888100123",
+      "title": "Frezyderm Mild Wash Foam Απαλός Αφρός Καθαρισμού για Πρόσωπο & Σώμα, 150ml",
+      "matched": true,
+      "name_apply": "MILD WASH FOAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΑΘΑΡΙΣΜΟΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΚΑΘΑΡΙΣΤΙΚΑ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888100093",
+      "title": "Frezyderm Intim Area Foam pH4 Απαλός Αφρός Καθαρισμού της Ευαίσθητης Περιοχής κα",
+      "matched": false
+    },
+    {
+      "barcode": "5202888010989",
+      "title": "Frezyderm Crilen Πακέτο Εντομοαπωθητικής Προστασίας με Ενυδατικό Εντομοαπωθητικό",
+      "matched": true,
+      "name_apply": "CRILEN ΓΑΛΑΚΤΩΜΑ",
+      "c1": "ΠΡΟΣΤΑΣΙΑ ΚΑΙ ΑΝΑΚΟΥΦΙΣΗ ΑΠΟ ΤΣΙΜΠΗΜΑΤΑ ΕΝΤΟΜΩΝ",
+      "c2": "ΕΝΥΔΑΤΩΣΗ ΚΑΙ ΠΡΟΣΤΑΣΙΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888010026",
+      "title": "Frezyderm Skin Cleanser Καθαριστικό Προσώπου, Χεριών & Σώματος, 125 ml",
+      "matched": true,
+      "name_apply": "SKIN CLEANSER",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΑΘΑΡΙΣΜΟΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΚΑΘΑΡΙΣΤΙΚΑ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888010996",
+      "title": "Frezyderm Crilen Πακέτο Εντομοαπωθητικής Προστασίας με Ενυδατικό Εντομοαπωθητικό",
+      "matched": true,
+      "name_apply": "CRILEN ΓΑΛΑΚΤΩΜΑ",
+      "c1": "ΠΡΟΣΤΑΣΙΑ ΚΑΙ ΑΝΑΚΟΥΦΙΣΗ ΑΠΟ ΤΣΙΜΠΗΜΑΤΑ ΕΝΤΟΜΩΝ",
+      "c2": "ΕΝΥΔΑΤΩΣΗ ΚΑΙ ΠΡΟΣΤΑΣΙΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888101113",
+      "title": "Frezyderm Baby ΠΑΚΕΤΟ με 2 x Baby Cream Απαλή, Προστατευτική & Αδιάβροχη Κρέμα γ",
+      "matched": true,
+      "name_apply": "BABY OIL",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΚΑΛΛΥΝΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888101120",
+      "title": "Frezyderm Baby ΠΑΚΕΤΟ με Baby Chamomile Bath Διάλυμα για τον Καθαρισμό του Ερεθι",
+      "matched": true,
+      "name_apply": "BABY CHAMOMILE BATH",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΚΑΛΛΥΝΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105142",
+      "title": "Frezyderm Color Protect Shampoo Σαμπουάν για Βαμμένα Μαλλιά, 200ml",
+      "matched": true,
+      "name_apply": "COLOR PROTECT SHAMPOO",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΒΑΜΜΕΝΑ ΜΑΛΛΙΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105128",
+      "title": "Frezyderm Seb Excess Shampoo Απαλό Σαμπουάν που Ρυθμίζει & Εξισορροπεί τη Λιπαρό",
+      "matched": true,
+      "name_apply": "SEB EXCESS SHAMPOO",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΛΙΠΑΡΑ ΜΑΛΛΙΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105098",
+      "title": "Frezyderm Sebum Control Lotion Λοσιόν Μαλλιών για την Σμηγματορροϊκή Δερματίτιδα",
+      "matched": true,
+      "name_apply": "SEBUM CONTROL LOTION",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΛΟΣΙΟΝ ΜΑΛΛΙΩΝ ΣΕ ΜΟΡΦΗ ΣΠΡΕΙ",
+      "c3": "ΛΟΣΙΟΝ ΜΑΛΛΙΩΝ ΓΙΑ ΤΗΝ ΣΜΗΓΜΑΤΟΡΡΟΪΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105081",
+      "title": "Frezyderm Sebum Control Shampoo Σαμπουάν κατά της Σμηγματορροϊκή Δερματίτιδα & τ",
+      "matched": true,
+      "name_apply": "SEBUM CONTROL SHAMPOO",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΣΜΗΓΜΑΤΟΡΡΟΪΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105067",
+      "title": "Frezyderm Mediated Shampoo Σαμπουάν κατά της Ξηρής Πιτυρίδας, 200ml",
+      "matched": true,
+      "name_apply": "MEDIATED SHAMPOO",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΤΗΝ ΠΙΤΥΡΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105050",
+      "title": "Frezyderm Antidandruff Shampoo Σαμπουάν κατά της Λιπαρής Πιτυρίδας, 200ml",
+      "matched": true,
+      "name_apply": "ANTIDANDRUFF SHAMPOO",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΤΗΝ ΠΙΤΥΡΙΔΑ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105043",
+      "title": "Frezyderm Hair Force Πακέτο κατά της Γυναικείας Τριχόπτωσης με Σαμπουάν, 200ml &",
+      "matched": true,
+      "name_apply": "HAIR FORCE MASK",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΜΑΣΚΕΣ ΜΑΛΛΙΩΝ",
+      "c3": "ΜΑΣΚΕΣ ΜΑΛΛΙΩΝ ΓΙΑ ΤΡΙΧΟΠΤΩΣΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105036",
+      "title": "Frezyderm Hair Force Lotion Extra Λοσιόν για την Πρόληψη & Αντιμετώπιση της Τριχ",
+      "matched": true,
+      "name_apply": "HAIR FORCE LOTION EXTRA",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΛΟΣΙΟΝ ΜΑΛΛΙΩΝ ΣΕ ΜΟΡΦΗ ΣΠΡΕΙ",
+      "c3": "ΛΟΣΙΟΝ ΓΙΑ ΤΡΙΧΟΠΤΩΣΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105029",
+      "title": "Frezyderm Hair Force Monodoses Day / Night Ειδική Αγωγή κατά της Τριχόπτωσης για",
+      "matched": true,
+      "name_apply": "HAIR FORCE MONODOSES DAY / NIGHT",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΘΕΡΑΠΕΙΑ ΤΡΙΧΟΠΤΩΣΗΣ",
+      "c3": "ΛΟΣΙΟΝ ΚΑΙ AΜΠΟΥΛΕΣ TΡΙΧΟΠΤΩΣΗΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105012",
+      "title": "Frezyderm Hair Force Shampoo Women Σαμπουάν για την Γυναικεία Τριχόπτωση, 200ml",
+      "matched": true,
+      "name_apply": "HAIR FORCE SHAMPOO WOMEN",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΤΡΙΧΟΠΤΩΣΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888105005",
+      "title": "Frezyderm Hair Force Shampoo Men Τριχοτονωτικό Σαμπουάν για την Ανδρική Τριχόπτω",
+      "matched": true,
+      "name_apply": "HAIR FORCE SHAMPOO MEN",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+      "c2": "ΣΑΜΠΟΥΑΝ",
+      "c3": "ΣΑΜΠΟΥΑΝ ΓΙΑ ΤΡΙΧΟΠΤΩΣΗ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102936",
+      "title": "Frezyderm Anticort Cream Κρέμα Στεροειδούς Δράσης Χωρίς Κορτιζόνη, 50ml",
+      "matched": true,
+      "name_apply": "ANTICORT CREAM",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102875",
+      "title": "Frezyderm Frezyfeet Heavy Legs Kρέμα για Βαριά, Κουρασμένα & Πρησμένα Πόδια, 125",
+      "matched": true,
+      "name_apply": "FREZYFEET HEAVY LEGS",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102868",
+      "title": "Frezyderm Frezyfeet Diaped Cream Εξειδικευμένη Κρέμα για την Περιποίηση & Προστα",
+      "matched": true,
+      "name_apply": "FREZYFEET DIAPED CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102851",
+      "title": "Frezyderm Frezyfeet Revital Θρεπτική Αναπλαστική Κρέμα για τα Πόδια, 75ml",
+      "matched": true,
+      "name_apply": "FREZYFEET REVITAL CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102844",
+      "title": "Frezyderm Frezyfeet Keractive Cream Απολεπιστική Κρέμα Πόδιων για Σκληρύνσεις & ",
+      "matched": true,
+      "name_apply": "FREZYFEET KERACTIVE CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102837",
+      "title": "Frezyderm Frezyfeet Odor Stop Spray Αποσμητικό Ποδιών, 150ml",
+      "matched": true,
+      "name_apply": "FREZYFEET ODOR STOP SPRAY",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΠΕΡΙΠΟΙΗΣΗ ΠΟΔΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888101151",
+      "title": "Frezyderm Baby Abcc Λάδι για Νινίδα, 50ml",
+      "matched": true,
+      "name_apply": "BABY A.B.C.C.",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΚΑΛΛΥΝΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888101144",
+      "title": "Frezyderm Baby Foam Αφρός Καθαρισμού για Βρέφη, 150ml",
+      "matched": true,
+      "name_apply": "BABY FOAM",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΑΦΡΟΛΟΥΤΡΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102127",
+      "title": "Frezyderm Reconstria Cream Κρέμα Αντιμετώπισης Ραγάδων, 75ml",
+      "matched": false
+    },
+    {
+      "barcode": "5202888102219",
+      "title": "Frezyderm Crilen Πακέτο Εντομοαπωθητικής Προστασίας με Mousse Αφρός για Προστασί",
+      "matched": true,
+      "name_apply": "CRILEN MOUSSE",
+      "c1": "ΠΡΟΣΤΑΣΙΑ ΚΑΙ ΑΝΑΚΟΥΦΙΣΗ ΑΠΟ ΤΣΙΜΠΗΜΑΤΑ ΕΝΤΟΜΩΝ",
+      "c2": "ΕΝΥΔΑΤΩΣΗ ΚΑΙ ΠΡΟΣΤΑΣΙΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102141",
+      "title": "Frezyderm Nipple Care Μαλακτική Κρέμα για τις Θηλές, 40ml",
+      "matched": false
+    },
+    {
+      "barcode": "5202888102356",
+      "title": "2x Frezyderm Crilen After Nip Ανακούφιση Ερεθισμένου Δέρματος από Τσιμπήματα Εντ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888101137",
+      "title": "Frezyderm Baby ΠΑΚΕΤΟ με Baby Cream Κρέμα για την Αλλαγή της Πάνας, 175ml, Baby ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888102424",
+      "title": "Frezyderm Spot-End Day Cream SPF15 Kρέμα Προσώπου για Πανάδες, 50ml",
+      "matched": true,
+      "name_apply": "SPOT END DAY CREAM SPF 15",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΠΑΝΑΔΕΣ &amp; ΛΕΥΚΑΝΣΗ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102226",
+      "title": "2 x Frezyderm After Sun Mousse Ενυδατικός Αφρός Προσώπου & Σώματος για μετά τον ",
+      "matched": true,
+      "name_apply": "AFTER SUN MOUSSE",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "AFTER SUN",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102455",
+      "title": "Frezyderm Spot-End Night Cream Κρέμα Νύχτας για Πανάδες Προσώπου, 50ml",
+      "matched": true,
+      "name_apply": "SPOT END NIGHT CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΠΑΝΑΔΕΣ &amp; ΛΕΥΚΑΝΣΗ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102462",
+      "title": "Frezyderm Spot-End Corrective Κρέμα για Πανάδες, 30ml",
+      "matched": true,
+      "name_apply": "SPOT END CORRECTIVE",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΠΑΝΑΔΕΣ &amp; ΛΕΥΚΑΝΣΗ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102516",
+      "title": "Frezyderm Sun Screen Spray-Anti-Seb SPF 30 Αντηλιακό Γαλάκτωμα Προσώπου & Σώματο",
+      "matched": true,
+      "name_apply": "SUN SCREEN ANTI-SEB SPRAY SPF 30",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102790",
+      "title": "Frezyderm Dermofilia Hand Cream Προστατευτική Κρέμα Χεριών, 75ml",
+      "matched": true,
+      "name_apply": "DERMOFILIA BARRIER HAND CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΚΡΕΜΕΣ ΧΕΡΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102806",
+      "title": "Frezyderm Baby Cologne Βρεφική Κολόνια, 150ml",
+      "matched": true,
+      "name_apply": "BABY COLOGNE",
+      "c1": "ΦΡΟΝΤΙΔΑ ΜΩΡΟΥ",
+      "c2": "ΒΡΕΦΙΚΑ ΚΑΛΛΥΝΤΙΚΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102592",
+      "title": "Frezyderm Sunsreen Tan Accelerator SPF10 Αντιηλιακό Γαλάκτωμα Προσώπου & Σώματος",
+      "matched": true,
+      "name_apply": "SUN SCREEN TAN ACCELERATOR SPF 10",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888102431",
+      "title": "Frezyderm Spot End Essence Active Gel Τζελ κατά των Πανάδων, 50ml",
+      "matched": true,
+      "name_apply": "SPOT END ESSENCE ACTIVE GEL",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΠΑΝΑΔΕΣ &amp; ΛΕΥΚΑΝΣΗ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222443",
+      "title": "Frezyderm Sun Screen On The Move SPF50 Αντηλιακό Σπρέι Προσώπου, 75ml",
+      "matched": true,
+      "name_apply": "SUN SCREEN ON THE MOVE SPF 50",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΠΡΟΣΩΠΟΥ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271090",
+      "title": "Frezyderm Christialen Emulsion Ενυδατικό Γαλάκτωμα Σώματος, 100 ml",
+      "matched": true,
+      "name_apply": "CHRISTIALEN EMULSION",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΓΑΛΑΚΤΩΜΑΤΑ ΚΑΙ ΛΑΔΙ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888222467",
+      "title": "Frezyderm Sun Screen Mousse SPF50+ Αντηλιακό Προσώπου & Σώματος, 200ml",
+      "matched": true,
+      "name_apply": "SUN SCREEN MOUSSE SPF 50+",
+      "c1": "ΑΝΤΗΛΙΑΚΑ",
+      "c2": "ΑΝΤΗΛΙΑΚΑ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271083",
+      "title": "Frezyderm Volpaderm AHA Milk Γαλάκτωμα για Ενυδάτωση & Απολέπιση Σώματος, 200 ml",
+      "matched": true,
+      "name_apply": "VOLPADERM AHA MILK",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΓΑΛΑΚΤΩΜΑΤΑ ΚΑΙ ΛΑΔΙ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271076",
+      "title": "Frezyderm Volpaderm AHA Cream Κρέμα Απολέπισης & Ενυδάτωσης Προσώπου, 50ml",
+      "matched": true,
+      "name_apply": "VOLPADERM AHA CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΕΝΥΔΑΤΙΚΕΣ ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271069",
+      "title": "Frezyderm Eye Balm Κρέμα Ματιών για Μαύρους Κύκλους και Σακούλες, 15ml",
+      "matched": true,
+      "name_apply": "EYE BALM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΤΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271045",
+      "title": "Frezyderm Anti-Ageing Night Pack με Revitalizing Serum Αντιγηραντικός Ορός Προσώ",
+      "matched": true,
+      "name_apply": "ANTI-WRINKLE RICH NIGHT CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΑΝΤΙΓΗΡΑΝΤΙΚΕΣ ΚΡΕΜΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271052",
+      "title": "Frezyderm Anti Wrinkle Eye Cream Αντιρυτιδική Κρέμα Ματιών, 15ml",
+      "matched": true,
+      "name_apply": "EYE CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΤΙΩΝ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271038",
+      "title": "Frezyderm Anti Ageing Day Pack με Revitalizing Serum Αντιγηραντικός Ορός Προσώπο",
+      "matched": true,
+      "name_apply": "ANTI-WRINKLE RICH DAY CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΑΝΤΙΓΗΡΑΝΤΙΚΕΣ ΚΡΕΜΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271021",
+      "title": "Frezyderm Moisturizing Rich Cream 45+ Ενυδατική Κρέμα Προσώπου για Ξηρό Δέρμα, 5",
+      "matched": true,
+      "name_apply": "MOISTURIZING RICH CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΕΝΥΔΑΤΙΚΕΣ ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271014",
+      "title": "Frezyderm Hydration Pack με Sun Screen Velvet Face Cream SPF30 Αντηλιακή Κρέμα Π",
+      "matched": true,
+      "name_apply": "MOISTURIZING PLUS CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΕΝΥΔΑΤΙΚΕΣ ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271007",
+      "title": "Frezyderm Hydration Pack με Sun Screen Velvet Face Cream SPF30 Αντηλιακή Κρέμα Π",
+      "matched": true,
+      "name_apply": "MOISTURIZING 24H CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΕΝΥΔΑΤΙΚΕΣ ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888263033",
+      "title": "Frezyderm PS.T. Second Skin Cream Step 4 Κρέμα για Ψωρίαση που Προστατεύει & Βελ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888263064",
+      "title": "Frezyderm PS.T. Flakes Balance Cream Step 3 Κρέμα Ανακούφισης των Συμπτωμάτων Ψω",
+      "matched": true,
+      "name_apply": "PS.T. FLAKES BALANCE CREAM STEP 3",
+      "c1": "ΕΞΕΙΔΙΚΕΥΜΕΝΗ ΦΡΟΝΤΙΔΑ",
+      "c2": "ΨΩΡΙΑΣΗ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888263002",
+      "title": "Frezyderm PS.T. Cleanser Step 1 Καθαριστικό Προσώπου & Σώματος για Δέρμα με Ψωρί",
+      "matched": false
+    },
+    {
+      "barcode": "5202888263019",
+      "title": "Frezyderm Ps.T. Keratolytic Cream Step 2 Κρέμα για Ψωρίαση που Απομακρύνει τα Νε",
+      "matched": false
+    },
+    {
+      "barcode": "5202888262531",
+      "title": "Frezyderm Seaweed Hydrogel Care PatchΜάσκα Υδρογέλης Προσώπου για Αντιρυτιδική Π",
+      "matched": false
+    },
+    {
+      "barcode": "5202888262517",
+      "title": "Frezyderm Eye Area Hydrogel Bright Patch Μάσκα/Επιθέματα Ματιών για τους Μαύρους",
+      "matched": true,
+      "name_apply": "EYE AREA HYDROGEL HYDROGEL BRIGHT PATCH",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΜΑΣΚΕΣ ΠΡΟΣΩΠΟΥ &amp; EYE PATCHES",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888262005",
+      "title": "Frezyderm Rinopure Αποστειρωμένος Φυσιολογικός Ορός σε Αμπούλες για την Ρινική Υ",
+      "matched": false
+    },
+    {
+      "barcode": "5202888261008",
+      "title": "Frezyderm Frezykeld Cream Απαλή Κρέμα Αντιμετώπισης Ουλών, 40ml",
+      "matched": true,
+      "name_apply": "FREZYKELD CREAM",
+      "c1": "ΕΞΕΙΔΙΚΕΥΜΕΝΗ ΦΡΟΝΤΙΔΑ",
+      "c2": "ΚΡΕΜΕΣ ΑΝΑΠΛΑΣΗΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261015",
+      "title": "Frezyderm Proflamine Cream Κρέμα για την Ανάπλαση της Επιδερμίδας, 40ml",
+      "matched": true,
+      "name_apply": "PROFLAMINE CREAM",
+      "c1": "ΕΞΕΙΔΙΚΕΥΜΕΝΗ ΦΡΟΝΤΙΔΑ",
+      "c2": "ΚΡΕΜΕΣ ΑΝΑΠΛΑΣΗΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261039",
+      "title": "Frezyderm Sooth Balm Cream Κρέμα για Κνησμώδεις Καταστάσεις, 175ml",
+      "matched": true,
+      "name_apply": "SOOTH BALM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΓΑΛΑΚΤΩΜΑΤΑ ΚΑΙ ΛΑΔΙ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261046",
+      "title": "Frezyderm Nasal Ointment Άνυδρη Ρινική Αλοιφή για Αντιμετώπιση Ερεθισμών & Ενίσχ",
+      "matched": true,
+      "name_apply": "NASAL OINTMENT",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΗ ΑΛΟΙΦΗ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261084",
+      "title": "Frezyderm Holistic Calendula Cream Κρέμα Καλέντουλας Προσώπου & Σώματος για Ενυδ",
+      "matched": true,
+      "name_apply": "CALENDULA CREAM",
+      "c1": "ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "c2": "ΠΡΟΪΟΝΤΑ ΟΛΙΣΤΙΚΗΣ ΦΡΟΝΤΙΔΑΣ ΓΙΑ ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261091",
+      "title": "Frezyderm Anticort Ointment Αλοιφή Εναλλακτικής Στεροειδούς Δράσης, 50ml",
+      "matched": true,
+      "name_apply": "ANTICORT OINTMENT",
+      "c1": "ΕΚΖΕΜΑ ΚΑΙ ΑΤΟΠΙΚΗ ΔΕΡΜΑΤΙΤΙΔΑ",
+      "c2": "",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271106",
+      "title": "Frezyderm Christialen Emulsion Ενυδατικό Γαλάκτωμα Σώματος, 200 ml",
+      "matched": false
+    },
+    {
+      "barcode": "5202888261145",
+      "title": "Frezyderm Nazal Cleaner Sinus Protect για Ανακούφιση από Ιγμορίτιδα & Ωτίτιδα Υπ",
+      "matched": true,
+      "name_apply": "NAZAL CLEANER SINUS PROTECT (0,9% NaCl)",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΕΚΝΕΦΩΜΑΤΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261176",
+      "title": "Frezyderm Nazal Cleaner Allergy (0,9% NaCl) Ρινικό Εκνέφωμα για την Ανακούφιση Σ",
+      "matched": true,
+      "name_apply": "NAZAL CLEANER ALLERGY (0,9% NaCl)",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΕΚΝΕΦΩΜΑΤΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261169",
+      "title": "Frezyderm Nazal Cleaner Homeo για Ανακούφιση από το Κρυολόγημα Συμβατό με Ομοιοπ",
+      "matched": true,
+      "name_apply": "NAZAL CLEANER HOMEO (2,2% NaCl)",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΕΚΝΕΦΩΜΑΤΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261183",
+      "title": "Frezyderm Nazal Cleaner Moist για Ανακούφιση από Ξηρότητα της Ρινικής Κοιλότητας",
+      "matched": true,
+      "name_apply": "NAZAL CLEANER MOIST (0,9% NaCl)",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΕΚΝΕΦΩΜΑΤΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261190",
+      "title": "Frezyderm Nazal Cleaner Cold Spicy για Ανακούφιση από το Έντονο Κρυολόγημα Yπέρτ",
+      "matched": true,
+      "name_apply": "NAZAL CLEANER COLD SPICY (2,2% NaCl)",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΕΚΝΕΦΩΜΑΤΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261213",
+      "title": "Frezyderm Holistic Arnica Cream Κρέμα με Άρνικα Ολιστικής Φροντίδας, 100ml",
+      "matched": true,
+      "name_apply": "ARNICA CREAM",
+      "c1": "ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "c2": "ΠΡΟΪΟΝΤΑ ΟΛΙΣΤΙΚΗΣ ΦΡΟΝΤΙΔΑΣ ΓΙΑ ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261237",
+      "title": "Frezyderm Holistic Hypericum Cream Κρέμα με Βάλσαμο για Πρόσωπο & Σώμα για Μείωσ",
+      "matched": true,
+      "name_apply": "HYPERICUM CREAM",
+      "c1": "ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "c2": "ΠΡΟΪΟΝΤΑ ΟΛΙΣΤΙΚΗΣ ΦΡΟΝΤΙΔΑΣ ΓΙΑ ΟΜΟΙΟΠΑΘΗΤΙΚΗ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888261152",
+      "title": "Frezyderm Nazal Cleaner Cold για Ανακούφιση από το Κρυολόγημα Yπέρτονο Αλατούχο ",
+      "matched": true,
+      "name_apply": "NAZAL CLEANER COLD (2,2% NaCl)",
+      "c1": "ΑΠΟΣΥΜΦΟΡΗΤΙΚΑ ΜΥΤΗΣ",
+      "c2": "ΡΙΝΙΚΑ ΕΚΝΕΦΩΜΑΤΑ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888238017",
+      "title": "Frezyderm Colic Relief Massage Gel Άνυδρη Γέλη Ανακούφισης Βρεφικής Κοιλιακής Πε",
+      "matched": false
+    },
+    {
+      "barcode": "5202888271113",
+      "title": "Frezyderm Revitalizing Serum Ορός Αντιγήρανσης & Αναζωογόνησης Προσώπου, 30ml",
+      "matched": true,
+      "name_apply": "REVITALIZING SERUM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΠΡΟΣΩΠΟΥ",
+      "c2": "ΚΡΕΜΕΣ ΠΡΟΣΩΠΟΥ",
+      "c3": "ΑΝΤΙΓΗΡΑΝΤΙΚΕΣ ΚΡΕΜΕΣ",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888271137",
+      "title": "Frezyderm Anti-Ageing Body Cream Αντιγηραντική Ενυδατική Κρέμα Σώματος, 200ml",
+      "matched": true,
+      "name_apply": "ANTI-AGEING BODY CREAM",
+      "c1": "ΠΕΡΙΠΟΙΗΣΗ ΣΩΜΑΤΟΣ",
+      "c2": "ΓΑΛΑΚΤΩΜΑΤΑ ΚΑΙ ΛΑΔΙ ΣΩΜΑΤΟΣ",
+      "c3": "",
+      "result_status": "active"
+    },
+    {
+      "barcode": "5202888273131",
+      "title": "Frezyderm Super Booster για την Μείωση των Σημείων Γήρανσης, 5ml",
+      "matched": false
+    }
+  ]
+}

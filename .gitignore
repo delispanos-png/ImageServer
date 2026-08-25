@@ -1,6 +1,17 @@
 # Environment and secrets
 .env
 .env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+credentials.json
+secrets.json
+secret_*
+*_secret.*
+api_keys.txt
+*.credentials
 
 # Python cache
 __pycache__/

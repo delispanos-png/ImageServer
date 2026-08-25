@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import html
 import json
 import os
@@ -41,6 +42,12 @@ from source_locks import MANUAL_UPLOAD_LOCK_SOURCE, MANUAL_UPLOAD_PROCESSING_VER
 
 IMAGE_FILES_BASE_DIR = "/app/images"
 IMAGE_PUBLIC_BASE_URL = os.getenv("IMAGE_PUBLIC_BASE_URL", "https://image.cloudon.gr/photos").rstrip("/")
+
+from cloudflare_purge import (
+    barcode_position_urls as _cf_position_urls,
+    barcode_all_positions_urls as _cf_all_positions_urls,
+    purge_urls as _cf_purge_urls,
+)
 CATALOG_REFRESH_REQUEST_PATH = Path(os.getenv("CATALOG_REFRESH_REQUEST_PATH", "/app/catalog_refresh_request.json"))
 CATALOG_REFRESH_SOURCE_KEY = "catalog_refresh"
 CATALOG_REFRESH_JOB_KEY = "bulk_refresh"
@@ -639,14 +646,191 @@ def _normalize_category_path(parts: List[str]) -> List[str]:
     return normalized[:3]
 
 
+_LATIN_SLUG_PATTERN = re.compile(r"^[a-z0-9][a-z0-9\-_\s]*$", re.IGNORECASE)
+_GREEK_CHAR_RE = re.compile(r"[Α-Ωα-ωΆ-Ώά-ώ]")
+
+
+async def _fetch_best_merged_source_doc(
+    barcode: str,
+    search_terms: List[str],
+) -> Tuple[Dict[str, Any], Dict[str, str]]:
+    """Run all enabled sources in parallel and merge the best field from each.
+
+    Phase 1: text-only parallel fetch from every enabled text source (cheap, no image bytes).
+    Phase 2: image fetch from the priority image chain (sequential, stops at first success).
+
+    Returns (merged_doc, field_attribution_map).
+    """
+    from skroutzFetch import fetch_product_with_custom_source_priority
+    from runtime_settings import (
+        get_enabled_text_source_chain,
+        get_enabled_image_source_chain,
+    )
+
+    text_sources = get_enabled_text_source_chain() or []
+
+    async def _fetch_text_only(source_key: str):
+        try:
+            doc = await asyncio.wait_for(
+                fetch_product_with_custom_source_priority(
+                    barcode,
+                    text_source_chain=[source_key],
+                    image_source_chain=[source_key],
+                    force_source_names={source_key},
+                    download_images=False,
+                    search_terms=search_terms,
+                ),
+                timeout=12.0,
+            )
+            return source_key, doc
+        except asyncio.TimeoutError:
+            return source_key, None
+        except Exception as exc:
+            print(f"⚠️ best-merge text fetch {source_key} failed: {exc}")
+            return source_key, None
+
+    if not text_sources:
+        text_results = []
+    else:
+        text_results = await asyncio.gather(*[_fetch_text_only(s) for s in text_sources])
+
+    valid = [(s, d) for s, d in text_results if d]
+
+    merged: Dict[str, Any] = {"Barcode": str(barcode).strip()}
+    attribution: Dict[str, str] = {}
+
+    if valid:
+        def _pick_longest(field: str, prefer_greek: bool = False) -> None:
+            best_value = ""
+            best_src = ""
+            for src, doc in valid:
+                value = str(doc.get(field) or "").strip()
+                if not value:
+                    continue
+                if prefer_greek:
+                    has_greek_now = bool(_GREEK_CHAR_RE.search(value))
+                    has_greek_best = bool(_GREEK_CHAR_RE.search(best_value))
+                    if has_greek_now and not has_greek_best:
+                        best_value, best_src = value, src
+                        continue
+                    if has_greek_best and not has_greek_now:
+                        continue
+                if len(value) > len(best_value):
+                    best_value, best_src = value, src
+            if best_value:
+                merged[field] = best_value
+                attribution[field] = best_src
+
+        _pick_longest("Title")
+        _pick_longest("Brand")
+        _pick_longest("Weight")
+        _pick_longest("Sml_Title", prefer_greek=True)
+        _pick_longest("Description", prefer_greek=True)
+
+        # Categories: longest path that passes Greek/slug filter
+        best_cat_path: List[str] = []
+        best_cat_src = ""
+        for src, doc in valid:
+            path = _extract_source_category_path(doc)
+            if len(path) > len(best_cat_path):
+                best_cat_path = path
+                best_cat_src = src
+        if best_cat_path:
+            merged["Category_1"] = best_cat_path[0] if len(best_cat_path) > 0 else ""
+            merged["Category_2"] = best_cat_path[1] if len(best_cat_path) > 1 else ""
+            merged["Category_3"] = best_cat_path[2] if len(best_cat_path) > 2 else ""
+            merged["Categ"] = best_cat_path[-1]
+            attribution["Category"] = best_cat_src
+
+        # Product link from same source that won Title
+        title_src = attribution.get("Title")
+        if title_src:
+            for src, doc in valid:
+                if src == title_src and doc.get("Product_Link"):
+                    merged["Product_Link"] = doc["Product_Link"]
+                    break
+
+    # Phase 2: sequential image fetch (priority order, first hit wins)
+    image_sources = get_enabled_image_source_chain() or []
+    for image_src in image_sources:
+        try:
+            img_doc = await asyncio.wait_for(
+                fetch_product_with_custom_source_priority(
+                    barcode,
+                    text_source_chain=[image_src],
+                    image_source_chain=[image_src],
+                    force_source_names={image_src},
+                    download_images=True,
+                    search_terms=search_terms,
+                ),
+                timeout=20.0,
+            )
+        except (asyncio.TimeoutError, Exception) as exc:
+            print(f"⚠️ best-merge image fetch {image_src} failed: {exc}")
+            continue
+        if not img_doc:
+            continue
+        paths = img_doc.get("Image_Path_Collection")
+        if isinstance(paths, str):
+            paths = [paths]
+        if paths:
+            merged["Image_Path_Collection"] = paths
+            if img_doc.get("Img_src"):
+                merged["Img_src"] = img_doc["Img_src"]
+            if img_doc.get("Img_src_List"):
+                merged["Img_src_List"] = img_doc["Img_src_List"]
+            attribution["Image"] = image_src
+            break
+
+    # If no useful field was captured from any source, return empty so the caller
+    # can fall back to stored data instead of producing an "unknown" record.
+    has_useful_field = any(
+        merged.get(key) for key in ("Title", "Description", "Sml_Title", "Brand",
+                                     "Category_1", "Image_Path_Collection", "Img_src")
+    )
+    if not has_useful_field:
+        return {}, {}
+
+    if not merged.get("Site"):
+        merged["Site"] = (
+            attribution.get("Description")
+            or attribution.get("Title")
+            or attribution.get("Image")
+            or (valid[0][0] if valid else "")
+        )
+    merged["last_source"] = merged.get("Site", "")
+
+    return merged, attribution
+
+
 def _extract_source_category_path(source_doc: Dict[str, Any]) -> List[str]:
-    return _normalize_category_path(
+    path = _normalize_category_path(
         [
             source_doc.get("Category_1", ""),
             source_doc.get("Category_2", ""),
             source_doc.get("Category_3", ""),
         ]
     )
+    if path:
+        return path
+    raw = str(source_doc.get("Categ", "")).strip()
+    if not raw:
+        return []
+    # Skip Latin-only slugs (e.g. "gynaika") - those are URL slugs, not real category names
+    if _LATIN_SLUG_PATTERN.match(raw) and not re.search(r"/|›|»|>", raw):
+        return []
+    fragments = [
+        fragment.strip()
+        for fragment in re.split(r"/|›|»|>|\\|->|→", raw)
+        if fragment.strip()
+    ]
+    if not fragments:
+        return []
+    # Only emit a path if at least one fragment contains non-Latin (Greek) characters
+    has_greek = any(re.search(r"[Α-Ωα-ωΆ-Ώά-ώ]", fragment) for fragment in fragments)
+    if not has_greek:
+        return []
+    return _normalize_category_path(fragments)
 
 
 def _extract_barcode_lookup_category_path(barcode: str) -> List[str]:
@@ -679,14 +863,20 @@ def _resolve_refresh_category_path(
     source_doc: Dict[str, Any],
 ) -> Tuple[List[str], str]:
     barcode_lookup_path = _extract_barcode_lookup_category_path(barcode)
+    existing_category_path = _extract_existing_category_path(existing)
+
     if barcode_lookup_path:
         return barcode_lookup_path, "barcode_lookup"
 
     source_category_path = _extract_source_category_path(source_doc)
     if source_category_path:
+        # If the source returns a path that's SHORTER than what we already
+        # have (1 level vs 2+), prefer the existing data — the source result
+        # is probably a stale 404 or nav-leak.
+        if existing_category_path and len(source_category_path) < len(existing_category_path):
+            return existing_category_path, "existing"
         return source_category_path, "source"
 
-    existing_category_path = _extract_existing_category_path(existing)
     if existing_category_path:
         return existing_category_path, "existing"
 
@@ -875,7 +1065,17 @@ async def _write_manual_uploaded_images(
     barcode: str,
     uploads: List[UploadFile],
     replace_existing: bool,
+    replace_position: Optional[int] = None,
 ) -> List[Path]:
+    """Write manually-uploaded images to the barcode folder.
+
+    Modes (mutually exclusive; replace_existing wins over replace_position):
+    - replace_existing=True: wipe folder, save uploads starting at 1.
+    - replace_position=N: overwrite ONLY position N (delete any existing
+      N.<ext>, save first upload as N.<new_ext>). Extra uploads (if user
+      picked multiple files) are appended after the current max index.
+    - default: append all uploads after current max index.
+    """
     barcode = normalize_barcode(barcode)
     if not barcode:
         raise HTTPException(status_code=422, detail="Barcode is required before uploading hosted images")
@@ -889,11 +1089,48 @@ async def _write_manual_uploaded_images(
             except FileNotFoundError:
                 pass
         existing_paths = []
+        replace_position = None  # replace_existing takes precedence
 
     image_dir = ensure_barcode_image_dir(IMAGE_FILES_BASE_DIR, barcode)
-    next_index = len(existing_paths) + 1
     written_paths: List[Path] = []
 
+    if replace_position is not None and replace_position >= 1 and uploads:
+        # Overwrite the specific position: delete any file that currently
+        # occupies it (regardless of extension), then write the first upload
+        # with the new extension.
+        for candidate in list(existing_paths):
+            stem = candidate.stem
+            try:
+                if int(stem) == replace_position and candidate.exists() and candidate.is_file():
+                    candidate.unlink()
+            except ValueError:
+                continue
+        first_upload = uploads[0]
+        extension = _manual_upload_extension(first_upload)
+        target_path = image_dir / f"{replace_position}{extension}"
+        contents = await first_upload.read()
+        if not contents:
+            raise HTTPException(status_code=422, detail=f"Uploaded file {first_upload.filename or replace_position} is empty")
+        target_path.write_bytes(contents)
+        written_paths.append(target_path)
+        # Any extra uploads → append after current max
+        remaining_uploads = uploads[1:]
+        if remaining_uploads:
+            existing_after = resolve_local_image_paths(IMAGE_FILES_BASE_DIR, barcode)
+            next_index = _next_available_image_index(existing_after)
+            for upload in remaining_uploads:
+                ext = _manual_upload_extension(upload)
+                path = image_dir / f"{next_index}{ext}"
+                data = await upload.read()
+                if not data:
+                    raise HTTPException(status_code=422, detail=f"Uploaded file {upload.filename or next_index} is empty")
+                path.write_bytes(data)
+                written_paths.append(path)
+                next_index += 1
+        return written_paths
+
+    # Default: append after highest existing index
+    next_index = _next_available_image_index(existing_paths)
     for upload in uploads:
         extension = _manual_upload_extension(upload)
         target_path = image_dir / f"{next_index}{extension}"
@@ -905,6 +1142,94 @@ async def _write_manual_uploaded_images(
         next_index += 1
 
     return written_paths
+
+
+def _next_available_image_index(existing_paths: List[Path]) -> int:
+    """Return the smallest positive int not occupied by an N.<ext> file.
+
+    Handles gaps: if only 1.png and 3.jpg exist, the next slot is 2.
+    Falls back to len+1 when everything is contiguous.
+    """
+    used = set()
+    for p in existing_paths:
+        try:
+            used.add(int(p.stem))
+        except ValueError:
+            continue
+    i = 1
+    while i in used:
+        i += 1
+    return i
+
+
+def _renumber_barcode_images(barcode: str) -> List[Path]:
+    """Rename files in a barcode folder so numbering is contiguous 1..N.
+
+    Preserves relative order (sorted by current integer stem). Uses a
+    two-phase rename via a `.rename-tmp-` prefix to avoid collisions when
+    two files would swap slots. Returns the final path list.
+    """
+    barcode = normalize_barcode(barcode)
+    if not barcode:
+        return []
+    image_dir = barcode_image_dir(IMAGE_FILES_BASE_DIR, barcode)
+    if not image_dir.exists():
+        return []
+    numbered: List[tuple] = []
+    for p in image_dir.iterdir():
+        if not p.is_file():
+            continue
+        try:
+            numbered.append((int(p.stem), p))
+        except ValueError:
+            continue
+    numbered.sort(key=lambda t: t[0])
+    # Skip work if already contiguous 1..N
+    if all(idx == want for want, (idx, _) in enumerate(numbered, start=1)):
+        return [p for _, p in numbered]
+    # Two-phase rename
+    tmp_paths: List[tuple] = []
+    for want, (_, p) in enumerate(numbered, start=1):
+        tmp = p.with_name(f".rename-tmp-{want}{p.suffix}")
+        p.rename(tmp)
+        tmp_paths.append((want, tmp, p.suffix))
+    final_paths: List[Path] = []
+    for want, tmp, suffix in tmp_paths:
+        final = image_dir / f"{want}{suffix}"
+        tmp.rename(final)
+        final_paths.append(final)
+    return final_paths
+
+
+def _swap_barcode_image_positions(barcode: str, position_a: int, position_b: int) -> None:
+    """Swap the two files at position_a and position_b (regardless of ext)."""
+    barcode = normalize_barcode(barcode)
+    if not barcode or position_a == position_b:
+        return
+    image_dir = barcode_image_dir(IMAGE_FILES_BASE_DIR, barcode)
+    if not image_dir.exists():
+        return
+    file_a = None
+    file_b = None
+    for p in image_dir.iterdir():
+        if not p.is_file():
+            continue
+        try:
+            idx = int(p.stem)
+        except ValueError:
+            continue
+        if idx == position_a:
+            file_a = p
+        elif idx == position_b:
+            file_b = p
+    if not file_a or not file_b:
+        return
+    tmp_a = file_a.with_name(f".rename-tmp-a{file_a.suffix}")
+    tmp_b = file_b.with_name(f".rename-tmp-b{file_b.suffix}")
+    file_a.rename(tmp_a)
+    file_b.rename(tmp_b)
+    tmp_a.rename(image_dir / f"{position_b}{file_a.suffix}")
+    tmp_b.rename(image_dir / f"{position_a}{file_b.suffix}")
 
 
 async def _write_manual_image_from_remote_url(
@@ -1078,6 +1403,7 @@ def _build_source_refresh_document(
     text_source_name: str = "",
     category_source_name: str = "",
     category_resolution_source: str = "",
+    fresh_hosted_image: bool = False,
 ) -> Dict[str, Any]:
     merged = dict(existing)
 
@@ -1142,6 +1468,13 @@ def _build_source_refresh_document(
     if category_resolution_source:
         merged["category_resolution_source"] = category_resolution_source
 
+    if fresh_hosted_image:
+        # The freshly fetched image from the source replaces any stale watermark-cleaned one.
+        merged["watermark_cleanup_applied"] = False
+        source_version = str(source_doc.get("image_processing_version", "") or "").strip()
+        merged["image_processing_version"] = source_version or "cms_refresh_v1"
+        merged["image_reprocessed_at"] = _utcnow()
+
     return merged
 
 
@@ -1178,6 +1511,7 @@ async def _build_source_refresh_preview(
         existing.get("cms_brand") or existing.get("Brand") or "",
     )
 
+    field_attribution: Dict[str, str] = {}
     if selection["force_source_names"]:
         source_doc = await fetch_product_with_custom_source_priority(
             barcode,
@@ -1189,14 +1523,21 @@ async def _build_source_refresh_preview(
             force_source_names=selection["force_source_names"],
         )
     else:
-        source_doc = await fetch_product_with_source_priority(
-            barcode,
-            download_images=True,
-            replace_existing_images=True,
-            search_terms=search_terms,
+        # Auto mode: run all sources in parallel and merge best fields
+        source_doc, field_attribution = await _fetch_best_merged_source_doc(
+            barcode, search_terms
         )
 
     if not source_doc:
+        if selection["force_source_names"]:
+            chosen = ", ".join(sorted(selection["force_source_names"]))
+            raise HTTPException(
+                status_code=404,
+                detail=(
+                    f"Η επιλεγμένη πηγή ({chosen}) δεν επέστρεψε δεδομένα για το barcode {barcode}. "
+                    "Δοκίμασε άλλη πηγή ή άσε σε Αυτόματο."
+                ),
+            )
         source_doc = _build_manual_refresh_stored_fallback(existing, barcode)
     if not source_doc:
         raise HTTPException(status_code=404, detail=f"No source data found for barcode {barcode}")
@@ -1217,6 +1558,38 @@ async def _build_source_refresh_preview(
         existing=existing,
         source_doc=category_source_doc,
     )
+
+    # Auto-fallback: if user didn't pick a specific category source AND the primary
+    # source returned NO category path at all, try ONE fast fallback (vita4you).
+    # We only fallback on empty (not partial) to keep refresh latency bounded — Cloudflare
+    # times out at 100s. If you need a guaranteed deep category, pick vita4you explicitly
+    # in the "Πηγή Κατηγοριών" dropdown.
+    if not selection["category_source_key"] and not resolved_category_path:
+        primary_site = str(source_doc.get("Site", "")).strip().lower()
+        if primary_site != "vita4you":
+            try:
+                fallback_doc = await asyncio.wait_for(
+                    fetch_product_with_custom_source_priority(
+                        barcode,
+                        download_images=False,
+                        replace_existing_images=False,
+                        search_terms=search_terms,
+                        text_source_chain=["vita4you"],
+                        force_source_names={"vita4you"},
+                    ),
+                    timeout=12.0,
+                )
+            except asyncio.TimeoutError:
+                fallback_doc = None
+            except Exception as exc:
+                print(f"⚠️ Category fallback (vita4you) failed for {barcode}: {exc}")
+                fallback_doc = None
+            if fallback_doc:
+                fallback_path = _extract_source_category_path(fallback_doc)
+                if fallback_path:
+                    category_source_doc = fallback_doc
+                    resolved_category_path = fallback_path
+                    category_resolution_source = "fallback:vita4you"
     category_doc = await _ensure_cms_category_path(db, resolved_category_path, updated_by or "system:source_refresh")
     category_id = str(category_doc["_id"]) if category_doc else ""
 
@@ -1258,9 +1631,28 @@ async def _build_source_refresh_preview(
         text_source_name=text_source_name,
         category_source_name=category_source_name,
         category_resolution_source=category_resolution_source,
+        fresh_hosted_image=has_fresh_hosted_image_set,
     )
     category_lookup = await _load_category_lookup(db)
     refreshed_item = _map_product_to_cms_item(refreshed_document, category_lookup)
+
+    existing_category_path = _extract_existing_category_path(existing)
+    category_improved = (
+        len(resolved_category_path) > len(existing_category_path)
+        or (len(resolved_category_path) == len(existing_category_path)
+            and resolved_category_path != existing_category_path
+            and category_resolution_source in {"barcode_lookup", "source", "fallback:vita4you"})
+    )
+    image_improved = has_fresh_hosted_image_set
+    existing_title = str(existing.get("cms_title") or existing.get("Title") or "").strip()
+    existing_desc = str(existing.get("cms_description") or existing.get("cms_description_html") or existing.get("Description") or "").strip()
+    new_title = str(source_doc.get("Title", "") or "").strip()
+    new_desc = str(source_doc.get("Description", "") or "").strip()
+    text_improved = bool(
+        (new_title and new_title != existing_title)
+        or (new_desc and len(new_desc) > len(existing_desc))
+    )
+    any_improvement = category_improved or image_improved or text_improved
 
     return {
         "selection": selection,
@@ -1275,6 +1667,12 @@ async def _build_source_refresh_preview(
         "category_source_name": category_source_name,
         "category_resolution_source": category_resolution_source,
         "resolved_category_path": resolved_category_path,
+        "existing_category_path": existing_category_path,
+        "category_improved": category_improved,
+        "image_improved": image_improved,
+        "text_improved": text_improved,
+        "any_improvement": any_improvement,
+        "field_attribution": field_attribution,
         "raw_source_images": len(raw_source_image_urls),
         "filtered_source_images": len(source_image_urls),
         "fresh_hosted_images": len(hosted_image_urls),
@@ -1760,24 +2158,37 @@ def create_cms_catalog_router(db) -> APIRouter:
                 reviewed_by=current_user.get("email", ""),
             )
         )
-        result = await db.products.insert_one(document)
+        # Barcode_unique partial index στο products δεν επιτρέπει διπλά. Αν
+        # υπάρχει ήδη το barcode, κάνουμε update αντί για insert (διατηρώντας
+        # _id + created metadata) — άλλη συμπεριφορά θα πετούσε DuplicateKeyError.
+        existing = await db.products.find_one({"Barcode": document["Barcode"]})
+        if existing:
+            preserved = {k: existing[k] for k in ("_id", "created_at", "cms_created_by", "cms_created_at") if k in existing}
+            updates = {k: v for k, v in document.items() if v not in (None, "", [], {}) and k not in preserved}
+            await db.products.update_one({"_id": existing["_id"]}, {"$set": updates})
+            inserted_id = existing["_id"]
+            change_type = "updated_via_create"
+        else:
+            result = await db.products.insert_one(document)
+            inserted_id = result.inserted_id
+            change_type = "created"
         await _insert_item_change(
             db,
-            item_id=str(result.inserted_id),
-            change_type="created",
+            item_id=str(inserted_id),
+            change_type=change_type,
             field_name="*",
             old_value=None,
             new_value={"title": payload.title.strip(), "barcode": payload.barcode.strip()},
             changed_by=current_user.get("email", ""),
         )
-        created = await db.products.find_one({"_id": result.inserted_id})
+        created = await db.products.find_one({"_id": inserted_id})
         category_lookup = await _load_category_lookup(db)
         created_item = _map_product_to_cms_item(created, category_lookup)
         await log_cms_audit_event(
             db,
             action="create_item",
             entity_type="item",
-            entity_id=str(result.inserted_id),
+            entity_id=str(inserted_id),
             user=current_user,
             metadata={
                 "title": created_item["title"],
@@ -1869,11 +2280,105 @@ def create_cms_catalog_router(db) -> APIRouter:
                 "product_link": refresh_preview["product_link"],
                 "category_resolution_source": refresh_preview["category_resolution_source"],
                 "resolved_category_path": refresh_preview["resolved_category_path"],
+                "existing_category_path": refresh_preview.get("existing_category_path", []),
+                "category_improved": refresh_preview.get("category_improved", False),
+                "image_improved": refresh_preview.get("image_improved", False),
+                "text_improved": refresh_preview.get("text_improved", False),
+                "any_improvement": refresh_preview.get("any_improvement", False),
+                "field_attribution": refresh_preview.get("field_attribution", {}),
                 "raw_source_images": refresh_preview["raw_source_images"],
                 "filtered_source_images": refresh_preview["filtered_source_images"],
                 "fresh_hosted_images": refresh_preview["fresh_hosted_images"],
                 "has_fresh_hosted_image_set": refresh_preview["has_fresh_hosted_image_set"],
                 "item": refreshed_item,
+            },
+        }
+
+    @router.post(
+        "/items/approve-review-queue-bulk",
+        dependencies=[Depends(require_cms_permissions("items.update"))],
+    )
+    async def approve_review_queue_bulk(
+        current_user: Dict[str, Any] = Depends(get_current_cms_user),
+    ) -> Dict[str, Any]:
+        """Auto-accept every item currently in the review queue that passes
+        the catalog quality check. Items that still have missing requirements
+        (image / description / category) are left in place — the operator
+        needs to fix those individually.
+
+        Uses the same `manual_review_approved=True` path as the single-item
+        endpoint, so any downstream side-effect (audit events, cms_status
+        transitions, activated_at bookkeeping) is identical."""
+        # Review queue = anything the pipeline flagged for human review.
+        # Include both catalog_review_required (the flag) and the
+        # ready_for_review state so ad-hoc admin fixes don't slip through.
+        review_query = {
+            "$or": [
+                {"catalog_review_required": True},
+                {"catalog_quality_state": "ready_for_review"},
+            ],
+        }
+        approved = 0
+        skipped_missing = 0
+        errors = 0
+        now = _utcnow()
+        actor_email = str(current_user.get("email", "")).strip()
+        # Chunk-scan to avoid holding a giant cursor open.
+        cursor = db.products.find(review_query)
+        async for existing in cursor:
+            try:
+                quality = evaluate_catalog_quality(existing)
+                if quality["missing_requirements"]:
+                    skipped_missing += 1
+                    continue
+                updates: Dict[str, Any] = {
+                    "cms_updated_by": actor_email,
+                    "cms_updated_at": now,
+                }
+                candidate = dict(existing)
+                candidate.update(updates)
+                updates.update(
+                    build_catalog_quality_updates(
+                        candidate,
+                        evaluator="cms:bulk_approve_review",
+                        manual_review_approved=True,
+                        reviewed_by=actor_email,
+                    )
+                )
+                previous_status = str(existing.get("cms_status") or "inactive").strip() or "inactive"
+                await db.products.update_one({"_id": existing["_id"]}, {"$set": updates})
+                if previous_status != "active":
+                    await _insert_item_change(
+                        db,
+                        item_id=str(existing["_id"]),
+                        change_type="updated",
+                        field_name="status",
+                        old_value=previous_status,
+                        new_value="active",
+                        changed_by=actor_email,
+                    )
+                approved += 1
+            except Exception as exc:
+                errors += 1
+                print(f"bulk_approve error for barcode {existing.get('Barcode', '?')}: {exc}")
+        await log_cms_audit_event(
+            db,
+            action="approve_review_queue_bulk",
+            entity_type="item",
+            entity_id="",
+            user=current_user,
+            metadata={
+                "approved": approved,
+                "skipped_missing_requirements": skipped_missing,
+                "errors": errors,
+            },
+        )
+        return {
+            "success": True,
+            "data": {
+                "approved": approved,
+                "skipped_missing_requirements": skipped_missing,
+                "errors": errors,
             },
         }
 
@@ -2351,10 +2856,23 @@ def create_cms_catalog_router(db) -> APIRouter:
 
         hosted_image_path = _hosted_image_path_from_url(barcode, target_image_url)
         deleted_hosted_file = False
+        purge_urls_to_send: List[str] = []
         if hosted_image_path and hosted_image_path.exists() and hosted_image_path.is_file():
             hosted_image_path.unlink()
-            _prune_empty_barcode_dir(hosted_image_path)
             deleted_hosted_file = True
+            # Renumber remaining files 1..N so we never leave gaps like
+            # [1.png, 3.jpg] behind after deleting the middle image.
+            if barcode:
+                remaining_count_after = len(resolve_local_image_paths(IMAGE_FILES_BASE_DIR, barcode))
+                _renumber_barcode_images(barcode)
+                # After renumbering, positions may have shifted. Purge every
+                # slot up to what the folder used to hold (remaining + the
+                # one we just deleted) so stale URLs don't leak.
+                purge_urls_to_send.extend(
+                    _cf_all_positions_urls(barcode, remaining_count_after + 1, IMAGE_PUBLIC_BASE_URL)
+                )
+            purge_urls_to_send.append(target_image_url.split("?", 1)[0])
+            _prune_empty_barcode_dir(hosted_image_path)
 
         filtered_image_urls = [url for url in raw_image_urls if url != target_image_url]
         filtered_source_urls = [url for url in raw_source_urls if url != target_image_url]
@@ -2396,6 +2914,12 @@ def create_cms_catalog_router(db) -> APIRouter:
         )
 
         await db.products.update_one({"_id": item_object_id}, {"$set": updates})
+
+        if purge_urls_to_send:
+            try:
+                await _cf_purge_urls(purge_urls_to_send)
+            except Exception as exc:
+                print(f"cloudflare purge after delete failed: {exc}")
 
         await _insert_item_change(
             db,
@@ -2453,6 +2977,7 @@ def create_cms_catalog_router(db) -> APIRouter:
         files: List[UploadFile] = File(...),
         replace_existing: bool = Form(default=False),
         set_uploaded_as_main: bool = Form(default=True),
+        replace_position: Optional[int] = Form(default=None),
         current_user: Dict[str, Any] = Depends(get_current_cms_user),
     ) -> Dict[str, Any]:
         item_object_id = _ensure_object_id(item_id)
@@ -2472,6 +2997,7 @@ def create_cms_catalog_router(db) -> APIRouter:
             barcode=barcode,
             uploads=uploads,
             replace_existing=bool(replace_existing),
+            replace_position=replace_position if replace_position and replace_position >= 1 else None,
         )
         hosted_image_urls = resolve_public_image_urls(IMAGE_FILES_BASE_DIR, barcode, IMAGE_PUBLIC_BASE_URL)
         if not hosted_image_urls:
@@ -2513,6 +3039,23 @@ def create_cms_catalog_router(db) -> APIRouter:
         )
 
         await db.products.update_one({"_id": item_object_id}, {"$set": updates})
+
+        # Cloudflare purge: for replace_position/replace_existing paths, the
+        # old bytes at those slots must not be served by any edge PoP.
+        purge_urls_after_upload: List[str] = []
+        if replace_existing:
+            purge_urls_after_upload.extend(
+                _cf_all_positions_urls(barcode, max(len(hosted_image_urls), 8), IMAGE_PUBLIC_BASE_URL)
+            )
+        elif replace_position and replace_position >= 1:
+            purge_urls_after_upload.extend(
+                _cf_position_urls(barcode, replace_position, IMAGE_PUBLIC_BASE_URL)
+            )
+        if purge_urls_after_upload:
+            try:
+                await _cf_purge_urls(purge_urls_after_upload)
+            except Exception as exc:
+                print(f"cloudflare purge after upload failed: {exc}")
 
         await _insert_item_change(
             db,
@@ -2559,6 +3102,73 @@ def create_cms_catalog_router(db) -> APIRouter:
                 "item": updated_item,
             },
         }
+
+    @router.post(
+        "/items/{item_id}/images/set-primary",
+        dependencies=[Depends(require_cms_permissions("items.update"))],
+    )
+    async def set_item_image_primary(
+        item_id: str,
+        position: int = Form(..., ge=1),
+        current_user: Dict[str, Any] = Depends(get_current_cms_user),
+    ) -> Dict[str, Any]:
+        """Swap the image at `position` with position 1, so it becomes the
+        primary image. Also renumbers to keep 1..N contiguous. DB records
+        get their Image_url list reordered so index 0 matches the file at
+        position 1.
+        """
+        item_object_id = _ensure_object_id(item_id)
+        existing = await db.products.find_one({"_id": item_object_id})
+        if not existing:
+            raise HTTPException(status_code=404, detail="Item not found")
+        barcode = normalize_barcode(existing.get("cms_barcode") or existing.get("Barcode") or "")
+        if not barcode:
+            raise HTTPException(status_code=422, detail="Barcode is required")
+        if position == 1:
+            return {"success": True, "data": {"item": _map_product_to_cms_item(existing, await _load_category_lookup(db))}}
+        _swap_barcode_image_positions(barcode, 1, position)
+        _renumber_barcode_images(barcode)
+        # Purge caches for both swapped positions (all common extensions,
+        # since the underlying extension may have changed after the swap).
+        try:
+            await _cf_purge_urls(
+                _cf_position_urls(barcode, 1, IMAGE_PUBLIC_BASE_URL)
+                + _cf_position_urls(barcode, position, IMAGE_PUBLIC_BASE_URL)
+            )
+        except Exception as exc:
+            print(f"cloudflare purge after set-primary failed: {exc}")
+        hosted_image_urls = resolve_public_image_urls(IMAGE_FILES_BASE_DIR, barcode, IMAGE_PUBLIC_BASE_URL)
+        if not hosted_image_urls:
+            raise HTTPException(status_code=500, detail="Set-primary completed but no hosted URLs were generated")
+        now = _utcnow()
+        updates = {
+            "Image_url": hosted_image_urls,
+            "cms_main_image": hosted_image_urls[0],
+            "cms_updated_by": current_user.get("email", ""),
+            "cms_updated_at": now,
+        }
+        candidate_document = dict(existing)
+        candidate_document.update(updates)
+        updates.update(
+            build_catalog_quality_updates(
+                candidate_document,
+                evaluator="cms:set_image_primary",
+                reviewed_by=current_user.get("email", ""),
+            )
+        )
+        await db.products.update_one({"_id": item_object_id}, {"$set": updates})
+        await _insert_item_change(
+            db,
+            item_id=str(item_object_id),
+            change_type="updated",
+            field_name="main_image",
+            old_value=str(existing.get("cms_main_image", "")),
+            new_value=hosted_image_urls[0],
+            changed_by=current_user.get("email", ""),
+        )
+        updated = await db.products.find_one({"_id": item_object_id})
+        category_lookup = await _load_category_lookup(db)
+        return {"success": True, "data": {"item": _map_product_to_cms_item(updated, category_lookup)}}
 
     @router.post(
         "/items/{item_id}/images/import-url",
@@ -2741,5 +3351,58 @@ def create_cms_catalog_router(db) -> APIRouter:
             for doc in docs
         ]
         return {"success": True, "data": data}
+
+    @router.post(
+        "/brand-sync/run",
+        dependencies=[Depends(require_cms_permissions("items.update"))],
+    )
+    async def trigger_brand_sync(
+        current_user: Dict[str, Any] = Depends(get_current_cms_user),
+    ) -> Dict[str, Any]:
+        """Trigger an immediate brand catalog sync (the same job that runs nightly)."""
+        import asyncio as _asyncio
+        proc = await _asyncio.create_subprocess_exec(
+            "python3", "/app/brand_sync_job.py",
+            stdout=_asyncio.subprocess.PIPE,
+            stderr=_asyncio.subprocess.STDOUT,
+            cwd="/app",
+        )
+        try:
+            stdout, _ = await _asyncio.wait_for(proc.communicate(), timeout=600)
+            output = stdout.decode("utf-8", "ignore")
+        except _asyncio.TimeoutError:
+            proc.kill()
+            raise HTTPException(status_code=504, detail="Brand sync timed out after 10 minutes")
+
+        await log_cms_audit_event(
+            db,
+            action="trigger_brand_sync",
+            entity_type="brand_sync",
+            entity_id="",
+            user=current_user,
+            metadata={"exit_code": proc.returncode, "output_preview": output[-2000:]},
+        )
+
+        report_path = Path("/app/brand_sync_last_run.json")
+        report = {}
+        if report_path.exists():
+            try:
+                report = json.loads(report_path.read_text(encoding="utf-8"))
+            except Exception:
+                report = {}
+        return {"success": True, "data": {"exit_code": proc.returncode, "report": report}}
+
+    @router.get(
+        "/brand-sync/last-report",
+        dependencies=[Depends(require_cms_permissions("items.view"))],
+    )
+    async def get_brand_sync_report() -> Dict[str, Any]:
+        report_path = Path("/app/brand_sync_last_run.json")
+        if not report_path.exists():
+            return {"success": True, "data": None}
+        try:
+            return {"success": True, "data": json.loads(report_path.read_text(encoding="utf-8"))}
+        except Exception:
+            return {"success": True, "data": None}
 
     return router

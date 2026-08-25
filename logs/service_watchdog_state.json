@@ -1,0 +1,12 @@
+{
+  "last_restart": {
+    "xml_gen_app": 1787677217.4708726,
+    "fastapi": 1785836703.9930024,
+    "mongodb": 1786108613.4252694,
+    "mongodb_eof": 1786105063.093537,
+    "cron_brand_sync": 1786373103.6907883,
+    "cyimages": 1785837994.1030447,
+    "kpdhellas_bridge": 1785918802.404141,
+    "xml_generator_old": 1786374004.7227547
+  }
+}

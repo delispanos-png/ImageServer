@@ -20,6 +20,17 @@ cd "${FRONTEND_DIR}"
 rm -rf "${PORTAL_BUILD_DIR}"
 "${NODE_BIN}" node_modules/typescript/bin/tsc
 "${NODE_BIN}" node_modules/vite/bin/vite.js build --config vite.portal.config.ts --outDir "${PORTAL_BUILD_DIR}"
+
+if [[ ! -f "${PORTAL_BUILD_DIR}/portal.html" ]]; then
+  echo "portal build failed: portal.html was not generated"
+  exit 1
+fi
+
+if ! grep -q '/assets/portal-' "${PORTAL_BUILD_DIR}/portal.html"; then
+  echo "portal build failed validation: portal.html does not target /assets/portal-*"
+  exit 1
+fi
+
 rsync -a --delete "${PORTAL_BUILD_DIR}/" "${PORTAL_DIST_DIR}/"
 
 if [[ -f "${PORTAL_DIST_DIR}/portal.html" ]]; then

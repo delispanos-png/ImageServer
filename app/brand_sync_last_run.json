@@ -1,0 +1,1426 @@
+{
+  "run_at": "2026-08-25T00:05:28.199673+00:00",
+  "brands": [
+    {
+      "brand": "frezyderm",
+      "status": "ok",
+      "examined": 343,
+      "new": 26,
+      "queued": 1,
+      "imported": 0,
+      "high_match": 314,
+      "low_match": 3,
+      "enriched": 0,
+      "enrich_skipped_active": 314,
+      "noop_existing": 25,
+      "dry_run": false,
+      "imported_samples": [
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105487",
+          "title": "PRODILAC START"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105401",
+          "title": "FREZYLAC ΔΗΜΗΤΡΙΑΚΑ ΜΕ ΓΑΛΑ ΚΑΙ ΦΡΟΥΤΑ ΜΗΛΟ-ΜΠΑΝΑΝΑ-ΠΟΡΤΟΚΑΛΙ"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105418",
+          "title": "FREZYLAC ΦΑΡΙΝ ΛΑΚΤΕ ΜΕ ΔΗΜΗΤΡΙΑΚΑ ΚΑΙ ΓΑΛΑ"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105432",
+          "title": "FREZYLAC ΒΡΩΜΗΣ ΟΛΙΚΗΣ ΑΛΕΣΗΣ ΜΕ ΓΑΛΑ, ΜΗΛΟ ΚΑΙ ΒΑΝΙΛΙΑ"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105449",
+          "title": "FREZYLAC ΡΥΖΑΛΕΥΡΟ ΜΕ ΓΑΛΑ"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105456",
+          "title": "FREZYLAC ΡΥΖΑΛΕΥΡΟ ΜΕ ΓΑΛΑ ΚΑΙ ΒΑΝΙΛΙΑ"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105777",
+          "title": "FREZYLAC ΤΟ ΠΡΩΤΟ ΜΟΥ ΜΟΥΣΛΙ"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5 202888 221279",
+          "title": "KIDS SUN CARE SPF 50+ WET SKIN SPRAY"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5 202888 222405",
+          "title": "SUN SCREEN INVISIBLE SPRAY SPF 50+"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5 202888 320088",
+          "title": "PRODILAC IMMUNO SHIELD START"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5 202888 320071",
+          "title": "PRODILAC IMMUNO SHIELD FAST MELT"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105869",
+          "title": "FREZYLAC PLATINUM 1"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105876",
+          "title": "FREZYLAC PLATINUM 2"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105883",
+          "title": "FREZYLAC PLATINUM 3"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105838",
+          "title": "FREZYLAC SILVER 1"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105845",
+          "title": "FREZYLAC SILVER 2"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105852",
+          "title": "FREZYLAC SILVER 3"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5 202888 009068",
+          "title": "ΒΙΟΛΟΓΙΚΟ ΧΑΜΟΜΗΛΙ"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888105333",
+          "title": "FREZYLAC AR"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888109447",
+          "title": "FREZYLAC GOLD UPGRADE 1"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888109454",
+          "title": "FREZYLAC GOLD UPGRADE 2"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888109454",
+          "title": "FREZYLAC GOLD UPGRADE 3"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888109713",
+          "title": "FREZYLAC PLATINUM PLUS 2"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888109720",
+          "title": "FREZYLAC PLATINUM PLUS 3"
+        },
+        {
+          "brand": "frezyderm",
+          "barcode": "5202888109706",
+          "title": "FREZYLAC PLATINUM PLUS 1"
+        }
+      ],
+      "queued_samples": [
+        {
+          "brand": "frezyderm",
+          "barcodes": [],
+          "title": "FREZYLAC AC PLUS"
+        }
+      ]
+    },
+    {
+      "brand": "avene",
+      "status": "ok",
+      "examined": 144,
+      "new": 10,
+      "queued": 0,
+      "imported": 0,
+      "high_match": 134,
+      "low_match": 0,
+      "enriched": 1,
+      "enrich_skipped_active": 133,
+      "noop_existing": 10,
+      "dry_run": false,
+      "imported_samples": [
+        {
+          "brand": "avene",
+          "barcode": "03282770073041",
+          "title": "Ενυδατικό Autobronzant - Μεταξένιο Gel"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282770209037",
+          "title": "Couvrance Baume Ανάδειξης Χειλιών Απαλό Nude"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282779292238",
+          "title": "Couvrance Κίτρινο Διορθωτικό Στικ"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282770204803",
+          "title": "SPF 50+ Στικ για Ευαίσθητες Ζώνες"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282770074741",
+          "title": "TriXera NUTRITION Θρεπτικό- Baume"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282770072952",
+          "title": "Ντεμακιγιάζ 3 σε 1"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282779060134",
+          "title": "Gel Ξυρίσματος"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282770397376",
+          "title": "ULTRA FLUID OIL CONTROL"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282770400885",
+          "title": "HYALURON ACTIV PROCEDURE Micro Lift Κρέμα Ματιών & Χειλιών - 0,05% Ρετινάλη"
+        },
+        {
+          "brand": "avene",
+          "barcode": "03282771000916",
+          "title": "ULTRA STICK SPF50"
+        }
+      ],
+      "queued_samples": []
+    },
+    {
+      "brand": "mam",
+      "status": "ok",
+      "examined": 189,
+      "new": 91,
+      "queued": 0,
+      "imported": 0,
+      "high_match": 98,
+      "low_match": 0,
+      "enriched": 82,
+      "enrich_skipped_active": 16,
+      "noop_existing": 91,
+      "dry_run": false,
+      "imported_samples": [
+        {
+          "brand": "mam",
+          "barcode": "9001616843266",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616841279",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616841309",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616203350",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616203633",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616672385",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616608711",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616698583",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842405",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842412",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842399",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842757",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842634",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842627",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842795",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842665",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842801",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842641",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842658",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842788",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842863",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842993",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842870",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842894",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616843044",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616843051",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842900",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616802799",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616802805",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616697043",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616697050",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616671111",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616698385",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616698392",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616715112",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616715129",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616716157",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616694240",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616697760",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616697784",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616814341",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842245",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842672",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842504",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842375",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842511",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842382",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616842528",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616852312",
+          "title": "MAM"
+        },
+        {
+          "brand": "mam",
+          "barcode": "9001616852329",
+          "title": "MAM"
+        }
+      ],
+      "queued_samples": []
+    },
+    {
+      "brand": "apivita",
+      "status": "ok",
+      "examined": 397,
+      "new": 34,
+      "queued": 34,
+      "imported": 0,
+      "high_match": 0,
+      "low_match": 362,
+      "enriched": 0,
+      "enrich_skipped_active": 0,
+      "dry_run": false,
+      "imported_samples": [],
+      "queued_samples": [
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Beach Bag"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Keratin Repair Σαμπουάν & Κρέμα Μαλλιών Θρέψης & Επανόρθωσης για Ξηρά, Ταλαιπωρημένα Μαλλιά σε Ειδική Τιμή"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "ΒΕΕ ΜΟΝΤΗ-BEEVINE ELIXIRE SERUM"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "ΒΕΕ ΜΟΝΤΗ-BEEVINE ELIXIRE ROUTINE (ΠΛΟΥΣΙΑΣ ΥΦΗΣ)"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "ΒΕΕ ΜΟΝΤΗ- BEEVINE ELIXIRE ROUTINE (ΕΛΑΦΡΙΑΣ ΥΦΗΣ)"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "THE NOURISHING GLOW YOUR SKIN LOVES"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "GREEK WEEKEND ESCAPE DISCOVERY SET"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Ορός για Δράση σε 12 Δείκτες Νεότητας - 10ml"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "SUMMER IN GREECE DISCOVERY SET"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Ορός για Δράση σε 12 Δείκτες Νεότητας"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Πλούσια Βελούδινη Κρέμα για Δράση σε 12 Δείκτες Νεότητας"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Ελαφριά Μεταξένια Κρέμα για Δράση σε 12 Δείκτες Νεότητας"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "DUO ΦΩΤΟΠΡΟΣΤΑΣΙΑΣ"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Πρόγραμμα Τόνωσης Μαλλιών Για Άνδρες"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Πρόγραμμα Τόνωσης Μαλλιών Για Γυναίκες"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Let It Glow"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Hugs & Kisses Hypericum"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Hugs & Kisses Honey"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Just Dew It"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Black Eco Tote Bag"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Pink Beach Bag"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Ready To Go"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Σαμπουάν Θρέψης & Επανόρθωσης για Ξηρά, Ταλαιπωρημένα Μαλλιά"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Μάσκα Θρέψης και Επανόρθωσης για Ξηρά-Ταλαιπωρημένα Μαλλιά"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Κρέμα Θρέψης & Επανόρθωσης για Ξηρά-Ταλαιπωρημένα Μαλλιά"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Σαμπουάν Θρέψης & Επανόρθωσης για Ξηρά, Ταλαιπωρημένα Μαλλιά"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Ορός Εντατικής Φροντίδας για τα μάτια"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Aποσμητικό 24ωρης δράσης με σεβασμό στο μικροβίωμα του δέρματος"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Ορός Εντατικής Φροντίδας για τα μάτια"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Mέλι Ανθέων"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Θυμαρίσιο Mέλι"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Mέλι Ερείκης"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "Θυμαρίσιο Mέλι"
+        },
+        {
+          "brand": "apivita",
+          "barcodes": [],
+          "title": "BIO-ECO Οδοντόκρεμα Φυσικής Προστασίας"
+        }
+      ]
+    },
+    {
+      "brand": "korres",
+      "status": "ok",
+      "examined": 226,
+      "new": 40,
+      "queued": 40,
+      "imported": 0,
+      "high_match": 0,
+      "low_match": 186,
+      "enriched": 0,
+      "enrich_skipped_active": 0,
+      "dry_run": false,
+      "imported_samples": [],
+      "queued_samples": [
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Mineral Milk Fluid Sunscreen SPF 50"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "The Protein Facial Treatment"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "naked summers x KORRES Hand Fan Blue"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "The Floral Collection Fragrance Set ($66 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "naked summers x KORRES Cosmetic Pouch Pink"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "naked summers x KORRES Cosmetic Pouch Blue"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Greek Yoghurt Daily Balance Ritual ($75 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "The Greek Collection Fragrance Set ($66 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Under the Greek Sun Essentials ($54 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Olive Blossom Body Care Collection ($77 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Greek Skincare Discovery Kit ($118 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "That Greek Glow Signature Routine ($133 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Needle Free Facelift Day Routine ($196 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Brightening + Dark Spot Routine ($176 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Greek Yoghurt Wide Awake Eye Gel Roller"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Instant Smoothing Serum-In-Shower Oil Cashmere Rose"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Protein Facial Set ($167 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Lip Butter Stick Duo - Mint"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Cosmetic Pouch"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Denim Cosmetic Bag"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Jumbo Elasti-Smooth™ Body Butter Unscented 400ML"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Mini Elasti-Smooth™ Body Butter Coffee Beans 50ML"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Starter Kit for Men ($90 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Wrinkle Defying Routine ($188 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "That Greek Glow Tote Bag"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Greek Yoghurt Hydration Boost Trio ($100 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Santorini Grape Pores & Texture Perfecting Duo ($101 Value)"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "KORRES Large Gift Pouch 12 x 16 inches"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Jumbo Elasti-Smooth™ Body Butter Basil Lemon 400ML"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "KORRES Small Gift Pouch 10 x 7.5 inches"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "KORRES Advent Pouch 17.7 x 20.8 inches"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "White Pine Meno-Reverse™ Advanced Wrinkle Smoothing Eye + Lip Contour Cream"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Sunflower and Mountain Tea Shampoo"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Licorice + Urtica Shampoo"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "KORRES E-Gift Card $150.00"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "KORRES E-Gift Card $100.00"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "KORRES E-Gift Card $50.00"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "KORRES E-Gift Card $25.00"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Black Pine Plump-Up Sleeping Facial"
+        },
+        {
+          "brand": "korres",
+          "barcodes": [],
+          "title": "Carbon Offset for Shipping"
+        }
+      ]
+    },
+    {
+      "brand": "chicco",
+      "status": "ok",
+      "examined": 384,
+      "new": 154,
+      "queued": 154,
+      "imported": 0,
+      "high_match": 0,
+      "low_match": 230,
+      "enriched": 0,
+      "enrich_skipped_active": 0,
+      "dry_run": false,
+      "imported_samples": [],
+      "queued_samples": [
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι Chicco GLEE /75 PLAYFUL BLACK"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Μάρσιππος Boppy ComfyFit Evolution Grey"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι MYSA / 45 BLACK SATIN"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα Αυτοκινήτου Kory Plus Air i-Size (40-85 cm)"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο ΝΕΧΤ2ΜΕ MAGIC EVO /25  DESERT TAUPE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο - Ρηλάξ Βaby Hug Pro 5 IN 1/1 Earl Grey"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα φαγητού για καρέκλα POCKET SNACK /85 POPPY RED"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Προσαρμογέας Καθίσματος Αυτοκίνητου Στο Goody Xplus"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι TrolleyMe Light Grey /28"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι TrolleyMe Calypso Blue /58"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι TrolleyMe Stone /85"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Στράτα WALKY TALKY GREY /47"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Μάρσιππος Skin Fit Green Wood /06"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Μάρσιππος Skin Fit Blue Passion /64"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Μάρσιππος Skin Fit Warm Beige /77"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Θήκη Οργάνωσης Καθίσματος Αυτοκινήτου Με Θέση Για iPad – Tablet"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Unico Evo i-Size Air (40-150 cm) /72 BLACK AIR"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα αυτοκινήτου Unico Evo i-Size (40-150 cm) 95/ BLACK"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο NEXT2ME ESSENTIAL STONE RE LUX"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο ΝΕΧΤ2ΜΕ MAGIC EVO /40 DARK GREY"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο ΝΕΧΤ2ΜΕ MAGIC EVO /72 GREY MIST"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Μάρσιπος Easy Fit MOON GREY"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Μπαλίτσα Soft"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα αυτοκινήτου Unico Evo i-Size (40-150 cm) 39/ INDIA INK"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Πορτ-Μπεμπέ Για Καρότσι Seety / 53 BOSTON GREY"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Πορτ-Μπεμπέ Για Καρότσι Seety / 70 FLORENCE BEIGE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Πορτ-Μπεμπέ Για Καρότσι Seety / 79 OXFORD BLUE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι Chicco Seety /53 BOSTON GREY"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι Chicco Seety /70 FLORENCE BEIGE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι Chicco Seety /79 OXFORD BLUE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο – Παρκοκρέβατο Next2Me Forever Slate Grey"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο – Παρκοκρέβατο Next2Me Forever Ash Grey"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι CHICCO WE με τσάντα μεταφοράς BLACK"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Ρηλάξ - Πολυθρονάκι Hoopla  Beige Re_Lux/59"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο NEXT2ME ESSENTIAL DUNE RE LUX"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα Αυτοκινήτου Fold & Go i-size Air GRAPHITE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα Αυτοκινήτου Fold & Go i-size Air Black"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι Chicco GLEE /77 JOKING BEIGE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι Chicco GLEE /78 JOYFUL TEAL"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Πιπίλα PhysioForma Micro ΝΥΧΤΑΣ 0-2m+ (2TMX)"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Ρηλάξ COMFY WAVE έως 9kg"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Ρηλάξ - Πολυθρονάκι Hoopla Moon Grey / 77"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα Φαγητού POLLY EASY (4 ΡΟΔΕΣ) MELANGE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα Φαγητού POLLY PROGRESS (4 Ρόδες) GREY MELANGE"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Λίκνο - Ρηλάξ Βaby Hug Pro 5 IN 1/1  White Cream"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Ρηλάξ-Πολυθρονάκι Hoopla Titanium /84"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Μπανάκι-Αλαξιέρα Comfort Ocean /86"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Κάθισμα Αυτ/του Bi-Seat i-Size Air Xωρίς Βάση (61-150 cm)"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Βάση 360° I-Size για Κάθισμα Αυτ/του Kory /Bi-Seat (40-105 cm)"
+        },
+        {
+          "brand": "chicco",
+          "barcodes": [],
+          "title": "Καρότσι GOODY XPLUS / 84 PEARL GREY"
+        }
+      ]
+    },
+    {
+      "brand": "lamberts",
+      "status": "ok",
+      "examined": 210,
+      "new": 62,
+      "queued": 62,
+      "imported": 0,
+      "high_match": 0,
+      "low_match": 148,
+      "enriched": 0,
+      "enrich_skipped_active": 0,
+      "dry_run": false,
+      "imported_samples": [],
+      "queued_samples": [
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Cogni-Focus"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Curcumin Ultra+"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Melatonin 1mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Astaxanthin 8mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Ashwagandha Advance"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Vitamin A 5000iu"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Osteoguard® Advance"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "P5P 20mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Pulse®"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Multi-Max®"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Ubiquinol 100mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Turmemoric"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Pycnogenol 40mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Rosehip 10.000mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Echinacea 1000mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Valerian 1600mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Cinnamon 2500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Cranberry 18.750mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Prostex"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Garlic 8250mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Hawthorn 2500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "VeinTain"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Eyewise®"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Sage 2500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "MSM 1000mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Quercetin 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Silica 200mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "CLA"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Ginkgo 6000mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Refreshall"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Omega 3-6-9 1200mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Multi Vitamin AtoZ effervescent tabs"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "AtoZ Multivitamin"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Nicotinamide 250mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Digestizyme"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Candaway"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Artichoke 7425mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Maxi-Hair®"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L-Ornithine 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L-Theanine 200mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L-Phenylalanine 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Taurine 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L-Tyrosine 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L-Methionine 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L-Lysine 1000mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "Zincatest"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L -Carnitine 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L –Glutamine Powder"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "L-Glutamine 500mg"
+        },
+        {
+          "brand": "lamberts",
+          "barcodes": [],
+          "title": "NAC 300mg"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "imported": 0,
+    "queued": 291,
+    "enriched": 83
+  }
+}

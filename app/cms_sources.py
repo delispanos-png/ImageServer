@@ -61,11 +61,11 @@ SOURCE_CONFIGS: Dict[str, Dict[str, Any]] = {
         "search_pattern": "https://www.pharmacy295.gr/search-results?query=<barcode>",
         "priority": 2,
         "enabled_in_chain": True,
-        "access_status": "proxy_required",
+        "access_status": "flaresolverr_supported",
         "notes": [
             "Preferred photo source when feed coverage exists.",
-            "Better photo quality and no watermark, but current live site access is blocked without proxy/session.",
-            "The Excel feed is treated as preloaded source metadata; day-to-day operation should use Import Photos only.",
+            "Live HTTP traffic is now routed through FlareSolverr so Cloudflare no longer blocks the legacy fetcher, but the Excel feed remains the primary path because their search index does not return individual products by barcode.",
+            "Day-to-day operation should keep using Import Photos from the Excel feed.",
         ],
         "capabilities": [
             {"key": "title", "label": "Title", "enabled": True},
@@ -82,13 +82,12 @@ SOURCE_CONFIGS: Dict[str, Dict[str, Any]] = {
         "base_url": "https://www.youpharmacy.gr",
         "search_pattern": "https://www.youpharmacy.gr/?s=<barcode>&post_type=product",
         "priority": 5,
-        "enabled_in_chain": False,
-        "access_status": "active",
+        "enabled_in_chain": True,
+        "access_status": "flaresolverr_supported",
         "notes": [
-            "WooCommerce source with live product search plus the XML photo-import job.",
-            "Manual refresh can use this source directly for text, categories, and images without proxy.",
-            "Upload a fresh XML file and run Import XML Photos from the Sources admin page when you want to replace degraded farmakopoiosmou photos from the feed.",
-            "Keep it disabled in the live chain until barcode/title matching is validated on a wider sample.",
+            "WooCommerce source. Live HTTP flows through FlareSolverr (Cloudflare-protected).",
+            "Live fetch is the primary path for both text and images, via the FlareSolverr-first chain that resolves /product/<slug>/ URLs and parses the WooCommerce product page.",
+            "XML photo-import remains available as a fallback for bulk seeding when live fetch is unavailable.",
         ],
         "capabilities": [
             {"key": "title", "label": "Title", "enabled": True},
@@ -106,7 +105,7 @@ SOURCE_CONFIGS: Dict[str, Dict[str, Any]] = {
         "search_pattern": "https://www.gohealthy.gr/search-results?search=<barcode>",
         "priority": 6,
         "enabled_in_chain": False,
-        "access_status": "active",
+        "access_status": "flaresolverr_supported",
         "notes": [
             "Search-result pattern lands on product-detail candidates via the canonical /search-results?search= barcode flow.",
             "Manual refresh can use this source directly for text, categories, and images through the generic source adapter.",
@@ -128,7 +127,7 @@ SOURCE_CONFIGS: Dict[str, Dict[str, Any]] = {
         "search_pattern": "https://www.cure4u.gr/module/ambjolisearch/jolisearch?s=<barcode>",
         "priority": 6,
         "enabled_in_chain": False,
-        "access_status": "active",
+        "access_status": "flaresolverr_supported",
         "notes": [
             "PrestaShop source wired on the ambjolisearch HTML endpoint instead of browser-only search flow.",
             "Manual refresh can use this source directly for text, categories, and images.",
@@ -195,10 +194,10 @@ SOURCE_CONFIGS: Dict[str, Dict[str, Any]] = {
         "search_pattern": "Skroutz product search by barcode",
         "priority": 4,
         "enabled_in_chain": False,
-        "access_status": "standby",
+        "access_status": "flaresolverr_supported",
         "notes": [
-            "Parser exists in codebase but is currently not enabled in the active source chain.",
-            "Recommended to use only with proxy-enabled browser traffic.",
+            "Aggregator listings parser; FlareSolverr now bypasses Cloudflare.",
+            "Currently not enabled in the active source chain — pull-on-demand only.",
         ],
         "capabilities": [
             {"key": "title", "label": "Title", "enabled": True},
@@ -253,6 +252,28 @@ SOURCE_CONFIGS: Dict[str, Dict[str, Any]] = {
             {"key": "watermark_cleanup", "label": "Watermark Cleanup", "enabled": False},
         ],
     },
+    "newgenpharmacy": {
+        "label": "NewGen Pharmacy",
+        "base_url": "https://www.newgenpharmacy.gr",
+        "search_pattern": "https://www.newgenpharmacy.gr/index.php?route=product/search&search=<barcode>",
+        "priority": 4,
+        "enabled_in_chain": True,
+        "access_status": "flaresolverr_required",
+        "notes": [
+            "OpenCart source behind Cloudflare Turnstile — every fetch is routed through the FlareSolverr sidecar (set FLARESOLVERR_URL).",
+            "Search page exposes the matching product id and ga4_items metadata, then we follow up to the canonical product page for description and high-res image.",
+            "Refresh time is higher than the average source because each request goes through the FlareSolverr challenge solver.",
+        ],
+        "capabilities": [
+            {"key": "title", "label": "Title", "enabled": True},
+            {"key": "short_title", "label": "Short Title", "enabled": True},
+            {"key": "description", "label": "Description", "enabled": True},
+            {"key": "brand", "label": "Brand", "enabled": True},
+            {"key": "categories_3_levels", "label": "Category 1/2/3", "enabled": True},
+            {"key": "multiple_images", "label": "Multiple Images", "enabled": True},
+            {"key": "watermark_cleanup", "label": "Watermark Cleanup", "enabled": False},
+        ],
+    },
     "pharm16": {
         "label": "Pharm16",
         "base_url": "https://www.pharm16.gr",
@@ -274,6 +295,30 @@ SOURCE_CONFIGS: Dict[str, Dict[str, Any]] = {
             {"key": "watermark_cleanup", "label": "Watermark Cleanup", "enabled": False},
         ],
     },
+    "google_images": {
+        "label": "Google Images",
+        "base_url": "https://www.googleapis.com/customsearch/v1",
+        "search_pattern": "Google Custom Search JSON API (image search by barcode)",
+        "priority": 99,
+        "enabled_in_chain": False,
+        "access_status": "needs_credentials",
+        "notes": [
+            "Requires GOOGLE_API_KEY and GOOGLE_CSE_ID environment variables.",
+            "Image-only source — does not contribute text fields.",
+            "Pricing: 100 queries/day free, then $5 per 1000 queries.",
+            "Optional GOOGLE_IMAGES_BLOCKED_DOMAINS for filtering watermarked sources.",
+            "Optional GOOGLE_IMAGES_DAILY_BUDGET to cap daily spend.",
+        ],
+        "capabilities": [
+            {"key": "title", "label": "Title", "enabled": False},
+            {"key": "short_title", "label": "Short Title", "enabled": False},
+            {"key": "description", "label": "Description", "enabled": False},
+            {"key": "brand", "label": "Brand", "enabled": False},
+            {"key": "categories_3_levels", "label": "Category 1/2/3", "enabled": False},
+            {"key": "multiple_images", "label": "Multiple Images", "enabled": True},
+            {"key": "watermark_cleanup", "label": "Watermark Cleanup", "enabled": False},
+        ],
+    },
 }
 
 
@@ -283,6 +328,7 @@ class SourceSettingsPayload(BaseModel):
     priority: Optional[int] = None
     text_priority: Optional[int] = None
     image_priority: Optional[int] = None
+    use_flaresolverr: Optional[bool] = None
 
 
 class SourceJobRunPayload(BaseModel):
@@ -468,6 +514,7 @@ def _serialize_source(
         "removed": removed,
         "removed_at": str(runtime_config.get("removed_at", "") or ""),
         "removed_by": str(runtime_config.get("removed_by", "") or ""),
+        "use_flaresolverr": bool(runtime_config.get("use_flaresolverr", False)),
         "preserves_existing_products": True,
         "runtime_control_enabled": bool(config.get("runtime_control_enabled", True)),
         "access_status": access_status,
@@ -635,6 +682,7 @@ def create_cms_sources_router(db) -> APIRouter:
             and payload.priority is None
             and payload.text_priority is None
             and payload.image_priority is None
+            and payload.use_flaresolverr is None
         ):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="No source setting changes were provided")
 
@@ -674,6 +722,9 @@ def create_cms_sources_router(db) -> APIRouter:
                     detail=f"{field_name} must be zero or a positive integer",
                 )
             updates[field_name] = int(value)
+
+        if payload.use_flaresolverr is not None:
+            updates["use_flaresolverr"] = bool(payload.use_flaresolverr)
 
         saved = save_runtime_settings(
             {
@@ -715,13 +766,67 @@ def create_cms_sources_router(db) -> APIRouter:
     )
     async def remove_source(
         source_key: str,
+        purge_references: bool = False,
         current_user: Dict[str, Any] = Depends(get_current_cms_user),
     ) -> Dict[str, Any]:
-        return await update_source_settings(
+        """Mark a source as removed. Products that were previously
+        enriched from this source stay in db.products — only the chain
+        registration is dropped.
+
+        When `purge_references=true`, also scrub stale fields that pin a
+        product to the removed source: `Other_Sites.<source>`, and any
+        `last_source` / `image_source_domain` / `text_source_domain` /
+        `category_source_domain` value equal to the source. Hosted images
+        and primary fields (Title, Description, Img_src) are kept — the
+        product remains usable, it just no longer claims this source.
+        """
+        normalized = str(source_key or "").strip().lower()
+        result = await update_source_settings(
             source_key=source_key,
             payload=SourceSettingsPayload(removed=True),
             current_user=current_user,
         )
+
+        if purge_references and normalized:
+            domain_fields = (
+                "last_source",
+                "image_source_domain",
+                "text_source_domain",
+                "category_source_domain",
+            )
+            unset_doc = {f"Other_Sites.{normalized}": ""}
+            # Wipe per-source snapshot block for every product that has one.
+            await db.products.update_many(
+                {f"Other_Sites.{normalized}": {"$exists": True}},
+                {"$unset": unset_doc},
+            )
+            # Detach domain fields whose value points at the removed source.
+            for field in domain_fields:
+                await db.products.update_many(
+                    {field: normalized},
+                    {"$unset": {field: ""}},
+                )
+            # Clear the photo_source_lock when it pinned to the removed source.
+            await db.products.update_many(
+                {"photo_source_lock": normalized},
+                {
+                    "$unset": {
+                        "photo_source_lock": "",
+                        "photo_source_locked": "",
+                        "photo_source_locked_at": "",
+                    },
+                },
+            )
+            await log_cms_audit_event(
+                db,
+                action="purge_source_references",
+                entity_type="source",
+                entity_id=normalized,
+                user=current_user,
+                metadata={"fields_cleared": list(domain_fields) + ["Other_Sites", "photo_source_lock"]},
+            )
+
+        return {**result, "purge_references": purge_references}
 
     @router.post(
         "/{source_key}/restore",

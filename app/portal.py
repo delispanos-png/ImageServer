@@ -392,11 +392,23 @@ def create_portal_router(db, get_current_portal_client) -> APIRouter:
             query_parts.append({"Category_3": category_3})
         if created_since_days:
             cutoff = datetime.now(timezone.utc) - timedelta(days=created_since_days)
+            cutoff_iso = cutoff.isoformat()
+            # Prefer the activation timestamp (cms_activated_at); fall back to
+            # cms_updated_at / created_at for legacy products without it.
             query_parts.append(
                 {
                     "$or": [
-                        {"cms_created_at": {"$gte": cutoff}},
-                        {"created_at": {"$gte": cutoff}},
+                        {"cms_activated_at": {"$gte": cutoff_iso}},
+                        {"cms_activated_at": {"$gte": cutoff}},
+                        {"$and": [
+                            {"$or": [{"cms_activated_at": {"$exists": False}}, {"cms_activated_at": ""}]},
+                            {"$or": [
+                                {"cms_updated_at": {"$gte": cutoff_iso}},
+                                {"cms_updated_at": {"$gte": cutoff}},
+                                {"cms_created_at": {"$gte": cutoff}},
+                                {"created_at": {"$gte": cutoff}},
+                            ]},
+                        ]},
                     ]
                 }
             )

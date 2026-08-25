@@ -17,6 +17,50 @@ export class ApiError extends Error {
   }
 }
 
+function extractErrorMessage(data: unknown, status: number): string {
+  if (typeof data === 'string' && data.trim()) {
+    return data;
+  }
+  if (data && typeof data === 'object') {
+    const detail = (data as Record<string, unknown>).detail;
+    if (typeof detail === 'string' && detail.trim()) {
+      return detail;
+    }
+    if (Array.isArray(detail)) {
+      const messages = detail
+        .map((entry) => {
+          if (typeof entry === 'string') return entry;
+          if (entry && typeof entry === 'object') {
+            const msg = (entry as Record<string, unknown>).msg;
+            if (typeof msg === 'string' && msg.trim()) return msg;
+            try {
+              return JSON.stringify(entry);
+            } catch {
+              return '';
+            }
+          }
+          return '';
+        })
+        .filter(Boolean);
+      if (messages.length > 0) {
+        return messages.join('; ');
+      }
+    }
+    if (detail && typeof detail === 'object') {
+      const msg = (detail as Record<string, unknown>).msg;
+      if (typeof msg === 'string' && msg.trim()) return msg;
+      try {
+        return JSON.stringify(detail);
+      } catch {
+        // fallthrough
+      }
+    }
+    const message = (data as Record<string, unknown>).message;
+    if (typeof message === 'string' && message.trim()) return message;
+  }
+  return `Request failed with status ${status}`;
+}
+
 function buildUrl(path: string) {
   if (/^https?:\/\//.test(path)) {
     return path;
@@ -44,10 +88,7 @@ export async function apiFetch<T>(path: string, options: ApiRequestOptions = {})
   const data = isJson ? await response.json() : await response.text();
 
   if (!response.ok) {
-    const message =
-      typeof data === 'object' && data && 'detail' in (data as Record<string, unknown>)
-        ? String((data as Record<string, unknown>).detail)
-        : `Request failed with status ${response.status}`;
+    const message = extractErrorMessage(data, response.status);
     throw new ApiError(message, response.status, data);
   }
 

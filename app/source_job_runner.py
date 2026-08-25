@@ -55,20 +55,59 @@ def main() -> int:
                 check=False,
             )
             finished_at = iso_now()
+            # Read the LATEST counts from the state file so the runner's
+            # summary message reflects the actual outcome instead of
+            # collapsing everything into a bare "exit code N" string.
+            from cms_source_jobs import get_source_job_overview
+            latest_counts = {"processed": 0, "updated": 0, "skipped": 0, "failed": 0}
+            try:
+                for row in get_source_job_overview(source_key):
+                    if row.get("key") == job_key:
+                        for k in latest_counts:
+                            latest_counts[k] = int(row.get(k, 0) or 0)
+                        break
+            except Exception:
+                pass
+            u, s, f = latest_counts["updated"], latest_counts["skipped"], latest_counts["failed"]
+            p = latest_counts["processed"]
+
             if result.returncode == 0:
+                if f > 0 and p > 0:
+                    # Batch completed but some individual barcodes couldn't
+                    # be refreshed. That's expected — no source has data for
+                    # every barcode. Surface as `completed_with_warnings`.
+                    status = "completed_with_warnings"
+                    msg = (
+                        f"Completed with {f} failure(s) out of {p}: "
+                        f"updated {u}, skipped {s}."
+                    )
+                else:
+                    status = "completed"
+                    msg = f"Completed: updated {u}, skipped {s}, failed {f} out of {p}."
                 update_job_state(
-                    source_key,
-                    job_key,
-                    status="completed",
+                    source_key, job_key,
+                    status=status,
                     last_finished_at=finished_at,
                     last_exit_code=0,
-                    last_message="Job completed successfully.",
+                    last_message=msg,
+                    pid=0,
+                )
+            elif result.returncode == 2:
+                # Catastrophic outcome from the script itself.
+                update_job_state(
+                    source_key, job_key,
+                    status="failed",
+                    last_finished_at=finished_at,
+                    last_exit_code=2,
+                    last_message=(
+                        f"Job aborted: {f}/{p} failures (>=90%) or nothing processed. "
+                        f"Check the source pipeline health."
+                    ),
                     pid=0,
                 )
             else:
                 update_job_state(
-                    source_key,
-                    job_key,
+                    source_key, job_key,
                     status="failed",
                     last_finished_at=finished_at,
                     last_exit_code=int(result.returncode),

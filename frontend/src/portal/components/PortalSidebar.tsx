@@ -49,6 +49,7 @@ export default function PortalSidebar() {
     { path: portalRoutes.newItems, title: t('portal.nav.newItems'), icon: listIcon },
     { path: portalRoutes.categories, title: t('portal.nav.categories'), icon: listIcon },
     { path: portalRoutes.myRemarks, title: t('portal.nav.remarks'), icon: commentIcon },
+    { path: portalRoutes.submitProduct, title: 'Υποβολή νέου προϊόντος', icon: listIcon },
     { path: portalRoutes.profile, title: t('portal.nav.profile'), icon: userIcon },
   ];
 

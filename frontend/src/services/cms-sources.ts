@@ -28,9 +28,13 @@ export async function updateSourceSettings(
   return response.data;
 }
 
-export async function removeSource(sourceKey: string): Promise<{ source: CmsSourceOverview | null; source_chain: string[] }> {
-  const response = await apiFetch<ApiSuccessResponse<{ source: CmsSourceOverview | null; source_chain: string[] }>>(
-    `/cms/sources/${sourceKey}`,
+export async function removeSource(
+  sourceKey: string,
+  options: { purgeReferences?: boolean } = {},
+): Promise<{ source: CmsSourceOverview | null; source_chain: string[]; purge_references?: boolean }> {
+  const params = options.purgeReferences ? '?purge_references=true' : '';
+  const response = await apiFetch<ApiSuccessResponse<{ source: CmsSourceOverview | null; source_chain: string[]; purge_references?: boolean }>>(
+    `/cms/sources/${sourceKey}${params}`,
     {
       method: 'DELETE',
     },

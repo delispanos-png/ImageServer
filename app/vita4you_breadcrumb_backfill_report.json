@@ -1,0 +1,728 @@
+{
+  "stats": {
+    "examined": 4866,
+    "fetched_ok": 4767,
+    "fetch_failed": 81,
+    "no_breadcrumb": 18,
+    "barcode_match": 3884,
+    "barcode_mismatch": 137,
+    "barcode_unknown": 746,
+    "would_activate": 4596,
+    "modified": 4767
+  },
+  "sample_rows": [
+    {
+      "barcode_db": "5201178026785",
+      "barcodes_web": [
+        "5201178026785"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Εποχιακά",
+        "Αντηλιακά",
+        "Αντηλιακά Σώματος"
+      ],
+      "title": "Nivea Sun Protect & Bronze Oil Spray SPF30 Αντηλιακή Προστασία για Μαύρισμα με Υ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5200119884484",
+      "barcodes_web": [
+        "5200119884484"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "CoQ10"
+      ],
+      "title": "Natprod Synergy Q10 Συμπλήρωμα Διατροφής με Συνένζυμο Q10 & L-Καρνιτίνη 30 κάψου",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5021265245222",
+      "barcodes_web": [
+        "5021265245222"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "CoQ10"
+      ],
+      "title": "Vitabiotics Ultra Co-Q10 50 mg 60 tabs",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "3660398504770",
+      "barcodes_web": [
+        "3660398504770"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Femilyane Harmolya Προβιοτικά με 4 στελέχη Γαλακτοβάκιλλων για τη Γυναίκα 30 κάψ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5200148860039",
+      "barcodes_web": [
+        "5200148860039"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "CoQ10"
+      ],
+      "title": "Vitamain Pulse CoQ10 80 mg & L-Carnitine 200 mg 30 κάψουλες",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5206856001047",
+      "barcodes_web": [
+        "5206856001047"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Κουερσετίνη"
+      ],
+      "title": "Bionat QuerciVir Συμπλήρωμα Διατροφής με Κερσετίνη, Βιταμίνη C & Λαπάχο 20 δισκί",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "97467030060",
+      "barcodes_web": [],
+      "barcode_match": "unknown",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Φωσφατιδυλσερίνη - Phosphatidyl Serine"
+      ],
+      "title": "Nature's Plus Adult-Active DMAE/Gingko 60 tabs",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5411386894414",
+      "barcodes_web": [
+        "5411386894414"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Ortis IntestiNorm Συμπλήρωμα Για Το Έντερο 12 λευκά/24 πράσινα δισκία",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5208017200108",
+      "barcodes_web": [
+        "5208017200108"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Synergia Maxi-Flore 10 φακελάκια",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "8002738988737",
+      "barcodes_web": [],
+      "barcode_match": "unknown",
+      "categories": [
+        "Specchiasol"
+      ],
+      "title": "Specchiasol Ferzym Junior 10 amps x 8 ml",
+      "result_status": "inactive"
+    },
+    {
+      "barcode_db": "5207270000234",
+      "barcodes_web": [
+        "5207270000234"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Πρόπολη"
+      ],
+      "title": "Leriva Immuvit Herbs & Propolis Spray Για Την Καλή Λειτουργία Του Αναπνευστικού ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "721688301806",
+      "barcodes_web": [
+        "721688301806"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "CoQ10"
+      ],
+      "title": "Vitaspis Cellasyn 100 Συνένζυμο Q10 60 μαλακές κάψουλες",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5200421900612",
+      "barcodes_web": [
+        "5200421900612"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "CoQ10"
+      ],
+      "title": "Full Health PQQ + CoQ10 60 φυτοκάψουλες",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "4640012260465",
+      "barcodes_web": [
+        "4640012260465"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Shilajit"
+      ],
+      "title": "Mumijo Shilajit Paste Φυσική Πάστα Μουμιγιό 10 g",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5060086380552",
+      "barcodes_web": [
+        "5060086380552"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "UniBac Original 9 Live Bacteria Blend Συμπλήρωμα Διατροφής με Προβιοτικά 15 κάψο",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "MET1090",
+      "barcodes_web": [
+        "MET1090"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Πρόπολη"
+      ],
+      "title": "Metapharm Vitosyn Propovit 60 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "3700221316412",
+      "barcodes_web": [
+        "3700221316412",
+        "3700221304006"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Forte Pharma ForteBiotic+ Flore 30 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "3515450080993",
+      "barcodes_web": [
+        "3515450080993"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Βασιλικός Πολτός"
+      ],
+      "title": "Vitavea Gelee Royale Gummies 30 ζελεδάκια",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5200414600017",
+      "barcodes_web": [
+        "5200414600017"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Probi Digestis 10 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "4260105980683",
+      "barcodes_web": [
+        "4260105980683"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Μαμά - Παιδί",
+        "Διατροφή Μωρού - Παιδιού",
+        "Παιδικά Συμπληρώματα"
+      ],
+      "title": "MicroVeda M33+ Kids Μικροβιοτικό Στοματικό Σπρέυ για το Ανώτερο Αναπνευστικό 50 ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "4260105980676",
+      "barcodes_web": [
+        "4260105980676"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Εποχιακά",
+        "Χειμώνας",
+        "Κρυολόγημα - Ανοσοποιητικό"
+      ],
+      "title": "MicroVeda M33+ Strong Mint Μικροβιοτικό Στοματικό Σπρέυ 50 ml",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "62781110019",
+      "barcodes_web": [
+        "062781110019",
+        "62781110019"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Λακτάση"
+      ],
+      "title": "Lacteeze σταγόνες 7 ml",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "3515450086803",
+      "barcodes_web": [
+        "3515450044001",
+        "3515450086803"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Vitavea Ultrabiotique Instant Συμπλήρωμα Για Άμεση Αντιμετώπιση Της Διάρροιας 10",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "3515450044001",
+      "barcodes_web": [
+        "3515450044001",
+        "3515450086803"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Vitavea Ultrabiotique Instant Συμπλήρωμα Για Άμεση Αντιμετώπιση Της Διάρροιας 10",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "8008843135714",
+      "barcodes_web": [
+        "8008843135714"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Πρόπολη"
+      ],
+      "title": "ESI Propolaid Spray Gola Junior 20 ml",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "3515450025871",
+      "barcodes_web": [
+        "3515450025871",
+        "3515450086865"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Μαμά - Παιδί",
+        "Διατροφή Μωρού - Παιδιού",
+        "Παιδικά Συμπληρώματα"
+      ],
+      "title": "Vitavea Ultrabiotique Infantile - Infants Συμβιωτικό Συμπλήρωμα Για Παιδιά 7 φακ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "3515450086865",
+      "barcodes_web": [
+        "3515450025871",
+        "3515450086865"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Μαμά - Παιδί",
+        "Διατροφή Μωρού - Παιδιού",
+        "Παιδικά Συμπληρώματα"
+      ],
+      "title": "Vitavea Ultrabiotique Infantile - Infants Συμβιωτικό Συμπλήρωμα Για Παιδιά 7 φακ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "97467049871",
+      "barcodes_web": [
+        "0097467049871",
+        "097467049871",
+        "97467049871"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Ισοφλαβόνες"
+      ],
+      "title": "Nature's Plus Isoflavone Rx-Phytoestrogen 30 tabs",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5027314505002",
+      "barcodes_web": [
+        "5027314505002"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Protexin Bio-Kult 15 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "0097467044319",
+      "barcodes_web": [
+        "0097467044319",
+        "097467044319",
+        "97467044319"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Ένζυμα"
+      ],
+      "title": "Nature's Plus Say Yes To Beans 60 veg.caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "8020600002060",
+      "barcodes_web": [],
+      "barcode_match": "unknown",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Probiotico Donna 30 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "7640165680360",
+      "barcodes_web": [
+        "7640165680070",
+        "7640165680360"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Μαμά - Παιδί",
+        "Διατροφή Μωρού - Παιδιού",
+        "Παιδικά Συμπληρώματα"
+      ],
+      "title": "Vivomixx Drops Food Supplement 2 bottles x 5 ml",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "7640165680070",
+      "barcodes_web": [
+        "7640165680070",
+        "7640165680360"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Μαμά - Παιδί",
+        "Διατροφή Μωρού - Παιδιού",
+        "Παιδικά Συμπληρώματα"
+      ],
+      "title": "Vivomixx Drops Food Supplement 2 bottles x 5 ml",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "733739029430",
+      "barcodes_web": [
+        "733739029430"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Βρωμελαΐνη"
+      ],
+      "title": "Now Bromelain 500 mg/2400 GDU 60 veg caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "8437016492178",
+      "barcodes_web": [
+        "8437016492178"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Μελατονίνη"
+      ],
+      "title": "Saludbox Morpheo Flash Effect Συμπλήρωμα Διατροφής για τον Ύπνο 15 μασώμενα δισκ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5060086380118",
+      "barcodes_web": [
+        "5060086380118"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "UniBac Original 9 Live Bacteria Blend Συμπλήρωμα Διατροφής με Προβιοτικά 60 κάψο",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5206087110105",
+      "barcodes_web": [
+        "5206087110105",
+        "710013001009"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Γλουκοζαμίνη - Χονδροϊτίνη"
+      ],
+      "title": "Olympian Labs Glucosalage S04 100 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "710013001009",
+      "barcodes_web": [
+        "5206087110105",
+        "710013001009"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Γλουκοζαμίνη - Χονδροϊτίνη"
+      ],
+      "title": "Olympian Labs Glucosalage S04 100 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "8032611854743",
+      "barcodes_web": [
+        "8032611854743"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Prevent Nutrifarma Ecoflor Plus Bulardii 5 δις 20 κάψουλες",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "ZTP7843",
+      "barcodes_web": [
+        "5213001490120",
+        "K777700834"
+      ],
+      "barcode_match": "mismatch",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Zeta Pharmaceuticals Prolife Lactobacilli 7 vials x 8 ml + Δώρο Zeta Pharmaceuti",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5206899000847",
+      "barcodes_web": [
+        "5206899000847"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Βασιλικός Πολτός"
+      ],
+      "title": "Apipharm 3Bees Body & Brain Booster Βασιλικός Πολτός 900 mg & Βιταμίνη Β12 7.5 m",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "7393107559001",
+      "barcodes_web": [
+        "7350092800044",
+        "7393107559001"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Wasa Medicals Probion Daily Health 150 tabs",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "7350092800044",
+      "barcodes_web": [
+        "7350092800044",
+        "7393107559001"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Wasa Medicals Probion Daily Health 150 tabs",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5060086380071",
+      "barcodes_web": [
+        "5060086380071",
+        "5060086380354"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Μαννόζη"
+      ],
+      "title": "Waterfall D-Mannose Advanced 1000 mg Συμπλήρωμα Διατροφής για την Υγεία του Ουρο",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5060086380354",
+      "barcodes_web": [
+        "5060086380071",
+        "5060086380354"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Μαννόζη"
+      ],
+      "title": "Waterfall D-Mannose Advanced 1000 mg Συμπλήρωμα Διατροφής για την Υγεία του Ουρο",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5206141516119",
+      "barcodes_web": [
+        "5206141516119"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Φυτικές Ίνες"
+      ],
+      "title": "Laxfruit Probiotic Granelli 50 gr/tabs",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "8435100846210",
+      "barcodes_web": [
+        "8435100846210"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Plameca Tribiotic Συμπλήρωμα Διατροφής με Προβιοτικά, Πρεβιοτικά & Βουτυρικό Οξύ",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5200321011012",
+      "barcodes_web": [
+        "5200321011012"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Προβιοτικά"
+      ],
+      "title": "Dr.Wolz Darmflora plus select intens 20 caps",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "5060003594802",
+      "barcodes_web": [
+        "5060003594802"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Φυτικές Ίνες"
+      ],
+      "title": "Viridian Complete Fibre Complex 90 κάψουλες",
+      "result_status": "active"
+    },
+    {
+      "barcode_db": "97467044319",
+      "barcodes_web": [
+        "0097467044319",
+        "097467044319",
+        "97467044319"
+      ],
+      "barcode_match": "match",
+      "categories": [
+        "Βιταμίνες",
+        "Ειδικά Συμπληρώματα",
+        "Ένζυμα"
+      ],
+      "title": "Nature's Plus Say Yes To Beans 60 veg.caps",
+      "result_status": "active"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import asyncio
 import json
 import os
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from pymongo import AsyncMongoClient
 
@@ -139,17 +139,48 @@ async def _run(config_path: Path) -> int:
                 _log(f"[{index}/{selected_total}] skip item={item_id} reason=no_barcode")
                 continue
 
-            try:
-                refresh_preview = await _build_source_refresh_preview(
-                    db,
-                    existing,
-                    barcode=barcode,
-                    updated_by=requested_by,
-                    source_key=str(source_selection.get("source_key", "") or ""),
-                    text_source_key=str(source_selection.get("text_source_key", "") or ""),
-                    image_source_key=str(source_selection.get("image_source_key", "") or ""),
-                    category_source_key=str(source_selection.get("category_source_key", "") or ""),
+            # Per-barcode work is retried once on transient exception. A
+            # long-tail of missing barcodes never resolves on any source and
+            # that's OK — we track them as `failed` but the batch itself
+            # still exits 0 unless the *ratio* is catastrophic (see below).
+            last_exc: Optional[Exception] = None
+            refresh_preview = None
+            for attempt in (1, 2):
+                try:
+                    refresh_preview = await _build_source_refresh_preview(
+                        db,
+                        existing,
+                        barcode=barcode,
+                        updated_by=requested_by,
+                        source_key=str(source_selection.get("source_key", "") or ""),
+                        text_source_key=str(source_selection.get("text_source_key", "") or ""),
+                        image_source_key=str(source_selection.get("image_source_key", "") or ""),
+                        category_source_key=str(source_selection.get("category_source_key", "") or ""),
+                    )
+                    last_exc = None
+                    break
+                except asyncio.CancelledError:
+                    raise
+                except Exception as exc:
+                    last_exc = exc
+                    if attempt == 1:
+                        _log(f"[{index}/{selected_total}] retry barcode={barcode} attempt=1 error={exc}")
+                        await asyncio.sleep(1.5)
+                        continue
+
+            if last_exc is not None or refresh_preview is None:
+                failed += 1
+                processed += 1
+                update_job_state(
+                    SOURCE_KEY, JOB_KEY,
+                    processed=int(processed), updated=int(updated),
+                    skipped=int(skipped), failed=int(failed),
+                    last_barcode=barcode, last_item_id=item_id,
                 )
+                _log(f"[{index}/{selected_total}] failed barcode={barcode} error={last_exc}")
+                continue
+
+            try:
                 updates = dict(refresh_preview["refreshed_document"])
                 updates["cms_updated_by"] = requested_by
                 updates["cms_updated_at"] = _utcnow()
@@ -166,14 +197,10 @@ async def _run(config_path: Path) -> int:
                 updated += 1
                 processed += 1
                 update_job_state(
-                    SOURCE_KEY,
-                    JOB_KEY,
-                    processed=int(processed),
-                    updated=int(updated),
-                    skipped=int(skipped),
-                    failed=int(failed),
-                    last_barcode=barcode,
-                    last_item_id=item_id,
+                    SOURCE_KEY, JOB_KEY,
+                    processed=int(processed), updated=int(updated),
+                    skipped=int(skipped), failed=int(failed),
+                    last_barcode=barcode, last_item_id=item_id,
                 )
                 _log(
                     f"[{index}/{selected_total}] updated barcode={barcode} "
@@ -181,20 +208,20 @@ async def _run(config_path: Path) -> int:
                     f"image={refresh_preview['image_source_name'] or '-'} "
                     f"category={refresh_preview['category_source_name'] or '-'}"
                 )
-            except Exception as exc:  # pragma: no cover - defensive runtime path
+            except asyncio.CancelledError:
+                raise
+            except Exception as exc:
+                # Persist-side failure (DB write / quality eval). Same
+                # accounting rule — count as failed but don't crash the batch.
                 failed += 1
                 processed += 1
                 update_job_state(
-                    SOURCE_KEY,
-                    JOB_KEY,
-                    processed=int(processed),
-                    updated=int(updated),
-                    skipped=int(skipped),
-                    failed=int(failed),
-                    last_barcode=barcode,
-                    last_item_id=item_id,
+                    SOURCE_KEY, JOB_KEY,
+                    processed=int(processed), updated=int(updated),
+                    skipped=int(skipped), failed=int(failed),
+                    last_barcode=barcode, last_item_id=item_id,
                 )
-                _log(f"[{index}/{selected_total}] failed barcode={barcode} error={exc}")
+                _log(f"[{index}/{selected_total}] persist_failed barcode={barcode} error={exc}")
 
             if index == 1 or index % 10 == 0 or index == selected_total:
                 update_job_state(
@@ -242,7 +269,19 @@ async def _run(config_path: Path) -> int:
                 "requested_by": requested_by,
             },
         )
-        return 0 if failed == 0 else 1
+        # Exit codes:
+        #   0 = success (batch completed; per-barcode failures are normal
+        #       and don't fail the job — many barcodes legitimately have no
+        #       source data available).
+        #   1 = infrastructure error (already raised elsewhere in main()).
+        #   2 = catastrophic: nothing processed OR ≥90% of processed items
+        #       failed → suggests a broken source pipeline that a human
+        #       should investigate.
+        if processed == 0 and selected_total > 0:
+            return 2
+        if processed > 0 and (failed / processed) >= 0.90:
+            return 2
+        return 0
     finally:
         close_result = mongo_client.close()
         if asyncio.iscoroutine(close_result):

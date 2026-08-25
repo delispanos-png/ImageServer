@@ -1,0 +1,1299 @@
+{
+  "stats": {
+    "examined": 121,
+    "with_l1_only": 34,
+    "with_l2": 87,
+    "by_confidence": {
+      "high": 38,
+      "medium": 49,
+      "low": 19,
+      "none": 15
+    },
+    "would_activate": 87,
+    "modified": 121
+  },
+  "rows": [
+    {
+      "barcode": "5055148401795",
+      "title": "Lamberts Hawthorn 2500mg, 60tabs",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "Hawthorn 2500mg",
+        "score": 1.0,
+        "path": [
+          "Βότανα",
+          "Βότανα Kαρδιαγγειακού"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148411060",
+      "title": "Lamberts Acetyl L Carnitine 500mg, 60caps",
+      "score": 0.7,
+      "confidence": "high",
+      "matched": {
+        "title": "L -Carnitine 500mg",
+        "score": 0.7,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148410957",
+      "title": "Lamberts L-Histidine HCI 500mg, 30caps",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "L-Histidine HCI 500mg",
+        "score": 1.0,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148410995",
+      "title": "Lamberts L-Phenylalanine 500mg, 60caps",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "L-Phenylalanine 500mg",
+        "score": 1.0,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148409166",
+      "title": "Lamberts FOS (Fructo-oligosaccharides), 500g",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "FOS (Fructo-oligosaccharides)",
+        "score": 1.0,
+        "path": [
+          "Παιδική Διατροφή"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148409944",
+      "title": "Lamberts Prostex 320mg, 90tabs",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "Prostex",
+        "score": 1.0,
+        "path": [
+          "Βότανα",
+          "Βότανα Ουροποιητικού"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148413248",
+      "title": "Lamberts Vitamin D3 2000iu (50μg), 30caps",
+      "score": 0.8,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin D3 2000iu & K2 90 µg",
+        "score": 0.8,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνη Κ2 & συνδυασμοί με D3"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148411701",
+      "title": "Lamberts Turmemoric, 60tabs",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "Turmemoric",
+        "score": 1.0,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Κουρκουμά"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148402815",
+      "title": "Lamberts Zincatest, 100ml",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "Zincatest",
+        "score": 1.0,
+        "path": [
+          "Μέταλλα",
+          "Ψευδάργυρος"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148408435",
+      "title": "Lamberts VeinTain, 60caps",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "VeinTain",
+        "score": 1.0,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Ginkgo Biloba"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148414900",
+      "title": "Lamberts Collagen Radiance Powder - Σκόνη Κολλαγόνου 100gr",
+      "score": 0.76,
+      "confidence": "high",
+      "matched": {
+        "title": "Collagen Radiance Powder",
+        "score": 0.76,
+        "path": [
+          "Σκευάσματα Κολλαγόνου"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148401559",
+      "title": "Lamberts L-arginine Hci 1000mg 90tabs",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "L – Arginine HCI 1000mg",
+        "score": 1.0,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005373",
+      "title": "Lamberts Griffonia Seed Extract 5-HTP 100mg-Συμπλήρωμα Διατροφής για την Ρύθμιση",
+      "score": 0.6,
+      "confidence": "high",
+      "matched": {
+        "title": "Griffonia Seed Extract (5-HTP 100mg)",
+        "score": 0.6,
+        "path": [
+          "Ειδικά Διατροφικά Συμπληρώματα",
+          "5-HTP"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005772",
+      "title": "Lamberts Glucosamine Sulphate 1400mg-Συμπλήρωμα Διατροφής με Θειική Γλυκοζαμίνη,",
+      "score": 0.4,
+      "confidence": "medium",
+      "matched": {
+        "title": "Glucosamine Sulphate 2KCl",
+        "score": 0.4,
+        "path": [
+          "Συμπληρώματα για Αρθρώσεις"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005486",
+      "title": "Lamberts Glucosamine QCV-Συμπλήρωμα Διατροφής με Γλυκοζαμίνη, 120 Ταμπλέτες",
+      "score": 0.5714,
+      "confidence": "medium",
+      "matched": {
+        "title": "Glucosamine QCV",
+        "score": 0.5714,
+        "path": [
+          "Συμπληρώματα για Αρθρώσεις"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109005624",
+      "title": "Lamberts Maxi Hair Συμπλήρωμα Διατροφής για Υγιή Μαλλιά, 60tabs (8446-60)",
+      "score": 0.2667,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "9109006041",
+      "title": "Lamberts Rhodiola Rosea-Συμπλήρωμα για Φυσική & Πνευματική Ενέργεια, 60 Ταμπλέτε",
+      "score": 0.5333,
+      "confidence": "medium",
+      "matched": {
+        "title": "Rhodiola Rosea",
+        "score": 0.5333,
+        "path": [
+          "Βότανα",
+          "Προσαρμοσιογόνα βότανα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109006429",
+      "title": "Lamberts Lactase Complex 350mg-Συμπλήρωμα Διατροφής με Λακτάση, 60 Ταμπλέτες (84",
+      "score": 0.275,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "950300",
+      "title": "Lamberts L-Theanine 200mg-Συμπλήρωμα Διατροφής με Θειανίνη, 60 Κάψουλες  (8320-6",
+      "score": 0.5,
+      "confidence": "medium",
+      "matched": {
+        "title": "L-Theanine 200mg",
+        "score": 0.5,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "949006",
+      "title": "Lamberts Premtesse-Συμπλήρωμα Διατροφής για Γυναίκες Αναπαραγωγικής Ηλικίας, 60 ",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "949010",
+      "title": "Lamberts Cranberry Tablets 18,750mg (as a 750mg extract) για την Υγεία του Ουροπ",
+      "score": 0.4667,
+      "confidence": "medium",
+      "matched": {
+        "title": "Cranberry 18.750mg",
+        "score": 0.4667,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Cranberry"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "949007",
+      "title": "Lamberts Multi Guard Pregnancy-Συμπλήρωμα Διατροφής για Γυναίκες Αναπαραγωγικής ",
+      "score": 0.3667,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "952890",
+      "title": "Lamberts Meno-pause Complex-Συμπλήρωμα Διατροφής για την Περίοδο της Εμμηνόπαυση",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "Meno-pause Complex",
+        "score": 0.55,
+        "path": [
+          "Βότανα",
+          "Βότανα για τη Γυναίκα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002845",
+      "title": "Lamberts Garlic 8250mg Συμπλήρωμα Διατροφής με Σκόρδο, 60Tabs",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "Garlic 8250mg",
+        "score": 0.55,
+        "path": [
+          "Βότανα",
+          "Βότανα Kαρδιαγγειακού"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109002700",
+      "title": "Lamberts Bromelain 500mg 1250gdu Συμπλήρωμα Διατροφής για τις Αρθρώσεις, 60caps ",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "Bromelain 1250GDU",
+        "score": 0.55,
+        "path": [
+          "Συμπληρώματα για Αρθρώσεις"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "5055148401504",
+      "title": "Lamberts L-Phenylalanine 500mg Αμινοξύ, 60caps (8321-60)",
+      "score": 0.6,
+      "confidence": "high",
+      "matched": {
+        "title": "L-Phenylalanine 500mg",
+        "score": 0.6,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109300394",
+      "title": "Lamberts Glucosamine Complete-Συμπλήρωμα Διατροφής με Γλυκοζαμίνη για τους Χόνδρ",
+      "score": 0.5091,
+      "confidence": "medium",
+      "matched": {
+        "title": "Glucosamine Complete",
+        "score": 0.5091,
+        "path": [
+          "Συμπληρώματα για Αρθρώσεις"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "9109300892",
+      "title": "Lamberts Glucosamine & Phytodroitin Complex-Συμπλήρωμα Διατροφής για την Υγεία τ",
+      "score": 0.3417,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "9109065665",
+      "title": "2x Lamberts A to Z Multivitamins Πολυβιταμίνη, 2x60 Ταμπλέτες (8429-60)",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "9109065666",
+      "title": "3x Lamberts A to Z Multivitamins Πολυβιταμίνη (3x60 Ταμπλέτες) (8429-60)",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "9109301399",
+      "title": "Lamberts Glucosamine & Phytodroitin Complex-Συμπλήρωμα Διατροφής με Θειϊκή Γλυκο",
+      "score": 0.3867,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "881744",
+      "title": "Lamberts A to Z Multivitamins Πολυβιταμίνη, 60tabs (8429-60)",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "881747",
+      "title": "Lamberts A to Z Multivitamins Πολυβιταμίνη, 30tabs (8429-30)",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "879766",
+      "title": "Lamberts Acidophilus Extra 4 Προβιοτικά, 60 Capsules",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "883196",
+      "title": "Lamberts Pulse Pure Fish Oil 1300mg & CoQ10 100mg Υψηλής Ισχύος Ιχθυέλαιο, 90cap",
+      "score": 0.625,
+      "confidence": "high",
+      "matched": {
+        "title": "Pure Fish Oil 1100mg",
+        "score": 0.625,
+        "path": [
+          "Ω - Λιπαρά Οξέα",
+          "Ω-3 Λιπαρά οξέα από ψάρι"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "883195",
+      "title": "Lamberts Osteoguard Advance με Ασβέστιο,Μαγνήσιο,Βιταμίνες D3 & K2, 90Tabs (8227",
+      "score": 0.2857,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "883724",
+      "title": "Lamberts Peppermint Oil 100mg Έλαιο Μέντας για το Έντερο, 90caps (8399-90)",
+      "score": 0.4167,
+      "confidence": "medium",
+      "matched": {
+        "title": "Peppermint Oil Capsules 100mg",
+        "score": 0.4167,
+        "path": [
+          "Συμπληρώματα πέψης"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "883728",
+      "title": "Lamberts Multi Guard High Potency Πολυβιταμινούχος Φόρμουλα, 90Tabs (8442-90)",
+      "score": 0.4167,
+      "confidence": "medium",
+      "matched": {
+        "title": "Multi-Guard Advance®",
+        "score": 0.4167,
+        "path": [
+          "Πολυβιταμίνες",
+          "Για ενήλικες άνω των 50 ετών"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "883732",
+      "title": "Lamberts Turmeric Fast Release Συμπλήρωμα Διατροφής με Κουρκουμά, 60 Tabs",
+      "score": 0.7,
+      "confidence": "high",
+      "matched": {
+        "title": "Turmeric Fast Release",
+        "score": 0.7,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Κουρκουμά"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "883734",
+      "title": "Lamberts Turmeric Fast Release Συμπλήρωμα Διατροφής με Κουρκουμά για την Αντιμετ",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "Turmeric Fast Release",
+        "score": 0.55,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Κουρκουμά"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "883194",
+      "title": "Lamberts TurMemoric Συμπλήρωμα Διατροφής με Εκχύλισμα Ρίζας Κουρκουμά, 60 Τabs",
+      "score": 0.4857,
+      "confidence": "medium",
+      "matched": {
+        "title": "Turmemoric",
+        "score": 0.4857,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Κουρκουμά"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "882483",
+      "title": "Lamberts Multi Guard Πολυβιταμινούχος Φόρμουλα, 30tabs (8442-30)",
+      "score": 0.4667,
+      "confidence": "medium",
+      "matched": {
+        "title": "Multi-Guard Advance®",
+        "score": 0.4667,
+        "path": [
+          "Πολυβιταμίνες",
+          "Για ενήλικες άνω των 50 ετών"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "881899",
+      "title": "Lamberts Multi Guard ADR Πολυφόρμουλα Ενέργειας & Τόνωσης με Rhodiola, Korean Gi",
+      "score": 0.4923,
+      "confidence": "medium",
+      "matched": {
+        "title": "Korean Ginseng 1200mg",
+        "score": 0.4923,
+        "path": [
+          "Βότανα",
+          "Προσαρμοσιογόνα βότανα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "882855",
+      "title": "Lamberts Osteoguard, 90 Ταμπλέτες",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "866480",
+      "title": "Lamberts B50 Complex, 250 Τabs",
+      "score": 0.32,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "866481",
+      "title": "Lamberts Vitamin B 100 Complex με Choline & Inositol, 200 Tabs",
+      "score": 0.76,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin B-100 Complex",
+        "score": 0.76,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "865860",
+      "title": "Lamberts Vitamin C 500mg Time Release για το Ανοσοποιητικό Σύστημα, 250tabs (813",
+      "score": 0.625,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin C Time Release 500 mg",
+        "score": 0.625,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνη C"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "863788",
+      "title": "Lamberts Performance Diet Whey Protein & Active Levels of CLA & Green Tea Extrac",
+      "score": 0.5429,
+      "confidence": "medium",
+      "matched": {
+        "title": "DIET WHEY PROTEIN με γεύση σοκολάτα",
+        "score": 0.5429,
+        "path": [
+          "Αθλητική διατροφή",
+          "Πρωτεΐνες διαίτης"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "876232",
+      "title": "Lamberts Phosphatidyl Serine Complex Συμπλήρωμα Διατροφής που Συνεισφέρει στη Φυ",
+      "score": 0.5,
+      "confidence": "medium",
+      "matched": {
+        "title": "Phosphatidyl Serine 100mg",
+        "score": 0.5,
+        "path": [
+          "Ειδικά Διατροφικά Συμπληρώματα",
+          "Φωσφατιδυλοσερίνη"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "876238",
+      "title": "Lamberts Vit C Rose hip 10000mg Καρπός Αγριοτριανταφυλλιάς για την Φυσιολογική Λ",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "876242",
+      "title": "Lamberts Vitamin B12 100μg Συμπλήρωμα Διατροφής με Βιταμίνη Β12, 100 tabs (8085-",
+      "score": 0.625,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin B12 100μg",
+        "score": 0.625,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "876243",
+      "title": "Lamberts Vitamin C Time Release 1500mg Βιταμίνη C, 120 Tabs 8136-120",
+      "score": 0.7,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin C Time Release 500 mg",
+        "score": 0.7,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνη C"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "876244",
+      "title": "Lamberts Gentle Vitamin C 500mg Non-Acidic Βιταμίνη C σε μη Όξινη Μορφή, 100 Tab",
+      "score": 0.5714,
+      "confidence": "medium",
+      "matched": {
+        "title": "Gentle Vitamin C 500mg",
+        "score": 0.5714,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνη C"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "903480",
+      "title": "Lamberts Manganese 4mg  Συμπλήρωμα Διατροφής Μαγγάνιου, 100 Κάψουλες",
+      "score": 0.5,
+      "confidence": "medium",
+      "matched": {
+        "title": "Manganese 4mg",
+        "score": 0.5,
+        "path": [
+          "Μέταλλα",
+          "Ιώδιο, Μαγγάνιο & Συμπλέγματα Μετάλλων"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "891402",
+      "title": "Lamberts Multi Guard Advance Ισχυρή Φόρμουλα Πολυβιταμίνης, 60 Ταμπλέτες",
+      "score": 0.4167,
+      "confidence": "medium",
+      "matched": {
+        "title": "Multi-Guard Advance®",
+        "score": 0.4167,
+        "path": [
+          "Πολυβιταμίνες",
+          "Για ενήλικες άνω των 50 ετών"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "894631",
+      "title": "Lamberts Choline Liver Complex Eκχύλισμα Γαϊδουράγκαθου, 60 Tabs",
+      "score": 0.76,
+      "confidence": "high",
+      "matched": {
+        "title": "Choline Liver Complex",
+        "score": 0.76,
+        "path": [
+          "Συμπληρώματα πέψης"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "894632",
+      "title": "Lamberts Multi Guard ADR Πολυφόρμουλα Ενέργειας & Τόνωσης, 60tabs (8443-60)",
+      "score": 0.4167,
+      "confidence": "medium",
+      "matched": {
+        "title": "Multi-Guard® ADR",
+        "score": 0.4167,
+        "path": [
+          "Πολυβιταμίνες",
+          "Αντοχή/ Kόπωση"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "887308",
+      "title": "Lamberts Glucosamine For Pets-Συμπλήρωμα Διατροφής με Γλυκοζαμίνη για την Υγεία ",
+      "score": 0.2375,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "887363",
+      "title": "Lamberts Osteoguard Ολοκληρωμένη Φόρμουλα για τα Οστά, 30 Ταμπλέτες",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "902283",
+      "title": "Lamberts Multi Max Πολυβιταμινούχα Φόρμουλα, 60 Tαμπλέτες (8431-60)",
+      "score": 0.2857,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "903297",
+      "title": "Lamberts Magnesium 375 Συμπλήρωμα Διατροφής Με τις 4 Σημαντικότερες Μορφές Αλάτω",
+      "score": 0.52,
+      "confidence": "medium",
+      "matched": {
+        "title": "Magnesium 375",
+        "score": 0.52,
+        "path": [
+          "Μέταλλα",
+          "Μαγνήσιο"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "903298",
+      "title": "Lamberts Vegan DHA, 60 Caps",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "Vegan DHA",
+        "score": 1.0,
+        "path": [
+          "Ω - Λιπαρά Οξέα",
+          "Ω-3 Λιπαρά οξέα φυτικής προελεύσεως"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "902407",
+      "title": "Lamberts Vitamin D3 Drops Συμπλήρωμα Βιταμίνης D, 20ml/600 drops",
+      "score": 0.64,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin D3 Drops",
+        "score": 0.64,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνη D3"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "900234",
+      "title": "Lamberts Florisene για Γυναίκες με Απώλεια Μαλλιών, 90tabs (8440-90)",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "821264",
+      "title": "Lamberts Rutin & Vitamin C & Bioflavonoids 500mg, 90 Tabs",
+      "score": 0.6,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin B6 50mg",
+        "score": 0.6,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "821269",
+      "title": "Lamberts Colladeen Derma Plus Συμπλήρωμα Διατροφής για την Υγεία του Δέρματος, 6",
+      "score": 0.3667,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "821377",
+      "title": "Lamberts Vitamin C as Ascorbic Acid Σε Μορφή Σκόνης, 250gr",
+      "score": 0.52,
+      "confidence": "medium",
+      "matched": {
+        "title": "Vitamin B6 50mg",
+        "score": 0.52,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "819784",
+      "title": "Lamberts Calcium Συμπληρώματα Διατροφής για την Επίτευξη Ιδανικής Οστικής Πυκνότ",
+      "score": 0.2545,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "819788",
+      "title": "Lamberts Chromium GTF Χρώμιο 200μg, 100tabs",
+      "score": 0.85,
+      "confidence": "high",
+      "matched": {
+        "title": "GTF Chromium 200μg",
+        "score": 0.85,
+        "path": [
+          "Μέταλλα",
+          "Χρώμιο"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "819798",
+      "title": "Lamberts Zinc Plus Ψευδάργυρο & Βιταμίνη C για Ενίσχυση του Ανοσοποιητικού για Ε",
+      "score": 0.44,
+      "confidence": "medium",
+      "matched": {
+        "title": "Zinc 25mg",
+        "score": 0.44,
+        "path": [
+          "Μέταλλα",
+          "Ψευδάργυρος"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "819809",
+      "title": "Lamberts L Ornithine Αμινοξύ Ορνιθίνης 500mg, 60caps (8319-60)",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "L-Ornithine 500mg",
+        "score": 0.55,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "819818",
+      "title": "Lamberts Betaine HCI 324mg/Pepsin 5mg για Αποκατάσταση Υδροχλωρικού Οξέος, 180 T",
+      "score": 0.48,
+      "confidence": "medium",
+      "matched": {
+        "title": "Betaine HCI with Pepsin",
+        "score": 0.48,
+        "path": [
+          "Συμπληρώματα πέψης"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "819830",
+      "title": "Lamberts Multi Guard Osteoadvance 50+ Πολυβιταμινούχα Φόρμουλα για την Καλή Υγεί",
+      "score": 0.3467,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "819867",
+      "title": "Lamberts Refreshall Συμβάλλει στην Διατήρηση της Βραχυπρόθεσμης Μνήμης, 120 tabs",
+      "score": 0.4667,
+      "confidence": "medium",
+      "matched": {
+        "title": "Refreshall",
+        "score": 0.4667,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Ginkgo Biloba"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "819904",
+      "title": "Lamberts Vitamin E 250IU, 100 Κάψουλες",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "Vitamin B6 50mg",
+        "score": 0.55,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "819770",
+      "title": "Lamberts Calcium Pantothenate 500MG, 60tabs",
+      "score": 1.0,
+      "confidence": "high",
+      "matched": {
+        "title": "Calcium Pantothenate 500mg",
+        "score": 1.0,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "821704",
+      "title": "Lamberts Sea Buckthorn Berry Oil 1000mg Συμπλήρωμα από Ιπποφαές, 30 Caps",
+      "score": 0.5714,
+      "confidence": "medium",
+      "matched": {
+        "title": "Sea Buckthorn 1000mg",
+        "score": 0.5714,
+        "path": [
+          "Ω - Λιπαρά Οξέα",
+          "Ω-7 Λιπαρά οξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "824007",
+      "title": "Lamberts Acidophilus Extra 10 Προβιοτικό Σκεύασμα Milk Free, 60caps (8418-60)",
+      "score": 0.275,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "824292",
+      "title": "Lamberts Acidophilus Extra4 Μilk Free Προβιοτικά, 30 Κάψουλες",
+      "score": 0.2857,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "821705",
+      "title": "Lamberts Vitamin D3 1000iu & K2 90mg Φόρμουλα με Βιταμίνες D3 & Κ2, 60 caps (814",
+      "score": 0.64,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin D3 1000iu & K2 90 µg",
+        "score": 0.64,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνη Κ2 & συνδυασμοί με D3"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "822141",
+      "title": "Lamberts Acidophilus Extra 10 Προβιοτικό Σκεύασμα, 30caps (8418-30)",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "806513",
+      "title": "Lamberts L-Glutamine 500mg Γλουταμίνη, 90 Caps",
+      "score": 0.7,
+      "confidence": "high",
+      "matched": {
+        "title": "L-Glutamine 500mg",
+        "score": 0.7,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "809103",
+      "title": "Lamberts L-Carnitine 500mg Αμινοξύ για το Μεταβολισμό, 60caps (8306-60)",
+      "score": 0.52,
+      "confidence": "medium",
+      "matched": {
+        "title": "L -Carnitine 500mg",
+        "score": 0.52,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "810112",
+      "title": "Lamberts Vitamin B12 1000mg Βιταμίνης B12 Τόνωση Νευρικού & Ανοσοποιητικού Συστή",
+      "score": 0.475,
+      "confidence": "medium",
+      "matched": {
+        "title": "Vitamin B6 50mg",
+        "score": 0.475,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "810114",
+      "title": "Lamberts Magnesium 375 Συμπλήρωμα τις 4 Σημαντικότερες Μορφές Αλάτων Μαγνησίου, ",
+      "score": 0.52,
+      "confidence": "medium",
+      "matched": {
+        "title": "Magnesium 375",
+        "score": 0.52,
+        "path": [
+          "Μέταλλα",
+          "Μαγνήσιο"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "810115",
+      "title": "Lamberts Mag Asorb Magnesium Powder 375mg Υψηλής Βιοδιαθεσιμότητας Μαγνήσιο σε μ",
+      "score": 0.2462,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "809409",
+      "title": "Lamberts Multi Guard Control Βιταμίνες, Ιχνοστοιχεία & Μέταλλα, 120tabs (8441-12",
+      "score": 0.4,
+      "confidence": "medium",
+      "matched": {
+        "title": "Multi-Guard Advance®",
+        "score": 0.4,
+        "path": [
+          "Πολυβιταμίνες",
+          "Για ενήλικες άνω των 50 ετών"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "809404",
+      "title": "Lamberts L-Tyrosine Φόρμουλα Τυροσίνη Αμινοξύ 500mg, 60 κάψουλες",
+      "score": 0.52,
+      "confidence": "medium",
+      "matched": {
+        "title": "L-Tyrosine 500mg",
+        "score": 0.52,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "809402",
+      "title": "Lamberts L-Phenylalanine 500mg για την Διατήρηση της Μνήμης & τον Συντονισμό των",
+      "score": 0.4545,
+      "confidence": "medium",
+      "matched": {
+        "title": "L-Phenylalanine 500mg",
+        "score": 0.4545,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "809401",
+      "title": "Lamberts L-Histidine Αμινοξύ Ιστιδίνης 500mg, 30 Κάψουλες",
+      "score": 0.32,
+      "confidence": "low",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "809178",
+      "title": "Lamberts L-Methionine Mεθειονίνη σε Σκόνη 500mg, 60 Caps",
+      "score": 0.6,
+      "confidence": "high",
+      "matched": {
+        "title": "L-Methionine 500mg",
+        "score": 0.6,
+        "path": [
+          "Αμινοξέα"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "809395",
+      "title": "Lamberts Myo - Inositol Powder Συμπλήρωμα Μυοϊνοσιτόλης σε σκόνη, 200gr (8079-20",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "Myo-Inositol",
+        "score": 0.55,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "809398",
+      "title": "Lamberts Vitamin K2 90 mg Συμπλήρωμα Βιταμίνης K2, 60caps",
+      "score": 0.6,
+      "confidence": "high",
+      "matched": {
+        "title": "Vitamin B6 50mg",
+        "score": 0.6,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "824827",
+      "title": "Lamberts Probioguard Προβιοτικά για τις Γαστρεντερικές Διαταραχές, 60caps (8419-",
+      "score": 0.0,
+      "confidence": "none",
+      "matched": null,
+      "result_status": "inactive"
+    },
+    {
+      "barcode": "848669",
+      "title": "Lamberts Co-Enzyme Q10 100mg για Ενέργεια, 60caps (8533-60)",
+      "score": 0.64,
+      "confidence": "high",
+      "matched": {
+        "title": "Co-Enzyme Q10 200mg",
+        "score": 0.64,
+        "path": [
+          "Συνένζυμο Q10 και Ουμπικινόλη"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "848910",
+      "title": "Lamberts Vitamin D3 1000iu, Βιταμίνη D3 για γερά Οστά και Δόντια, 120Caps (8143-",
+      "score": 0.52,
+      "confidence": "medium",
+      "matched": {
+        "title": "Vitamin D3 1000iu & K2 90 µg",
+        "score": 0.52,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνη Κ2 & συνδυασμοί με D3"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "848924",
+      "title": "Lamberts Pure Fish Oil 1100mg Ιχθυέλαιο με Ω3 Λιπαρά Οξέα, 180caps (8508-180)",
+      "score": 0.625,
+      "confidence": "high",
+      "matched": {
+        "title": "Pure Fish Oil 1100mg",
+        "score": 0.625,
+        "path": [
+          "Ω - Λιπαρά Οξέα",
+          "Ω-3 Λιπαρά οξέα από ψάρι"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "848088",
+      "title": "Lamberts Vitamin B12 1000mg (Methilcobalamin), 60tabs (8087-60)",
+      "score": 0.55,
+      "confidence": "medium",
+      "matched": {
+        "title": "Vitamin B6 50mg",
+        "score": 0.55,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "848405",
+      "title": "Lamberts Cranberry Complex για το Ουροποιητικό, 100gr (8556-100)",
+      "score": 0.6,
+      "confidence": "high",
+      "matched": {
+        "title": "Cranberry Complex",
+        "score": 0.6,
+        "path": [
+          "Βότανα",
+          "Σκευάσματα Cranberry"
+        ]
+      },
+      "result_status": "active"
+    },
+    {
+      "barcode": "848302",
+      "title": "Lamberts Vitamin D3 4000iu (100mg) Συμπλήρωμα Διατροφής για την Υγεία Οστών, Δον",
+      "score": 0.45,
+      "confidence": "medium",
+      "matched": {
+        "title": "Vitamin B6 50mg",
+        "score": 0.45,
+        "path": [
+          "Βιταμίνες",
+          "Βιταμίνες B"
+        ]
+      },
+      "result_status": "active"
+    }
+  ]
+}

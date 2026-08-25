@@ -25,6 +25,9 @@ function statusBadge(status: string) {
   if (normalized === 'feed_only') {
     return <Badge bg="info">Μόνο feed</Badge>;
   }
+  if (normalized === 'flaresolverr_required' || normalized === 'flaresolverr_supported') {
+    return <Badge bg="primary">FlareSolverr</Badge>;
+  }
   return <Badge bg="secondary">{status}</Badge>;
 }
 
@@ -467,6 +470,28 @@ export default function SourcesPage() {
     [load, setBusy],
   );
 
+  const handleToggleFlareSolverr = useCallback(
+    async (source: CmsSourceOverview) => {
+      const busyKey = `flaresolverr:${source.key}`;
+      setBusy(busyKey, true);
+      setNotice('');
+      setError('');
+      try {
+        const next = !source.use_flaresolverr;
+        await updateSourceSettings(source.key, { use_flaresolverr: next });
+        await load();
+        setNotice(
+          `${source.label}: FlareSolverr ${next ? 'ενεργοποιήθηκε' : 'απενεργοποιήθηκε'}.`,
+        );
+      } catch (err) {
+        setError(err instanceof Error ? err.message : `Αποτυχία ενημέρωσης ${source.label}.`);
+      } finally {
+        setBusy(busyKey, false);
+      }
+    },
+    [load, setBusy],
+  );
+
   const handleRunJob = useCallback(
     async (source: CmsSourceOverview, job: CmsSourceJob) => {
       const busyKey = `job:${source.key}:${job.key}`;
@@ -535,14 +560,21 @@ export default function SourcesPage() {
       if (!confirmed) {
         return;
       }
+      const purgeRefs = window.confirm(
+        `Πλήρης αποσύνδεση από προϊόντα;\n\nΑν επιλέξεις OK, θα καθαριστούν και τα στοιχεία πηγής στα προϊόντα: Other_Sites.${source.key}, last_source, image/text/category_source_domain, photo_source_lock — εφόσον δείχνουν στην "${source.label}". Τα κύρια πεδία (τίτλος, εικόνα, περιγραφή) παραμένουν.\n\nΑκύρωση = κράτα τα references όπως είναι (μόνο removed από chain).`,
+      );
       const busyKey = `remove:${source.key}`;
       setBusy(busyKey, true);
       setNotice('');
       setError('');
       try {
-        await removeSource(source.key);
+        const result = await removeSource(source.key, { purgeReferences: purgeRefs });
         await load();
-        setNotice(`${source.label}: αφαιρέθηκε από την ενεργή αλυσίδα. Τα υπάρχοντα προϊόντα διατηρήθηκαν.`);
+        setNotice(
+          result.purge_references
+            ? `${source.label}: αφαιρέθηκε + καθαρίστηκαν τα references στα προϊόντα.`
+            : `${source.label}: αφαιρέθηκε από την ενεργή αλυσίδα. Τα references στα προϊόντα διατηρήθηκαν.`,
+        );
       } catch (err) {
         setError(err instanceof Error ? err.message : `Αποτυχία αφαίρεσης ${source.label}.`);
       } finally {
@@ -827,6 +859,17 @@ export default function SourcesPage() {
                                           onClick={() => void handleToggle(source)}
                                         >
                                           {busyActions[`toggle:${source.key}`] ? 'Αποθήκευση...' : source.enabled_in_chain ? 'Απενεργοποίηση' : 'Ενεργοποίηση'}
+                                        </Button>
+                                        <Button
+                                          size="sm"
+                                          variant={source.use_flaresolverr ? 'primary' : 'outline-primary'}
+                                          disabled={busyActions[`flaresolverr:${source.key}`]}
+                                          onClick={() => void handleToggleFlareSolverr(source)}
+                                          title="Δρομολόγηση HTTP requests μέσω FlareSolverr (Cloudflare bypass)"
+                                        >
+                                          {busyActions[`flaresolverr:${source.key}`]
+                                            ? 'Αποθήκευση...'
+                                            : `FlareSolverr: ${source.use_flaresolverr ? 'ON' : 'OFF'}`}
                                         </Button>
                                         <Button
                                           size="sm"

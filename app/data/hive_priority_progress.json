@@ -1,0 +1,12 @@
+{
+  "enriched": 775,
+  "already_complete": 166,
+  "no_data": 818,
+  "no_new_data": 0,
+  "text_error": 0,
+  "db_error": 0,
+  "processed": 1759,
+  "total": 1759,
+  "started_at": "2026-08-04T19:20:00.866480+00:00",
+  "finished_at": "2026-08-05T01:49:20.572404+00:00"
+}

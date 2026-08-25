@@ -20,6 +20,17 @@ cd "${FRONTEND_DIR}"
 rm -rf "${ADMIN_BUILD_DIR}"
 "${NODE_BIN}" node_modules/typescript/bin/tsc
 "${NODE_BIN}" node_modules/vite/bin/vite.js build --config vite.config.ts --outDir "${ADMIN_BUILD_DIR}"
+
+if [[ ! -f "${ADMIN_BUILD_DIR}/index.html" ]]; then
+  echo "admin build failed: index.html was not generated"
+  exit 1
+fi
+
+if ! grep -q '/admin/assets/' "${ADMIN_BUILD_DIR}/index.html"; then
+  echo "admin build failed validation: index.html does not target /admin/assets/"
+  exit 1
+fi
+
 rsync -a --delete "${ADMIN_BUILD_DIR}/" "${ADMIN_DIST_DIR}/"
 
 echo "admin build deployed to ${ADMIN_DIST_DIR}"
