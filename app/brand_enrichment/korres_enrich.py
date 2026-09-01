@@ -122,14 +122,24 @@ def fetch_korres_catalog() -> List[Dict]:
         all_items.extend(items)
         page += 1
         time.sleep(0.5)
-    return all_items
+    return _enrich_with_source_url(all_items)
+
+
+def _enrich_with_source_url(items: List[Dict]) -> List[Dict]:
+    for it in items:
+        if it.get("source_url"):
+            continue
+        handle = str(it.get("handle") or "").strip()
+        if handle:
+            it["source_url"] = f"https://www.korres.com/products/{handle}"
+    return items
 
 
 def load_catalog(force_refresh: bool = False) -> List[Dict]:
     if not force_refresh and os.path.exists(CACHE_PATH):
         with open(CACHE_PATH, encoding="utf-8") as f:
-            return json.load(f)
-    items = fetch_korres_catalog()
+            return _enrich_with_source_url(json.load(f))
+    items = _enrich_with_source_url(fetch_korres_catalog())
     with open(CACHE_PATH, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
     return items

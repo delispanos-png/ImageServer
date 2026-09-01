@@ -681,6 +681,7 @@ async def handle_products_request(
         # since we know they already exist).
         incremental_total: Optional[int] = None
         incremental_next_cursor: Optional[str] = None
+        incremental_mode: bool = not barcodes
         if not barcodes:
             if not (updated_since or updated_until):
                 raise HTTPException(
@@ -692,12 +693,20 @@ async def handle_products_request(
                 date_query["$gte"] = updated_since.isoformat()
             if updated_until:
                 date_query["$lt"] = updated_until.isoformat()
-            mongo_filter = {
+            date_or = {
                 "$or": [
                     {"cms_updated_at": date_query},
                     {"last_updated_at": date_query},
                 ],
             }
+            # Only surface items that have passed review and are ready to
+            # publish — inactive / needs-fix / awaiting-review records must
+            # never reach the customer API.
+            public_only = bool(config.get("public_only", True))
+            if public_only:
+                mongo_filter: Dict[str, Any] = {"$and": [date_or, CUSTOMER_READY_MONGO_FILTER]}
+            else:
+                mongo_filter = date_or
             limit = int(body.get("limit") or 100)
             limit = max(1, min(500, limit))
             # Cursor takes precedence over offset. Cursor is the string
@@ -758,13 +767,22 @@ async def handle_products_request(
                 error=str(tracking_exc),
             )
 
+        # Incremental sync must never trigger live source fetch — the client
+        # is asking "what changed in your DB since X", not "look up fresh
+        # data from Skroutz". Historically, records with missing textual
+        # data would fall through to source_fetch inside `resolve_product`,
+        # and 40+ parallel source fetches easily blew past the 90s HTTP
+        # timeout, causing customers to see the whole page hang at a
+        # specific cursor.
+        effective_skip_source_fetch: bool = skip_source_fetch or incremental_mode
+
         # 6-hour cache: if a barcode was already source-searched recently and
         # came up empty, skip the live fetch — sources rarely add a brand-new
         # barcode within hours. This caps the worst-case latency for repeated
         # requests on missing barcodes (the 1st request still pays the live
         # fetch cost; the 2nd-Nth get a fast empty stub).
         recently_searched_missing: set = set()
-        if not skip_source_fetch and barcodes:
+        if not effective_skip_source_fetch and barcodes:
             barcode_strs = [str(b).strip() for b in barcodes if str(b).strip()]
             if barcode_strs:
                 cutoff_iso = (datetime.now(timezone.utc) - timedelta(hours=6)).isoformat()
@@ -781,7 +799,7 @@ async def handle_products_request(
 
         async def _resolve_with_cache(b: str) -> Dict:
             cached_miss = b in recently_searched_missing
-            return await resolve_product(b, skip_source_fetch=(skip_source_fetch or cached_miss))
+            return await resolve_product(b, skip_source_fetch=(effective_skip_source_fetch or cached_miss))
 
         raw_results = await asyncio.gather(
             *(_resolve_with_cache(str(barcode).strip()) for barcode in barcodes)
@@ -812,7 +830,7 @@ async def handle_products_request(
         # After the resolve step, mark missing_barcode_requests with the
         # outcome — but only for barcodes we actually source-searched (i.e.
         # not the cached misses). This is what powers the 6h cache above.
-        if not skip_source_fetch:
+        if not effective_skip_source_fetch:
             for barcode, product in zip(barcodes, raw_results):
                 bc_str = str(barcode).strip()
                 if not bc_str or bc_str in recently_searched_missing:
@@ -832,9 +850,15 @@ async def handle_products_request(
                         barcode=bc_str,
                         error=str(mark_exc),
                     )
+        # `public_only` may already be set above (incremental branch); recompute
+        # defensively for the barcode-lookup branch that skipped it.
         public_only = bool(config.get("public_only", True))
         if public_only:
-            raw_results = [product for product in raw_results if is_publicly_active_product(product)]
+            # Stricter than legacy is_publicly_active_product — only items
+            # that have completed review AND have real textual content
+            # reach the customer. This matches the mongo-side filter used
+            # in the incremental branch.
+            raw_results = [product for product in raw_results if is_customer_ready_product(product)]
         raw_results = await apply_client_category_filter(raw_results, client)
 
         # Constrained-sync mode: caller passed both a barcode list AND a
@@ -1152,6 +1176,43 @@ async def resolve_product(barcode: str, *, skip_source_fetch: bool = False) -> D
 
 def is_publicly_active_product(product: Dict) -> bool:
     return (str(product.get("cms_status", "")).strip() or "active") == "active"
+
+
+def is_customer_ready_product(product: Dict) -> bool:
+    """Stricter than `is_publicly_active_product` — used by the customer
+    API to guarantee that only reviewed, complete items ever leave the
+    building. A record qualifies only if:
+      - cms_status is 'active'
+      - catalog_quality_state is 'ready' (or absent — legacy records
+        pre-quality-flag are treated as ready when they're active)
+      - catalog_review_required is not True
+      - textual data is present (Title / Description)
+    """
+    if not is_publicly_active_product(product):
+        return False
+    quality_state = str(product.get("catalog_quality_state") or "").strip()
+    if quality_state and quality_state != "ready":
+        return False
+    if product.get("catalog_review_required") is True:
+        return False
+    if not has_textual_product_data(product):
+        return False
+    return True
+
+
+# Server-side filter that mirrors is_customer_ready_product for the
+# incremental-sync mongo query. Keeps count/paging accurate.
+CUSTOMER_READY_MONGO_FILTER: Dict[str, Any] = {
+    "cms_status": "active",
+    "$and": [
+        {"$or": [
+            {"catalog_quality_state": "ready"},
+            {"catalog_quality_state": {"$exists": False}},
+            {"catalog_quality_state": ""},
+        ]},
+        {"catalog_review_required": {"$ne": True}},
+    ],
+}
 
 
 async def _load_client_category_names(category_ids: List[str]) -> Set[str]:

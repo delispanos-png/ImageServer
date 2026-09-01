@@ -101,14 +101,24 @@ def fetch_apivita_catalog() -> List[Dict]:
             break
         page += 1
         time.sleep(0.5)
-    return all_items
+    return _enrich_with_source_url(all_items)
+
+
+def _enrich_with_source_url(items: List[Dict]) -> List[Dict]:
+    for it in items:
+        if it.get("source_url"):
+            continue
+        url_key = str(it.get("url_key") or "").strip()
+        if url_key:
+            it["source_url"] = f"https://www.apivita.com/{url_key}.html"
+    return items
 
 
 def load_catalog(force_refresh: bool = False) -> List[Dict]:
     if not force_refresh and os.path.exists(CACHE_PATH):
         with open(CACHE_PATH, encoding="utf-8") as f:
-            return json.load(f)
-    items = fetch_apivita_catalog()
+            return _enrich_with_source_url(json.load(f))
+    items = _enrich_with_source_url(fetch_apivita_catalog())
     with open(CACHE_PATH, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
     return items

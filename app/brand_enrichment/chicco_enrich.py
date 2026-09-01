@@ -71,14 +71,24 @@ def fetch_catalog() -> List[Dict]:
             break
         page += 1
         time.sleep(0.5)
+    return _enrich_with_source_url(items)
+
+
+def _enrich_with_source_url(items: List[Dict]) -> List[Dict]:
+    for it in items:
+        if it.get("source_url"):
+            continue
+        handle = str(it.get("handle") or "").strip()
+        if handle:
+            it["source_url"] = f"https://chicco.gr/products/{handle}"
     return items
 
 
 def load_catalog(force_refresh: bool = False) -> List[Dict]:
     if not force_refresh and os.path.exists(CACHE_PATH):
         with open(CACHE_PATH, encoding="utf-8") as f:
-            return json.load(f)
-    items = fetch_catalog()
+            return _enrich_with_source_url(json.load(f))
+    items = _enrich_with_source_url(fetch_catalog())
     with open(CACHE_PATH, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
     return items
